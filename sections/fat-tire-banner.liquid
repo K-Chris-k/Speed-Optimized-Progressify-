@@ -1,0 +1,138 @@
+{% schema %}
+{
+  "name": "Fat Tire Banner",
+  "tag": "section",
+  "class": "fat-tire-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Fat Tire Ebikes"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Shop Heybike collection of fat tire electric bikes. Enjoy a smooth and comfortable ride with your fat tire ebike."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fat Tire Banner"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.fat-tire-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
+
+.fat-tire-banner__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fat-tire-banner__image--mobile {
+  display: none;
+}
+
+.fat-tire-banner__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.fat-tire-banner__heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.fat-tire-banner__subheading {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .fat-tire-banner__image--desktop {
+    display: none;
+  }
+  
+  .fat-tire-banner__image--mobile {
+    display: block;
+  }
+  
+  .fat-tire-banner__content {
+    width: 95%;
+    padding: 15px;
+  }
+}
+</style>
+
+<div class="fat-tire-banner">
+  {% if section.settings.desktop_image %}
+    {{ section.settings.desktop_image | image_url: width: 4000 | image_tag: 
+      class: 'fat-tire-banner__image fat-tire-banner__image--desktop',
+      loading: 'lazy',
+      alt: section.settings.heading
+    }}
+  {% endif %}
+  
+  {% if section.settings.mobile_image %}
+    {{ section.settings.mobile_image | image_url: width: 1000 | image_tag: 
+      class: 'fat-tire-banner__image fat-tire-banner__image--mobile',
+      loading: 'lazy',
+      alt: section.settings.heading
+    }}
+  {% endif %}
+  
+  <div class="fat-tire-banner__content">
+    {% if section.settings.heading != blank %}
+      <h2 class="fat-tire-banner__heading" style="color: {{ section.settings.heading_color }}">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+    
+    {% if section.settings.subheading != blank %}
+      <p class="fat-tire-banner__subheading" style="color: {{ section.settings.subheading_color }}">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+  </div>
+</div> 

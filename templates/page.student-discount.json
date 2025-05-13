@@ -28,6 +28,150 @@
         "page_width": "full-width"
       }
     },
+    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Student_discount.jpg",
+            "mobile_image": "shopify://shop_images/Student_discount_1.jpg",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "captionHorizontal": "left",
+            "captionAlignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0"
+      ],
+      "settings": {
+        "slider-animation": "slide",
+        "slider-width": "fixed",
+        "vertical-alignment": false,
+        "text-below-image": false,
+        "slider-slide-time": 5,
+        "caption-heading-size": 30,
+        "caption-subheading-size": 16,
+        "caption-button-size": 14,
+        "show-slide-dots": false,
+        "show-slide-arrows": true,
+        "slider-navigation-color": "#ffffff"
+      }
+    },
+    "99b849c7-4423-4b1c-833a-fcdb4788d50c": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "p {text-align: center;}",
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "Claim Your Special Discount",
+        "text": "<p>At SilverAnt, we're excited to provide students with a<strong> 15% discount</strong> across our entire website. We understand the challenges you face financially as a student and want to support you by providing an exclusive discount while you study. Take advantage of this exclusive offer and enjoy quality titanium gear at a reduced price.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "image_gallery_9zHcUb": {
+      "type": "image--gallery",
+      "blocks": {
+        "image_TDQQWC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Verified_dd9b6efc-3816-4632-bcb6-85022b7ce2af.png",
+            "link": "shopify://pages/contact-us",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "Kindly click the icon above to email us a photo of your university ID card.",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "image_XLmErJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Save_money_d4b0a8f3-4558-4251-8071-5e99f7e833a5.png",
+            "link": "shopify://pages/contact-us",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "Once verified, we'll provide you with the discount code to use on our entire range of products.",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        }
+      },
+      "block_order": [
+        "image_TDQQWC",
+        "image_XLmErJ"
+      ],
+      "custom_css": [
+        "div {padding-top: 3px; padding-right: 0px; padding-bottom: 3px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "richtext": "",
+        "remove-spacing": false,
+        "full-width": false,
+        "section-width": "content",
+        "content-position": "below-image"
+      }
+    },
+    "text_text_adverts_XRktEA": {
+      "type": "text--text-adverts",
+      "blocks": {
+        "text_mLqJE3": {
+          "type": "text",
+          "settings": {
+            "heading": "Indicate Your Occupation",
+            "subheading": "Please click the icon above to provide your ID, badge, or documentation.",
+            "link": "shopify://pages/contact-us"
+          }
+        },
+        "text_D7UtVC": {
+          "type": "text",
+          "settings": {
+            "heading": "Save on SilverAnt",
+            "subheading": "We'll send you the discount code accordingly.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_mLqJE3",
+        "text_D7UtVC"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "colors": "white"
+      }
+    },
+    "text_rich_text_Gfkeca": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "FAQs",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
     "accordion_9d7xbM": {
       "type": "accordion",
       "blocks": {
@@ -51,14 +195,105 @@
         "tab_content_iNYTyc"
       ],
       "settings": {
+        "colors": "white",
         "title": "",
-        "faq_icon": "plus_minus",
-        "colors": "white"
+        "faq_icon": "plus_minus"
+      }
+    },
+    "image_image_with_text_R6Xfcp": {
+      "type": "image--image-with-text",
+      "custom_css": [
+        "img {border-radius: 5%;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "image": "shopify://shop_images/tent_stakes_-_1.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "left",
+        "text_alignment": "left",
+        "title": "For Securing Your Tent",
+        "text": "<p>On your camping trips, SilverAnt's titanium tent stakes are lightweight to carry yet tough enough to keep your cozy shelter in place.</p>",
+        "button_label": "SHOP TITANIUM TENT STAKES",
+        "button_link": "shopify://collections/titanium-tent-stakes"
+      }
+    },
+    "image_image_with_text_JmEWbK": {
+      "type": "image--image-with-text",
+      "custom_css": [
+        "img {border-radius: 5%;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "image": "shopify://shop_images/titanium_cups.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "right",
+        "text_alignment": "left",
+        "title": "For Preparing Beverages & Food",
+        "text": "<p>With SilverAnt's titanium cookware, you've got the ideal gear for brewing coffee and cooking hearty meals while enjoying your outdoor adventures.</p>",
+        "button_label": "SHOP TITANIUM COOKWARE",
+        "button_link": "shopify://collections/titanium-camping-cookware"
+      }
+    },
+    "image_image_with_text_yMkjpB": {
+      "type": "image--image-with-text",
+      "custom_css": [
+        "img {border-radius: 5%;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "image": "shopify://shop_images/titanium_water_bottles.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "left",
+        "text_alignment": "left",
+        "title": "For Keeping Hydrated",
+        "text": "<p>In the great outdoors, staying hydrated is absolutely crucial. With SilverAnt's durable titanium water bottles, you have reliable drinkware that will last through countless adventures, ensuring you always have a refreshing sip close at hand.</p>",
+        "button_label": "SHOP TITANIUM WATER BOTTLES",
+        "button_link": "shopify://collections/titanium-water-bottles"
+      }
+    },
+    "collection_featured_collection_9jby4b": {
+      "type": "collection--featured-collection",
+      "settings": {
+        "colors": "white",
+        "title": "Top Picks",
+        "richtext": "",
+        "collection": "for-the-student-discount-page",
+        "grid-desktop": 5,
+        "grid-tablet": 3,
+        "grid-mobile": 2,
+        "rows": 1,
+        "hover-effect": false,
+        "show-vendor": false,
+        "show_view_all": false
+      }
+    },
+    "5d3c1531-6c86-487a-ad0a-519af037d7d2": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 5px; padding-bottom: 0px; padding-left: 10px;}"
+      ],
+      "settings": {
+        "colors": "dark",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree </strong></em>and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
       }
     }
   },
   "order": [
     "main",
-    "accordion_9d7xbM"
+    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86",
+    "99b849c7-4423-4b1c-833a-fcdb4788d50c",
+    "image_gallery_9zHcUb",
+    "text_text_adverts_XRktEA",
+    "text_rich_text_Gfkeca",
+    "accordion_9d7xbM",
+    "image_image_with_text_R6Xfcp",
+    "image_image_with_text_JmEWbK",
+    "image_image_with_text_yMkjpB",
+    "collection_featured_collection_9jby4b",
+    "5d3c1531-6c86-487a-ad0a-519af037d7d2"
   ]
 }

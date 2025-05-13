@@ -15,9 +15,116 @@
       "settings": {
         "page_width": "full-width"
       }
+    },
+    "87f1b1e2-4678-404f-94d1-0dc817a817f3": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--16056065360050__87f1b1e2-4678-404f-94d1-0dc817a817f3-1679378896b400280d-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Information_Videos_Youtube_Thumbnails_900_x_1600_px_13.jpg",
+            "mobile_image": "shopify://shop_images/pages_900_x_1200_px_3.jpg",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#000000",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "captionHorizontal": "left",
+            "captionAlignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16056065360050__87f1b1e2-4678-404f-94d1-0dc817a817f3-1679378896b400280d-0"
+      ],
+      "settings": {
+        "slider-animation": "slide",
+        "slider-width": "fixed",
+        "vertical-alignment": true,
+        "text-below-image": true,
+        "slider-slide-time": 5,
+        "caption-heading-size": 30,
+        "caption-subheading-size": 16,
+        "caption-button-size": 14,
+        "show-slide-dots": false,
+        "show-slide-arrows": false,
+        "slider-navigation-color": "#ffffff"
+      }
+    },
+    "a2fd7d7a-ee4b-4c04-a8ff-9b2bce372240": {
+      "type": "dealer-services",
+      "blocks": {
+        "template--16056065360050__a2fd7d7a-ee4b-4c04-a8ff-9b2bce372240-167914304771925408-0": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/1_34f9937b-7097-4188-a7b9-99882825c919.png",
+            "testimonial_text": "<p>At SilverAnt, we're committed to building strong relationships with our distributors and retailers. We believe in the power of collaboration and mutual support to drive growth and success.</p>",
+            "customer_name": "Strong Relationships",
+            "link": ""
+          }
+        },
+        "60023f8d-8276-472b-91c2-097328474510": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/2_d84c66e2-9839-4234-b2ae-2575cde069ef.png",
+            "testimonial_text": "<p>Our wholesale program is designed to make it easy and affordable for you to stock and sell our products. We offer competitive pricing, fast and reliable shipping, and excellent business support to ensure that you have everything you need to succeed.</p>",
+            "customer_name": "Wholesale Program",
+            "link": ""
+          }
+        },
+        "0b6bcaad-ebc3-42d9-bb45-46efa50fdc41": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/3_4de6a68b-df04-4c9b-95cc-102c77210160.png",
+            "testimonial_text": "<p>We're always looking for new partners to join our network of outdoor retailers and brands. Whether you're an established business or a startup looking to break into the market, we're excited to hear from you.</p>",
+            "customer_name": "More Opportunities",
+            "link": ""
+          }
+        },
+        "31f36d44-ea89-4b8a-ab05-7f8e15c9d291": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/4.png",
+            "testimonial_text": "<p>If you're interested in becoming a distributor or retailer of our products, please don't hesitate to <a href=\"/pages/contact-us\" title=\"Contact Us\">get in touch with us</a>. We'd love to learn more about your business and discuss how we can work together to achieve our shared goals.</p>",
+            "customer_name": "Contact Us",
+            "link": "shopify://pages/contact-us"
+          }
+        }
+      },
+      "block_order": [
+        "template--16056065360050__a2fd7d7a-ee4b-4c04-a8ff-9b2bce372240-167914304771925408-0",
+        "60023f8d-8276-472b-91c2-097328474510",
+        "0b6bcaad-ebc3-42d9-bb45-46efa50fdc41",
+        "31f36d44-ea89-4b8a-ab05-7f8e15c9d291"
+      ],
+      "custom_css": [
+        ".main-container {background-color: #ffffff;}",
+        ".sample-sliders {background-color: #ffffff;}",
+        ".swiper-slide {height: auto; padding: 20px 20px; border-radius: 15px; background-color: #c3b280;}",
+        "input#Your_message_65221901 {height: 200px !important;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "circle_images": false,
+        "title": "WE LOOK FORWARD TO BUILDING A SUCCESSFUL AND MUTUALLY BENEFICIAL RELATIONSHIP WITH YOU."
+      }
+    },
+    "accd9148-927a-4679-bb5b-6edb57ac51fc": {
+      "type": "newsletter--newsletter",
+      "settings": {
+        "colors": "accent",
+        "newsletter_heading": "Join Our Community & Plant A Tree",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "87f1b1e2-4678-404f-94d1-0dc817a817f3",
+    "a2fd7d7a-ee4b-4c04-a8ff-9b2bce372240",
+    "accd9148-927a-4679-bb5b-6edb57ac51fc"
   ]
 }

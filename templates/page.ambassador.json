@@ -18,9 +18,282 @@
       "settings": {
         "page_width": "full-width"
       }
+    },
+    "03e9a394-91a2-4d96-98ef-4e878f73d4dc": {
+      "type": "advanced-layout--custom-html",
+      "blocks": {
+        "template--16062253170866__03e9a394-91a2-4d96-98ef-4e878f73d4dc-16799934843e1559af-0": {
+          "type": "html",
+          "settings": {
+            "code": "<meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        .padded {\n        padding: 50px 0;\n    padding-left: 80px;\n    padding-right: 60px;\n}\n.hero-container{\n    position: relative; \n  \n}\n      p.Lines {\n    border-top: 1px solid;\n\n    width: 73px;\n}\n.hero-containe img{\n    max-width: 100%;\n}\n      h2.lowercase-text {\n    line-height: 58px;\n    margin-right: 130px;\n}\n      section.section-instagram-feed-wrapper {\n    padding-bottom: 8rem;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 48px;\n    color: #fff;\n    margin: 0;\n}\n\n.lowercase {\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    padding-left: 145px;\n    padding-right: 145px;\n}\n.story-description {\n    width: calc(50% - 23px);\n    padding: 60px;\n    display: flex;\n    flex-direction: column;\n    text-align: left;\n    justify-content: center;\n}\n.story-description p {\n    line-height: 30px;\n}\n.image-wrapper {\n    width: calc(50% - 23px);\n    overflow: hidden;\n}\nsection.padded .igt-story:nth-child(odd){\n    flex-direction: row-reverse;\n}\n.igt-story {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 60px;\n}\n.section-text-with-image-wrapper .element-container {\n    position: relative;\n    align-items: center;\n}\nsection-text-with-image-wrapper .element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.section-text-with-image-wrapper .element-media {\n    width: 100%;\n    padding-left: 0;\n}\n.section-text-with-image-wrapper .element-content {\n    padding-right: 0;\n}\n.section-text-with-image-wrapper .text-block {\n    margin-bottom: 32px;\n}\n    section.newsl-foot {\n\n    padding-left: 5%;\n}\n.section-text-with-image-wrapper .element-action {\n    margin-top: 28px;\n}\n.element-content.padded {\n   \n    padding-left: 60px;\n    padding-right: 0;\n}\n.element-container.flex {\n    display: flex;\n    position: relative;\n    align-items: center;\n}\n.element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.element-media.padded {\n    width: 100%;\n    padding-left: 0;\n}\n.element-media.padded img {\n    width: 100%;\n}\nh2.letterspace {\n    margin-bottom: 20px;\n    font-size: 50px;\n    line-height: 60px;\n}\np.leading {\n    font-size: 16px;\n    line-height: 30px;\n    color: #000;\n}\na.underlined.text-leading.reset-letterspace {\n    color: #000;\n}\n.padded.home-img h3 {\n    text-align: center;\n}\n.padded.home-img img {\n    width: 100px;\n  \n}\na.tdoors {\n    color: #000;\n    font-size: 26px;\n    letter-spacing: .17em;\n    line-height: 30px;\n \n    text-transform: uppercase;\n    text-decoration: none;\n}\n.hide-Mobile{\n    display: none;\n}\n@media only screen and (max-width: 576px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.hide-Mobile{\n    display: block;\n}\n.hide-desktop{\n    display: none;\n}\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n}\n@media only screen and (max-width: 1025px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 50px;\n    padding-right: 20px;\n}\n  section.newsl-foot{\n    padding-left:0;\n  }\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #fff;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\nh2.h3.story-headline {\n    font-size: 28px;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n    .story-description{\n        width: 100%;\n        padding: 0;\n    }\n    .image-wrapper img{\n   max-width: 100%;\n}\n.igt-story{\n    display: block;\n    margin-bottom: 20px;\n}\n.image-wrapper{\nwidth: 100%;\n}\n.element-container.flex{\n    flex-direction: column-reverse;\n}\n.element-content.padded{\n    padding-left: 0;\n}\n.element-content-wrapper{\n    width: 100%;\n    padding: 0 20px;\n    margin: 0;\n}\nh2.letterspace{\n    font-size: 28px;\n    line-height:36px;\n}\np.leading{\n    line-height: 24px;\n}\n\n    </style>\n\n\n\n    <div class=\"container\">\n        <div class=\"padded\">\n          <div class=\"hero-container\">\n        \n               <img class=\"hide-desktop\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/15_df7fb2a5-4711-4d2c-8881-50a7ac77d3c6.jpg?v=1679993644\" style=\"width: 100%;\" alt=\"SilverAnt Ambassadors\">\n               <img class=\"hide-Mobile\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/9.jpg?v=1679993694\" style=\"width: 100%;\" alt=\"SilverAnt Ambassadors\">\n               <!-- <p>This is some centered text.</p> -->\n          </div>\n        </div>\n      </div>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16062253170866__03e9a394-91a2-4d96-98ef-4e878f73d4dc-16799934843e1559af-0"
+      ],
+      "settings": {}
+    },
+    "3172273c-84de-4137-acd4-6fbeb0af1176": {
+      "type": "advanced-layout--custom-html",
+      "blocks": {
+        "template--16062938874034__3172273c-84de-4137-acd4-6fbeb0af1176-168017340143fefe65-0": {
+          "type": "html",
+          "settings": {
+            "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style><!--\n* {\n  box-sizing: border-box;\n  vertical-align: middle;\n}\n\n--></style>\n<p>Our gear is tested and developed with the assistance of our ambassadors, who are motivated by the desire to make our equipment lighter, more compact, and more durable. <br>This drive is reflected in the titanium gear that we produce.</p>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16062938874034__3172273c-84de-4137-acd4-6fbeb0af1176-168017340143fefe65-0"
+      ],
+      "custom_css": [
+        "div {text-align: center; padding-left: 7px; padding-right: 3px; font-size: 20px;}"
+      ],
+      "settings": {}
+    },
+    "89b0f2bc-96e1-4fee-85dc-0f6dea030270": {
+      "type": "Section-Columns-image",
+      "blocks": {
+        "b57ed599-9440-49a8-89c6-e807b538b24a": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Peyman_Sailor.jpg",
+            "title": "Peyman & Sailor - Nomads Trails",
+            "acronyms": "Adventurers | Bikepackers | Climbers",
+            "ins_url": "https://www.instagram.com/nomadstrails/",
+            "ins": "nomadstrails",
+            "share_url": "https://www.youtube.com/@NomadsTrails",
+            "more": "Learn More",
+            "text": "<p>Peyman & Sailor are intrepid adventurers and lovers of the outdoors. When not bikepacking, they call Lapland, Northern Finland, home. Online, they are known as Nomads Trails, and they have built a loyal following as they adventure around the world. Three years ago, Nomads Trails partnered with SilverAnt for their Africa bikepacking expedition, completely self-supported by bike. We also did an interview that you can read <a href=\"https://silverantoutdoors.com/blogs/the-silverant-blog/nomads-trails-peyman-bikepacking-interview\" target=\"_blank\"><strong>here</strong></a>.<br/>Starting in mid-January 2025, Peyman and Sailor embark on the<strong>Nomads Trails 5-Athlon Expedition</strong>, combining skiing, running, swimming, cycling, and sailing from Nordkapp, Norway, to South Africa. Follow Nomads Trails journey on their YouTube channel and social media. To celebrate this epic adventure, we've launched a <a href=\"https://silverantoutdoors.com/products/silverant-x-5athlon-nomads-trails\" target=\"_blank\"><strong>special edition titanium gear </strong></a>collection featuring the 5-Athlon logo. Trusted by Peyman and Sailor for over three years of bikepacking, this gear is built for the toughest challenges. By ordering, you directly support the expedition.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        },
+        "c7863151-2743-4da4-b72c-f3457839a018": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Algirdas_Wanders.jpg",
+            "title": "Algirdas Wanders",
+            "acronyms": "Bikepacker | Adventurer | Outdoorsman",
+            "ins_url": "https://www.instagram.com/algirdas_wanders/",
+            "ins": "algirdas_wanders",
+            "share_url": "https://www.youtube.com/channel/UCpQflTOnCnQY2_Q8VcCy58w",
+            "more": "Learn More",
+            "text": "<p>Algirdas has one goal to cycle the world while having a heap of fun doing so. Hailing from Lithuania his adventures have taken him to some of the remotest and untravelled corners of the world. From Tajikistan’s Pamir Highway to Namibia's Skeleton Coast, he has used his own pedal power to get him there! As a bikepacker and outdoorsman, it's important to have ultralight and functional gear. So when Algirdas reached out to SilverAnt we were stoked to partner with him and supply his adventures with lightweight titanium products. Welcome to the Ultralight SilverAnt team!  To learn more about Algirdas you can head over to his YouTube Channel by simply clicking the button provided below. </p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        },
+        "511122fb-d6be-46b2-b8fd-6563fd726816": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Reddit_1.jpg",
+            "title": "Marek - Bushcraft For The Soul",
+            "acronyms": "Bushcraft | Backpacking | Outdoorsman",
+            "ins_url": "https://www.instagram.com/bushcraft_for_the_soul/",
+            "ins": "bushcraft_for_the_soul",
+            "share_url": "https://www.instagram.com/bushcraft_for_the_soul/",
+            "more": "Learn More",
+            "text": "<p>Marek is a true outdoorsman and bushcraft connoisseur. With years of experience spent in nature providing for himself, he is the ideal partner for SilverAnt to enlist as an Ambassador. Hailing from Munster Germany, you will find him on the weekend in the sanctuary of nature. There isn’t much he can’t do, and that’s why SilverAnt has partnered with Marek to test, improve and build upon our titanium gear. You can learn more about Marek and follow him on Social media below.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        }
+      },
+      "block_order": [
+        "b57ed599-9440-49a8-89c6-e807b538b24a",
+        "c7863151-2743-4da4-b72c-f3457839a018",
+        "511122fb-d6be-46b2-b8fd-6563fd726816"
+      ],
+      "settings": {
+        "class": "",
+        "title": "",
+        "align_text": "center",
+        "desktop_columns_per_row": 3,
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    },
+    "b4f9c58b-2f45-4b70-b718-fe05dfdc083a": {
+      "type": "Section-Columns-image",
+      "blocks": {
+        "template--16062938874034__b4f9c58b-2f45-4b70-b718-fe05dfdc083a-text_block-1": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/IMG_20230705_090121_316.jpg",
+            "title": "2 Locos On Wheels",
+            "acronyms": "Bikepacker | Adventurer | Explorer",
+            "ins_url": "https://www.instagram.com/2locosonwheels",
+            "ins": "2locosonwheels",
+            "share_url": "https://www.facebook.com/2locosOnWheels",
+            "more": "Learn More",
+            "text": "<p>Jordi and Bárbara, a middle-aged couple, began their cycling adventure in 2020, preparing their project without a return date. In 2023, to fulfill Jordi's dream, they left their comfortable life, sold all their belongings, and started their bicycle journey around the world. So far, they have visited 18 countries. Their goal on this trip is not to rush from one place to another, but to integrate with the people they meet, learning and exchanging experiences. For them, cycling the world is about living in the moment, embracing the unknown, and appreciating the simple joys in life. Dreams require risk, but the rewards are immeasurable. As long as their bodies hold out, they will share their adventure on social media to inspire others and show that dreams come true for those willing to take the risk. They genuinely have the life I dream of. If you want to learn more about their journeys, feel free to follow them on Instagram and Facebook.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        },
+        "be3e2d7f-1f73-47aa-abda-63b08094739c": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Christian_Meier.jpg",
+            "title": "Christian Meier",
+            "acronyms": "Buschcraft | Outdoor | Trekking | Nature experience",
+            "ins_url": "https://www.instagram.com/outdoor_berserker/",
+            "ins": "outdoor_berserker",
+            "share_url": "https://www.instagram.com/outdoor_berserker/",
+            "more": "Learn More",
+            "text": "<p>Chris, a devoted nature enthusiast, grew up in the \"Wald Eifel,\" and even as a young boy, he spent a considerable amount of time in the forest. It was during these formative years that his strong connection to nature developed. His profound appreciation for nature and passion for bushcraft have remained steadfast throughout his life. Chris is constantly seeking out new adventures to embark upon. His vision and values align perfectly with the SilverAnt ethos, which is to create gear designed to withstand a lifetime of adventures. Together, we collaborate to explore the beauty of the natural world. You can learn more about Chris and follow his journey on social media below.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        },
+        "5d337c6f-e75e-4a90-a343-5b7c52ce12eb": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Moritz_Gebhard.jpg",
+            "title": "Moritz Gebhard",
+            "acronyms": "Photographer | Bikepacker | Adventurer | Climber",
+            "ins_url": "https://www.instagram.com/Pixel291/",
+            "ins": "pixel291",
+            "share_url": "https://www.instagram.com/Pixel291/",
+            "more": "Learn More",
+            "text": "<p>Hailing from Italy, Moritz is an Architecture Student living in Milan. When not studying he is found outdoors pursuing his passions. As a keen climber, cyclist, and photographer, he records his adventures.<br/>We met prior to his recent 3 month Bikepacking trip from Canada to Mexico where SilverAnt supported his adventure. We are thrilled to deepen our relationship and support Moritz as he pursues his passions and explores this beautiful world in whatever medium he desires.<br/>You can learn more about Moritz on Social Media or read this dedicated bikepacking article summarising his recent trip.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16062938874034__b4f9c58b-2f45-4b70-b718-fe05dfdc083a-text_block-1",
+        "be3e2d7f-1f73-47aa-abda-63b08094739c",
+        "5d337c6f-e75e-4a90-a343-5b7c52ce12eb"
+      ],
+      "settings": {
+        "class": "",
+        "title": "",
+        "align_text": "center",
+        "desktop_columns_per_row": 3,
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    },
+    "7b712641-0a5a-4c8f-bacc-e9694741804c": {
+      "type": "Section-Columns-image",
+      "blocks": {
+        "template--16062938874034__7b712641-0a5a-4c8f-bacc-e9694741804c-text_block-2": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Gaz.jpg",
+            "title": "Gaziano Outdoors",
+            "acronyms": "Wild camper | Bushcraft | Adventurer | Explorer",
+            "ins_url": "https://www.instagram.com/gaziano_outdoors/?hl=en",
+            "ins": "gaziano_outdoors",
+            "share_url": "https://www.youtube.com/channel/UChptYuKabOgYGowT9R-a9RQ",
+            "more": "Learn More",
+            "text": "<p>Gaziano, he's always been a lover of nature and the outdoors. He was fortunate to have grandparents who were mountain guides in Snowdonia, so he spent a lot of his childhood climbing mountains, exploring forests, and skimming stones in rivers and lakes.<br/>His passion for the outdoors endures. He finds solace in nature, engaging in solo wild camping, bushcraft, and outdoor cooking, primarily in the North West of England, North Wales, and the Peak District.<br/>Encountering him on his YouTube channel, we discovered a kindhearted and helpful man, a professional in the outdoors.<br/>Feel free to explore his adventures and camps on his <a href=\"https://www.youtube.com/channel/UChptYuKabOgYGowT9R-a9RQ\" target=\"_blank\" title=\"Gaziano Outdoors YouTube Channel\">YouTube </a>channel, Gaziano Outdoors, and <a href=\"https://www.instagram.com/gaziano_outdoors/?hl=en\" target=\"_blank\" title=\"Gaziano Outdoors Instagram profile\">Instagram</a>.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        },
+        "text_block_ekLxXx": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify://shop_images/Rob_Smith.jpg",
+            "title": "Bushman Smithy Outdoors",
+            "acronyms": "Bushman | Adventurer | Bikepacker",
+            "ins_url": "https://www.instagram.com/bushman_smithy_outdoors/",
+            "ins": "bushman_smithy_outdoors",
+            "share_url": "https://www.youtube.com/@bushman_smithy",
+            "more": "Learn More",
+            "text": "<p>Rob’s Yorkshire childhood unfolded across heather-strewn moors and whispering woodlands—a boundless playground. But in the last six years, the land truly revealed its magic.</p><p>It began with a spark on a crisp autumn evening—dry kindling catching flame as naturally as breathing. That first fire became a doorway. Weekends turned into expeditions: crafting shelters from branches, reading animal tracks like stories, learning the language of the wild.</p><p>The greatest gifts were the souls he met—the forester who taught him which trees sing, the forager who showed him nature’s larder, the kids seeing their first campfire, just as he once had.</p><p>Now, as Rob tends another fire beneath a star-strewn sky, woodsmoke wraps around him like an old friend. The wild gave him belonging. Not just survival, but stories.</p><p>Tomorrow, the moors will call again. Join the adventure—click below to explore his YouTube channel.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        },
+        "text_block_XWgBGq": {
+          "type": "text_block",
+          "disabled": true,
+          "settings": {
+            "title": "Example title",
+            "acronyms": "Example title",
+            "ins_url": "",
+            "ins": "Author Link",
+            "share_url": "",
+            "more": "Button Label",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products.</p>",
+            "button_label": "",
+            "button_link": "",
+            "code": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16062938874034__7b712641-0a5a-4c8f-bacc-e9694741804c-text_block-2",
+        "text_block_ekLxXx",
+        "text_block_XWgBGq"
+      ],
+      "settings": {
+        "class": "",
+        "title": "",
+        "align_text": "center",
+        "desktop_columns_per_row": 3,
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    },
+    "e5694508-ffae-4199-834d-0c9e9e4b81b7": {
+      "type": "advanced-layout--custom-html",
+      "blocks": {
+        "template--16062253170866__e5694508-ffae-4199-834d-0c9e9e4b81b7-16799934843e1559af-0": {
+          "type": "html",
+          "settings": {
+            "code": "<div>\n<p>Are you an adventurous soul that loves pushing yourself to the limit, whether that be: exploring unknown surf breaks, first ascents, or unknown trails? We are looking for ambassadors to partner with SilverAnt Outdoors!<br><br> We are looking to partner with like minded people who wish to promote our gear on their social media platforms. Whether that be your bike touring blog, active engaged Instagram, Facebook, Twitter, Pinterest, Linkedin, etc. Get rewards for each sale you make and put this towards your next adventure.<br><br><strong>If you have any questions or would like to apply, <a style=\"text-decoration:underline\" href=\"https://silverantoutdoors.com/pages/contact-us\" target=\"_blank\" rel=\"noopener noreferrer\">contact us</a> now.</strong></p>\n</div>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16062253170866__e5694508-ffae-4199-834d-0c9e9e4b81b7-16799934843e1559af-0"
+      ],
+      "custom_css": [
+        "div {text-align: center; padding-top: 5px; padding-left: 7px; padding-right: 3px;}"
+      ],
+      "settings": {}
+    },
+    "79261103-6018-413d-8643-c729d10f4411": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {text-align: center; padding-left: 10px; padding-right: 5px;}"
+      ],
+      "settings": {
+        "colors": "accent",
+        "newsletter_heading": "Join Our Community & Plant A Tree",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "03e9a394-91a2-4d96-98ef-4e878f73d4dc",
+    "3172273c-84de-4137-acd4-6fbeb0af1176",
+    "89b0f2bc-96e1-4fee-85dc-0f6dea030270",
+    "b4f9c58b-2f45-4b70-b718-fe05dfdc083a",
+    "7b712641-0a5a-4c8f-bacc-e9694741804c",
+    "e5694508-ffae-4199-834d-0c9e9e4b81b7",
+    "79261103-6018-413d-8643-c729d10f4411"
   ]
 }

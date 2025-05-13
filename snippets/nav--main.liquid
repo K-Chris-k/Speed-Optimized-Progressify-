@@ -1,92 +1,201 @@
-{% liquid 
-  assign menu = linklists[section.settings.main_linklist]
-%}
+{% assign menu = linklists[section.settings.main_linklist] %}
+
 
 {% for link in menu.links %}
 
   {% if link.links != blank %}
-    {% assign link-title = link.title | strip | downcase %}
+    {% assign link-title = link.title | strip %}
     {% assign is-mega-menu = false %}
 
     {% if mega_menu %}
       {% for block in section.blocks %}
-        {% assign block-title = block.settings.mega-menu | strip | downcase %}
-        {% if block-title == link-title %}
+        {% assign block-title = block.settings.mega-menu | strip %}
+        {% if block-title == link-title  %}
           {% assign is-mega-menu = true %}
           {% assign mega-menu-block = block %}
+           {% assign menu-type = block.settings.menu_type %}
         {% endif %}
       {% endfor %}
     {% endif %}
 
-    <li class="site-nav--has-dropdown first-level-dropdown {% if is-mega-menu %} mega-menu{% endif %}" aria-haspopup="true">
+    <li class="site-nav--has-dropdown {% if is-mega-menu %} mega-menu{% endif %}" aria-haspopup="true">
       <a href="{{ link.url }}" class="site-nav__link">
         <div class="site-nav--link-wrapper">
-          <span class="site-nav--link-text animated-underline">
-            {{ link.title }}
+          <span class="site-nav--link-text">
+            {{ link.title }} 
+          </span>
+          <span class="icon-dropdown">
+            <svg xmlns="http://www.w3.org/2000/svg" width="{{ settings.header_font_size | times: 1.5 }}" height="{{ settings.header_font_size | times: 1.5 }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </span>
         </div>
       </a>
 
-      {% liquid 
-        assign has_subdropdowns = false
-        for sub_link in link.links
-          if sub_link.levels > 0
-            assign has_subdropdowns = true
-          endif
-        endfor
-      %}
+      <ul class="site-nav__dropdown{% unless is-mega-menu %} standard-dropdown{% endunless %}">
 
-      <ul 
-        class="site-nav__dropdown{% unless is-mega-menu %} standard-dropdown{% else %} mega-menu-dropdown{% endunless %}{% if request.design_mode %} theme-editor-active{% endif %}{% if has_subdropdowns %} has--subdropdowns{% endif %}"
-        data-logo-placement="{{ logo_position }}"
-      >
+        
         {% if is-mega-menu %}
+          {% if menu-type == "oldtype" %}
+            <div class="container">
+              {% render 'mega-menu' with mega-menu-block, link: link %}
+            </div>
+          {% else %}
+            <div class="container">
+              <div class="mega-menu-block" data-mega-menu-block-id="3d576ca0-3089-412c-8b28-786f12214db8">
+                <div class="dropdown-submenu grid__item large--two-tenths medium--two-tenths" aria-haspopup="true">
+                    <div class="inner">
+                       
+                        <ul class="menu-link">
+                           {% for sub_link in link.links %}
+                              <li data-handle="{{sub_link.handle}}" class="nav-sub-menu">
+                                  <a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a>
+                                  <div class="mobile-nav__togglenew">
+                                    <button type="button" class="icon-fallback-text mobile-nav__toggle-open" aria-label="See more">
+                                      <i class="icon-arrow-right" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="icon-fallback-text mobile-nav__toggle-close" aria-label="Close menu">
+                                      <i class="icon-arrow-down" aria-hidden="true"></i>
+                                    </button>
+                                  </div>
+                              </li>
+                           {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <style>
 
-          <div class="container">
-            {% render 'mega-menu' with mega-menu-block, link: link %}
-          </div>
+                     .mega-menu-wrapper .inner li {
+                        
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                         
+                      }
+                      .product-list{
+                         display:flex;
+                         justify-content:flex-start;
+                         margin-left:0px;
+                      }
+
+                    
+                     .product-list-tube{
+                       padding:10px 20px;
+                       width:25% !important;
+                     }
+                     .product-list-tube:first-child{
+/*                       padding-left:0px !important; */
+                     }
+                     .dropdown-submenu-new{
+                       flex-direction:column;
+                     }
+                     .Header_producta__kVLco {
+                          display: block;
+                          cursor: pointer;
+                      }
+                      .Header_name__Cr6Yx {
+                          font-size: 14px;
+                          font-weight: 500;
+                          line-height: 1.2;
+                          text-align: center;
+                          padding: 0 10px;
+                          transition: color .2s ease-out;
+                      }
+                     .Header_tag__UppsI {
+                        color: #ff6b00;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 16px;
+                        text-align: center;
+                        margin-top: 4px;
+                    }
+                    .nav-button{
+                      border-radius: 9999px;
+                      background-color:#fff;
+                      border:1px solid #000000;
+                      color:#000000;
+                      padding:5px 10px;
+                    }
+                    .submenu-inner{
+                      display:none;
+                    }
+                    .submenu-inner.active{
+                      display:block;
+                    }
+                    .bottom-button{
+                        text-align:right;
+                        position:relative;
+                        right:60px;
+                    }
+                    .mobile-nav__togglenew button{
+                        text-decoration: none;
+                        background: 0 0;
+                        border: 0;
+                    }
+
+                      .mega-menu-wrapper .dropdown-submenu{
+                        padding:0 1%;
+                      }
+            
+                    </style>
+
+                <div class="dropdown-submenu grid__item large--eight-tenths medium--eight-tenths dropdown-submenu-new">
+                    {% for sub_link in link.links %}
+                       <div class="submenu-inner submenu-{{sub_link.handle}} {% if forloop.index0 == 0 %}active{% endif %}">
+                        <div class="top-product-list one-whole">
+                             <ul class="product-list">
+                                {% for sub_product in sub_link.object.products limit:4 %}
+                                    <li class="two-tenths product-list-tube">
+                                       <a rel="noopener noreferrer" href="{{ sub_product.url }}" class="Header_producta__kVLco">
+                                          <div class="Header_imgBox__YlND6">
+                                            {% assign image = sub_product.media[0].preview_image %}
+                                            {% capture styles %}max-width: {{ image.width }}px{% endcapture %}
+                                            {% render 'responsive-image' with image, alt: image.alt, styles: styles, allow_stretch: true %}
+                                             
+                                          </div>
+                                          <p class="Header_name__Cr6Yx">{{ sub_product.title }}</p>
+                                        </a>
+                                        
+                                    </li>
+                                  {% endfor %}
+                             </ul>
+                        </div>
+                        <div class="bottom-button one-whole">
+                           <a class="nav-button" tabindex="0" href="{{sub_link.object.url}}">Shop All {{ sub_link.title | escape }}</a>
+                        </div>
+                       </div>
+                   {% endfor %}
+                </div>
+              
+                
+            </div>
+            </div>
+              
+          {% endif %}
 
         {% else %}
           {% for sub_link in link.links %}
           {% if sub_link.levels > 0 %}
               <li class="site-nav--has-dropdown" aria-haspopup="true">
                 <a href="{{ sub_link.url }}" class="site-nav__link">
-                  <div class="site-nav--link-wrapper inline-icon--wrapper icon--right">
-                    <div>
-                      <span class="site-nav--link-text animated-underline">
-                        {{ sub_link.title | escape }}
-                      </span>
-                    </div>
-                    <span class="site-nav--link-icon">{% render 'theme-icon' with icon: 'chevron_right' %}</span>
+                  <div class="site-nav--link-wrapper icon-right">
+                    <span class="site-nav--link-text">
+                      {{ sub_link.title | escape }}
+                    </span>
+                    <span class="icon-dropdown">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="{{ settings.header_font_size | times: 1.5 }}" height="{{ settings.header_font_size | times: 1.5 }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
                   </div>
                 </a>
                 <ul class="site-nav__subdropdown">
                   {% for sub_sub_link in sub_link.links %}
                     <li>
-                  <a href="{{ sub_sub_link.url }}" class="site-nav__link">
-                    <div class="site-nav--link-wrapper">
-                      <div>
-                        <span class="site-nav--link-text animated-underline">
-                          {{ sub_sub_link.title | escape }}
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+                      <a href="{{ sub_sub_link.url }}" class="site-nav__link">{{ sub_sub_link.title | escape }}</a>
                     </li>
                   {% endfor %}
                 </ul>
               </li>
             {% else %}
               <li>
-                <a href="{{ sub_link.url }}" class="site-nav__link">
-                  <div class="site-nav--link-wrapper">
-                    <div>
-                      <span class="site-nav--link-text animated-underline">
-                        {{ sub_link.title | escape }}
-                      </span>
-                    </div>
-                  </div>
-                </a>
+                <a href="{{ sub_link.url }}" class="site-nav__link">{{ sub_link.title | escape }}</a>
               </li>
             {% endif %}
           {% endfor %}
@@ -95,43 +204,8 @@
     </li>
 
   {% else %}
-    {% assign link-title = link.title | strip | downcase %}
-    {% assign is-mega-menu = false %}
-
-    {% if mega_menu %}
-      {% for block in section.blocks %}
-        {% assign block-title = block.settings.mega-menu | strip | downcase %}
-        {% if block-title == link-title %}
-          {% assign is-mega-menu = true %}
-          {% assign mega-menu-block = block %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
-    <li class="first-level-dropdown{% if is-mega-menu %} site-nav--has-dropdown mega-menu{% endif %}" {% if is-mega-menu %}aria-haspopup="true"{% endif %}>
-      <a href="{{ link.url }}" class="site-nav__link">
-        <div class="site-nav--link-wrapper">
-          <span class="site-nav--link-text animated-underline">
-            {{ link.title }}
-          </span>
-        </div>
-      </a>
-
-      {% if is-mega-menu %}
-        <ul class="site-nav__dropdown{% unless is-mega-menu %} standard-dropdown{% else %} mega-menu-dropdown{% endunless %}{% if request.design_mode %} theme-editor-active{% endif %}">
-          <div class="container">
-            {% render 'mega-menu' with mega-menu-block, link: link %}
-          </div>
-        </ul>
-      {% endif %}
+    <li>
+      <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
     </li>
   {% endif %}
 {% endfor %}
-
-{% if settings.header-border-color != 'rgba(0,0,0,0)' %}
-  {% style %}
-    .site-nav__dropdown.mega-menu-dropdown {
-      top: calc(100% + 1px);
-    }
-  {% endstyle %}
-{% endif %}

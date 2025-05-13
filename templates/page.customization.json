@@ -28,6 +28,258 @@
         "page_width": "full-width"
       }
     },
+    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MAKE_IT_YOUR_OWN.jpg",
+            "mobile_image": "shopify://shop_images/Add_a_heading_30c9edf9-af57-4e10-8ee6-1fc26c53114f.jpg",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "captionHorizontal": "left",
+            "captionAlignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0"
+      ],
+      "settings": {
+        "slider-animation": "slide",
+        "slider-width": "fixed",
+        "vertical-alignment": false,
+        "text-below-image": false,
+        "slider-slide-time": 5,
+        "caption-heading-size": 30,
+        "caption-subheading-size": 16,
+        "caption-button-size": 14,
+        "show-slide-dots": false,
+        "show-slide-arrows": false,
+        "slider-navigation-color": "#ffffff"
+      }
+    },
+    "025b059b-a525-4e8c-b930-d11600a416d0": {
+      "type": "text--rich-text",
+      "settings": {
+        "colors": "white",
+        "title": "Carry a piece of your character wherever your journey takes you",
+        "text": "<p>All SilverAnt gear is designed for a lifetime of adventures and is easily customizable. Their lightweight, durable, and health-conscious features make them dependable tools for personal use, ideal gifts, or promotional items for your employees and corporate events.</p><p>Whether it's hip flasks, water bottles, cups, or even a portable cutlery set, the options are limitless.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "b8469a04-fa68-46b7-93d1-d684effc6f92": {
+      "type": "text--text-adverts",
+      "blocks": {
+        "template--16226243969202__b8469a04-fa68-46b7-93d1-d684effc6f92-text-1": {
+          "type": "text",
+          "settings": {
+            "heading": "Laser Engraving",
+            "subheading": "Artwork is laser engraved onto your gear, and the available color for designs is limited to black.",
+            "link": ""
+          }
+        },
+        "template--16226243969202__b8469a04-fa68-46b7-93d1-d684effc6f92-text-2": {
+          "type": "text",
+          "settings": {
+            "heading": "Customization Fee",
+            "subheading": "Customizing one side costs $10 USD, while customizing both sides starts at $8 per side.",
+            "link": ""
+          }
+        },
+        "template--16226243969202__b8469a04-fa68-46b7-93d1-d684effc6f92-text-3": {
+          "type": "text",
+          "settings": {
+            "heading": "Return Policy",
+            "subheading": "Please note that customized products cannot be resold, and once the customization is complete, they cannot be returned or refunded.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16226243969202__b8469a04-fa68-46b7-93d1-d684effc6f92-text-1",
+        "template--16226243969202__b8469a04-fa68-46b7-93d1-d684effc6f92-text-2",
+        "template--16226243969202__b8469a04-fa68-46b7-93d1-d684effc6f92-text-3"
+      ],
+      "settings": {
+        "colors": "white"
+      }
+    },
+    "15657004-6c03-408a-9c3b-efea72b4072f": {
+      "type": "image--gallery",
+      "blocks": {
+        "template--16226243969202__15657004-6c03-408a-9c3b-efea72b4072f-image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/standard_journal.jpg",
+            "link": "https://www.instagram.com/p/CynkBzTP8AQ/?hl=en",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "template--16226243969202__15657004-6c03-408a-9c3b-efea72b4072f-image-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Algirdas_47030e01-77a3-4f59-a619-4ae4738b29ac.jpg",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "da63ac4f-2ba6-4f5c-af6f-863aeb85234c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/The_stray_compass_4d818ede-0cd6-4e5d-9553-8d213803cdef.jpg",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        }
+      },
+      "block_order": [
+        "template--16226243969202__15657004-6c03-408a-9c3b-efea72b4072f-image-1",
+        "template--16226243969202__15657004-6c03-408a-9c3b-efea72b4072f-image-2",
+        "da63ac4f-2ba6-4f5c-af6f-863aeb85234c"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "Gallery of Personalization",
+        "richtext": "",
+        "remove-spacing": false,
+        "full-width": true,
+        "section-width": "full",
+        "content-position": "hide"
+      }
+    },
+    "2e994844-9377-47d1-8419-0086ee110c8f": {
+      "type": "image--gallery",
+      "blocks": {
+        "template--16226243969202__2e994844-9377-47d1-8419-0086ee110c8f-image-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download_the_form.jpg",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "Visit the customization form provided below to share your requirements.",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "template--16226243969202__2e994844-9377-47d1-8419-0086ee110c8f-image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/artwork.jpg",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "We check your artwork's feasibility and let you know if we can proceed",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "template--16226243969202__2e994844-9377-47d1-8419-0086ee110c8f-image-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/custome_an_order.jpg",
+            "link": "mailto:info@silveroutdoors.com",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "We create a custom order for you and you can proceed with the payment",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "e1fe7f02-c74b-4f07-b13b-3a8dff77f53c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/customize_your_item_and_delivery_it_to_you.jpg",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "We personalize your item & arrange delivery",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        }
+      },
+      "block_order": [
+        "template--16226243969202__2e994844-9377-47d1-8419-0086ee110c8f-image-2",
+        "template--16226243969202__2e994844-9377-47d1-8419-0086ee110c8f-image-1",
+        "template--16226243969202__2e994844-9377-47d1-8419-0086ee110c8f-image-3",
+        "e1fe7f02-c74b-4f07-b13b-3a8dff77f53c"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "HOW IT WORKS",
+        "richtext": "",
+        "remove-spacing": false,
+        "full-width": true,
+        "section-width": "full",
+        "content-position": "below-image"
+      }
+    },
+    "b85a69ad-f232-4cd5-acb3-91101aac13d6": {
+      "type": "text--text-adverts",
+      "blocks": {
+        "template--16226243969202__b85a69ad-f232-4cd5-acb3-91101aac13d6-text-1": {
+          "type": "text",
+          "settings": {
+            "heading": "MINIMUM ORDER",
+            "subheading": "A minimum order consists of just one product per item.",
+            "link": ""
+          }
+        },
+        "template--16226243969202__b85a69ad-f232-4cd5-acb3-91101aac13d6-text-2": {
+          "type": "text",
+          "settings": {
+            "heading": "CUSTOMIZATION TIME",
+            "subheading": "1 to 10 items: 1 day, 11 to 30 items: 2 days,Over 30 items: 3 or more days",
+            "link": ""
+          }
+        },
+        "template--16226243969202__b85a69ad-f232-4cd5-acb3-91101aac13d6-text-3": {
+          "type": "text",
+          "settings": {
+            "heading": "SHIPPING",
+            "subheading": "All personalized orders are shipped globally, with an estimated delivery time of around 8 to 12 days.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16226243969202__b85a69ad-f232-4cd5-acb3-91101aac13d6-text-1",
+        "template--16226243969202__b85a69ad-f232-4cd5-acb3-91101aac13d6-text-2",
+        "template--16226243969202__b85a69ad-f232-4cd5-acb3-91101aac13d6-text-3"
+      ],
+      "settings": {
+        "colors": "white"
+      }
+    },
     "1700054940c6cdefba": {
       "type": "apps",
       "blocks": {
@@ -44,10 +296,28 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "5d3c1531-6c86-487a-ad0a-519af037d7d2": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 10px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Subscribe to our mailing list to receive a small weekly snippet of fun. From product promotions to articles, podcasts, and product guides. This newsletter gives you the lowdown on our weekly inspiration and of course our titanium outdoor products. Subscribe Now!</p>"
+      }
     }
   },
   "order": [
     "main",
-    "1700054940c6cdefba"
+    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86",
+    "025b059b-a525-4e8c-b930-d11600a416d0",
+    "b8469a04-fa68-46b7-93d1-d684effc6f92",
+    "15657004-6c03-408a-9c3b-efea72b4072f",
+    "2e994844-9377-47d1-8419-0086ee110c8f",
+    "b85a69ad-f232-4cd5-acb3-91101aac13d6",
+    "1700054940c6cdefba",
+    "5d3c1531-6c86-487a-ad0a-519af037d7d2"
   ]
 }
