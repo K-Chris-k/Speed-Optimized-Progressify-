@@ -12,8 +12,7 @@
     "main": {
       "type": "template--page",
       "settings": {
-        "page_title_enabled": true,
-        "page_width": "narrow"
+        "page_width": "full-width"
       }
     }
   },

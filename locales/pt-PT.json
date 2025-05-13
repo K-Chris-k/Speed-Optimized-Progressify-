@@ -494,7 +494,8 @@
       "currency": "Moeda",
       "language": "Idioma",
       "mega_menu_empty": "Este mega menu não tem nenhum conteúdo no momento. Adicione conteúdo ao mega menu no admin do Shopify em: Loja virtual > Menu."
-    }
+    },
+    "footer": {}
   },
   "products": {
     "general": {

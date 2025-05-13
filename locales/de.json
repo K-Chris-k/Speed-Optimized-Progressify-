@@ -494,7 +494,8 @@
       "currency": "Währung",
       "language": "Sprache",
       "mega_menu_empty": "Dieses Mega-Menü hat derzeit keinen Inhalt. Fügen Sie im Shopify-Adminbereich unter „Onlineshop > Menü“ Inhalte zum Mega-Menü hinzu."
-    }
+    },
+    "footer": {}
   },
   "products": {
     "general": {

@@ -494,7 +494,8 @@
       "currency": "Moneda",
       "language": "Idioma",
       "mega_menu_empty": "Este mega menú no tiene contenido actualmente. Agrega contenido al mega menú en el panel de control de Shopify en: Tienda en línea > Menú."
-    }
+    },
+    "footer": {}
   },
   "products": {
     "general": {

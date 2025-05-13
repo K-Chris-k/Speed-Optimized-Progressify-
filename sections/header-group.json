@@ -13,109 +13,78 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement": {
-          "type": "announcement",
-          "settings": {
-            "announcement_text": "Announce something here",
-            "announcement_bg_color": "#494949",
-            "announcement_text_color": "#fff"
-          }
-        },
-        "aebe68ef-8489-4ee8-86e6-12dc826943f1": {
-          "type": "announcement",
-          "settings": {
-            "announcement_text": "Highlight promotions",
-            "announcement_bg_color": "#000000",
-            "announcement_text_color": "#fff"
-          }
-        },
-        "860cfd32-0dce-4889-8012-b7d936e80788": {
-          "type": "announcement",
-          "settings": {
-            "announcement_text": "Advertise special deals",
-            "announcement_bg_color": "#242424",
-            "announcement_text_color": "#fff"
-          }
-        }
-      },
-      "block_order": [
-        "announcement",
-        "aebe68ef-8489-4ee8-86e6-12dc826943f1",
-        "860cfd32-0dce-4889-8012-b7d936e80788"
-      ],
-      "settings": {
-        "desktop_social_icons": true
-      }
+      "settings": {}
     },
     "header": {
       "type": "header",
       "blocks": {
-        "content": {
+        "61c2ba7c-13e4-4002-ae5d-97ea6baf696c": {
           "type": "content",
           "settings": {
-            "mega-menu": "",
-            "image_1_aspect_ratio": "square",
-            "mega_image_header_1": "",
+            "mega-menu": "Shop",
+            "mega_image_1": "shopify://shop_images/silverant.png",
+            "mega_image_link_1": "shopify://collections/all",
             "mega_image_subheader_1": "",
-            "overlay_text_on_image_promo_1": true,
-            "overlay_text_color_promo_1": "#FFFFFF",
-            "mega_image_link_1": "",
-            "show_promo_1_in_mobile_drawer": true,
-            "image_2_aspect_ratio": "square",
-            "mega_image_header_2": "",
+            "mega_image_header_1": "All Products",
+            "mega_image_2": "shopify://shop_images/mega_menu.png",
+            "mega_image_link_2": "shopify://collections/new-products",
             "mega_image_subheader_2": "",
-            "overlay_text_on_image_promo_2": true,
-            "overlay_text_color_promo_2": "#FFFFFF",
-            "mega_image_link_2": "",
-            "show_promo_2_in_mobile_drawer": true
+            "mega_image_header_2": "New Products"
           }
         },
-        "b9761f95-e4d2-4de1-82e6-ae6f7d56a8f7": {
+        "3d576ca0-3089-412c-8b28-786f12214db8": {
           "type": "content",
           "settings": {
-            "mega-menu": "",
-            "image_1_aspect_ratio": "square",
-            "mega_image_header_1": "",
+            "mega-menu": "Who We Are",
+            "mega_image_1": "shopify://shop_images/About_us.png",
+            "mega_image_link_1": "shopify://pages/about-us",
             "mega_image_subheader_1": "",
-            "overlay_text_on_image_promo_1": true,
-            "overlay_text_color_promo_1": "#FFFFFF",
-            "mega_image_link_1": "",
-            "show_promo_1_in_mobile_drawer": true,
-            "image_2_aspect_ratio": "square",
-            "mega_image_header_2": "",
+            "mega_image_header_1": "About Us",
+            "mega_image_2": "shopify://shop_images/Untitled_design_2.png",
+            "mega_image_link_2": "shopify://pages/why-buy-from-us",
             "mega_image_subheader_2": "",
-            "overlay_text_on_image_promo_2": true,
-            "overlay_text_color_promo_2": "#FFFFFF",
-            "mega_image_link_2": "",
-            "show_promo_2_in_mobile_drawer": true
+            "mega_image_header_2": "Why Buy From Us"
+          }
+        },
+        "5788a6e3-ca09-4c88-8535-a75aca3b8aa5": {
+          "type": "content",
+          "settings": {
+            "mega-menu": "Community",
+            "mega_image_1": "shopify://shop_images/Untitled_design_3.png",
+            "mega_image_link_1": "shopify://blogs/the-silverant-blog",
+            "mega_image_subheader_1": "",
+            "mega_image_header_1": "Blog",
+            "mega_image_2": "shopify://shop_images/Untitled_design_4.png",
+            "mega_image_link_2": "shopify://pages/silverant-ambassadors",
+            "mega_image_subheader_2": "",
+            "mega_image_header_2": "Ambassadors"
           }
         }
       },
       "block_order": [
-        "content",
-        "b9761f95-e4d2-4de1-82e6-ae6f7d56a8f7"
+        "61c2ba7c-13e4-4002-ae5d-97ea6baf696c",
+        "3d576ca0-3089-412c-8b28-786f12214db8",
+        "5788a6e3-ca09-4c88-8535-a75aca3b8aa5"
       ],
       "settings": {
         "sticky_header": true,
-        "enable_search": true,
-        "logo-placement": "center",
-        "logo_max_width": 125,
-        "logo_max_width_mobile": 100,
-        "logo_padding": 30,
-        "mobile_social_icons": false,
-        "show_icons": true,
-        "cart-style": "shopping-cart",
-        "cart_count": true,
         "overlay_header_homepage": true,
-        "overlay_header_collection": false,
+        "overlay_header_collection": true,
         "overlay_header_list_collection": false,
         "overlay_header_contact": false,
-        "overlay_opacity": 0,
-        "show_currency_selector": true,
-        "show_locale_selector": false,
+        "logo": "shopify://shop_images/LOGO_png_1.png",
+        "overlay_logo": "shopify://shop_images/logo_fa1da8c9-d1c6-4173-9d76-1d0f857c1621.png",
+        "logo-placement": "center",
+        "logo_max_width": 160,
+        "logo_max_width_mobile": 100,
+        "logo_padding": 15,
         "main_linklist": "main-menu",
-        "dropdown_alignment": "left"
+        "dropdown_alignment": "left",
+        "show_currency_selector": true,
+        "show_locale_selector": true,
+        "enable_search": true,
+        "cart-style": "shopping-cart",
+        "overlay_opacity": 0
       }
     }
   },

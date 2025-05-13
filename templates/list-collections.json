@@ -9,62 +9,18 @@
  */
 {
   "sections": {
-    "countdown-timer": {
-      "type": "countdown",
-      "blocks": {
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "Countdown timer"
-          }
-        },
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-2": {
-          "type": "countdown_timer",
-          "settings": {
-            "end_date": "",
-            "end_time": "",
-            "hide_when_complete": false,
-            "time_labels": false
-          }
-        },
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-3": {
-          "type": "text",
-          "settings": {
-          }
-        },
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-4": {
-          "type": "button",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-1",
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-2",
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-3",
-        "template--14753824079942__23cda6f6-bcd5-4472-ba45-6258490f5b2a-1678905038aa47c95f-4"
-      ],
-      "settings": {
-        "overlay_opacity": 0,
-        "text_alignment": "center"
-      }
-    },
     "main": {
       "type": "template--collections-list",
       "settings": {
         "banner-image-size": "20vh",
         "parallax": true,
-        "layout": "preview",
-        "items_per_row": 4,
         "show_options": "all",
-        "selected_collections": [
-
-        ]
+        "layout": "preview",
+        "items_per_row": 4
       }
     }
   },
   "order": [
-    "countdown-timer",
     "main"
   ]
 }

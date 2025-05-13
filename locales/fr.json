@@ -494,7 +494,8 @@
       "currency": "Devise",
       "language": "Langue",
       "mega_menu_empty": "Ce méga menu ne contient actuellement aucun contenu. Ajoutez du contenu au méga menu dans l'interface administrateur Shopify à l'adresse : Boutique en ligne > Menu."
-    }
+    },
+    "footer": {}
   },
   "products": {
     "general": {

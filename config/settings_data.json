@@ -8,7 +8,182 @@
  * ------------------------------------------------------------
  */
 {
-  "current": "Nourish",
+  "current": {
+    "color_body_text": "#000",
+    "homepage-sections-accent-secondary-color": "#fff",
+    "homepage-sections-accent-primary-color": "#5e5e5e",
+    "colorSchemeDarkBackground": "#333",
+    "type_header_font": "itc_franklin_gothic_n7",
+    "heading_spacing": 0,
+    "type_base_font": "rajdhani_n4",
+    "typography-body-font-size": 16,
+    "button_font_size": 15,
+    "type_navigation_font": "rajdhani_n4",
+    "logo_font_size": 19,
+    "product-grid": "natural",
+    "pop-up-text-header-text": "DON’T CLICK X",
+    "pop-up-text-description-text": "<h3><strong>Unlock 11% OFF Your First Order & Plant A Tree</strong></h3><p>Subscribe and be the first to know about our latest ultralight gear, and we'll plant a tree on your behalf!</p><p><strong>Get outside. Go ultralight.</strong></p>",
+    "popup-newsletter-top": "shopify://shop_images/Untitled_design_5.png",
+    "popup--enable": true,
+    "popup--test-mode": false,
+    "desktop-popup-style": "fullscreen",
+    "sm_tiktok_link": "https://www.tiktok.com/@silverantoutdoors",
+    "sm_instagram_link": "https://www.instagram.com/silverantoutdoors/",
+    "sm_facebook_link": "https://www.facebook.com/SilverAntOutdoors/",
+    "sm_youtube_link": "https://www.youtube.com/channel/UCu_HH6VMuQWwUa0YPe6kjDA",
+    "sm_pinterest_link": "",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_pinterest": true,
+    "enable_breadcrumbs": false,
+    "favicon": "shopify://shop_images/favicon.png",
+    "animations_enabled": false,
+    "page_fade_enabled": true,
+    "ken_burns_enabled": false,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {}
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "61c2ba7c-13e4-4002-ae5d-97ea6baf696c": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Shop",
+              "mega_image_1": "shopify://shop_images/silverant.png",
+              "mega_image_link_1": "shopify://collections/all",
+              "mega_image_subheader_1": "",
+              "mega_image_header_1": "All Products",
+              "mega_image_2": "shopify://shop_images/mega_menu.png",
+              "mega_image_link_2": "shopify://collections/new-products",
+              "mega_image_subheader_2": "",
+              "mega_image_header_2": "New Products"
+            }
+          },
+          "3d576ca0-3089-412c-8b28-786f12214db8": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Who We Are",
+              "mega_image_1": "shopify://shop_images/About_us.png",
+              "mega_image_link_1": "shopify://pages/about-us",
+              "mega_image_subheader_1": "",
+              "mega_image_header_1": "About Us",
+              "mega_image_2": "shopify://shop_images/Untitled_design_2.png",
+              "mega_image_link_2": "shopify://pages/why-buy-from-us",
+              "mega_image_subheader_2": "",
+              "mega_image_header_2": "Why Buy From Us"
+            }
+          },
+          "5788a6e3-ca09-4c88-8535-a75aca3b8aa5": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Community",
+              "mega_image_1": "shopify://shop_images/Untitled_design_3.png",
+              "mega_image_link_1": "shopify://blogs/the-silverant-blog",
+              "mega_image_subheader_1": "",
+              "mega_image_header_1": "Blog",
+              "mega_image_2": "shopify://shop_images/Untitled_design_4.png",
+              "mega_image_link_2": "shopify://pages/silverant-ambassadors",
+              "mega_image_subheader_2": "",
+              "mega_image_header_2": "Ambassadors"
+            }
+          }
+        },
+        "block_order": [
+          "61c2ba7c-13e4-4002-ae5d-97ea6baf696c",
+          "3d576ca0-3089-412c-8b28-786f12214db8",
+          "5788a6e3-ca09-4c88-8535-a75aca3b8aa5"
+        ],
+        "settings": {
+          "sticky_header": true,
+          "overlay_header_homepage": true,
+          "overlay_header_collection": true,
+          "overlay_header_list_collection": false,
+          "overlay_header_contact": false,
+          "logo": "shopify://shop_images/LOGO_png_1.png",
+          "overlay_logo": "shopify://shop_images/logo_fa1da8c9-d1c6-4173-9d76-1d0f857c1621.png",
+          "logo-placement": "center",
+          "logo_max_width": 160,
+          "logo_max_width_mobile": 100,
+          "logo_padding": 15,
+          "main_linklist": "main-menu",
+          "dropdown_alignment": "left",
+          "show_currency_selector": true,
+          "show_locale_selector": true,
+          "enable_search": true,
+          "cart-style": "shopping-cart",
+          "overlay_opacity": 0
+        }
+      },
+      "template--product": {
+        "type": "template--product",
+        "settings": {}
+      },
+      "template--collection": {
+        "type": "template--collection",
+        "settings": {
+          "desktop-products-per-row": 2
+        }
+      },
+      "template--collections-list": {
+        "type": "template--collections-list",
+        "settings": {}
+      },
+      "template--page": {
+        "type": "template--page",
+        "blocks": {
+          "template--page-block-1": {
+            "type": "image_picker",
+            "settings": {
+              "image_title": "",
+              "image_link": ""
+            }
+          },
+          "template--page-block-2": {
+            "type": "text",
+            "settings": {}
+          },
+          "template--page-block-3": {
+            "type": "richtext",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "template--page-block-1",
+          "template--page-block-2",
+          "template--page-block-3"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "6279071938380501511": {
+        "type": "shopify://apps/powerful-form-builder/blocks/app-embed/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+        "disabled": false,
+        "settings": {}
+      },
+      "18228966181090706294": {
+        "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+        "disabled": false,
+        "settings": {
+          "storefrontAccessToken": "a8bc4ef82137c21530c78b97914e32e4"
+        }
+      }
+    }
+  },
   "presets": {
     "Nourish": {
       "color_body_text": "#242424",
