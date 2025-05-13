@@ -1,0 +1,72 @@
+{% if
+  settings.sm_facebook_link != blank or
+  settings.sm_twitter_link != blank or
+  settings.sm_youtube_link != blank or
+  settings.sm_flickr_link != blank or
+  settings.sm_pinterest_link != blank or
+  settings.sm_instagram_link != blank or
+  settings.sm_tumblr_link != blank or
+  settings.sm_pinterest_link != blank or
+  settings.sm_youtube_link != blank or
+  settings.sm_vimeo_link != blank or
+  settings.sm_flickr_link != blank or
+  settings.sm_snapchat_link != blank or
+  settings.sm_houzz_link != blank or
+  settings.sm_linkedin_link != blank or
+  settings.sm_tiktok_link != blank %}
+
+<ul id="sm-icons" class="clearfix">
+
+  {% if settings.sm_facebook_link != blank %}
+    <li id="sm-facebook"><a href="{{settings.sm_facebook_link}}" target="_blank"><i class="fa fa-facebook fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_twitter_link != blank %}
+    <li id="sm-twitter"><a href="{{settings.sm_twitter_link}}" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_instagram_link != blank %}
+    <li id="sm-instagram"><a href="{{settings.sm_instagram_link}}" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_tumblr_link != blank %}
+    <li id="sm-tumblr"><a href="{{settings.sm_tumblr_link}}" target="_blank"><i class="fa fa-tumblr fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_pinterest_link != blank %}
+    <li id="sm-pinterest"><a href="{{settings.sm_pinterest_link}}" target="_blank"><i class="fa fa-pinterest fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_youtube_link != blank %}
+    <li id="sm-youtube"><a href="{{settings.sm_youtube_link}}" target="_blank"><i class="fa fa-youtube fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_vimeo_link != blank %}
+    <li id="sm-vimeo"><a href="{{settings.sm_vimeo_link}}" target="_blank"><i class="fa fa-vimeo fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_flickr_link != blank %}
+    <li id="sm-flickr"><a href="{{settings.sm_flickr_link}}" target="_blank"><i class="fa fa-flickr fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_snapchat_link != blank %}
+    <li id="sm-snapchat"><a href="{{settings.sm_snapchat_link}}" target="_blank"><i class="fa fa-snapchat fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_houzz_link != blank %}
+    <li id="sm-houzz"><a href="{{settings.sm_houzz_link}}" target="_blank"><i class="fa fa-houzz fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_linkedin_link != blank %}
+    <li id="sm-linkedin"><a href="{{settings.sm_linkedin_link}}" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a></li>
+  {% endif %}
+
+  {% if settings.sm_tiktok_link != blank %}
+    <li id="sm-tiktok"><a href="{{settings.sm_tiktok_link}}" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2859 3333"><path d="M2081 0c55 473 319 755 778 785v532c-266 26-499-61-770-225v995c0 1264-1378 1659-1932 753-356-583-138-1606 1004-1647v561c-87 14-180 36-265 65-254 86-398 247-358 531 77 544 1075 705 992-358V1h551z"/></svg>
+    </a></li>
+  {% endif %}
+
+</ul>
+
+{% endif %}

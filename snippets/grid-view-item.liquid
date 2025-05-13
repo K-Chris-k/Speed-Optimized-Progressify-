@@ -1,0 +1,166 @@
+{% assign image_stretch = false %}
+
+{% assign crop_setting = settings.product-grid %}
+{% if crop_setting == "square" %}
+    {% assign image_crop = "aspect-ratio--square" %}
+    {% assign image_stretch = true %}
+{% elsif crop_setting == "tall" %}
+    {% assign image_crop = "aspect-ratio--tall" %}
+    {% assign image_stretch = true %}
+{% elsif crop_setting == "wide" %}
+    {% assign image_crop = "aspect-ratio--wide" %}
+    {% assign image_stretch = true %}
+{% else %}
+    {% assign image_crop = false %}
+    {% assign image_stretch = false %}
+{% endif %}
+
+{% comment %} Construct block order {% endcomment %}
+{% assign block_order = blocks | split: "," %}
+
+<div
+  class="grid-view-item  product-item product-item-collection-tab"
+  data-product-available="{{ product.available }}"
+  data-product-variants-size="{{ product.variants.size }}"
+  data-tags="{{ product.tags | join: ',' }}"
+  data-product-id="{{ product.variants.first.id }}"
+>
+  {%- for block in block_order -%}
+    {%- case block -%}
+    {%- when 'product_card_image' -%}
+      <div class="grid-view-item-image" data-block-type="product_card_image">
+
+        {% if enable_badges %}
+          {% if product.compare_at_price_max > product.price and product.available %}
+            <div class="sale-badge badge">{{ 'products.product.on_sale' | t }}</div>
+          {% endif %}
+
+          {% unless product.available %}
+            <div class="sold-out-badge badge">{{ 'products.product.sold_out' | t }}</div>
+          {% endunless %}
+        {% endif %}
+
+        {% if hover_effect and product.media.size > 1 %}
+          <div class="reveal">
+        {% endif %}
+
+        <a href="{{ product.url | within: collection }}" title="{{product.title}}" class="grid__image grid__image__match" tabindex="-1">
+          {% if image_crop %}<div class="aspect-ratio {{ image_crop }}">{% endif %}
+            {% assign image = product.media[0].preview_image %}
+            {% render 'responsive-image' with image, alt: image.alt, allow_stretch: image_stretch, blur: false %}
+
+            {% if hover_effect and product.media.size > 1 %}
+              <div class="hidden">
+                {% assign image = product.media[1].preview_image %}
+                {% render 'responsive-image' with image, alt: image.alt, allow_stretch: image_stretch, blur: false %}
+              </div>
+            {% endif %}
+          {% if image_crop %}</div>{% endif %}
+        </a>
+
+        {% if hover_effect and product.media.size > 1 %}
+          </div>
+        {% endif %}
+
+        {% if quick_shop %}
+          <div class="shop-now-wrapper shop-now-wrapper--desktop">
+            <a class="shop-now-button" href="{{ product.url | within: collection }}">{{ 'products.product.quick_shop' | t }}</a>
+          </div>
+        {% endif %}
+      </div>
+
+    {%- when 'product_card_title' -%}
+      <div class="product-grid--title product-item-collection-tab-title" data-block-type="product_card_title">
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      </div>
+
+      <script>
+        window.equalizeProductTitleHeights = function() {
+            if (!window.location.pathname.includes('/collections/')) return;
+
+            const allTitles = Array.from(document.querySelectorAll('.product-grid--title.product-item-collection-tab-title'));
+            if (allTitles.length === 0) return;
+
+            // Only process visible titles
+            const visibleTitles = allTitles.filter(title => 
+                title.closest('.product-item-collection-tab').style.display !== 'none'
+            );
+
+            // 根据屏幕宽度决定每组数量
+            let itemsPerRow;
+            if (window.innerWidth >= 1024) {  // Desktop
+                itemsPerRow = 4;
+            } else if (window.innerWidth >= 768) {  // Tablet
+                itemsPerRow = 3;
+            } else {  // Mobile
+                itemsPerRow = 2;
+            }
+
+            // Process titles in groups
+            for (let i = 0; i < visibleTitles.length; i += itemsPerRow) {
+                const groupTitles = visibleTitles.slice(i, i + itemsPerRow);
+                const maxHeight = Math.max(...groupTitles.map(title => title.offsetHeight));
+                groupTitles.forEach(title => {
+                    title.style.height = maxHeight + 'px';
+                });
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial execution
+            window.equalizeProductTitleHeights();
+
+            // Re-run on window resize
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(window.equalizeProductTitleHeights, 250);
+            });
+        });
+      </script>
+
+      <!-- Start of Judge.me code -->
+      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+      <!-- End of Judge.me code -->
+      
+   {% render 'proviews_review_badge' with product as product %} 
+  	{% comment %} 
+    <!--- YOTPO RATING ---->
+      <div style="display: flex;justify-content: center;" class="yotpo bottomLine collection-ratings"
+          data-appkey="Ee3bDH7987QsOYLYijXayKZ6iWPa84a1HjyUr9Hj"
+          data-domain="{{shop.permanent_domain | escape }}"
+          data-product-id="{{ product.id }}"
+          data-product-models="{{ product.id }}"
+          data-name="{{ product.title | escape }}"
+          data-url="{{ shop.url }}{{ product.url }}"
+          data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+          data-description="{{ product.description | escape }}"
+          data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+      </div>
+	  <!--- YOTPO RATING ---->
+      {% endcomment %}
+    {%- when 'product_card_vendor' -%}
+      <div class="product-grid--vendor-text" data-block-type="product_card_vendor">{{ product.vendor }}</div>
+
+    {%- when 'product_card_price' -%}
+      <div class="product-grid--price" data-block-type="product_card_price">
+        {%- render 'product-grid-item-price', product: product, collection: collection -%}
+      </div>
+    {%- when 'product_card_button' -%}
+      <div class="quick-add-wrapper{% if product.variants.size == 1 %} is-singular{% endif %}" data-block-type="product_card_button">
+        {% if product.variants.size > 1 and product.available %}
+            <a class="quick-add-button-variants" tabindex="0" href="{{ product.url | within: collection }}">{{ 'products.product.view_options' | t }}</a>
+        {% elsif product.available %}
+          {% form 'product', product, id: "CollectionAddToCartForm" %}
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+            <button class="quick-add-button" type="submit" tabindex="0">{{ 'products.product.add_to_cart' | t }}</button>
+          {% endform %}
+        {% else %}
+          <a class="sold-out-button" tabindex="0" href="{{ product.url | within: collection }}">{{ 'products.product.sold_out' | t }}</a>
+        {% endif %}
+      </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>

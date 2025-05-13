@@ -1,0 +1,299 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "blocks": {
+        "7255689f-9f40-40fb-8da5-12d5e201ba73": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "Title"
+          }
+        }
+      },
+      "block_order": [
+        "7255689f-9f40-40fb-8da5-12d5e201ba73"
+      ],
+      "disabled": true,
+      "settings": {
+        "page_width": "full-width"
+      }
+    },
+    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Military_discount_81fcb3e0-7edb-40ab-8c69-e29ee6f39764.jpg",
+            "mobile_image": "shopify://shop_images/Military_discount_1_0d6b26f9-980d-4a85-9516-5c6bfe1895ed.jpg",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "captionHorizontal": "left",
+            "captionAlignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0"
+      ],
+      "settings": {
+        "slider-animation": "slide",
+        "slider-width": "fixed",
+        "vertical-alignment": false,
+        "text-below-image": false,
+        "slider-slide-time": 5,
+        "caption-heading-size": 30,
+        "caption-subheading-size": 16,
+        "caption-button-size": 14,
+        "show-slide-dots": false,
+        "show-slide-arrows": true,
+        "slider-navigation-color": "#ffffff"
+      }
+    },
+    "99b849c7-4423-4b1c-833a-fcdb4788d50c": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "p {text-align: center;}",
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "Unlock Your Exclusive Discount",
+        "text": "<p>At SilverAnt, we're proud to offer a <strong>20% discount</strong> to military personnel, emergency responders, environmental advocates, healthcare workers, and teachers. Your professions play an invaluable service to our society and in recognition of your service SilverAnt wants to pay that debt back in kind with quality gear for you to use throughout your day or on your adventures.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "image_gallery_9zHcUb": {
+      "type": "image--gallery",
+      "blocks": {
+        "image_TDQQWC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Verified_dd9b6efc-3816-4632-bcb6-85022b7ce2af.png",
+            "link": "shopify://pages/contact-us",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "Please click the icon above to email us a photo of your ID or badge.",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        },
+        "image_XLmErJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Save_money_d4b0a8f3-4558-4251-8071-5e99f7e833a5.png",
+            "link": "shopify://pages/contact-us",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "Once confirmed, we'll send you the discount code to redeem off our entire selection of products.",
+            "show-gradient-overlay": true,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#323232"
+          }
+        }
+      },
+      "block_order": [
+        "image_TDQQWC",
+        "image_XLmErJ"
+      ],
+      "custom_css": [
+        "div {padding-top: 3px; padding-right: 0px; padding-bottom: 3px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "richtext": "",
+        "remove-spacing": false,
+        "full-width": false,
+        "section-width": "content",
+        "content-position": "below-image"
+      }
+    },
+    "text_text_adverts_XRktEA": {
+      "type": "text--text-adverts",
+      "blocks": {
+        "text_mLqJE3": {
+          "type": "text",
+          "settings": {
+            "heading": "Indicate Your Occupation",
+            "subheading": "Please click the icon above to provide your ID, badge, or documentation.",
+            "link": "shopify://pages/contact-us"
+          }
+        },
+        "text_D7UtVC": {
+          "type": "text",
+          "settings": {
+            "heading": "Save on SilverAnt",
+            "subheading": "We'll send you the discount code accordingly.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_mLqJE3",
+        "text_D7UtVC"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "colors": "white"
+      }
+    },
+    "text_rich_text_Gfkeca": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "FAQs",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "accordion_9d7xbM": {
+      "type": "accordion",
+      "blocks": {
+        "tab_content_V6yUpk": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What is SilverAnt's Military, Medical, Emergency Responder, and Teacher Discount?",
+            "text": "<p>SilverAnt offers a special discount of 20% off full-price products for military, healthcare workers, first responders, and educators.</p>"
+          }
+        },
+        "tab_content_iNYTyc": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Which products are eligible for this discount?",
+            "text": "<p>This discount is valid for all full-priced products on the SilverAnt website.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_content_V6yUpk",
+        "tab_content_iNYTyc"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "faq_icon": "plus_minus"
+      }
+    },
+    "image_image_with_text_R6Xfcp": {
+      "type": "image--image-with-text",
+      "custom_css": [
+        "img {border-radius: 5%;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "image": "shopify://shop_images/For_Military_Emergency_Responders_Environmental_Advocates.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "left",
+        "text_alignment": "left",
+        "title": "For Military, First Responders, & Environmental Advocates",
+        "text": "<p>SilverAnt's titanium water bottles are lightweight to carry and tough enough to keep you hydrated no matter where you go.</p>",
+        "button_label": "SHOP TITANIUM WATER BOTTLES",
+        "button_link": "shopify://collections/titanium-water-bottles"
+      }
+    },
+    "image_image_with_text_JmEWbK": {
+      "type": "image--image-with-text",
+      "custom_css": [
+        "img {border-radius: 5%;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "image": "shopify://shop_images/For_Healthcare_Workers.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "right",
+        "text_alignment": "left",
+        "title": "For Healthcare Workers",
+        "text": "<p>As doctors, nurses, and medical professionals, you need to stay ready at work. With SilverAnt titanium cups, you can enjoy your caffeine during long shifts to keep you energized.</p>",
+        "button_label": "SHOP TITANIUM CUPS",
+        "button_link": "shopify://collections/cups-mugs"
+      }
+    },
+    "image_image_with_text_iaW3nJ": {
+      "type": "image--image-with-text",
+      "custom_css": [
+        "img {border-radius: 5%;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "image": "shopify://shop_images/For_Educators.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "left",
+        "text_alignment": "left",
+        "title": "For Educators",
+        "text": "<p>SilverAnt titanium utensils are lightweight, durable, and easy to clean, perfect for daily use. With their sleek design, teachers can enjoy meals comfortably during busy school days. Plus, they're eco-friendly, replacing disposable plastic utensils sustainably.</p>",
+        "button_label": "SHOP TITANIUM UTENSILS",
+        "button_link": "shopify://collections/cutlery-and-utensils"
+      }
+    },
+    "collection_featured_collection_9jby4b": {
+      "type": "collection--featured-collection",
+      "settings": {
+        "colors": "white",
+        "title": "Top Picks",
+        "richtext": "",
+        "collection": "for-the-military-coupon-page",
+        "grid-desktop": 5,
+        "grid-tablet": 3,
+        "grid-mobile": 2,
+        "rows": 1,
+        "hover-effect": false,
+        "show-vendor": false,
+        "show_view_all": false
+      }
+    },
+    "5d3c1531-6c86-487a-ad0a-519af037d7d2": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 5px; padding-bottom: 0px; padding-left: 10px;}"
+      ],
+      "settings": {
+        "colors": "dark",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree </strong></em>and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86",
+    "99b849c7-4423-4b1c-833a-fcdb4788d50c",
+    "image_gallery_9zHcUb",
+    "text_text_adverts_XRktEA",
+    "text_rich_text_Gfkeca",
+    "accordion_9d7xbM",
+    "image_image_with_text_R6Xfcp",
+    "image_image_with_text_JmEWbK",
+    "image_image_with_text_iaW3nJ",
+    "collection_featured_collection_9jby4b",
+    "5d3c1531-6c86-487a-ad0a-519af037d7d2"
+  ]
+}

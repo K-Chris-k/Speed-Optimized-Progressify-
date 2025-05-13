@@ -1,0 +1,148 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper.wrapper",
+  "sections": {
+    "84e125ae-e19a-4a4b-a1ac-ca4f048320f6": {
+      "type": "image--image-with-text",
+      "settings": {
+        "colors": "light",
+        "image": "shopify://shop_images/Cups_Mugs_Option_2.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "right",
+        "text_alignment": "left",
+        "title": "Cups & Mugs",
+        "text": "<p>Enjoy your favourite drinks throughout the day with SilverAnt's ultralight titanium cups and mugs.  </p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "collection-header": {
+      "type": "template--collection--header",
+      "disabled": true,
+      "settings": {}
+    },
+    "filtering": {
+      "type": "main-collection-filtering",
+      "settings": {
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "product-grid": {
+      "type": "template--collection",
+      "blocks": {
+        "product_card_image": {
+          "type": "product_card_image",
+          "settings": {
+            "hover-effect": true,
+            "enable_badges": true
+          }
+        },
+        "product_card_title": {
+          "type": "product_card_title",
+          "settings": {}
+        },
+        "product_card_price": {
+          "type": "product_card_price",
+          "settings": {}
+        },
+        "product_card_button": {
+          "type": "product_card_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_card_image",
+        "product_card_title",
+        "product_card_price",
+        "product_card_button"
+      ],
+      "settings": {
+        "desktop-products-per-row": 3,
+        "tablet-products-per-row": 3,
+        "mobile-products-per-row": 2,
+        "collection-products-per-page": 5,
+        "pagination_options": "pagination_default"
+      }
+    },
+    "75ef4497-3ed4-4668-a6c1-c23c8a65e5e6": {
+      "type": "image--image-with-text",
+      "settings": {
+        "colors": "light",
+        "image": "shopify://shop_images/4.jpg",
+        "text_overlapping_image": false,
+        "section-width": "full",
+        "layout": "right",
+        "text_alignment": "left",
+        "title": "SilverAnt Lifetime Guarantee",
+        "text": "<p>At SilverAnt we make titanium gear thats built for a lifetime of adventures. We manufacture everything we make and stand behind the quality of our craftsmanship with our lifetime guarantee.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "22b7fc89-5a86-4657-9c3a-9a777b6374b3": {
+      "type": "newsletter--newsletter",
+      "settings": {
+        "colors": "white",
+        "newsletter_heading": "Join Our Community & Plant A Tree",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+      }
+    },
+    "9f09151a-303e-47b2-84c2-a44f6467a123": {
+      "type": "text--text-adverts",
+      "blocks": {
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-0": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-1": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS and FDA, with our products made in our own ISO:9001 certified factory.",
+            "link": ""
+          }
+        },
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-2": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things dont go to plan our customer service team will provide a personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-0",
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-1",
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-2"
+      ],
+      "settings": {
+        "colors": "accent"
+      }
+    }
+  },
+  "order": [
+    "84e125ae-e19a-4a4b-a1ac-ca4f048320f6",
+    "collection-header",
+    "filtering",
+    "product-grid",
+    "75ef4497-3ed4-4668-a6c1-c23c8a65e5e6",
+    "22b7fc89-5a86-4657-9c3a-9a777b6374b3",
+    "9f09151a-303e-47b2-84c2-a44f6467a123"
+  ]
+}

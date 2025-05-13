@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper.wrapper",
+  "sections": {
+    "collection-header": {
+      "type": "template--collection--header",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "c1836783-cf71-4f2b-97fe-2bead5475c17": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "c1836783-cf71-4f2b-97fe-2bead5475c17"
+      ],
+      "custom_css": [
+        "div {padding: 0px 100px 100px 0px;}"
+      ],
+      "settings": {}
+    },
+    "collection_tabs_8bFANE": {
+      "type": "collection-tabs",
+      "blocks": {
+        "custom_tag_9NjgEP": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Camping Cookware",
+            "display_name": "Titanium Camping Cookware"
+          }
+        },
+        "custom_tag_KitXDM": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Cutlery & Utensils",
+            "display_name": "Titanium Cutlery & Utensils"
+          }
+        },
+        "custom_tag_nLLQTf": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Water Bottles",
+            "display_name": "Titanium Water Bottles"
+          }
+        },
+        "custom_tag_fjDHjF": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Cups & Mugs",
+            "display_name": "Titanium Cups & Mugs"
+          }
+        },
+        "custom_tag_UqLPDV": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Tent Stakes",
+            "display_name": "Titanium Tent Stakes"
+          }
+        },
+        "custom_tag_re7nK3": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Hip Flasks",
+            "display_name": "Titanium Hip Flasks"
+          }
+        },
+        "custom_tag_L88Cbi": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Tableware",
+            "display_name": "Titanium Tableware"
+          }
+        },
+        "custom_tag_zgNT4W": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Coffee Gear",
+            "display_name": "Titanium Coffee Gear"
+          }
+        },
+        "custom_tag_dUypgP": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Stoves",
+            "display_name": "Titanium Stoves"
+          }
+        },
+        "custom_tag_BeYBYz": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Tea Ware",
+            "display_name": "Titanium Tea Ware"
+          }
+        },
+        "custom_tag_fhJ9UE": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Titanium Accessories",
+            "display_name": "Titanium Accessories"
+          }
+        },
+        "custom_tag_bRYTg8": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "New Products",
+            "display_name": "New Products"
+          }
+        },
+        "custom_tag_aqDVc7": {
+          "type": "custom_tag",
+          "settings": {
+            "tag_name": "Top Selling Gear",
+            "display_name": "Top Selling Gear"
+          }
+        }
+      },
+      "block_order": [
+        "custom_tag_9NjgEP",
+        "custom_tag_KitXDM",
+        "custom_tag_nLLQTf",
+        "custom_tag_fjDHjF",
+        "custom_tag_UqLPDV",
+        "custom_tag_re7nK3",
+        "custom_tag_L88Cbi",
+        "custom_tag_zgNT4W",
+        "custom_tag_dUypgP",
+        "custom_tag_BeYBYz",
+        "custom_tag_fhJ9UE",
+        "custom_tag_bRYTg8",
+        "custom_tag_aqDVc7"
+      ],
+      "settings": {
+        "custom_tags_title": "Collections",
+        "selected_tags_text": "Collections",
+        "desktop_position": "topbar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "product-grid": {
+      "type": "template--collection",
+      "blocks": {
+        "product_card_image": {
+          "type": "product_card_image",
+          "settings": {
+            "hover-effect": true,
+            "enable_badges": true
+          }
+        },
+        "product_card_title": {
+          "type": "product_card_title",
+          "settings": {}
+        },
+        "product_card_price": {
+          "type": "product_card_price",
+          "settings": {}
+        },
+        "product_card_button": {
+          "type": "product_card_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_card_image",
+        "product_card_title",
+        "product_card_price",
+        "product_card_button"
+      ],
+      "settings": {
+        "desktop-products-per-row": 4,
+        "tablet-products-per-row": 3,
+        "mobile-products-per-row": 2,
+        "collection-products-per-page": 5,
+        "pagination_options": "pagination_default"
+      }
+    },
+    "ba39c199-752d-4cc0-bb93-a2e564b80ec4": {
+      "type": "blog--blog-posts",
+      "blocks": {
+        "template--15617722876082__ba39c199-752d-4cc0-bb93-a2e564b80ec4-1668153264e337b457-0": {
+          "type": "blog",
+          "settings": {
+            "blog": "the-silverant-blog"
+          }
+        }
+      },
+      "block_order": [
+        "template--15617722876082__ba39c199-752d-4cc0-bb93-a2e564b80ec4-1668153264e337b457-0"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "The Worker Ant Blog",
+        "richtext": "<p>A collection of how to guides, user tips, product overiews, destination recommendations, and more.</p>",
+        "blog_show_date": true,
+        "post_limit": 3
+      }
+    },
+    "22b7fc89-5a86-4657-9c3a-9a777b6374b3": {
+      "type": "newsletter--newsletter",
+      "settings": {
+        "colors": "white",
+        "newsletter_heading": "Join our Community & Plant A Tree",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+      }
+    },
+    "9f09151a-303e-47b2-84c2-a44f6467a123": {
+      "type": "text--text-adverts",
+      "blocks": {
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-0": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-1": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS and FDA, with our products made in our own ISO:9001 certified factory.",
+            "link": ""
+          }
+        },
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-2": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things dont go to plan our customer service team will provide a personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-0",
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-1",
+        "template--15617722876082__9f09151a-303e-47b2-84c2-a44f6467a123-166573812736abf64d-2"
+      ],
+      "settings": {
+        "colors": "accent"
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "collection_tabs_8bFANE",
+    "product-grid",
+    "ba39c199-752d-4cc0-bb93-a2e564b80ec4",
+    "22b7fc89-5a86-4657-9c3a-9a777b6374b3",
+    "9f09151a-303e-47b2-84c2-a44f6467a123"
+  ]
+}

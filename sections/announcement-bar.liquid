@@ -1,0 +1,173 @@
+<link rel="preload" href="{{ 'section-announcement-bar.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript>{{ 'section-announcement-bar.min.css' | asset_url | stylesheet_tag }}</noscript>
+
+{% assign socialIconAdded = false %}
+{% if
+  settings.sm_facebook_link != blank or
+  settings.sm_twitter_link != blank or
+  settings.sm_youtube_link != blank or
+  settings.sm_flickr_link != blank or
+  settings.sm_pinterest_link != blank or
+  settings.sm_instagram_link != blank or
+  settings.sm_tumblr_link != blank or
+  settings.sm_pinterest_link != blank or
+  settings.sm_youtube_link != blank or
+  settings.sm_vimeo_link != blank or
+  settings.sm_flickr_link != blank or
+  settings.sm_snapchat_link != blank or
+  settings.sm_houzz_link != blank or
+  settings.sm_linkedin_link != blank or
+  settings.sm_tiktok_link != blank %}
+    {% assign socialIconAdded = true %}
+  {% endif %}
+
+  {% if section.settings.enable_announcement_bar %}
+
+  <style>
+
+    .announcement-bar {
+      background-color: {{ section.settings.announcement-bar--background-color }};
+      color: {{ section.settings.announcement-bar--text-color }};
+    }
+
+    .announcement-bar a,
+    .announcement-bar
+    .social-sharing.is-clean a{
+      color: {{ section.settings.announcement-bar--text-color }};
+    }
+
+    .announcement-bar li a svg {
+      fill: {{ section.settings.announcement-bar--text-color }};
+    }
+
+    .announcement-bar .announcement-bar__message {
+      font: {{ settings.announcement_text_style }} {{ settings.announcement_text_size }}px {{ settings.type_base_font.family }};
+      letter-spacing: {{ settings.announcement_text_spacing }}px;
+      text-transform: {{ settings.announcement_text_case }};
+    }
+
+  </style>
+
+  <div
+    class="announcement-bar{% unless section.settings.enable_social_icons and socialIconAdded %} no-icons{% endunless %}"
+    data-wetheme-section-type="announcement-bar" data-wetheme-section-id="{{ section.id }}"
+  >
+
+    {% if section.settings.enable_social_icons and socialIconAdded %}
+      <div id="sharing" class="social-sharing is-clean">
+        {% render 'social-icons' %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.message_text != blank %}
+    <div class="announcement-bar__message">
+        {% if section.settings.message_link != blank %}
+          <a href="{{ section.settings.message_link }}" class="message__link">
+            {{ section.settings.message_text }}
+          </a>
+        {% else %}
+          {{ section.settings.message_text }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+{% endif %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Announcement Bar",
+        "de": "Ankündigungsleiste",
+        "es": "Barra de anuncios",
+        "fr": "Barre d'annonce",
+        "pt-PT": "Barra de Anúncios"
+    },
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "enable_announcement_bar",
+            "label": {
+                "en": "Enable",
+                "de": "Aktivieren",
+                "es": "Habilitar",
+                "fr": "Activer",
+                "pt-PT": "Ativar efeito de paralaxe"
+            },
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "message_text",
+            "label": {
+                "en": "Announcement text",
+                "de": "Ankündigungstext",
+                "es": "Texto del anuncio",
+                "fr": "Texte de l'annonce",
+                "pt-PT": "Texto do anúncio"
+            },
+            "default": {
+                "en": "Announce something here",
+                "de": "Kündigen Sie hier etwas an",
+                "es": "Anuncie algo aquí",
+                "fr": "Annoncez quelque chose ici",
+                "pt-PT": "Anuncie algo aqui"
+            }
+        },
+        {
+            "type": "url",
+            "id": "message_link",
+            "label": {
+                "en": "Announcement link",
+                "de": "Ankündigungslink",
+                "es": "Enlace del anuncio",
+                "fr": "Lien d'annonce",
+                "pt-PT": "Ligação do anúncio"
+            },
+            "info": {
+                "en": "Optional",
+                "de": "Optional",
+                "es": "Opcional",
+                "fr": "Facultatif",
+                "pt-PT": "Opcional"
+            }
+        },
+        {
+            "type": "color",
+            "id": "announcement-bar--background-color",
+            "label": {
+                "en": "Announcement background",
+                "de": "Ankündigungshintergrund",
+                "es": "Fondo del anuncio",
+                "fr": "Contexte de l'annonce",
+                "pt-PT": "Fundo do anúncio"
+            },
+            "default": "#f1f1f1"
+        },
+        {
+            "type": "color",
+            "id": "announcement-bar--text-color",
+            "label": {
+                "en": "Announcement text",
+                "de": "Ankündigungstext",
+                "es": "Texto del anuncio",
+                "fr": "Texte de l'annonce",
+                "pt-PT": "Texto do anúncio"
+            },
+            "default": "#8e8e8e"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_social_icons",
+            "label": {
+                "en": "Enable social icons",
+                "fr": "Activer les icônes de réseaux sociaux",
+                "de": "Aktiviere Buttons für Social Media",
+                "es": "Activar iconos de medios sociales",
+                "pt-PT": "Ativar ícones sociais"
+            },
+            "default": false
+        }
+    ]
+}
+{% endschema %}

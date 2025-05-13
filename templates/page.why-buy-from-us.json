@@ -1,0 +1,120 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "custom_css": [
+        ".sitewide--title-wrapper {display: none;}"
+      ],
+      "settings": {
+        "page_width": "full-width"
+      }
+    },
+    "5cd4d5a1-2783-42aa-a35c-3db96e94f621": {
+      "type": "advanced-layout--custom-html",
+      "blocks": {
+        "template--16062245994674__5cd4d5a1-2783-42aa-a35c-3db96e94f621-1679990811d0cdc483-0": {
+          "type": "html",
+          "settings": {
+            "code": "<meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        .padded {\n        padding: 50px 0;\n    padding-left: 80px;\n    padding-right: 60px;\n}\n.hero-container{\n    position: relative; \n  \n}\n      p.Lines {\n    border-top: 1px solid;\n\n    width: 73px;\n}\n.hero-containe img{\n    max-width: 100%;\n}\n      h2.lowercase-text {\n    line-height: 58px;\n    margin-right: 130px;\n}\n      section.section-instagram-feed-wrapper {\n    padding-bottom: 8rem;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 48px;\n    color: #fff;\n    margin: 0;\n}\n\n.lowercase {\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    padding-left: 145px;\n    padding-right: 145px;\n}\n.story-description {\n    width: calc(50% - 23px);\n    padding: 60px;\n    display: flex;\n    flex-direction: column;\n    text-align: left;\n    justify-content: center;\n}\n.story-description p {\n    line-height: 30px;\n}\n.image-wrapper {\n    width: calc(50% - 23px);\n    overflow: hidden;\n}\nsection.padded .igt-story:nth-child(odd){\n    flex-direction: row-reverse;\n}\n.igt-story {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 60px;\n}\n.section-text-with-image-wrapper .element-container {\n    position: relative;\n    align-items: center;\n}\nsection-text-with-image-wrapper .element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.section-text-with-image-wrapper .element-media {\n    width: 100%;\n    padding-left: 0;\n}\n.section-text-with-image-wrapper .element-content {\n    padding-right: 0;\n}\n.section-text-with-image-wrapper .text-block {\n    margin-bottom: 32px;\n}\n    section.newsl-foot {\n\n    padding-left: 5%;\n}\n.section-text-with-image-wrapper .element-action {\n    margin-top: 28px;\n}\n.element-content.padded {\n   \n    padding-left: 60px;\n    padding-right: 0;\n}\n.element-container.flex {\n    display: flex;\n    position: relative;\n    align-items: center;\n}\n.element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.element-media.padded {\n    width: 100%;\n    padding-left: 0;\n}\n.element-media.padded img {\n    width: 100%;\n}\nh2.letterspace {\n    margin-bottom: 20px;\n    font-size: 50px;\n    line-height: 60px;\n}\np.leading {\n    font-size: 16px;\n    line-height: 30px;\n    color: #000;\n}\na.underlined.text-leading.reset-letterspace {\n    color: #000;\n}\n.padded.home-img h3 {\n    text-align: center;\n}\n.padded.home-img img {\n    width: 100px;\n  \n}\na.tdoors {\n    color: #000;\n    font-size: 26px;\n    letter-spacing: .17em;\n    line-height: 30px;\n \n    text-transform: uppercase;\n    text-decoration: none;\n}\n.hide-Mobile{\n    display: none;\n}\n@media only screen and (max-width: 576px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.hide-Mobile{\n    display: block;\n}\n.hide-desktop{\n    display: none;\n}\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n}\n@media only screen and (max-width: 1025px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 50px;\n    padding-right: 20px;\n}\n  section.newsl-foot{\n    padding-left:0;\n  }\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #fff;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\nh2.h3.story-headline {\n    font-size: 28px;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n    .story-description{\n        width: 100%;\n        padding: 0;\n    }\n    .image-wrapper img{\n   max-width: 100%;\n}\n.igt-story{\n    display: block;\n    margin-bottom: 20px;\n}\n.image-wrapper{\nwidth: 100%;\n}\n.element-container.flex{\n    flex-direction: column-reverse;\n}\n.element-content.padded{\n    padding-left: 0;\n}\n.element-content-wrapper{\n    width: 100%;\n    padding: 0 20px;\n    margin: 0;\n}\nh2.letterspace{\n    font-size: 28px;\n    line-height:36px;\n}\np.leading{\n    line-height: 24px;\n}\n\n    </style>\n\n\n\n    <div class=\"container\">\n        <div class=\"padded\">\n          <div class=\"hero-container\">\n        \n               <img class=\"hide-desktop\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/23.jpg?v=1679995721\" style=\"width: 100%;\" alt=\"Why buy from us\">\n               <img class=\"hide-Mobile\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/17_3e6c267f-ce20-4f09-8b4e-c59878eecd59.jpg?v=1679995687\" style=\"width: 100%;\" alt=\"Why buy from us\">\n               <!-- <p>This is some centered text.</p> -->\n          </div>\n        </div>\n      </div>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16062245994674__5cd4d5a1-2783-42aa-a35c-3db96e94f621-1679990811d0cdc483-0"
+      ],
+      "settings": {}
+    },
+    "2b642c60-dc1e-486b-aa74-90b27c59cab3": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "div {text-align: left; padding-right: 1px; padding-left: 1px; padding-bottom: 0px; padding-top: 0px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "text": "<p>When it comes to the great outdoors there are a lot of phenomenal brands and products out there. There are now so many activities that there are products so specific to that sport or type of adventure. When I look at my own gear for slacklining or rock climbing, I know there is some serious money here. But more so there is a pride in my gear. I look after it meticulously! I know that when tied onto the end of the rope my life is dependent on this gear.</p><p>It is because of this I buy higher quality products. When I was young I inherited a belief from my Grandfather that I always buy the best quality with the money I have. I’d even as a child save that little longer for improved quality or performance. As I am now older it is this core principle that has enabled me to have some items in my gear bag that are almost 10 years old. And more so they are still going well. Minus a few scratches and dinks. </p><p>When I buy things for myself I always look to purchase products from industry leaders. I can ask you the reader now, would you rather have a Nemo tent or one bought from your local Walmart? The answer is always unanimous. People will opt for the Nemo tent. And the reason isn't good marketing. It's because they are the industry leader. When you buy their tents, you don't get a tent you get a promise of quality and longevity.</p><p>One of the things I enjoy about quality outdoor products is that they can be used in different environments. For example, I buy a great GoreTex waterproof jacket. I can use it in the city, at the local crag, or trekking in the mountains. I can repurpose the jacket for many different uses. This applies to so many different products. You can take a camping mug to the office, but you can't take a porcelain mug outdoors.</p><p>When you speak to the people that are out in the 4 elements all year round, they are super proud of every bit of their kit. Every item has a story or a particular saving grace when it became invaluable. It is this inspiration that feeds SilverAnt. Our products are built for mountain expeditions and camping with your kids.</p><p>I remember watching a video of <a href=\"https://mojagear.com/alex-honnold-felipe-camargo-climb-one-worlds-steepest-routes-getu-china/\" target=\"_blank\" title=\"Alex Honnold Getu Arch\">Alex Honnold in Getu, China</a>. He was there to do the second ascent of the line Corazon De Ensueno. In the prelude of the video, Alex is talking about his shorts. I'll paraphrase his words, “These shorts are epic, they’ve seen maybe 4000 pitches!” I think often to that moment or even for example <a href=\"https://wornwear.patagonia.com/\" target=\"_blank\" title=\"Patagonia Worn Wear\">Patagonia Worn Wear</a>. </p><p>It's all about having gear for a long time and accumulating stories with it. You don’t necessarily need a replacement, if it's high quality and well made it can be repaired, resewn, etc. At SilverAnt Outdoors we are super proud to create titanium products that are built for a lifetime! Each product you buy from us will last multiple decades or more.</p><h3><strong>Titanium</strong></h3><p>Titanium as a raw material is an expensive commodity. Once mined it is used in such varied fields as medicine or the aeronautical industry. It's lightweight, strong, biocompatible, anti-corrosive, and it doesn't rust or lose its integrity. These properties dictate a premium price. </p><p>If we want to move away from the fast-fashion economy then premium quality products have to be the better alternative. That's why at SilverAnt Outdoors all our products are backed with our lifetime warranty. Choose premium made titanium outdoor products for your gear bag.</p><p>The other day I saw another brand’s stainless steel water bottle selling for more than our midsized titanium bottle. I thought to myself it was a no-brainer to opt for the titanium option. Firstly, titanium is better for your health, and secondly, why would you choose a heavy stainless steel bottle?</p><p>Another factor when buying quality titanium outdoor gear is ensuring the company is certified by the industry leaders. At SilverAnt all our products are certified by the SGS and FDA. We also own our own factory that is ISO:9001 certified. Here we design, produce, and manufacture every product we sell. This is a huge advantage as a company because we can directly control our production and ensure the <a href=\"https://silverantoutdoors.com/collections/customer-recommended-products\" title=\"https://silverantoutdoors.com/collections/customer-recommended-products\">best quality titanium products</a> for you our customers.</p><h3><strong>Our Team & Service</strong></h3><p>All the team at SilverAnt Outdoors are adventurers or outdoor lovers across a multitude of disciplines. We have a rich understanding of the products we need, and it's this knowledge that helps guide us. We use the gear we make on the weekends while camping, climbing, or trekking. We are always seeking to make or improve our own outdoor experiences. </p><p>When we are in the office our desks have the water bottles and cups we make. My personal favourite area of the office is the coffee area with the pour-over kettle. What can we say, we are definite fans of what we produce!</p><p>As a company, we care about our customers and their experience with our products. We love the pictures, videos, and all that you capture for us on your adventures. You help us improve with the feedback and suggestions we get in our DM's or email inboxes. </p><p>Below are a few of the reviews and comments we've received.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "07815931-e055-41ad-9271-ca71aac1051f": {
+      "type": "advanced-layout--custom-html",
+      "blocks": {
+        "template--16062258020530__07815931-e055-41ad-9271-ca71aac1051f-16799934843e1559af-0": {
+          "type": "html",
+          "settings": {
+            "code": "<meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        .padded {\n        padding: 50px 0;\n    padding-left: 80px;\n    padding-right: 60px;\n}\n.hero-container{\n    position: relative; \n  \n}\n      p.Lines {\n    border-top: 1px solid;\n\n    width: 73px;\n}\n.hero-containe img{\n    max-width: 100%;\n}\n      h2.lowercase-text {\n    line-height: 58px;\n    margin-right: 130px;\n}\n      section.section-instagram-feed-wrapper {\n    padding-bottom: 8rem;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 48px;\n    color: #fff;\n    margin: 0;\n}\n\n.lowercase {\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    padding-left: 145px;\n    padding-right: 145px;\n}\n.story-description {\n    width: calc(50% - 23px);\n    padding: 60px;\n    display: flex;\n    flex-direction: column;\n    text-align: left;\n    justify-content: center;\n}\n.story-description p {\n    line-height: 30px;\n}\n.image-wrapper {\n    width: calc(50% - 23px);\n    overflow: hidden;\n}\nsection.padded .igt-story:nth-child(odd){\n    flex-direction: row-reverse;\n}\n.igt-story {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 60px;\n}\n.section-text-with-image-wrapper .element-container {\n    position: relative;\n    align-items: center;\n}\nsection-text-with-image-wrapper .element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.section-text-with-image-wrapper .element-media {\n    width: 100%;\n    padding-left: 0;\n}\n.section-text-with-image-wrapper .element-content {\n    padding-right: 0;\n}\n.section-text-with-image-wrapper .text-block {\n    margin-bottom: 32px;\n}\n    section.newsl-foot {\n\n    padding-left: 5%;\n}\n.section-text-with-image-wrapper .element-action {\n    margin-top: 28px;\n}\n.element-content.padded {\n   \n    padding-left: 60px;\n    padding-right: 0;\n}\n.element-container.flex {\n    display: flex;\n    position: relative;\n    align-items: center;\n}\n.element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.element-media.padded {\n    width: 100%;\n    padding-left: 0;\n}\n.element-media.padded img {\n    width: 100%;\n}\nh2.letterspace {\n    margin-bottom: 20px;\n    font-size: 50px;\n    line-height: 60px;\n}\np.leading {\n    font-size: 16px;\n    line-height: 30px;\n    color: #000;\n}\na.underlined.text-leading.reset-letterspace {\n    color: #000;\n}\n.padded.home-img h3 {\n    text-align: center;\n}\n.padded.home-img img {\n    width: 100px;\n  \n}\na.tdoors {\n    color: #000;\n    font-size: 26px;\n    letter-spacing: .17em;\n    line-height: 30px;\n \n    text-transform: uppercase;\n    text-decoration: none;\n}\n.hide-Mobile{\n    display: none;\n}\n@media only screen and (max-width: 576px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.hide-Mobile{\n    display: block;\n}\n.hide-desktop{\n    display: none;\n}\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n}\n@media only screen and (max-width: 1025px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 50px;\n    padding-right: 20px;\n}\n  section.newsl-foot{\n    padding-left:0;\n  }\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #fff;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\nh2.h3.story-headline {\n    font-size: 28px;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n    .story-description{\n        width: 100%;\n        padding: 0;\n    }\n    .image-wrapper img{\n   max-width: 100%;\n}\n.igt-story{\n    display: block;\n    margin-bottom: 20px;\n}\n.image-wrapper{\nwidth: 100%;\n}\n.element-container.flex{\n    flex-direction: column-reverse;\n}\n.element-content.padded{\n    padding-left: 0;\n}\n.element-content-wrapper{\n    width: 100%;\n    padding: 0 20px;\n    margin: 0;\n}\nh2.letterspace{\n    font-size: 28px;\n    line-height:36px;\n}\np.leading{\n    line-height: 24px;\n}\n\n    </style>\n\n\n\n    <div class=\"container\">\n        <div class=\"padded\">\n          <div class=\"hero-container\">\n        \n               <img class=\"hide-desktop\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Untitled_design_4.jpg?v=1679998433\" style=\"width: 100%;\" alt=\"reviews\">\n               <img class=\"hide-Mobile\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/18_fe34d9ba-6760-408f-b48c-462767fce735.jpg?v=1679998483\" style=\"width: 100%;\" alt=\"reviews\">\n               <!-- <p>This is some centered text.</p> -->\n          </div>\n        </div>\n      </div>",
+            "width": "75%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16062258020530__07815931-e055-41ad-9271-ca71aac1051f-16799934843e1559af-0"
+      ],
+      "settings": {}
+    },
+    "96dc90f1-3b89-4cb4-b37a-e06eed24a926": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "div {text-align: left; padding-right: 1px; padding-top: 0px; padding-left: 1px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "text": "<p>Finally for the community that have followed us thus far we are super grateful for your support. Have fun out there and stay safe!<br/></p><p>Shaun<br/></p><p>SilverAnt Outdoors </p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "90981476-be7e-4db1-951f-63831213c113": {
+      "type": "video--video-hero",
+      "settings": {
+        "url": "https://www.youtube.com/embed/7xoOrTYK7IA",
+        "desktopHeight": "fullscreen",
+        "mobileHeight": "fit",
+        "title": "",
+        "subheading": "",
+        "textAlignment": "center",
+        "textColor": "#000000",
+        "textShadow": false,
+        "heading--text-size": 50,
+        "subheading--text-size": 24,
+        "link": "",
+        "button_label": "",
+        "button-text": "#ffffff",
+        "button-background": "#000000"
+      }
+    },
+    "96897362-08da-4767-960d-bcfdb3f391a1": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 10px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Subscribe to our mailing list to receive a small weekly snippet of fun. From product promotions to articles, podcasts, and product guides. This newsletter gives you the lowdown on our weekly inspiration and of course our titanium outdoor products. Subscribe Now!</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5cd4d5a1-2783-42aa-a35c-3db96e94f621",
+    "2b642c60-dc1e-486b-aa74-90b27c59cab3",
+    "07815931-e055-41ad-9271-ca71aac1051f",
+    "96dc90f1-3b89-4cb4-b37a-e06eed24a926",
+    "90981476-be7e-4db1-951f-63831213c113",
+    "96897362-08da-4767-960d-bcfdb3f391a1"
+  ]
+}
