@@ -9,260 +9,46 @@
  */
 {
   "sections": {
-    "image_with_text_overlay_VUCbdf": {
-      "type": "image-with-text-overlay",
+    "5cd4d5a1-2783-42aa-a35c-3db96e94f621": {
+      "type": "advanced-layout--custom-html",
       "blocks": {
-        "heading_hi6wPp": {
-          "type": "heading",
-          "settings": {}
-        },
-        "text_iwXneH": {
-          "type": "text",
-          "settings": {}
-        },
-        "button_LakT3U": {
-          "type": "button",
-          "settings": {}
+        "template--16062245994674__5cd4d5a1-2783-42aa-a35c-3db96e94f621-1679990811d0cdc483-0": {
+          "type": "html",
+          "settings": {
+            "code": "<meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        .padded {\n        padding: 50px 0;\n    padding-left: 80px;\n    padding-right: 60px;\n}\n.hero-container{\n    position: relative; \n  \n}\n      p.Lines {\n    border-top: 1px solid;\n\n    width: 73px;\n}\n.hero-containe img{\n    max-width: 100%;\n}\n      h2.lowercase-text {\n    line-height: 58px;\n    margin-right: 130px;\n}\n      section.section-instagram-feed-wrapper {\n    padding-bottom: 8rem;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 48px;\n    color: #fff;\n    margin: 0;\n}\n\n.lowercase {\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    padding-left: 145px;\n    padding-right: 145px;\n}\n.story-description {\n    width: calc(50% - 23px);\n    padding: 60px;\n    display: flex;\n    flex-direction: column;\n    text-align: left;\n    justify-content: center;\n}\n.story-description p {\n    line-height: 30px;\n}\n.image-wrapper {\n    width: calc(50% - 23px);\n    overflow: hidden;\n}\nsection.padded .igt-story:nth-child(odd){\n    flex-direction: row-reverse;\n}\n.igt-story {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 60px;\n}\n.section-text-with-image-wrapper .element-container {\n    position: relative;\n    align-items: center;\n}\nsection-text-with-image-wrapper .element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.section-text-with-image-wrapper .element-media {\n    width: 100%;\n    padding-left: 0;\n}\n.section-text-with-image-wrapper .element-content {\n    padding-right: 0;\n}\n.section-text-with-image-wrapper .text-block {\n    margin-bottom: 32px;\n}\n    section.newsl-foot {\n\n    padding-left: 5%;\n}\n.section-text-with-image-wrapper .element-action {\n    margin-top: 28px;\n}\n.element-content.padded {\n   \n    padding-left: 60px;\n    padding-right: 0;\n}\n.element-container.flex {\n    display: flex;\n    position: relative;\n    align-items: center;\n}\n.element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.element-media.padded {\n    width: 100%;\n    padding-left: 0;\n}\n.element-media.padded img {\n    width: 100%;\n}\nh2.letterspace {\n    margin-bottom: 20px;\n    font-size: 50px;\n    line-height: 60px;\n}\np.leading {\n    font-size: 16px;\n    line-height: 30px;\n    color: #000;\n}\na.underlined.text-leading.reset-letterspace {\n    color: #000;\n}\n.padded.home-img h3 {\n    text-align: center;\n}\n.padded.home-img img {\n    width: 100px;\n  \n}\na.tdoors {\n    color: #000;\n    font-size: 26px;\n    letter-spacing: .17em;\n    line-height: 30px;\n \n    text-transform: uppercase;\n    text-decoration: none;\n}\n.hide-Mobile{\n    display: none;\n}\n@media only screen and (max-width: 576px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.hide-Mobile{\n    display: block;\n}\n.hide-desktop{\n    display: none;\n}\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n}\n@media only screen and (max-width: 1025px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 50px;\n    padding-right: 20px;\n}\n  section.newsl-foot{\n    padding-left:0;\n  }\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #fff;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\nh2.h3.story-headline {\n    font-size: 28px;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n    .story-description{\n        width: 100%;\n        padding: 0;\n    }\n    .image-wrapper img{\n   max-width: 100%;\n}\n.igt-story{\n    display: block;\n    margin-bottom: 20px;\n}\n.image-wrapper{\nwidth: 100%;\n}\n.element-container.flex{\n    flex-direction: column-reverse;\n}\n.element-content.padded{\n    padding-left: 0;\n}\n.element-content-wrapper{\n    width: 100%;\n    padding: 0 20px;\n    margin: 0;\n}\nh2.letterspace{\n    font-size: 28px;\n    line-height:36px;\n}\np.leading{\n    line-height: 24px;\n}\n\n    </style>\n\n\n\n    <div class=\"container\">\n        <div class=\"padded\">\n          <div class=\"hero-container\">\n        \n               <img class=\"hide-desktop\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/17.jpg?v=1679991747\" style=\"width: 100%;\" alt=\"faq's\">\n               <img class=\"hide-Mobile\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/11.jpg?v=1679991732\" style=\"width: 100%;\" alt=\"faq's\">\n               <!-- <p>This is some centered text.</p> -->\n          </div>\n        </div>\n      </div>",
+            "width": "100%"
+          }
         }
       },
       "block_order": [
-        "heading_hi6wPp",
-        "text_iwXneH",
-        "button_LakT3U"
+        "template--16062245994674__5cd4d5a1-2783-42aa-a35c-3db96e94f621-1679990811d0cdc483-0"
       ],
-      "settings": {
-        "height_desktop": "original",
-        "text_position_desktop": "center",
-        "text_position_mobile": "center",
-        "animation_style": "none"
-      }
+      "settings": {}
     },
     "main": {
       "type": "template--page",
-      "disabled": true,
-      "settings": {
-        "page_title_enabled": true,
-        "page_width": "content"
-      }
-    },
-    "16457242689a58d7f3": {
-      "type": "accordion",
-      "blocks": {
-        "164572426857089649-0": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "164572426857089649-1": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "164572426857089649-2": {
-          "type": "tab_content",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "164572426857089649-0",
-        "164572426857089649-1",
-        "164572426857089649-2"
+      "custom_css": [
+        ".sitewide--title-wrapper {display: none;}"
       ],
       "settings": {
-        "faq_icon": "caret",
-        "colors": "white"
+        "page_width": "full-width"
       }
     },
-    "164572438470d85add": {
-      "type": "accordion",
-      "blocks": {
-        "164572438495310fd3-0": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "164572438495310fd3-1": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "164572438495310fd3-2": {
-          "type": "tab_content",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "164572438495310fd3-0",
-        "164572438495310fd3-1",
-        "164572438495310fd3-2"
+    "ac562300-718d-492d-91ad-8df93ca9dd68": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {text-align: center; padding-left: 10px; padding-right: 5px;}"
       ],
       "settings": {
-        "faq_icon": "caret",
-        "colors": "white"
-      }
-    },
-    "1645724424d6db0e5a": {
-      "type": "accordion",
-      "blocks": {
-        "164572442464b4aa49-0": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "164572442464b4aa49-1": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "164572442464b4aa49-2": {
-          "type": "tab_content",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "164572442464b4aa49-0",
-        "164572442464b4aa49-1",
-        "164572442464b4aa49-2"
-      ],
-      "settings": {
-        "faq_icon": "caret",
-        "colors": "white"
-      }
-    },
-    "1645724501b902ee9b": {
-      "type": "rich-text",
-      "blocks": {
-        "bc4025b5-129f-46b8-8cae-abfa4c5f4e2a": {
-          "type": "heading",
-          "settings": {
-            "heading": "Still need assistance?"
-          }
-        },
-        "6d07b405-3374-4f17-b28d-17e359b5102b": {
-          "type": "richtext",
-          "settings": {
-            "text": "<p>Use this section to direct your customers to your contact form to further assistance</p>",
-            "text_size": 14
-          }
-        },
-        "f391f3ae-8651-4404-a582-ed557905006e": {
-          "type": "button",
-          "settings": {
-            "button_text": "Contact us"
-          }
-        }
-      },
-      "block_order": [
-        "bc4025b5-129f-46b8-8cae-abfa4c5f4e2a",
-        "6d07b405-3374-4f17-b28d-17e359b5102b",
-        "f391f3ae-8651-4404-a582-ed557905006e"
-      ],
-      "settings": {
-        "section_width": "narrow",
-        "text_alignment_desktop": "center",
-        "text_alignment_mobile": "center",
-        "colors": "light"
-      }
-    },
-    "0a7925da-021c-4303-a883-f17246eb32f5": {
-      "type": "logo-list",
-      "blocks": {
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-0": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-1": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-2": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-3": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "1d3de4d5-1cd4-4328-8ede-a844b0636851": {
-          "type": "logo_image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-0",
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-1",
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-2",
-        "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-3",
-        "1d3de4d5-1cd4-4328-8ede-a844b0636851"
-      ],
-      "settings": {
-        "title": "Say hello via our socials",
-        "width": 100,
-        "colors": "white"
-      }
-    },
-    "gallery_slideshow_YhhWHm": {
-      "type": "gallery-slideshow",
-      "blocks": {
-        "image_iYbmwc": {
-          "type": "image",
-          "settings": {
-            "button_label": "",
-            "overlay_opacity": 25
-          }
-        },
-        "image_mbCJxT": {
-          "type": "image",
-          "settings": {
-            "button_label": "",
-            "overlay_opacity": 25
-          }
-        },
-        "image_kixVkb": {
-          "type": "image",
-          "settings": {
-            "button_label": "",
-            "overlay_opacity": 25
-          }
-        },
-        "image_EFqmJc": {
-          "type": "image",
-          "settings": {
-            "button_label": "",
-            "overlay_opacity": 25
-          }
-        }
-      },
-      "block_order": [
-        "image_iYbmwc",
-        "image_mbCJxT",
-        "image_kixVkb",
-        "image_EFqmJc"
-      ],
-      "settings": {
-        "title": "Find us on Instagram",
-        "description": "",
-        "image_shape": "square",
-        "layout_style_desktop": "grid",
-        "hover_navigation_desktop": "none",
-        "images_per_row_desktop": 4,
-        "text_position_desktop": "bottom_left",
-        "show_on_hover": true,
-        "layout_style_mobile": "grid",
-        "images_per_row_mobile": "2",
-        "text_position_mobile": "bottom_left",
-        "buttons_style": "filled",
-        "override_button_colors": false,
-        "section_width": "full",
-        "remove_spacing": true,
-        "section_padding_top": 30,
-        "section_padding_bottom": 0,
-        "colors": "white"
+        "colors": "white",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Subscribe to our mailing list to receive a small weekly snippet of fun. From product promotions to articles, podcasts, and product guides. This newsletter gives you the lowdown on our weekly inspiration and of course our titanium outdoor products. Subscribe Now!</p>"
       }
     }
   },
   "order": [
-    "image_with_text_overlay_VUCbdf",
+    "5cd4d5a1-2783-42aa-a35c-3db96e94f621",
     "main",
-    "16457242689a58d7f3",
-    "164572438470d85add",
-    "1645724424d6db0e5a",
-    "1645724501b902ee9b",
-    "0a7925da-021c-4303-a883-f17246eb32f5",
-    "gallery_slideshow_YhhWHm"
+    "ac562300-718d-492d-91ad-8df93ca9dd68"
   ]
 }

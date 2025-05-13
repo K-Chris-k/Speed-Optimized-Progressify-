@@ -12,26 +12,10 @@
   "sections": {
     "main": {
       "type": "template--search",
-      "settings": {
-        "desktop-results-per-row": 3,
-        "mobile-results-per-row": "1",
-        "desktop_position": "topbar",
-        "enable_filtering": true,
-        "enable_sorting": true,
-        "show_swatch_filter_labels": true
-      }
-    },
-    "ba0289a9-189c-44b4-a569-0217c0002607": {
-      "type": "newsletter",
-      "settings": {
-        "colors": "light",
-        "newsletter_heading": "Sign up to our newsletter",
-        "newsletter_description": "<p>Get priority access to events and exclusive offers</p>"
-      }
+      "settings": {}
     }
   },
   "order": [
-    "main",
-    "ba0289a9-189c-44b4-a569-0217c0002607"
+    "main"
   ]
 }

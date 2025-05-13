@@ -12,55 +12,23 @@
     "main": {
       "type": "template--article",
       "settings": {
-        "article-sidebar-description": "",
         "blog-sidebar-link": "",
         "show_blog_tags": false,
         "show_recent_posts": true,
         "blog_show_date": true
       }
     },
-    "9d393ac7-9597-4549-8ebb-968e14caed7a": {
-      "type": "rich-text",
-      "blocks": {
-        "28ddc8d0-6e32-4aa9-944c-e146a5d279fe": {
-          "type": "button",
-          "settings": {
-            "button_text": "Back to the blog"
-          }
-        }
-      },
-      "block_order": [
-        "28ddc8d0-6e32-4aa9-944c-e146a5d279fe"
-      ],
+    "806d0550-2aba-4d8f-9aa6-5ff87da5a066": {
+      "type": "newsletter--newsletter",
       "settings": {
-        "section_width": "narrow",
-        "text_alignment_desktop": "center",
-        "text_alignment_mobile": "center",
-        "colors": "light"
-      }
-    },
-    "e2dfdb67-5375-4fe3-a635-d480f7c4340c": {
-      "type": "blog-posts",
-      "blocks": {
-        "template--14795084857414__e2dfdb67-5375-4fe3-a635-d480f7c4340c-1688743276c47a2ce9-0": {
-          "type": "article",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "template--14795084857414__e2dfdb67-5375-4fe3-a635-d480f7c4340c-1688743276c47a2ce9-0"
-      ],
-      "settings": {
-        "title": "Featured articles",
-        "blog_show_date": true,
-        "post_limit": 3,
-        "colors": "white"
+        "colors": "accent",
+        "newsletter_heading": "Join Our Community & Plant A Tree",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree </strong></em>and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
       }
     }
   },
   "order": [
     "main",
-    "9d393ac7-9597-4549-8ebb-968e14caed7a",
-    "e2dfdb67-5375-4fe3-a635-d480f7c4340c"
+    "806d0550-2aba-4d8f-9aa6-5ff87da5a066"
   ]
 }
