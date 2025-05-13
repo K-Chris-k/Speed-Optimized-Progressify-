@@ -12,20 +12,6 @@
     "product-form": {
       "type": "template--product",
       "blocks": {
-        "media": {
-          "type": "media",
-          "settings": {
-            "image_size": "medium",
-            "image-display": "thumbnails",
-            "thumbnail_position": "below",
-            "enable_image_zoom": true,
-            "enable_video_loop": false
-          }
-        },
-        "sale_badge": {
-          "type": "sale_badge",
-          "settings": {}
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -44,9 +30,7 @@
         "options": {
           "type": "options",
           "settings": {
-            "product_variant_style": "swatches",
-            "thumbnail_changes_variant": false,
-            "hide_soldout_variants": false
+            "thumbnail_changes_variant": false
           }
         },
         "quantity": {
@@ -77,29 +61,27 @@
         },
         "46a68c53-9aaa-404f-8759-76be46d7045b": {
           "type": "trust_badges",
-          "disabled": true,
           "settings": {
-            "trust-badge_max_width": 500,
-            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
+            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png",
+            "trust-badge_max_width": 500
           }
         },
         "69de8680-44b2-42ab-8b77-2a049ccd2f20": {
           "type": "shopify://apps/greenspark/blocks/impact-settings-widgets/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
           "settings": {
             "impact_setting_type": "offsetPerOrder",
-            "style": "simplified",
             "horizontal_alignment": "center",
-            "size": "full_width",
-            "fullwidth_justification": "center",
-            "greenspark_widget_color": "#3B755F",
-            "enable_popup": true,
-            "greenspark_popup_theme": "light"
+            "size": "regular",
+            "fullwidth_justification": "flex-start",
+            "greenspark_widget_color": "#3B755F"
           }
+        },
+        "6e9d9125-ce4e-4aad-bbcf-e84ccd5bad55": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-fbt-block/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
         }
       },
       "block_order": [
-        "media",
-        "sale_badge",
         "title",
         "82f0bd81-d4e0-4618-aace-8c9d28ac737e",
         "price",
@@ -109,37 +91,30 @@
         "afc01261-caa5-458b-9190-7984d135882e",
         "buy_buttons",
         "46a68c53-9aaa-404f-8759-76be46d7045b",
-        "69de8680-44b2-42ab-8b77-2a049ccd2f20"
+        "69de8680-44b2-42ab-8b77-2a049ccd2f20",
+        "6e9d9125-ce4e-4aad-bbcf-e84ccd5bad55"
       ],
       "settings": {
-        "enable_sticky": true,
-        "show_out_of_stock_email": true
+        "enable_sticky": true
       }
     },
-    "56c31eb2-f095-4866-b305-7436fae96d4b": {
-      "type": "advanced-layout--custom-html",
-      "blocks": {
-        "template--15617723072690__56c31eb2-f095-4866-b305-7436fae96d4b-1665763477432967d4-0": {
-          "type": "html",
-          "settings": {
-            "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style>\n* {\n  box-sizing: border-box;\n  text-align: center;\n}\n\n/* Create four equal columns that floats next to each other */\n.column {\n  float: left;\n  width: 25%;\n  padding: 40px;\n  height: 150px; /* Should be removed. Only for demonstration */\n}\n\n/* Clear floats after the columns */\n.row:after {\n  content: \"\";\n  display: table;\n  clear: both;\n}\n\n/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */\n@media screen and (max-width: 600px) {\n  .column {\n    width: 100%;\n  }\n}\n</style>\n\n\n\n\n<div class=\"row\">\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>WEIGHT</h3>\n    <p>187g/6.6oz</p>\n  </div>\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>DIMENSION</h3>\n    <p>D 3.34\" H 4.72\"</p>\n  </div>\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>CAPACITY</h3>\n    <p>400ml/14 fl oz</p>\n  </div>\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>BEST USE</h3>\n    <p>Backpacking</p>\n  </div>\n</div>",
-            "width": "100%"
-          }
-        }
-      },
-      "block_order": [
-        "template--15617723072690__56c31eb2-f095-4866-b305-7436fae96d4b-1665763477432967d4-0"
-      ],
-      "disabled": true,
+    "product-recommendations": {
+      "type": "template--product--recommendations",
       "settings": {}
+    },
+    "product-description": {
+      "type": "template--product--description",
+      "settings": {
+        "enable_readmore": false
+      }
     },
     "1654498491f6e8793c": {
       "type": "accordion",
       "blocks": {
-        "tab_content_M7JiXJ": {
+        "tab_content_ArRnqg": {
           "type": "tab_content",
           "settings": {
-            "question": "Product Overview",
+            "question": "Description",
             "text": ""
           }
         },
@@ -166,54 +141,15 @@
         }
       },
       "block_order": [
-        "tab_content_M7JiXJ",
+        "tab_content_ArRnqg",
         "1654498491a7b8c1f7-0",
         "cfcf09c0-da3e-4eb6-9d9a-7d5604040563",
         "1654498491a7b8c1f7-2"
       ],
       "settings": {
-        "colors": "white",
         "title": "Product Information",
-        "faq_icon": "caret"
-      }
-    },
-    "product-recommendations": {
-      "type": "template--product--recommendations",
-      "blocks": {
-        "product_card_image": {
-          "type": "product_card_image",
-          "settings": {
-            "hover-effect": true,
-            "enable_badges": true
-          }
-        },
-        "product_card_title": {
-          "type": "product_card_title",
-          "settings": {}
-        },
-        "product_card_vendor": {
-          "type": "product_card_vendor",
-          "settings": {}
-        },
-        "product_card_price": {
-          "type": "product_card_price",
-          "settings": {}
-        },
-        "product_card_button": {
-          "type": "product_card_button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "product_card_image",
-        "product_card_title",
-        "product_card_vendor",
-        "product_card_price",
-        "product_card_button"
-      ],
-      "settings": {
-        "enable_product_recommendations": true,
-        "product_recommendations_heading": "Customers Like You Also Purchased"
+        "faq_icon": "caret",
+        "colors": "white"
       }
     },
     "1696136166eb28b41e": {
@@ -231,127 +167,9 @@
         "include_margins": true
       }
     },
-    "1d175c53-0195-4d18-8409-2e8b117fbf01": {
-      "type": "image--slideshow",
-      "blocks": {
-        "template--15617723072690__1d175c53-0195-4d18-8409-2e8b117fbf01-1665730331ba3c3052-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Review_Hero_2000_x_900px_2.jpg",
-            "mobile_image": "shopify://shop_images/SilverAnt_Review_Hero_1400_x_1400_px_2.jpg",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#000000",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "left",
-            "captionAlignment": "left"
-          }
-        }
-      },
-      "block_order": [
-        "template--15617723072690__1d175c53-0195-4d18-8409-2e8b117fbf01-1665730331ba3c3052-0"
-      ],
-      "settings": {
-        "slider-animation": "slide",
-        "slider-width": "full-width",
-        "vertical-alignment": true,
-        "text-below-image": true,
-        "slider-slide-time": 5,
-        "caption-heading-size": 30,
-        "caption-subheading-size": 16,
-        "caption-button-size": 14,
-        "show-slide-dots": false,
-        "show-slide-arrows": true,
-        "slider-navigation-color": "#ffffff"
-      }
-    },
     "recently-viewed": {
       "type": "template--product--recently-viewed",
-      "blocks": {
-        "product_card_image": {
-          "type": "product_card_image",
-          "settings": {
-            "hover-effect": false,
-            "enable_badges": true
-          }
-        },
-        "product_card_title": {
-          "type": "product_card_title",
-          "settings": {}
-        },
-        "product_card_vendor": {
-          "type": "product_card_vendor",
-          "settings": {}
-        },
-        "product_card_price": {
-          "type": "product_card_price",
-          "settings": {}
-        },
-        "product_card_button": {
-          "type": "product_card_button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "product_card_image",
-        "product_card_title",
-        "product_card_vendor",
-        "product_card_price",
-        "product_card_button"
-      ],
-      "settings": {
-        "enable_recently_viewed": false,
-        "recently_viewed_title": "Recently viewed products"
-      }
-    },
-    "ac6e36b3-e2ad-48af-9b49-da85950cfc97": {
-      "type": "newsletter--newsletter",
-      "settings": {
-        "colors": "dark",
-        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree",
-        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
-      }
-    },
-    "16544961157403b632": {
-      "type": "text--text-adverts",
-      "blocks": {
-        "165449611502360f4f-0": {
-          "type": "text",
-          "settings": {
-            "heading": "We Manufacture All Our Products",
-            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
-            "link": ""
-          }
-        },
-        "165449611502360f4f-1": {
-          "type": "text",
-          "settings": {
-            "heading": "We are Certified by Industry Leaders",
-            "subheading": "All our products are certified by the SGS and FDA, with our products made in our own ISO:9001 certified factory.",
-            "link": ""
-          }
-        },
-        "165449611502360f4f-2": {
-          "type": "text",
-          "settings": {
-            "heading": "Quality Customer Service",
-            "subheading": "Even when things dont go to plan our customer service team will provide a personalized solution to your problem.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "165449611502360f4f-0",
-        "165449611502360f4f-1",
-        "165449611502360f4f-2"
-      ],
-      "settings": {
-        "colors": "accent"
-      }
+      "settings": {}
     },
     "proviews_review_widget_1685971421918": {
       "type": "apps",
@@ -359,28 +177,15 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "advanced_layout_custom_liquid_3DzKk8": {
-      "type": "advanced-layout--custom-liquid",
-      "custom_css": [
-        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
-      ],
-      "settings": {
-        "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\n\tdocument.getElementById(\"AddToCart\").addEventListener('click',function (){\n \t\t_learnq.push(['track', 'Added to Cart', item]);\n\t});</script>"
-      }
     }
   },
   "order": [
     "product-form",
-    "56c31eb2-f095-4866-b305-7436fae96d4b",
-    "1654498491f6e8793c",
     "product-recommendations",
+    "product-description",
+    "1654498491f6e8793c",
     "1696136166eb28b41e",
-    "1d175c53-0195-4d18-8409-2e8b117fbf01",
     "recently-viewed",
-    "ac6e36b3-e2ad-48af-9b49-da85950cfc97",
-    "16544961157403b632",
-    "proviews_review_widget_1685971421918",
-    "advanced_layout_custom_liquid_3DzKk8"
+    "proviews_review_widget_1685971421918"
   ]
 }

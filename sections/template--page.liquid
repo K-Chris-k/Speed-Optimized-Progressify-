@@ -1,67 +1,89 @@
-<!-- /sections/page-template.liquid -->
-{% case section.settings.page_width %}
-  {% when 'full-width' %}
-    {%- assign page_width = 'large--one whole' -%}
-  {% when 'narrow' %}
-    {%- assign page_width = 'large--two-thirds push--large--one-sixth' -%}
-{% endcase %}
+{{ 'template-page.min.css' | asset_url | stylesheet_tag: preload: true }}
 
-<div class="wrapper-padded main-page-container">
-  <div class="grid clearfix">
-    <div class="grid__item {{ page_width }}">
-      <div class="sitewide--title-wrapper">
-        <h1 class="page--title">{{ page.title }}</h1>
+{%- liquid
+  assign has_sidebar = false
+  if section.blocks.size > 0
+    for block in section.blocks
+      if block.type == 'text' and block.settings.title != blank
+        assign has_sidebar = true
+      endif
+      if block.type == 'richtext' and block.settings.text != blank
+        assign has_sidebar = true
+      endif
+      if block.type == 'menu' and block.settings.menu != blank
+        assign has_sidebar = true
+      endif
+      if block.type == 'image_picker'
+        assign has_sidebar = true
+      endif
+    endfor
+  endif
+-%}
+
+<div class="wrapper-spacing--v--template wrapper-spacing--h show-on-scroll">
+  <div{% unless section.settings.page_width == 'full-width' %} class="width--{{ section.settings.page_width }}"{% endunless %}>
+    {% if section.settings.page_title_enabled %}
+      <div class="template-title--wrapper">
+        <h1 class="page--title template-title" data-page-title data-animate data-animate-order="1">{{ page.title }}</h1>
+      </div>
+    {% endif %}
+
+    <div class="grid">
+      <div class="rte text-link-animated grid__item grid__item--page{% if has_sidebar %} large--two-thirds{% endif %}">
+        {{ page.content }}
       </div>
 
-      <div class="grid">
-        <div class="rte grid__item{% if section.blocks.size > 0 %} large--two-thirds{% endif %}">
-          {{ page.content }}
-        </div>
-
-        <div class="page-sidebar grid__item large--one-third">
+      {% if has_sidebar %}
+        <div data-sidebar-content class="page-sidebar grid__item large--one-third">
 
             {% for block in section.blocks %}
               {% case block.type %}
 
                   {% when 'text' %}
-                  <div class="sidebar-section">
-                    <h4>{{ block.settings.title }}</h4>
-                  </div>
+                  {% if block.settings.title != blank %}
+                    <div class="sidebar-section" {{ block.shopify_attributes }}>
+                      <h4>{{ block.settings.title }}</h4>
+                    </div>
+                  {% endif %}
 
                   {% when 'richtext' %}
-                  <div class="sidebar-section sidebar-text">
-                    {{ block.settings.text }}
-                  </div>
+                  {% if block.settings.text != blank %}
+                    <div class="sidebar-section sidebar-text text-link-animated richtext-block" {{ block.shopify_attributes }}>
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
 
                   {% when 'menu' %}
-                  {% assign menu = linklists[block.settings.menu] %}
-                  <div class="sidebar-section">
-                    {% for link in menu.links %}
-                      {% if link.links != blank %}
-                        <li>
-                          <a href="{{ link.url }}" class="sidebar-menu--has-dropdown-title">{{ link.title }}</a>
-                          <ul class="sidebar-menu--level-2">
-                            {% for sub_link in link.links %}
-                                <li>- <a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a></li>
-                                  <ul class="sidebar-menu--level-3">
-                                  {% for sub_sub_link in sub_link.links %}
-                                      <li>- <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a></li>
-                                  {% endfor %}
-                                </ul>
-                            {% endfor %}
-                          </ul>
-                        </li>
-                      {% else %}
-                        <li>
-                          <a href="{{ link.url }}">{{ link.title }}</a>
-                        </li>
-                      {% endif %}
-                    {% endfor %}
+                  {% if block.settings.menu != blank %}
+                    {% assign menu = linklists[block.settings.menu] %}
+                    <div class="sidebar-section page--sidebar-menu nav-link-animated--custom" {{ block.shopify_attributes }}>
+                      {% for link in menu.links %}
+                        {% if link.links != blank %}
+                          <li>
+                            <a href="{{ link.url }}" class="sidebar-menu--has-dropdown-title animated-link--item">{{ link.title }}</a>
+                            <ul class="sidebar-menu--level-2">
+                              {% for sub_link in link.links %}
+                                  <li><a class="animated-link--item" href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a></li>
+                                    <ul class="sidebar-menu--level-3">
+                                    {% for sub_sub_link in sub_link.links %}
+                                        <li><a class="animated-link--item" href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a></li>
+                                    {% endfor %}
+                                  </ul>
+                              {% endfor %}
+                            </ul>
+                          </li>
+                        {% else %}
+                          <li>
+                            <a class="animated-link--item" href="{{ link.url }}">{{ link.title }}</a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
 
-                  </div>
-
+                    </div>
+                  {% endif %}
+                  
                   {% when 'image_picker' %}
-                  <div class="sidebar-section sidebar-image">
+                  <div class="sidebar-section sidebar-image" {{ block.shopify_attributes }}>
                     {% if block.settings.image_link != blank %}
                       <a href="{{ block.settings.image_link }}">
                     {% endif %}
@@ -69,16 +91,7 @@
                     {% if block.settings.sidebar_image == blank %}
                       {{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
                     {% else %}
-
-                      {% if block.settings.sidebar_image.alt != blank %}
-                        {% assign side_alt = block.settings.sidebar_image.alt | escape %}
-                      {% elsif block.settings.image_title != blank %}
-                        {% assign side_alt = block.settings.image_title | escape %}
-                      {% else %}
-                        {% assign side_alt = shop.name | escape %}
-                      {% endif %}
-
-                      {% render 'responsive-image' with block.settings.sidebar_image, alt: side_alt %}
+                      {% render 'responsive-image' with block.settings.sidebar_image %}
                     {% endif %}
 
                     {% if block.settings.image_title != blank %}
@@ -86,7 +99,7 @@
                     {% endif %}
 
                     {% if block.settings.image_link != blank %}
-                  </a>
+                      </a>
                     {% endif %}
                   </div>
 
@@ -94,192 +107,103 @@
             {% endfor %}
 
         </div>
-      </div>
+      {% endif %}
     </div>
   </div>
 </div>
 
 {% schema %}
 {
-    "name": {
-        "en": "Page",
-        "de": "Seite",
-        "es": "Página",
-        "fr": "Page",
-        "pt-PT": "Página"
+  "name": "t:sections.template--page.name",
+  "class": "main-page-content",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "page_title_enabled",
+      "label": "t:sections.template--page.settings.show_page_title.label",
+      "default": true
     },
-    "settings": [
+    {
+      "type": "select",
+      "id": "page_width",
+      "label": "t:all.Width",
+      "options": [
         {
-            "type": "select",
-            "id": "page_width",
-            "label": {
-                "en": "Width",
-                "de": "Breite",
-                "es": "Ancho",
-                "fr": "Largeur",
-                "pt-PT": "Largura"
-            },
-            "options": [
-                {
-                    "value": "full-width",
-                    "label": {
-                        "en": "Full width",
-                        "de": "Volle Breite",
-                        "es": "Ancho completo",
-                        "fr": "Pleine largeur",
-                        "pt-PT": "Largura total"
-                    }
-                },
-                {
-                    "value": "narrow",
-                    "label": {
-                        "en": "Narrow",
-                        "de": "Eng",
-                        "es": "Estrecho",
-                        "fr": "Restreindre",
-                        "pt-PT": "Reduzido"
-                    }
-                }
-            ],
-            "default": "full-width"
+          "value": "narrow",
+          "label": "t:all.Narrow"
+        },
+        {
+          "value": "content",
+          "label": "t:all.Content_width"
+        },
+        {
+          "value": "full-width",
+          "label": "t:all.Full_width"
         }
-    ],
-    "blocks": [
+      ],
+      "default": "content"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.template--page.blocks.text.name",
+      "settings": [
         {
-            "type": "text",
-            "name": {
-                "en": "Sidebar title",
-                "de": "Seitenleistentitel",
-                "es": "Título de la barra lateral",
-                "fr": "Titre de la barre latérale",
-                "pt-PT": "Título da barra lateral"
-            },
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": {
-                        "en": "Title",
-                        "de": "Titel",
-                        "es": "Título",
-                        "fr": "Titre",
-                        "pt-PT": "Título"
-                    },
-                    "default": {
-                        "en": "Title",
-                        "de": "Titel",
-                        "es": "Título",
-                        "fr": "Titre",
-                        "pt-PT": "Título"
-                    }
-                }
-            ]
-        },
-        {
-            "type": "richtext",
-            "name": {
-                "en": "Sidebar text",
-                "de": "Seitenleistentext",
-                "es": "Texto de la barra lateral",
-                "fr": "Texte de la barre latérale",
-                "pt-PT": "Texto da barra lateral"
-            },
-            "settings": [
-                {
-                    "type": "richtext",
-                    "id": "text",
-                    "label": {
-                        "en": "Text",
-                        "de": "Text",
-                        "es": "Texto",
-                        "fr": "Texte",
-                        "pt-PT": "Texto"
-                    },
-                    "default": {
-                        "en": "<p>Add any additional content you want across your stores content pages</p>",
-                        "de": "<p>Fügen Sie alle zusätzlichen Inhalte hinzu, die Sie auf den Inhaltsseiten Ihrer Shops haben möchten</p>",
-                        "es": "<p>Añada cualquier contenido adicional que desee en todas las páginas de su tienda</p>",
-                        "fr": "<p>Ajouter tout contenu supplémentaire que vous désirez dans toutes les pages de contenu de vos magasins</p>",
-                        "pt-PT": "<p>Adicione os conteúdos adicionais que quiser nas páginas de conteúdo das suas lojas</p>"
-                    }
-                }
-            ]
-        },
-        {
-            "type": "menu",
-            "name": {
-                "en": "Sidebar menu",
-                "de": "Seitenleistenmenü",
-                "es": "Menú de la barra lateral",
-                "fr": "Menu de la barre latérale",
-                "pt-PT": "Menu da barra lateral"
-            },
-            "settings": [
-                {
-                    "type": "link_list",
-                    "id": "menu",
-                    "label": {
-                        "en": "Menu",
-                        "de": "Menü",
-                        "es": "Menú",
-                        "fr": "Menu",
-                        "pt-PT": "Menu"
-                    }
-                }
-            ]
-        },
-        {
-            "type": "image_picker",
-            "name": {
-                "en": "Sidebar image",
-                "de": "Bild",
-                "es": "Imagen",
-                "fr": "Image",
-                "pt-PT": "Imagem"
-            },
-            "settings": [
-                {
-                    "type": "image_picker",
-                    "id": "sidebar_image",
-                    "label": {
-                        "en": "Image",
-                        "de": "Bild",
-                        "es": "Imagen",
-                        "fr": "Image",
-                        "pt-PT": "Imagem"
-                    }
-                },
-                {
-                    "type": "text",
-                    "id": "image_title",
-                    "label": {
-                        "en": "Image title",
-                        "de": "Bildtitel",
-                        "es": "Título de la imagen",
-                        "fr": "Titre de l'image",
-                        "pt-PT": "Título da imagem"
-                    },
-                    "placeholder": {
-                        "en": "Title",
-                        "de": "Titel",
-                        "es": "Título",
-                        "fr": "Titre",
-                        "pt-PT": "Título"
-                    }
-                },
-                {
-                    "type": "url",
-                    "id": "image_link",
-                    "label": {
-                        "en": "Image link",
-                        "de": "Bildlink",
-                        "es": "Enlace de la imagen",
-                        "fr": "Lien vers l'image",
-                        "pt-PT": "Link da imagem"
-                    }
-                }
-            ]
+          "type": "text",
+          "id": "title",
+          "label": "t:all.Heading",
+          "default": "Sidebar heading"
         }
-    ]
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "t:sections.template--page.blocks.richtext.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:all.Text",
+          "default": "<p>Add any additional content you want across your stores content pages</p>"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "t:sections.template--page.blocks.menu.name",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:all.Menu",
+          "default": "main-menu"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "name": "t:sections.template--page.blocks.image_picker.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "sidebar_image",
+          "label": "t:all.Image"
+        },
+        {
+          "type": "text",
+          "id": "image_title",
+          "label": "t:sections.template--page.blocks.image_picker.settings.image_title.label",
+          "placeholder": "Title"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "t:all.Link",
+          "info": "t:all.Optional"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
