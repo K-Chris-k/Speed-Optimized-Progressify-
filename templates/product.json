@@ -12,375 +12,365 @@
     "product-form": {
       "type": "template--product",
       "blocks": {
-        "media": {
-          "type": "media",
+        "star_rating_Xzpi9G": {
+          "type": "star_rating",
           "settings": {
-            "image_size": "medium",
-            "image-display": "thumbnails",
-            "thumbnail_position": "below",
-            "enable_image_zoom": true,
-            "enable_video_loop": false
+            "show_rating_as": "count",
+            "star_size": 16,
+            "no_reviews_label": "No reviews",
+            "margin_bottom": 5
           }
-        },
-        "sale_badge": {
-          "type": "sale_badge",
-          "settings": {}
         },
         "title": {
           "type": "title",
-          "settings": {}
-        },
-        "82f0bd81-d4e0-4618-aace-8c9d28ac737e": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "title_font": "h1",
+            "margin_bottom": 0
+          }
         },
         "price": {
           "type": "price",
           "settings": {
-            "shipping_policy": true,
-            "tax_included": true
+            "price_font": "h3",
+            "shipping_policy": false,
+            "tax_included": false,
+            "margin_bottom": 30
+          }
+        },
+        "f0f0e917-92a5-4957-a68e-2d0bb38d7819": {
+          "type": "separator",
+          "settings": {
+            "margin_bottom": 15
+          }
+        },
+        "2f3ddc8d-6514-403d-a884-88c9a0294300": {
+          "type": "stock-level-indicator",
+          "settings": {
+            "stock-range": 20,
+            "stock-level-notice": "always",
+            "show-stock-count": false,
+            "in-stock-message": "Ready to ship",
+            "low-stock-message": "Selling fast!",
+            "out-of-stock-message": "Back in stock soon",
+            "stock-level-indicator-style": "classic",
+            "bar-indicator-color": "standard",
+            "stock_indicator_animation": true,
+            "margin_bottom": 8
+          }
+        },
+        "a7717974-ed85-4cde-80ef-4751178acf57": {
+          "type": "text-with-icon",
+          "settings": {
+            "icon": "truck",
+            "text": "Worldwide shipping available",
+            "link": "",
+            "margin_bottom": 8
+          }
+        },
+        "text_with_icon_dtPE3H": {
+          "type": "text-with-icon",
+          "settings": {
+            "icon": "price-tag",
+            "text": "Exclusive offers available",
+            "link": "",
+            "margin_bottom": 17
+          }
+        },
+        "separator_j9tcaD": {
+          "type": "separator",
+          "settings": {
+            "margin_bottom": 30
           }
         },
         "options": {
           "type": "options",
           "settings": {
-            "product_variant_style": "swatches",
+            "variant_style": "swatches",
+            "hide_out_of_stock_variants": false,
             "thumbnail_changes_variant": false,
-            "hide_soldout_variants": false
+            "size_guide_page": "",
+            "margin_bottom": 30
           }
         },
         "quantity": {
           "type": "quantity",
-          "settings": {}
-        },
-        "12405fb2-d0cf-468a-9133-3d850b5ee912": {
-          "type": "text-with-icon",
           "settings": {
-            "icon": "map-pin",
-            "text": "All orders typically leave the warehouse in 1-2 business days.",
-            "link": ""
-          }
-        },
-        "afc01261-caa5-458b-9190-7984d135882e": {
-          "type": "text-with-icon",
-          "settings": {
-            "icon": "heart",
-            "text": "Customization of the product is available; click to discover further details.",
-            "link": "shopify://pages/customize"
+            "margin_bottom": 30
           }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_smart_checkout": true
+            "show_smart_checkout": true,
+            "enable_gift_card_recipient_form": true,
+            "margin_bottom": 30
           }
         },
-        "46a68c53-9aaa-404f-8759-76be46d7045b": {
-          "type": "trust_badges",
-          "disabled": true,
+        "a55b9011-1b1a-4353-9d97-7bdcd60949f2": {
+          "type": "product-description",
           "settings": {
-            "trust-badge_max_width": 500,
-            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
+            "collapsible_tab": true,
+            "icon": "none",
+            "heading": "Description",
+            "open_close_icon": "caret",
+            "open_by_default": true,
+            "margin_bottom": 0
           }
         },
-        "69de8680-44b2-42ab-8b77-2a049ccd2f20": {
-          "type": "shopify://apps/greenspark/blocks/impact-settings-widgets/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
+        "b0c19132-8e54-4664-b8ce-0a8c7f1f7737": {
+          "type": "collapsible-tab",
           "settings": {
-            "impact_setting_type": "offsetPerOrder",
-            "style": "simplified",
-            "horizontal_alignment": "center",
-            "size": "full_width",
-            "fullwidth_justification": "center",
-            "greenspark_widget_color": "#3B755F",
-            "enable_popup": true,
-            "greenspark_popup_theme": "light"
+            "heading": "Collapsible tab",
+            "open_close_icon": "caret",
+            "open_by_default": false,
+            "icon": "none",
+            "text": "<p>Share some information about your product</p>",
+            "page": "",
+            "margin_bottom": 0
+          }
+        },
+        "9c341458-2d2c-4317-a2cc-346e220f53e0": {
+          "type": "collapsible-tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "open_close_icon": "caret",
+            "open_by_default": false,
+            "icon": "none",
+            "text": "<p>Share some information about your product</p>",
+            "page": "",
+            "margin_bottom": 0
+          }
+        },
+        "b3864090-4f25-4db2-bddb-c549e9472be6": {
+          "type": "collapsible-tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "open_close_icon": "caret",
+            "open_by_default": false,
+            "icon": "none",
+            "text": "<p>Share some information about your product</p>",
+            "page": "",
+            "margin_bottom": 30
+          }
+        },
+        "fbfe241f-1b44-41cd-ae22-e866bdad9aaf": {
+          "type": "cross-sells",
+          "settings": {
+            "icon": "none",
+            "title": "You may also like...",
+            "cross_sell_product_1": "",
+            "cross_sell_product_2": "",
+            "cross_sell_product_3": "",
+            "collapsible_tab": false,
+            "open_close_icon": "plus_minus",
+            "margin_bottom": 30
+          }
+        },
+        "4fdb087c-4728-4785-b270-a71a092b7898": {
+          "type": "social_sharing",
+          "settings": {
+            "margin_bottom": 30
           }
         }
       },
       "block_order": [
-        "media",
-        "sale_badge",
+        "star_rating_Xzpi9G",
         "title",
-        "82f0bd81-d4e0-4618-aace-8c9d28ac737e",
         "price",
+        "f0f0e917-92a5-4957-a68e-2d0bb38d7819",
+        "2f3ddc8d-6514-403d-a884-88c9a0294300",
+        "a7717974-ed85-4cde-80ef-4751178acf57",
+        "text_with_icon_dtPE3H",
+        "separator_j9tcaD",
         "options",
         "quantity",
-        "12405fb2-d0cf-468a-9133-3d850b5ee912",
-        "afc01261-caa5-458b-9190-7984d135882e",
         "buy_buttons",
-        "46a68c53-9aaa-404f-8759-76be46d7045b",
-        "69de8680-44b2-42ab-8b77-2a049ccd2f20"
+        "a55b9011-1b1a-4353-9d97-7bdcd60949f2",
+        "b0c19132-8e54-4664-b8ce-0a8c7f1f7737",
+        "9c341458-2d2c-4317-a2cc-346e220f53e0",
+        "b3864090-4f25-4db2-bddb-c549e9472be6",
+        "fbfe241f-1b44-41cd-ae22-e866bdad9aaf",
+        "4fdb087c-4728-4785-b270-a71a092b7898"
       ],
       "settings": {
         "enable_sticky": true,
-        "show_out_of_stock_email": true
+        "image_size": "medium",
+        "image-display": "thumbnails",
+        "thumbnail_position": "below",
+        "enable_video_loop": true,
+        "app_margin_bottom": 20
       }
     },
-    "56c31eb2-f095-4866-b305-7436fae96d4b": {
-      "type": "advanced-layout--custom-html",
+    "product-description": {
+      "type": "template--product--description",
       "blocks": {
-        "template--15617723072690__56c31eb2-f095-4866-b305-7436fae96d4b-1665763477432967d4-0": {
-          "type": "html",
-          "settings": {
-            "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style>\n* {\n  box-sizing: border-box;\n  text-align: center;\n}\n\n/* Create four equal columns that floats next to each other */\n.column {\n  float: left;\n  width: 25%;\n  padding: 40px;\n  height: 150px; /* Should be removed. Only for demonstration */\n}\n\n/* Clear floats after the columns */\n.row:after {\n  content: \"\";\n  display: table;\n  clear: both;\n}\n\n/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */\n@media screen and (max-width: 600px) {\n  .column {\n    width: 100%;\n  }\n}\n</style>\n\n\n\n\n<div class=\"row\">\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>WEIGHT</h3>\n    <p>187g/6.6oz</p>\n  </div>\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>DIMENSION</h3>\n    <p>D 3.34\" H 4.72\"</p>\n  </div>\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>CAPACITY</h3>\n    <p>400ml/14 fl oz</p>\n  </div>\n  <div class=\"column\" style=\"background-color:#F9F9F9;\">\n    <h3>BEST USE</h3>\n    <p>Backpacking</p>\n  </div>\n</div>",
-            "width": "100%"
-          }
+        "product-description": {
+          "type": "product_description",
+          "settings": {}
+        },
+        "collapsible-tab-1": {
+          "type": "collapsible_tab",
+          "settings": {}
+        },
+        "collapsible-tab-2": {
+          "type": "collapsible_tab",
+          "settings": {}
         }
       },
       "block_order": [
-        "template--15617723072690__56c31eb2-f095-4866-b305-7436fae96d4b-1665763477432967d4-0"
+        "product-description",
+        "collapsible-tab-1",
+        "collapsible-tab-2"
       ],
       "disabled": true,
-      "settings": {}
+      "settings": {
+        "enable_readmore": false
+      }
     },
-    "1654498491f6e8793c": {
-      "type": "accordion",
+    "image_with_text_overlay_Y3Y9AG": {
+      "type": "image-with-text-overlay",
       "blocks": {
-        "tab_content_M7JiXJ": {
-          "type": "tab_content",
+        "heading_RXLJL3": {
+          "type": "heading",
+          "settings": {}
+        },
+        "text_DpX8dt": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_RXLJL3",
+        "text_DpX8dt"
+      ],
+      "settings": {
+        "height_desktop": "original",
+        "text_position_desktop": "center",
+        "text_position_mobile": "center",
+        "animation_style": "none"
+      }
+    },
+    "f986e408-5557-4aaf-80fb-9cd7e2059a61": {
+      "type": "template--product--info-columns",
+      "blocks": {
+        "988fc3e8-03ca-407d-b680-304338edba69": {
+          "type": "text",
           "settings": {
-            "question": "Product Overview",
-            "text": ""
+            "heading": "",
+            "text": "<p>HEADING</p><h2>Info columns</h2><p>Use text paired with images to create a captivating brand story, explain details of your products, or highlight store promotions.</p>",
+            "button_link": "",
+            "button_text": ""
           }
         },
-        "1654498491a7b8c1f7-0": {
-          "type": "tab_content",
+        "template--14831909634118__f986e408-5557-4aaf-80fb-9cd7e2059a61-image_and_text-2": {
+          "type": "image_and_text",
           "settings": {
-            "question": "Specification",
-            "text": "<p>{{ product.metafields.my_fields.specifications | metafield_tag }}</p>"
+            "grid_image_size": "natural",
+            "heading": "",
+            "text": "",
+            "button_link": "",
+            "button_text": ""
           }
         },
-        "cfcf09c0-da3e-4eb6-9d9a-7d5604040563": {
-          "type": "tab_content",
+        "60467331-9399-4a07-bb8b-69e36ad7fea2": {
+          "type": "image_and_text",
           "settings": {
-            "question": "Features",
-            "text": "<p>{{ product.metafields.my_fields.features | metafield_tag }}</p>"
-          }
-        },
-        "1654498491a7b8c1f7-2": {
-          "type": "tab_content",
-          "settings": {
-            "question": "FAQ's",
-            "text": "<p>{{ product.metafields.my_fields.faq | metafield_tag }}</p>"
+            "grid_image_size": "natural",
+            "heading": "",
+            "text": "",
+            "button_link": "",
+            "button_text": ""
           }
         }
       },
       "block_order": [
-        "tab_content_M7JiXJ",
-        "1654498491a7b8c1f7-0",
-        "cfcf09c0-da3e-4eb6-9d9a-7d5604040563",
-        "1654498491a7b8c1f7-2"
+        "988fc3e8-03ca-407d-b680-304338edba69",
+        "template--14831909634118__f986e408-5557-4aaf-80fb-9cd7e2059a61-image_and_text-2",
+        "60467331-9399-4a07-bb8b-69e36ad7fea2"
       ],
       "settings": {
-        "colors": "white",
-        "title": "Product Information",
-        "faq_icon": "caret"
+        "title": "",
+        "description": "",
+        "columns_per_row": 3,
+        "vertical_alignment": "center",
+        "text_alignment": "left",
+        "colors": "white"
+      }
+    },
+    "text_testimonials_TdTGj3": {
+      "type": "testimonials",
+      "blocks": {
+        "text_001": {
+          "type": "text",
+          "settings": {
+            "stars": 5,
+            "testimonial_text": "<p>\"Show off incredible feedback from your customers\"</p>",
+            "customer_name": "John Smith",
+            "link": ""
+          }
+        },
+        "text_002": {
+          "type": "text",
+          "settings": {
+            "stars": 5,
+            "testimonial_text": "<p>\"Show off incredible feedback from your customers\"</p>",
+            "customer_name": "John Smith",
+            "link": ""
+          }
+        },
+        "text_003": {
+          "type": "text",
+          "settings": {
+            "stars": 5,
+            "testimonial_text": "<p>\"Show off incredible feedback from your customers\"</p>",
+            "customer_name": "John Smith",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_001",
+        "text_002",
+        "text_003"
+      ],
+      "settings": {
+        "title": "Testimonials",
+        "circle_images": true,
+        "colors": "light"
+      }
+    },
+    "dcfe78c8-3b44-44bb-88ef-3b68acb60aa5": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "left",
+        "title": "",
+        "text": "",
+        "text_alignment": "center",
+        "text_overlapping_image": true,
+        "button_link": "",
+        "button_label": "",
+        "section-width": "full",
+        "colors": "white"
       }
     },
     "product-recommendations": {
       "type": "template--product--recommendations",
-      "blocks": {
-        "product_card_image": {
-          "type": "product_card_image",
-          "settings": {
-            "hover-effect": true,
-            "enable_badges": true
-          }
-        },
-        "product_card_title": {
-          "type": "product_card_title",
-          "settings": {}
-        },
-        "product_card_vendor": {
-          "type": "product_card_vendor",
-          "settings": {}
-        },
-        "product_card_price": {
-          "type": "product_card_price",
-          "settings": {}
-        },
-        "product_card_button": {
-          "type": "product_card_button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "product_card_image",
-        "product_card_title",
-        "product_card_vendor",
-        "product_card_price",
-        "product_card_button"
-      ],
       "settings": {
-        "enable_product_recommendations": true,
-        "product_recommendations_heading": "Customers Like You Also Purchased"
-      }
-    },
-    "1696136166eb28b41e": {
-      "type": "apps",
-      "blocks": {
-        "516e7e47-0737-4662-a239-ecce32e81114": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "516e7e47-0737-4662-a239-ecce32e81114"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1d175c53-0195-4d18-8409-2e8b117fbf01": {
-      "type": "image--slideshow",
-      "blocks": {
-        "template--15617723072690__1d175c53-0195-4d18-8409-2e8b117fbf01-1665730331ba3c3052-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Review_Hero_2000_x_900px_2.jpg",
-            "mobile_image": "shopify://shop_images/SilverAnt_Review_Hero_1400_x_1400_px_2.jpg",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#000000",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "left",
-            "captionAlignment": "left"
-          }
-        }
-      },
-      "block_order": [
-        "template--15617723072690__1d175c53-0195-4d18-8409-2e8b117fbf01-1665730331ba3c3052-0"
-      ],
-      "settings": {
-        "slider-animation": "slide",
-        "slider-width": "full-width",
-        "vertical-alignment": true,
-        "text-below-image": true,
-        "slider-slide-time": 5,
-        "caption-heading-size": 30,
-        "caption-subheading-size": 16,
-        "caption-button-size": 14,
-        "show-slide-dots": false,
-        "show-slide-arrows": true,
-        "slider-navigation-color": "#ffffff"
-      }
-    },
-    "recently-viewed": {
-      "type": "template--product--recently-viewed",
-      "blocks": {
-        "product_card_image": {
-          "type": "product_card_image",
-          "settings": {
-            "hover-effect": false,
-            "enable_badges": true
-          }
-        },
-        "product_card_title": {
-          "type": "product_card_title",
-          "settings": {}
-        },
-        "product_card_vendor": {
-          "type": "product_card_vendor",
-          "settings": {}
-        },
-        "product_card_price": {
-          "type": "product_card_price",
-          "settings": {}
-        },
-        "product_card_button": {
-          "type": "product_card_button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "product_card_image",
-        "product_card_title",
-        "product_card_vendor",
-        "product_card_price",
-        "product_card_button"
-      ],
-      "settings": {
-        "enable_recently_viewed": false,
-        "recently_viewed_title": "Recently viewed products"
-      }
-    },
-    "ac6e36b3-e2ad-48af-9b49-da85950cfc97": {
-      "type": "newsletter--newsletter",
-      "settings": {
-        "colors": "dark",
-        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree",
-        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
-      }
-    },
-    "16544961157403b632": {
-      "type": "text--text-adverts",
-      "blocks": {
-        "165449611502360f4f-0": {
-          "type": "text",
-          "settings": {
-            "heading": "We Manufacture All Our Products",
-            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
-            "link": ""
-          }
-        },
-        "165449611502360f4f-1": {
-          "type": "text",
-          "settings": {
-            "heading": "We are Certified by Industry Leaders",
-            "subheading": "All our products are certified by the SGS and FDA, with our products made in our own ISO:9001 certified factory.",
-            "link": ""
-          }
-        },
-        "165449611502360f4f-2": {
-          "type": "text",
-          "settings": {
-            "heading": "Quality Customer Service",
-            "subheading": "Even when things dont go to plan our customer service team will provide a personalized solution to your problem.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "165449611502360f4f-0",
-        "165449611502360f4f-1",
-        "165449611502360f4f-2"
-      ],
-      "settings": {
-        "colors": "accent"
-      }
-    },
-    "proviews_review_widget_1685971421918": {
-      "type": "apps",
-      "disabled": true,
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "advanced_layout_custom_liquid_3DzKk8": {
-      "type": "advanced-layout--custom-liquid",
-      "custom_css": [
-        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
-      ],
-      "settings": {
-        "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\n\tdocument.getElementById(\"AddToCart\").addEventListener('click',function (){\n \t\t_learnq.push(['track', 'Added to Cart', item]);\n\t});</script>"
+        "layout_style": "grid",
+        "products_to_show": 4,
+        "grid-desktop": 4,
+        "grid-mobile": "2",
+        "colors": "white"
       }
     }
   },
   "order": [
     "product-form",
-    "56c31eb2-f095-4866-b305-7436fae96d4b",
-    "1654498491f6e8793c",
-    "product-recommendations",
-    "1696136166eb28b41e",
-    "1d175c53-0195-4d18-8409-2e8b117fbf01",
-    "recently-viewed",
-    "ac6e36b3-e2ad-48af-9b49-da85950cfc97",
-    "16544961157403b632",
-    "proviews_review_widget_1685971421918",
-    "advanced_layout_custom_liquid_3DzKk8"
+    "product-description",
+    "image_with_text_overlay_Y3Y9AG",
+    "f986e408-5557-4aaf-80fb-9cd7e2059a61",
+    "text_testimonials_TdTGj3",
+    "dcfe78c8-3b44-44bb-88ef-3b68acb60aa5",
+    "product-recommendations"
   ]
 }

@@ -11,7 +11,8 @@
   "sections": {
     "main": {
       "type": "template--404",
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [

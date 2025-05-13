@@ -1,0 +1,86 @@
+{% comment %}
+  Usage:
+  {% render 'blog-post-card',
+    post: article,
+    show_date: section.settings.blog_show_date,
+    show_image: section.settings.show_image,
+    show_excerpt: section.settings.show_excerpt,
+    image_shape: section.settings.image_aspect_ratio,
+    show_read_more: section.settings.show_read_more,
+    heading_font: section.settings.heading_font,
+    heading_font_size: section.settings.heading_font_size,
+    alignment: section.settings.alignment,
+    show_author: section.settings.show_author_name,
+    show_tags: section.settings.show_tags
+  %}
+{% endcomment %}
+
+{% if show_tags and post.tags.size > 0 %}
+  {% capture post_tags %}
+    <div class="blog-post-card__tags">
+      {% for tag in post.tags %}
+        <a class="blog-post-card__tag custom-badge badge" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  {% endcapture %}
+{% endif %}
+
+<div class="blog-post-card blog-post-card--{{ alignment }}">
+  {% assign no_image = true %}
+  {% if post.image and show_image %}
+    {% assign no_image = false %}
+    <div class="blog-post-card__image-wrap">
+      <div class="blog-post-card__image block-radius-clip{% unless image_shape == 'original' %} blog-post-card__image--aspect-ratio--{{ image_shape }}{% endunless %}">
+        <a href="{{ post.url }}" tabindex="-1" data-animate-hover-zoom>
+          {% render 'responsive-image' with post.image, allow_stretch: true %}
+        </a>
+        {% if show_tags and post.tags.size > 0 %}
+          <div class="blog-post-card__tags-over-image">
+            {{ post_tags }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if no_image and show_tags and post.tags.size > 0 %}
+    <div class="blog-post-card__tags-block">
+      {{ post_tags }}
+    </div>
+  {% endif %}
+
+  <div class="blog-post-card__header">
+    {% if show_date or show_author %}
+      <div class="blog-post-card__meta">
+        {% if show_date %}
+          <time class="blog-post-card__date" datetime="{{ post.published_at | date: '%Y-%m-%d' }}">{{ post.published_at | time_tag: format: 'date' }}</time>
+        {% endif %}
+        {% if show_author and post.author %}
+          {% if show_date %}
+            <span class="blog-post-card__meta-separator"></span>
+          {% endif %}
+          <span class="blog-post-card__author">{{ post.author }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <h5 class="blog-post-card__title{% if heading_font == 'body' %} blog-post-card__title--body{% endif %}"{% if heading_font_size %} style="font-size: {{ heading_font_size }}px;"{% endif %}><a href="{{ post.url }}">{{ post.title }}</a></h5>
+  </div>
+
+  {% if show_excerpt %}
+    <div class="blog-post-card__excerpt rte">
+      {% if post.excerpt.size > 0 %}
+        {{ post.excerpt }}
+      {% else %}
+        <p>{{ post.content | strip_html | truncatewords: 20 }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if show_read_more %}
+    <div class="text-link-animated">
+      <a href="{{ post.url }}">{{ 'blogs.article.read_more' | t }}</a>
+    </div>
+  {% endif %}
+
+</div>

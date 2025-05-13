@@ -9,50 +9,108 @@
  */
 {
   "sections": {
-    "1718919721a1e6ee34": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "main": {
       "type": "template--cart",
-      "settings": {}
+      "settings": {
+      }
     },
-    "168838222852c1b609": {
-      "type": "apps",
+    "16458092233c51454f": {
+      "type": "rich-text",
       "blocks": {
-        "1b176692-e2cd-4762-981b-c5ad59d2db40": {
-          "type": "shopify://apps/greenspark/blocks/current-order-impact-widget/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
+        "934e81cc-7295-49b0-a17f-63d662b754e1": {
+          "type": "heading",
           "settings": {
-            "horizontal_alignment": "right",
-            "size": "large",
-            "fullwidth_justification": "center",
-            "greenspark_widget_color": "#3B755F"
+          }
+        },
+        "5a0c4ffd-ea03-4643-b331-82ef44fc90b6": {
+          "type": "richtext",
+          "settings": {
+            "text_size": 14
           }
         }
       },
       "block_order": [
-        "1b176692-e2cd-4762-981b-c5ad59d2db40"
+        "934e81cc-7295-49b0-a17f-63d662b754e1",
+        "5a0c4ffd-ea03-4643-b331-82ef44fc90b6"
       ],
       "settings": {
-        "include_margins": true
+        "colors": "light",
+        "section_width": "narrow",
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center"
       }
     },
-    "b0a36bcf-fedf-478f-b182-dcc1ad6e98ec": {
-      "type": "collection--products-block",
-      "disabled": true,
+    "400eb640-b884-4376-ac4a-7e747faee5ee": {
+      "type": "collage",
+      "blocks": {
+        "template--14831908552774__400eb640-b884-4376-ac4a-7e747faee5ee-image-1": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_size": 30,
+            "desktop_position": "md-min-align-bottom md-min-justify-center",
+            "mobile_position": "md-max-align-bottom md-max-justify-center"
+          }
+        },
+        "44b622ba-af21-4e86-86f0-92a5e08791bf": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_size": 30,
+            "desktop_position": "md-min-align-bottom md-min-justify-center",
+            "mobile_position": "md-max-align-bottom md-max-justify-center"
+          }
+        },
+        "21da33db-aa2c-4521-a043-87642190017f": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_size": 30,
+            "desktop_position": "md-min-align-bottom md-min-justify-center",
+            "mobile_position": "md-max-align-bottom md-max-justify-center"
+          }
+        },
+        "94e51c3a-7e6a-4803-bc4d-5c225eade9a4": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "heading_size": 30,
+            "desktop_position": "md-min-align-bottom md-min-justify-center",
+            "mobile_position": "md-max-align-bottom md-max-justify-center"
+          }
+        }
+      },
+      "block_order": [
+        "template--14831908552774__400eb640-b884-4376-ac4a-7e747faee5ee-image-1",
+        "44b622ba-af21-4e86-86f0-92a5e08791bf",
+        "21da33db-aa2c-4521-a043-87642190017f",
+        "94e51c3a-7e6a-4803-bc4d-5c225eade9a4"
+      ],
       "settings": {
-        "title": "Recommended Products",
-        "richtext": "<p>Our customer's favorite titanium gear.</p>",
-        "collection": "customer-recommended-products"
+        "color_scheme": "white",
+        "title": "Shop by category",
+        "description": "",
+        "remove_spacing": false,
+        "section_width": "content",
+        "width_1": "4",
+        "height_1": "3",
+        "width_2": "4",
+        "height_2": "3",
+        "width_3": "4",
+        "height_3": "3",
+        "width_4": "4",
+        "height_4": "3",
+        "width_5": "2",
+        "height_5": "2",
+        "width_6": "1",
+        "height_6": "4",
+        "block_alignment": "center"
       }
     }
   },
   "order": [
-    "1718919721a1e6ee34",
     "main",
-    "168838222852c1b609",
-    "b0a36bcf-fedf-478f-b182-dcc1ad6e98ec"
+    "16458092233c51454f",
+    "400eb640-b884-4376-ac4a-7e747faee5ee"
   ]
 }

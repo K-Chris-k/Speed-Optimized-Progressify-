@@ -1,11 +1,22 @@
-{% if settings.enable_verification_popup %}
+{% if settings.enable_verification_popup or settings.verification-pop-up__test-mode %}
+  {% liquid 
+    assign background_opacity = 100 | minus: settings.verification_background_opacity
+    assign verification_popup_background_color = 'rgba(' | append: settings.verification-popup--background-color.rgba | append: ')'
+    assign verification_popup_background_color_opaque = 'color-mix(in srgb, ' | append: verification_popup_background_color | append: ', transparent ' | append: background_opacity | append: '%)'
+  %}
 
-  {% assign background_opacity = settings.verification_background_opacity | divided_by: 100.0 %}
-  {% assign prompt_background_opacity = settings.verification_prompt_background_opacity | divided_by: 100.0 %}
+  {% if settings.verification-popup--override_button_colors %}
+    {% render 'button-color-overrides' with
+      id: 'verification-popup',
+      style: 'filled',
+      text_color: settings.verification-popup--button_text_color,
+      background_color: settings.verification-popup--button_background_color
+    %}
+  {% endif %}
 
   <div class="verification-popup-container" style="display: none" data-age-test-mode="{{ settings.verification-pop-up__test-mode }}" tabindex="-1">
     <div id="prompt__background">
-      <div id="verification__prompt" class="modal__prompt" role="dialog">
+      <div id="verification__prompt" class="modal__prompt popup-shadow color-scheme--{{ settings.verification_popup_color_scheme }} block-radius" role="dialog">
 
         {% capture logo-image %}
           <div class="verification-popup-logo__container" itemscope itemtype="http://schema.org/Organization">
@@ -29,7 +40,7 @@
               </h3>
             {% endif %}
             {% if settings.verification-pop-up__description != '' %}
-              <div class="rte">
+              <div class="rte text-link-animated">
                 {{ settings.verification-pop-up__description }}
               </div>
             {% endif %}
@@ -40,7 +51,7 @@
               <button
                 role="button"
                 id="button__exit"
-                class="btn__exit btn secondary-button styled-submit"
+                class="btn__exit btn secondary-button styled-submit dynamic-section-button--verification-popup"
                 tabindex="1"
               >
                 {{ settings.exit-button__text }}
@@ -50,7 +61,7 @@
             {% if settings.confirm-button__text != '' %}
               <button
                 role="button"
-                class="btn__enter btn"
+                class="btn__enter btn dynamic-section-button--verification-popup"
                 id="button__enter"
                 tabindex="1"
               >
@@ -69,14 +80,14 @@
               </h3>
             {% endif %}
             {% if settings.deny__description != '' %}
-              <div class="rte">
+              <div class="rte text-link-animated">
                 {{ settings.deny__description }}
               </div>
             {% endif %}
           </div>
 
           <div class="modal-button-container">
-              <button role="button" id="button__return" class="btn__return btn">
+              <button role="button" id="button__return" class="btn__return btn dynamic-section-button--verification-popup">
                 {% if settings.deny-button__text != '' %}
                   {{ settings.deny-button__text }}
                 {% else %}
@@ -112,13 +123,13 @@
   body {
     min-height: 100%;
   }
-{% else %}
-  #prompt__background:after {
-    {% if settings.verification-popup--background-color != 'rgba(0,0,0,0)' %}
-      background-color: {{ settings.verification-popup--background-color | color_modify: 'alpha', background_opacity }};
-    {% else %}
-      background-color: #000;
-    {% endif %}
-  }
 {% endif %}
+
+#prompt__background:after {
+  {% if settings.verification-popup--background-color == 'rgba(0,0,0,0)' %}
+    background-color: transparent;
+  {% else %}
+    background-color: {{ verification_popup_background_color_opaque }};
+  {% endif %}
+}
 </style>

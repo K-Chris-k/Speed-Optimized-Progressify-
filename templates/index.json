@@ -9,804 +9,517 @@
  */
 {
   "sections": {
-    "16285850521c6f1af2": {
-      "type": "image--slideshow",
+    "slideshow_RRiMqQ": {
+      "type": "slideshow",
       "blocks": {
-        "image_cUDmTR": {
+        "image_F7RqmF": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle.jpg",
-            "mobile_image": "shopify://shop_images/Stove_cup_kit_7ff20699-16b6-445e-a4a2-2e0faaa04f7c.jpg",
-            "title": "",
             "text": "",
-            "button_label": "",
-            "button_link": "shopify://products/titanium-multi-fuel-stove-cup-kit",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "right",
-            "captionAlignment": "left"
-          }
-        },
-        "image_jpjDrx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle_2_cdd37438-c3f3-4c37-a077-458d840d9579.png",
-            "mobile_image": "shopify://shop_images/Stove_cup_kit_2.png",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "shopify://products/titanium-hip-flask-shot-glasses",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "left",
-            "captionAlignment": "left"
-          }
-        },
-        "image_JnNTMW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle_3_7ac8c575-a822-4d71-a212-325ae8168e5d.png",
-            "mobile_image": "shopify://shop_images/coffee_kit_3130603f-a866-490c-a998-f847a92f7d16.png",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "shopify://products/titanium-coffee-french-press-kit-with-cup-grounds-container",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "right",
-            "captionAlignment": "right"
-          }
-        },
-        "16285850521c6f1af2-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Peyman_6399effb-4eca-4a80-b64e-3b57ff057126.png",
-            "mobile_image": "shopify://shop_images/Peyman_eff76b30-d704-49bc-9c6f-c3b442d720ff.png",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "https://silverantoutdoors.com/products/silverant-x-5athlon-nomads-trails",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "right",
-            "captionAlignment": "right"
-          }
-        },
-        "image_xk9YVk": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/SBSW_Desktop_banner.png",
-            "mobile_image": "shopify://shop_images/SBSW_Mobile_Banner.png",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "left",
-            "captionAlignment": "left"
+            "first_button_link": "shopify://collections/all",
+            "first_button_label": "Shop now",
+            "second_button_link": "",
+            "second_button_label": "",
+            "buttons_style": "filled",
+            "text_position": "center_left",
+            "desktop-caption-heading-size": 60,
+            "desktop-caption-body-text-size": 30,
+            "mobile_text_position": "center_right",
+            "mobile-caption-heading-size": 36,
+            "mobile-caption-body-text-size": 16,
+            "image_overlay_opacity": 0
           }
         }
       },
       "block_order": [
-        "image_cUDmTR",
-        "image_jpjDrx",
-        "image_JnNTMW",
-        "16285850521c6f1af2-0",
-        "image_xk9YVk"
+        "image_F7RqmF"
       ],
       "settings": {
-        "slider-animation": "slide",
-        "slider-width": "full-width",
-        "vertical-alignment": true,
-        "text-below-image": true,
-        "slider-slide-time": 5,
-        "caption-heading-size": 32,
-        "caption-subheading-size": 18,
-        "caption-button-size": 14,
-        "show-slide-dots": false,
-        "show-slide-arrows": true,
-        "slider-navigation-color": "#ffffff"
+        "desktop_height": "full_screen",
+        "mobile_height": "full_screen",
+        "slide_navigation_style": "bars",
+        "slide_transition_delay": 7,
+        "section_padding_top": 0,
+        "section_padding_bottom": 0
       }
     },
-    "f744ee42-d65e-4319-bef7-b982464e0f0d": {
-      "type": "collection--featured-collection",
+    "06b36118-35e6-4312-b5b2-099a0ddc5aa6": {
+      "type": "collection-list",
+      "blocks": {
+        "template--15051013783622__06b36118-35e6-4312-b5b2-099a0ddc5aa6-featured_collection-2": {
+          "type": "featured_collection",
+          "settings": {
+            "overlay-btn-text": "",
+            "show-gradient-overlay": false
+          }
+        },
+        "template--15051013783622__06b36118-35e6-4312-b5b2-099a0ddc5aa6-featured_collection-3": {
+          "type": "featured_collection",
+          "settings": {
+            "overlay-btn-text": "",
+            "show-gradient-overlay": false
+          }
+        }
+      },
+      "block_order": [
+        "template--15051013783622__06b36118-35e6-4312-b5b2-099a0ddc5aa6-featured_collection-2",
+        "template--15051013783622__06b36118-35e6-4312-b5b2-099a0ddc5aa6-featured_collection-3"
+      ],
       "settings": {
-        "colors": "white",
-        "title": "New Releases",
-        "richtext": "",
-        "collection": "new-products",
-        "grid-desktop": 4,
-        "grid-tablet": 3,
-        "grid-mobile": 2,
-        "rows": 1,
-        "hover-effect": false,
-        "show-vendor": false,
-        "show_view_all": false
-      }
-    },
-    "text_rich_text_fdFqfm": {
-      "type": "text--rich-text",
-      "disabled": true,
-      "settings": {
-        "colors": "white",
-        "title": "Black Friday Sale",
-        "text": "<p>Our biggest <strong>SALE</strong> of the year! Enjoy <strong>30% OFF</strong> SilverAnt's ultralight titanium gear, and enjoy <strong>50%</strong> OFF our titanium bundles.</p><p>Use the code: <strong>BFCM3024 </strong>at Checkout</p>",
-        "button_label": "Shop Now",
-        "button_link": "https://silverantoutdoors.com/discount/BFCM3024"
-      }
-    },
-    "collection_featured_collection_AxQiwy": {
-      "type": "collection--featured-collection",
-      "disabled": true,
-      "settings": {
-        "colors": "white",
-        "title": "Titanium Bundles",
-        "richtext": "",
-        "collection": "titanium-bundles",
-        "grid-desktop": 3,
-        "grid-tablet": 3,
-        "grid-mobile": 2,
-        "rows": 2,
-        "hover-effect": false,
-        "show-vendor": false,
-        "show_view_all": false
-      }
-    },
-    "165691317218c8e0af": {
-      "type": "video--video",
-      "disabled": true,
-      "settings": {
-        "colors": "white",
         "title": "",
-        "richtext": "",
-        "width_classes": 100,
-        "url": "https://youtu.be/LZXqiyNzkbs",
-        "autoplay": false,
-        "loop": true,
-        "mute": false,
-        "video_overlay_opacity": 50
-      }
-    },
-    "b5446dfe-2fdf-4fc0-b48c-040bef2e2b38": {
-      "type": "image--image-with-text",
-      "settings": {
-        "colors": "light",
-        "image": "shopify://shop_images/Untitled_design_1_4b7149df-816d-4321-b086-82cbf11043f5.jpg",
-        "text_overlapping_image": false,
+        "items-per-row": 2,
+        "content-position": "below-image",
         "section-width": "full",
-        "layout": "left",
-        "text_alignment": "center",
-        "title": "MAKE IT YOUR OWN",
-        "text": "<p><strong>Personalize </strong>your SilverAnt Titanium <strong>Gear </strong>with nature-inspired patterns, text, monogram, or images that are <strong>built to last</strong> and won't fade with washing.</p>",
-        "button_label": "Learn More",
-        "button_link": "shopify://pages/customize"
-      }
-    },
-    "8b735adc-0c84-410a-b4ea-257b51d5caf1": {
-      "type": "text--rich-text",
-      "settings": {
-        "colors": "white",
-        "title": "Reducing Our Impact",
-        "text": "<p>We are thrilled to announce that SilverAnt Outdoors has joined forces with Greenspark. Now with every single purchase you make, we will plant 2 trees, sequester 5kg of Carbon, and rescue 3 plastic bottles from the ocean. As an outdoor company it is essential we move towards sustainability and protect nature. We want to create a sustainable future and this partnership is the first step. </p>",
-        "button_label": "Learn More SilverAnt's Sustainability Policy",
-        "button_link": "shopify://pages/sustainability-responsibility"
-      }
-    },
-    "1692866168a4fbd0f2": {
-      "type": "apps",
-      "blocks": {
-        "8cdfb74e-ff90-480d-86d9-c8d34efeed3a": {
-          "type": "shopify://apps/greenspark/blocks/full-width-banner/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
-          "settings": {
-            "text_color": "#ffffff",
-            "banner_image": "shopify://shop_images/Dark.jpg",
-            "banner_height": 350,
-            "toggle_months": true,
-            "toggle_trees": true,
-            "toggle_plastic": true,
-            "toggle_co2": true,
-            "toggle_kelp": false,
-            "toggle_straws": false,
-            "toggle_miles": false,
-            "toggle_football": false
-          }
-        }
-      },
-      "block_order": [
-        "8cdfb74e-ff90-480d-86d9-c8d34efeed3a"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "16285857676484908c": {
-      "type": "image--logo-list",
-      "blocks": {
-        "16285857676484908c-1": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/GGG_Updated_Logo.jpg",
-            "link": "https://www.garagegrowngear.com/collections/silverant"
-          }
-        },
-        "100c4d34-e24e-4531-8dc9-3c9bab2e08b6": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Field_Mag_Logo_230_x_230px.png",
-            "link": "https://www.fieldmag.com/articles/silverant-affordable-titanium-outdoor-gear"
-          }
-        },
-        "logo_image_WCFtGp": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/ULG.png",
-            "link": "https://ultralightoutdoorgear.co.uk/silverant/"
-          }
-        },
-        "16285857676484908c-0": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/Gear_Assistant_Logo.png",
-            "link": "https://www.gearassistant.com/best-titanium-water-bottle/"
-          }
-        },
-        "logo_image_T6LxKe": {
-          "type": "logo_image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/TGO.png",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "16285857676484908c-1",
-        "100c4d34-e24e-4531-8dc9-3c9bab2e08b6",
-        "logo_image_WCFtGp",
-        "16285857676484908c-0",
-        "logo_image_T6LxKe"
-      ],
-      "settings": {
-        "colors": "white",
-        "width": 220,
-        "title": "As Seen In"
-      }
-    },
-    "1628585507e0d6e3a0": {
-      "type": "image--image-with-text-overlay",
-      "settings": {
-        "image": "shopify://shop_images/about-us.jpg",
-        "image_height": "40vw",
-        "bg_image_overlay_opacity": 60,
-        "parallax": false,
-        "title": "About Us",
-        "text": "SilverAnt Outdoors is a family and friend owned multi-cultural titanium outdoor company. Read more about our origins.",
-        "colors": "light",
-        "textPosition": "center",
-        "textAlignment": "center",
-        "heading--text-size": 46,
-        "text--text-size": 18,
-        "link": "shopify://pages/about-us",
-        "button_label": "Learn More",
-        "button-text": "#ffffff",
-        "button-background": "#000000"
-      }
-    },
-    "72005107-2e2e-403f-ae5b-093dcbf049f1": {
-      "type": "collection--featured-collection",
-      "settings": {
-        "colors": "white",
-        "title": "Top Selling Gear",
-        "richtext": "",
-        "collection": "top-selling-gear",
-        "grid-desktop": 4,
-        "grid-tablet": 3,
-        "grid-mobile": 2,
-        "rows": 1,
-        "hover-effect": false,
-        "show-vendor": false,
-        "show_view_all": false
-      }
-    },
-    "1628585721a8b1b9a7": {
-      "type": "image--image-with-text-overlay",
-      "settings": {
-        "image": "shopify://shop_images/261121_amz_cutlery_set_banner_1600_x_1600_px.png",
-        "image_height": "30vw",
-        "bg_image_overlay_opacity": 30,
-        "parallax": false,
-        "title": "Why buy from SilverAnt?",
-        "text": "Since 2018 we have been producing ultralight gear built for a lifetime of adventures. We use the best quality titanium to create outdoor products that are supposed to be used even in the toughest environments and conditions.",
-        "colors": "light",
-        "textPosition": "center",
-        "textAlignment": "center",
-        "heading--text-size": 36,
-        "text--text-size": 16,
-        "link": "shopify://pages/why-buy-from-us",
-        "button_label": "Learn More",
-        "button-text": "#ffffff",
-        "button-background": "#000000"
-      }
-    },
-    "1628585461cbddcdb9": {
-      "type": "collection--collection-list",
-      "blocks": {
-        "1628585461cbddcdb9-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "cutlery-and-utensils",
-            "subheading": "Refuel Everyday",
-            "overlay-btn-text": "Shop now",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "1628585461cbddcdb9-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "cups-mugs",
-            "subheading": "Daily Drinkingware",
-            "overlay-btn-text": "Shop now",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "29cfac28-cd6d-4b0b-85e9-aafee30d1fdd": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "titanium-hip-flasks",
-            "subheading": "Carry Your Favourite Tipple",
-            "overlay-btn-text": "Shop now",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "12fad211-d0ad-431e-8c38-bd9784b335c0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "coffee",
-            "subheading": "Make The Perfect Coffee",
-            "overlay-btn-text": "Shop now",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        }
-      },
-      "block_order": [
-        "1628585461cbddcdb9-0",
-        "1628585461cbddcdb9-1",
-        "29cfac28-cd6d-4b0b-85e9-aafee30d1fdd",
-        "12fad211-d0ad-431e-8c38-bd9784b335c0"
-      ],
-      "settings": {
-        "colors": "white",
-        "title": "Explore Our Growing Titanium Collections",
-        "richtext": "",
-        "items-per-row": 4,
-        "fill-the-area": true,
+        "section_padding_bottom": 0,
         "remove-spacing": false,
-        "section-width": "full",
-        "content-position": "below-image"
+        "colors": "white"
       }
     },
-    "collection-featured-collection-1": {
-      "type": "collection--featured-collection",
-      "disabled": true,
+    "3643d38b-24f2-4040-ab67-4b4b44a63aab": {
+      "type": "featured-collection",
       "settings": {
-        "colors": "white",
-        "title": "Ultralight Titanium Camping Cookware",
-        "richtext": "<p>Cook up a gourmet meal at the campsite, or boil your dehydrated food bag with any of SilverAnt's titanium camping cookware pots, pans, or kettles.</p>",
-        "collection": "titanium-camping-cookware",
+        "title": "",
+        "show_view_all": false,
         "grid-desktop": 4,
-        "grid-tablet": 2,
-        "grid-mobile": 2,
-        "rows": 1,
-        "hover-effect": true,
-        "show-vendor": false,
-        "show_view_all": true
+        "grid-mobile": "2",
+        "colors": "white"
       }
     },
-    "1628585681433938e6": {
-      "type": "collection--featured-collection",
-      "disabled": true,
-      "settings": {
-        "colors": "light",
-        "title": "Our Titanium Water Bottle Collection",
-        "richtext": "<p>Hydrate daily at the office, your home, on the go, or on the trails.</p>",
-        "collection": "titanium-water-bottles",
-        "grid-desktop": 4,
-        "grid-tablet": 2,
-        "grid-mobile": 2,
-        "rows": 2,
-        "hover-effect": true,
-        "show-vendor": false,
-        "show_view_all": true
-      }
-    },
-    "1628585918569b36f8": {
-      "type": "image--image-with-text",
-      "settings": {
-        "colors": "white",
-        "image": "shopify://shop_images/Untitled_design_1_28ad9106-bcfc-4877-9896-85dd0458c4eb.png",
-        "text_overlapping_image": false,
-        "section-width": "full",
-        "layout": "left",
-        "text_alignment": "left",
-        "title": "New Ultralight Titanium Products",
-        "text": "<p>As an outdoor company we are constantly adding to our product collections and cooking up new product ideas. Whether it's  feedback from our customers or product suggestions, we are always looking to improve upon our products and release new ultralight gear. Click below to check out our latest product additions.</p>",
-        "button_label": "Discover more",
-        "button_link": "shopify://collections/new-products"
-      }
-    },
-    "1654152249fa522a20": {
-      "type": "image--logo-list",
+    "35b28867-77fd-4573-8212-101b3b8e2245": {
+      "type": "image-with-text-overlay",
       "blocks": {
-        "16541522498491fdcd-0": {
-          "type": "logo_image",
+        "heading_G7fRBP": {
+          "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/trustpilot.png",
-            "link": "https://www.trustpilot.com/review/silverantoutdoors.com"
+            "font_size_desktop": 60,
+            "font_size_mobile": 36
           }
         },
-        "16541522498491fdcd-1": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/rm-logo.png",
-            "link": "https://reviewmeta.com/brand/silverant"
-          }
-        }
-      },
-      "block_order": [
-        "16541522498491fdcd-0",
-        "16541522498491fdcd-1"
-      ],
-      "settings": {
-        "colors": "white",
-        "width": 240,
-        "title": "Our Customer's Reviews"
-      }
-    },
-    "1628585915d1cc58c1": {
-      "type": "text--testimonials",
-      "blocks": {
-        "c5836bed-9afc-488f-8a3d-5f06a732d7c2": {
+        "text_kWP7mU": {
           "type": "text",
-          "disabled": true,
-          "settings": {
-            "testimonial_text": "<p>We have used the SilverAnt cup for a several weeks now both as an everyday travel mug and while out hiking and we really love it! It’s extremely lightweight and kept our beverage nice and warm while out hiking in the snow. The lid attaches snuggly and the holes plug tight, so no worries about spillage. We also found the straw hole works nicely to hold a tea ball. Our clip on coffee filter also worked great with the cup. We can highly recommend the cup for your adventures and daily life.</p>",
-            "customer_name": "Chris M. - 400ml Coffee Cup - 30/01/2021",
-            "link": "",
-            "stars": 5
-          }
-        },
-        "1628585915d1cc58c1-0": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "testimonial_text": "<p>They are lightweight. I’m impressed with the entire set. The spoon has a nice scoop/bowl. The fork has well spaced prongs that pierce well. The knife is serrated and sharp. Every piece is sturdy and durable. It has been a great purchase since day one of use.</p>",
-            "customer_name": "Tyler C. - 3 Piece Cutlery Set - 16/04/2022",
-            "link": "",
-            "stars": 5
-          }
-        },
-        "47fef25b-7841-4fbb-bb57-43cc68841f72": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "testimonial_text": "<p>Super lightweight, so practical, doesn't leak at all. I fill it with boiling water to put in my sleeping bag to keep me warm on a cold night out camping</p>",
-            "customer_name": "Alexis Outdoors (YouTube) - 800ml Round Water Bottle - 30/03/2021",
-            "link": "",
-            "stars": 5
-          }
-        },
-        "5935b45a-3243-4447-903d-ac0f802cbd5e": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "testimonial_text": "<p>I have several flasks made from plastic and steel. The titanium flask is superior because the flavor isn't affected by the plastic or steel leaching into my bourbon. I can also leave my bourbon in my titanium flask for as long as I want and it is still fresh. I cannot do that in my other flasks they need to be cleaned out every few days.</p>",
-            "customer_name": "Jeffrey W. Abrams - 248ml Hip flask - 06/12/2021",
-            "link": "",
-            "stars": 5
-          }
-        }
-      },
-      "block_order": [
-        "c5836bed-9afc-488f-8a3d-5f06a732d7c2",
-        "1628585915d1cc58c1-0",
-        "47fef25b-7841-4fbb-bb57-43cc68841f72",
-        "5935b45a-3243-4447-903d-ac0f802cbd5e"
-      ],
-      "disabled": true,
-      "settings": {
-        "colors": "white",
-        "circle_images": true,
-        "title": "Testimonials"
-      }
-    },
-    "1696136725ab43460d": {
-      "type": "apps",
-      "blocks": {
-        "fa03fbc3-f415-42cd-816f-f75838eaf456": {
-          "type": "shopify://apps/judge-me-reviews/blocks/medals/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
-        "ef546316-4299-46e0-a06f-9951901ec64c": {
-          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "button_R48wtk": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_G7fRBP",
+        "text_kWP7mU",
+        "button_R48wtk"
+      ],
+      "settings": {
+        "height_desktop": "original",
+        "text_position_desktop": "top_right",
+        "text_alignment_desktop": "right",
+        "caption_width_desktop": 80,
+        "text_position_mobile": "top_center",
+        "animation_style": "sticky_content"
+      }
+    },
+    "50b03afc-6c7a-4252-94c2-7579c9d3b3ee": {
+      "type": "collage",
+      "blocks": {
+        "83447c73-f480-4c7d-8508-249f594f3aa3": {
+          "type": "image",
           "settings": {
-            "maxwidth": 1080
+            "desktop_position": "md-min-align-center md-min-justify-left",
+            "mobile_position": "md-max-align-center md-max-justify-left",
+            "heading": "Upload an image",
+            "heading_size": 28,
+            "button_label": ""
+          }
+        },
+        "0d4c44b0-cb7c-43dc-829a-743dfa47a878": {
+          "type": "image",
+          "settings": {
+            "desktop_position": "md-min-align-center md-min-justify-left",
+            "mobile_position": "md-max-align-center md-max-justify-left",
+            "heading": "Upload an image",
+            "heading_size": 28,
+            "button_label": ""
           }
         }
       },
       "block_order": [
-        "fa03fbc3-f415-42cd-816f-f75838eaf456",
-        "ef546316-4299-46e0-a06f-9951901ec64c"
+        "83447c73-f480-4c7d-8508-249f594f3aa3",
+        "0d4c44b0-cb7c-43dc-829a-743dfa47a878"
       ],
       "settings": {
-        "include_margins": true
+        "title": "",
+        "description": "",
+        "section_width": "content",
+        "remove_spacing": false,
+        "block_alignment": "center",
+        "width_1": "2",
+        "height_1": "4",
+        "width_2": "2",
+        "height_2": "4",
+        "width_3": "3",
+        "height_3": "3",
+        "width_4": "2",
+        "height_4": "2",
+        "width_5": "2",
+        "height_5": "2",
+        "width_6": "1",
+        "height_6": "6",
+        "color_scheme": "white"
       }
     },
-    "16285860680aaf4d46": {
-      "type": "products--featured-product",
-      "disabled": true,
+    "3c4d9433-fe83-4e4a-afa6-63c348fea245": {
+      "type": "featured-collection",
       "settings": {
-        "title": "Our Most Popular Titanium Hip Flask",
-        "richtext": "<p>Not only is it our customers favourite, but its the SilverAnt Outdoors team's too! Perfect for that aged Scottish Single Malt!</p>",
-        "featured_product": "titanium-hip-flask-248ml",
-        "product_variant_style": "dropdowns",
-        "hide_soldout_variants": false,
-        "show-giftwrap": false,
-        "show-vendor": true,
-        "show_product_description": true,
-        "show_quantity_selector": true,
-        "show_add_to_cart": true,
-        "show_smart_checkout": false,
+        "title": "Best sellers",
+        "collection": "",
+        "show_view_all": false,
+        "section_padding_top": 0,
+        "grid-desktop": 4,
+        "grid-mobile": "2",
+        "colors": "white"
+      }
+    },
+    "image_with_text_overlay_i9dVtw": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_rkQ9CV": {
+          "type": "heading",
+          "settings": {
+            "font_size_desktop": 60,
+            "font_size_mobile": 36
+          }
+        },
+        "text_wUtGfW": {
+          "type": "text",
+          "settings": {}
+        },
+        "text_with_icon_0": {
+          "type": "text_with_icon",
+          "settings": {
+            "text_with_icon_bottom_spacing": 10
+          }
+        },
+        "text_with_icon_1": {
+          "type": "text_with_icon",
+          "settings": {
+            "text_with_icon_bottom_spacing": 10
+          }
+        },
+        "text_with_icon_2": {
+          "type": "text_with_icon",
+          "settings": {}
+        },
+        "button_GH64RK": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_rkQ9CV",
+        "text_wUtGfW",
+        "text_with_icon_0",
+        "text_with_icon_1",
+        "text_with_icon_2",
+        "button_GH64RK"
+      ],
+      "settings": {
+        "height_desktop": "original",
+        "text_position_desktop": "left",
+        "text_alignment_desktop": "left",
+        "caption_width_desktop": 50,
+        "text_position_mobile": "center",
+        "animation_style": "none"
+      }
+    },
+    "rich_text_VcennU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_hrBGy9": {
+          "type": "heading",
+          "settings": {
+            "heading--text-size": 30
+          }
+        },
+        "richtext_LRNbnx": {
+          "type": "richtext",
+          "settings": {
+            "text_size": 14
+          }
+        }
+      },
+      "block_order": [
+        "heading_hrBGy9",
+        "richtext_LRNbnx"
+      ],
+      "settings": {
+        "section_width": "full-width",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 0,
+        "colors": "white"
+      }
+    },
+    "8e9e36da-191e-4c8c-ba3a-8a307b84bae9": {
+      "type": "collage",
+      "blocks": {
+        "template--14831909208134__8e9e36da-191e-4c8c-ba3a-8a307b84bae9-image-1": {
+          "type": "image",
+          "settings": {
+            "desktop_position": "md-min-align-top md-min-justify-left",
+            "mobile_position": "md-max-align-top md-max-justify-left",
+            "heading": "",
+            "heading_size": 30,
+            "url": "",
+            "button_label": ""
+          }
+        },
+        "da5b3af5-5d95-44e2-b098-f4b3a39403f9": {
+          "type": "image",
+          "settings": {
+            "desktop_position": "md-min-align-top md-min-justify-center",
+            "mobile_position": "md-max-align-top md-max-justify-center",
+            "heading": "",
+            "heading_size": 16,
+            "button_label": "Shop now"
+          }
+        },
+        "9cf4de3c-89e3-446e-b378-f839c160f721": {
+          "type": "image",
+          "settings": {
+            "desktop_position": "md-min-align-top md-min-justify-center",
+            "mobile_position": "md-max-align-top md-max-justify-center",
+            "heading": "",
+            "heading_size": 16,
+            "button_label": "Shop now"
+          }
+        }
+      },
+      "block_order": [
+        "template--14831909208134__8e9e36da-191e-4c8c-ba3a-8a307b84bae9-image-1",
+        "da5b3af5-5d95-44e2-b098-f4b3a39403f9",
+        "9cf4de3c-89e3-446e-b378-f839c160f721"
+      ],
+      "settings": {
+        "title": "",
+        "description": "",
+        "section_width": "content",
+        "remove_spacing": false,
+        "block_alignment": "center",
+        "width_1": "2",
+        "height_1": "2",
+        "width_2": "4",
+        "height_2": "3",
+        "width_3": "4",
+        "height_3": "3",
+        "width_4": "4",
+        "height_4": "3",
+        "width_5": "4",
+        "height_5": "6",
+        "width_6": "4",
+        "height_6": "6",
+        "color_scheme": "white"
+      }
+    },
+    "12a25ae5-a869-4fec-9751-deb411052883": {
+      "type": "interactive-menu",
+      "blocks": {
+        "template--14831909208134__12a25ae5-a869-4fec-9751-deb411052883-menu_item-1": {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Menu item",
+            "menu_item_link": ""
+          }
+        },
+        "template--14831909208134__12a25ae5-a869-4fec-9751-deb411052883-menu_item-2": {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Menu item",
+            "menu_item_link": ""
+          }
+        },
+        "template--14831909208134__12a25ae5-a869-4fec-9751-deb411052883-menu_item-3": {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Menu item",
+            "menu_item_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14831909208134__12a25ae5-a869-4fec-9751-deb411052883-menu_item-1",
+        "template--14831909208134__12a25ae5-a869-4fec-9751-deb411052883-menu_item-2",
+        "template--14831909208134__12a25ae5-a869-4fec-9751-deb411052883-menu_item-3"
+      ],
+      "settings": {
+        "min_height": "30vw",
+        "alignment_desktop": "center",
+        "menu_position": "center",
+        "alignment_mobile": "center",
+        "menu_item_size": 50,
+        "menu_items_color": "rgba(0,0,0,0)",
+        "colors": "accent"
+      }
+    },
+    "3f1d5abc-4a41-4b0f-98ca-29a6a3d95949": {
+      "type": "blog-posts",
+      "blocks": {
+        "46fa8d12-7387-4c7c-8145-c62ba65f45c5": {
+          "type": "article",
+          "settings": {
+            "blog_post_1": "",
+            "blog_post_2": "",
+            "blog_post_3": "",
+            "blog_post_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "46fa8d12-7387-4c7c-8145-c62ba65f45c5"
+      ],
+      "settings": {
+        "title": "From the blog",
+        "blog_show_date": true,
+        "post_limit": 3,
+        "colors": "white"
+      }
+    },
+    "parallax_mMbwkb": {
+      "type": "parallax",
+      "blocks": {
+        "parallax_heading": {
+          "type": "heading",
+          "settings": {
+            "font_size_desktop": 60,
+            "font_size_mobile": 60,
+            "heading_bottom_spacing": 0
+          }
+        },
+        "parallax_overlay_image": {
+          "type": "overlay_image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "parallax_heading",
+        "parallax_overlay_image"
+      ],
+      "settings": {
+        "desktop_height": "small",
+        "mobile_height": "medium",
+        "background_color": "#E6E5E7"
+      }
+    },
+    "featured_product_qx9gY7": {
+      "type": "featured-product",
+      "settings": {
+        "title": "",
+        "description": "",
         "image-placement": "left",
-        "enable_video_loop": false
+        "image_size": "medium",
+        "image_shape": "square",
+        "image-display": "thumbnails",
+        "thumbnail_position": "below",
+        "image_display_mobile": "slider",
+        "enable_video_loop": false,
+        "enable_autoplay": false,
+        "show_video_controls": false,
+        "title_font": "h2",
+        "price_font": "h2",
+        "variant_style": "swatches",
+        "hide_out_of_stock_variants": false,
+        "show-giftwrap": false,
+        "show-vendor": false,
+        "show_product_description": true,
+        "show_quantity_selector": false,
+        "show_add_to_cart": true,
+        "show_smart_checkout": true,
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "color_scheme": "white",
+        "override_button_colors": false
       }
     },
-    "16285862085894e91c": {
-      "type": "text--text-adverts",
+    "2702beb3-827b-44e4-991e-9b79a8ccc045": {
+      "type": "map",
+      "settings": {
+        "layout": "right",
+        "text_alignment": "center",
+        "button_text": "Get directions",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "white"
+      }
+    },
+    "scrolling_banner_RUiHpz": {
+      "type": "scrolling-banner",
       "blocks": {
-        "16285862085894e91c-0": {
+        "text_xdJ4iz": {
           "type": "text",
           "settings": {
-            "heading": "We manufacture everything we make!",
-            "subheading": "At SilverAnt we have our own factory that is ISO:9001-2015 Certified. We research, design, and manufacture all our titanium outdoor gear.",
-            "link": ""
+            "font": "heading",
+            "style": "fill",
+            "font_size_desktop": 16,
+            "font_size_mobile": 16
           }
         },
-        "16285862085894e91c-1": {
+        "text_C4HWjm": {
           "type": "text",
           "settings": {
-            "heading": "Titanium outdoor products you can trust!",
-            "subheading": "SilverAnt's titanium products are SGS and FDA approved. All our products are made in our ISO:9001-2015 approved factory.",
-            "link": ""
+            "font": "heading",
+            "style": "fill",
+            "font_size_desktop": 16,
+            "font_size_mobile": 16
+          }
+        },
+        "text_cFt69f": {
+          "type": "text",
+          "settings": {
+            "font": "heading",
+            "style": "fill",
+            "font_size_desktop": 16,
+            "font_size_mobile": 16
           }
         }
       },
       "block_order": [
-        "16285862085894e91c-0",
-        "16285862085894e91c-1"
+        "text_xdJ4iz",
+        "text_C4HWjm",
+        "text_cFt69f"
       ],
       "settings": {
-        "colors": "dark"
-      }
-    },
-    "1628586070aeecc586": {
-      "type": "image--gallery",
-      "blocks": {
-        "1628586070aeecc586-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Titanium_248ml_Hip_Flask_and_Funnel_2.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "1628586070aeecc586-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Titanium_Double-Wall_Coffee_Cup_With_Straw_2.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "1628586070aeecc586-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Titanium_3-Piece_Camping_Cookware_Set_1.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#373737",
-            "overlay_color": "#323232"
-          }
-        },
-        "835d0da4-120c-4fcf-92fa-f7dca4b44d57": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Titanium_3-piece_cutlery_set_-_sandblasted_finish_3.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        }
-      },
-      "block_order": [
-        "1628586070aeecc586-0",
-        "1628586070aeecc586-1",
-        "1628586070aeecc586-2",
-        "835d0da4-120c-4fcf-92fa-f7dca4b44d57"
-      ],
-      "settings": {
-        "colors": "white",
         "title": "",
-        "richtext": "",
-        "remove-spacing": true,
-        "full-width": false,
-        "section-width": "full",
-        "content-position": "hide"
-      }
-    },
-    "1628586118e8d93e38": {
-      "type": "image--gallery",
-      "blocks": {
-        "1628586118e8d93e38-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_1.png",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "1628586118e8d93e38-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Titanium_248ml_Hip_Flask_and_Funnel_4.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "1628586118e8d93e38-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/28.1_fl_oz2.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "eeebf197-454b-4862-811d-9eaa9c6dd12e": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAnt_Titanium_3-piece_cutlery_set_-_sandblasted_finish_2.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        }
-      },
-      "block_order": [
-        "1628586118e8d93e38-0",
-        "1628586118e8d93e38-1",
-        "1628586118e8d93e38-2",
-        "eeebf197-454b-4862-811d-9eaa9c6dd12e"
-      ],
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "richtext": "",
-        "remove-spacing": true,
-        "full-width": false,
-        "section-width": "full",
-        "content-position": "hide"
-      }
-    },
-    "16285862119b643d6f": {
-      "type": "newsletter--newsletter",
-      "settings": {
-        "colors": "white",
-        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree",
-        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
-      }
-    },
-    "16285861334dff250d": {
-      "type": "blog--blog-posts",
-      "blocks": {
-        "16285861334dff250d-0": {
-          "type": "blog",
-          "settings": {
-            "blog": "the-silverant-blog"
-          }
-        }
-      },
-      "block_order": [
-        "16285861334dff250d-0"
-      ],
-      "settings": {
-        "colors": "dark",
-        "title": "The Worker Ant Blog",
-        "richtext": "<p>A collection of how to guides, user tips, product overiews, destination recommendations, and more.</p>",
-        "blog_show_date": false,
-        "post_limit": 3
+        "description": "",
+        "show_fade": false,
+        "borders": true,
+        "animation_direction": "normal",
+        "animation_speed": 80,
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "space_between_blocks_desktop": 80,
+        "space_between_blocks_mobile": 29,
+        "rotate": "0",
+        "color_scheme": "dark"
       }
     }
   },
   "order": [
-    "16285850521c6f1af2",
-    "f744ee42-d65e-4319-bef7-b982464e0f0d",
-    "text_rich_text_fdFqfm",
-    "collection_featured_collection_AxQiwy",
-    "165691317218c8e0af",
-    "b5446dfe-2fdf-4fc0-b48c-040bef2e2b38",
-    "8b735adc-0c84-410a-b4ea-257b51d5caf1",
-    "1692866168a4fbd0f2",
-    "16285857676484908c",
-    "1628585507e0d6e3a0",
-    "72005107-2e2e-403f-ae5b-093dcbf049f1",
-    "1628585721a8b1b9a7",
-    "1628585461cbddcdb9",
-    "collection-featured-collection-1",
-    "1628585681433938e6",
-    "1628585918569b36f8",
-    "1654152249fa522a20",
-    "1628585915d1cc58c1",
-    "1696136725ab43460d",
-    "16285860680aaf4d46",
-    "16285862085894e91c",
-    "1628586070aeecc586",
-    "1628586118e8d93e38",
-    "16285862119b643d6f",
-    "16285861334dff250d"
+    "slideshow_RRiMqQ",
+    "06b36118-35e6-4312-b5b2-099a0ddc5aa6",
+    "3643d38b-24f2-4040-ab67-4b4b44a63aab",
+    "35b28867-77fd-4573-8212-101b3b8e2245",
+    "50b03afc-6c7a-4252-94c2-7579c9d3b3ee",
+    "3c4d9433-fe83-4e4a-afa6-63c348fea245",
+    "image_with_text_overlay_i9dVtw",
+    "rich_text_VcennU",
+    "8e9e36da-191e-4c8c-ba3a-8a307b84bae9",
+    "12a25ae5-a869-4fec-9751-deb411052883",
+    "3f1d5abc-4a41-4b0f-98ca-29a6a3d95949",
+    "parallax_mMbwkb",
+    "featured_product_qx9gY7",
+    "2702beb3-827b-44e4-991e-9b79a8ccc045",
+    "scrolling_banner_RUiHpz"
   ]
 }

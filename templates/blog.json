@@ -9,27 +9,101 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "template--blog",
+    "featured_blog_posts_iRzpDT": {
+      "type": "featured-blog-posts",
+      "blocks": {
+        "image_476UYR": {
+          "type": "image",
+          "settings": {
+            "buttons_style": "underlined",
+            "override_button_colors": true,
+            "text_position": "bottom_left",
+            "desktop-caption-heading-size": 28,
+            "desktop-caption-body-text-size": 16,
+            "mobile_text_position": "bottom_left",
+            "mobile-caption-heading-size": 28,
+            "mobile-caption-body-text-size": 16,
+            "image_overlay_opacity": 50
+          }
+        },
+        "image_U4bybY": {
+          "type": "image",
+          "settings": {
+            "buttons_style": "underlined",
+            "override_button_colors": true,
+            "text_position": "bottom_left",
+            "desktop-caption-heading-size": 28,
+            "desktop-caption-body-text-size": 16,
+            "mobile_text_position": "bottom_left",
+            "mobile-caption-heading-size": 28,
+            "mobile-caption-body-text-size": 16,
+            "image_overlay_opacity": 50
+          }
+        }
+      },
+      "block_order": [
+        "image_476UYR",
+        "image_U4bybY"
+      ],
       "settings": {
-        "show_author_name": false,
-        "blog-sidebar-link": "",
-        "show_blog_tags": false,
-        "show_recent_posts": true,
-        "blog_show_date": false
+        "show_tags": true,
+        "show_date": true,
+        "show_author": true,
+        "show_excerpt": true,
+        "show_read_more": true,
+        "desktop_height": "small",
+        "mobile_height": "extra_large",
+        "slide_navigation_style": "bars",
+        "slide_transition_delay": 7,
+        "section_padding_top": 0,
+        "section_padding_bottom": 0
       }
     },
-    "39b35f14-b58f-4825-979b-ec929bfa26e8": {
-      "type": "newsletter--newsletter",
+    "main": {
+      "type": "template--blog",
+      "blocks": {
+        "tag_navigation_FfQCRQ": {
+          "type": "tag_navigation",
+          "settings": {
+            "alignment": "center",
+            "layout_style": "grid",
+            "buttons_style": "badges",
+            "override_button_colors": false
+          }
+        }
+      },
+      "block_order": [
+        "tag_navigation_FfQCRQ"
+      ],
       "settings": {
-        "colors": "accent",
-        "newsletter_heading": "Join Our Community & Plant A Tree",
-        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree </strong></em>and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+        "show_image": true,
+        "image_aspect_ratio": "wide",
+        "show_tags": true,
+        "blog_show_date": true,
+        "show_author_name": true,
+        "show_excerpt": true,
+        "show_read_more": false,
+        "heading_font": "heading",
+        "heading_font_size": 17,
+        "alignment": "left",
+        "show_sidebar": true,
+        "show_sidebar_newsletter": true,
+        "newsletter_color_scheme": "accent",
+        "show_recent_posts": true,
+        "show_popular_articles_image": true,
+        "show_sidebar_dates": true,
+        "sidebar_image_shape": "original",
+        "blog-sidebar-link": "",
+        "blog-sidebar-description": "",
+        "show_blog_tags": false,
+        "show_social_icons": true,
+        "posts_to_show": 14,
+        "posts_per_row": 2
       }
     }
   },
   "order": [
-    "main",
-    "39b35f14-b58f-4825-979b-ec929bfa26e8"
+    "featured_blog_posts_iRzpDT",
+    "main"
   ]
 }
