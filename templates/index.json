@@ -14,6 +14,7 @@
       "blocks": {
         "image_cUDmTR": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle.jpg",
             "mobile_image": "shopify://shop_images/Stove_cup_kit_7ff20699-16b6-445e-a4a2-2e0faaa04f7c.jpg",
@@ -31,6 +32,7 @@
         },
         "image_jpjDrx": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle_2_cdd37438-c3f3-4c37-a077-458d840d9579.png",
             "mobile_image": "shopify://shop_images/Stove_cup_kit_2.png",
@@ -48,6 +50,7 @@
         },
         "image_JnNTMW": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle_3_7ac8c575-a822-4d71-a212-325ae8168e5d.png",
             "mobile_image": "shopify://shop_images/coffee_kit_3130603f-a866-490c-a998-f847a92f7d16.png",
@@ -65,6 +68,7 @@
         },
         "16285850521c6f1af2-0": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Peyman_6399effb-4eca-4a80-b64e-3b57ff057126.png",
             "mobile_image": "shopify://shop_images/Peyman_eff76b30-d704-49bc-9c6f-c3b442d720ff.png",
@@ -82,7 +86,6 @@
         },
         "image_xk9YVk": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/SBSW_Desktop_banner.png",
             "mobile_image": "shopify://shop_images/SBSW_Mobile_Banner.png",
