@@ -13,8 +13,6 @@
   "sections": {
     "offers-drawer": {
       "type": "offers-drawer",
-      "settings": {
-      },
       "blocks": {
         "offer-0": {
           "type": "offer",
@@ -36,7 +34,8 @@
       "block_order": [
         "offer-0",
         "offer-1"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [

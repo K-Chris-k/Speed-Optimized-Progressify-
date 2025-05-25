@@ -9,14 +9,14 @@
  */
 {
   "current": {
-    "color_body_text": "#000",
+    "color_body_text": "#9F9F9F",
     "homepage-sections-accent-secondary-color": "#fff",
     "homepage-sections-accent-primary-color": "#5e5e5e",
     "colorSchemeDarkBackground": "#333",
     "type_header_font": "itc_franklin_gothic_n7",
     "heading_spacing": 0,
     "type_base_font": "rajdhani_n4",
-    "typography-body-font-size": 16,
+    "typography-body-font-size": 14,
     "button_font_size": 15,
     "type_navigation_font": "rajdhani_n4",
     "logo_font_size": 19,
@@ -24,7 +24,7 @@
     "pop-up-text-header-text": "DON’T CLICK X",
     "pop-up-text-description-text": "<h3><strong>Unlock 11% OFF Your First Order & Plant A Tree</strong></h3><p>Subscribe and be the first to know about our latest ultralight gear, and we'll plant a tree on your behalf!</p><p><strong>Get outside. Go ultralight.</strong></p>",
     "popup-newsletter-top": "shopify://shop_images/Untitled_design_5.png",
-    "popup--enable": true,
+    "popup--enable": false,
     "popup--test-mode": false,
     "desktop-popup-style": "fullscreen",
     "sm_tiktok_link": "https://www.tiktok.com/@silverantoutdoors",
@@ -98,14 +98,14 @@
         ],
         "settings": {
           "sticky_header": true,
-          "overlay_header_homepage": true,
+          "overlay_header_homepage": false,
           "overlay_header_collection": true,
           "overlay_header_list_collection": false,
           "overlay_header_contact": false,
           "logo": "shopify://shop_images/LOGO_png_1.png",
           "overlay_logo": "shopify://shop_images/logo_fa1da8c9-d1c6-4173-9d76-1d0f857c1621.png",
           "logo-placement": "center",
-          "logo_max_width": 160,
+          "logo_max_width": 90,
           "logo_max_width_mobile": 100,
           "logo_padding": 15,
           "main_linklist": "main-menu",
@@ -181,6 +181,38 @@
         "settings": {
           "storefrontAccessToken": "a8bc4ef82137c21530c78b97914e32e4"
         }
+      },
+      "15181020662106344915": {
+        "type": "shopify://apps/judge-me-reviews/blocks/popup_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {}
+      },
+      "12120936241911852800": {
+        "type": "shopify://apps/judge-me-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {
+          "position": "bottom"
+        }
+      },
+      "9696655121035291526": {
+        "type": "shopify://apps/rapi/blocks/app-embed/99617c17-a32b-4e70-a883-7a155610d032",
+        "disabled": false,
+        "settings": {}
+      },
+      "16936614187718193802": {
+        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
+        "disabled": false,
+        "settings": {}
+      },
+      "9468172321995857178": {
+        "type": "shopify://apps/qikify-bogo-freegift/blocks/app-embed/2e94b962-8172-4839-8ad9-7837eb8b017a",
+        "disabled": true,
+        "settings": {}
+      },
+      "13672250894428551832": {
+        "type": "shopify://apps/qikify-slide-cart/blocks/app-embed/39da5d6e-3e04-4687-bc69-e23fafb93294",
+        "disabled": true,
+        "settings": {}
       }
     }
   },

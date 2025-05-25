@@ -36,7 +36,7 @@
           "type": "newsletter",
           "settings": {
             "newsletter_title": "Newsletter",
-            "footer_newsletter_description": "<p>Be the first to know about our biggest and best sales.<\/p>"
+            "footer_newsletter_description": "<p>Be the first to know about our biggest and best sales.</p>"
           }
         }
       },
@@ -48,8 +48,8 @@
       ],
       "settings": {
         "alignment": "left",
-        "color_scheme": "accent",
-        "heading_font_size": 16
+        "heading_font_size": 16,
+        "color_scheme": "accent"
       }
     },
     "footer-bottom": {
