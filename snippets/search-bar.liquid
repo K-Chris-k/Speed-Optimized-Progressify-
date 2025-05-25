@@ -14,17 +14,20 @@
 
 {% endcomment %}
 
+{{ 'template-search.min.css' | asset_url | stylesheet_tag: preload: true }}
+
 <form action="{{ routes.search_url }}" method="get" class="input-group search-bar" role="search">
   <div class="search-bar-input-group">
     {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
-    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
-    <div tabindex="0" class="search-drawer--clear">
-      <span class="search-drawer--clear-icon"></span>
-    </div>
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ settings.search_input_label }}" class="input-group-field" aria-label="{{ settings.search_input_label }}">
+    <button type="button" aria-label="{{ 'general.search.clear' | t }}" class="search-drawer--clear icon-fallback-text standalone-icon--wrapper" tabindex="-1">
+      <span class="fallback-text">{{ 'general.search.clear' | t }}</span>
+      {% render 'theme-icon' with icon: 'close', iconSize: 20 %}
+    </button>
   </div>
   <span class="input-group-btn">
-    <button type="submit" class="btn icon-fallback-text">
-      <i class="fa fa-search"></i>
+    <button type="submit" class="search-input--btn icon-fallback-text standalone-icon--wrapper" aria-label="{{ 'layout.header.search' | t }}">
+      {% render 'theme-icon' with icon: 'search', iconSize: 20 %}
       <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
     </button>
   </span>

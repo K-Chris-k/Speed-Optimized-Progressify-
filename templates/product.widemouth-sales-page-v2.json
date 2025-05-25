@@ -9,63 +9,9 @@
  */
 {
   "sections": {
-    "text_rich_text_FfFxUw": {
-      "type": "text--rich-text",
-      "custom_css": [],
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h2><strong>Why Thru-Hikers, Ultralight Campers, and Weekend Warriors Are All Switching to This Bulletproof Bottle</strong></h2>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "image_image_with_text_overlay_UJWJwd": {
-      "type": "image--image-with-text-overlay",
-      "settings": {
-        "image": "shopify://shop_images/Untitled_design_18.png",
-        "image_height": "40vw",
-        "bg_image_overlay_opacity": 0,
-        "parallax": true,
-        "title": "",
-        "text": "",
-        "colors": "light",
-        "textPosition": "center",
-        "textAlignment": "center",
-        "heading--text-size": 28,
-        "text--text-size": 36,
-        "link": "",
-        "button_label": "",
-        "button-text": "#ffffff",
-        "button-background": "#000000"
-      }
-    },
-    "text_rich_text_dHQWVj": {
-      "type": "text--rich-text",
-      "custom_css": [],
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h3><strong>Hikers. Backpackers. Wilderness Explorers...</strong></h3><p>Looking for the bottle that lasts a decade?</p><p>Then why trust your hydration to:</p><ul><li>Plastic Nalgenes that shatter on the first drop</li><li>Brands that outsource their bottles to whoever’s cheapest</li><li>Companies charging elite prices—with dollar-store quality</li></ul><p>You know the cost of settling.</p><p><em>Keep scrolling to see why </em><strong>17,000+ serious adventurers</strong> switched to <strong>SilverAnt Titanium</strong>.</p>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
     "product-form": {
       "type": "template--product",
       "blocks": {
-        "media": {
-          "type": "media",
-          "settings": {
-            "image_size": "medium",
-            "image-display": "thumbnails",
-            "thumbnail_position": "below",
-            "enable_image_zoom": true,
-            "enable_video_loop": false
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -84,9 +30,7 @@
         "options": {
           "type": "options",
           "settings": {
-            "product_variant_style": "dropdowns",
-            "thumbnail_changes_variant": true,
-            "hide_soldout_variants": true
+            "thumbnail_changes_variant": true
           }
         },
         "custom_liquid_P3AYF6": {
@@ -153,8 +97,8 @@
         "46a68c53-9aaa-404f-8759-76be46d7045b": {
           "type": "trust_badges",
           "settings": {
-            "trust-badge_max_width": 500,
-            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
+            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png",
+            "trust-badge_max_width": 500
           }
         },
         "69de8680-44b2-42ab-8b77-2a049ccd2f20": {
@@ -172,7 +116,6 @@
         }
       },
       "block_order": [
-        "media",
         "title",
         "price",
         "82f0bd81-d4e0-4618-aace-8c9d28ac737e",
@@ -189,231 +132,7 @@
         "69de8680-44b2-42ab-8b77-2a049ccd2f20"
       ],
       "settings": {
-        "enable_sticky": false,
-        "show_out_of_stock_email": false
-      }
-    },
-    "text_rich_text_YR4H9y": {
-      "type": "text--rich-text",
-      "custom_css": [],
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h3><strong>It’s Not If Your Gear Breaks... It’s When.</strong></h3><p>Thru-hike? Multi-day trip?</p><p><em>One cracked bottle and your hike’s over.</em></p><p>But not with SilverAnt.</p><p><strong>This is the bottle you trust after it hits the rocks,<br/>when the others crack, and this one just shrugs it off.<br/><br/></strong><em>Confidence—every time you reach for water.</em></p>",
-        "button_label": "BUY NOW",
-        "button_link": "https://silverantoutdoors.com/cart/44497316970674:1?checkout"
-      }
-    },
-    "text_rich_text_zWPytE": {
-      "type": "text--rich-text",
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h2><strong>Why Outdoor Veterans Choose SilverAnt</strong></h2>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "text_product_testimonials_qVUt9W": {
-      "type": "text--product-testimonials",
-      "blocks": {
-        "textarea_i9B8rw": {
-          "type": "textarea",
-          "settings": {
-            "text": "<h5><em>“The permanent solution to carrying water. I’ve taken mine from mountain treks to desert hikes — flawless.”</em></h5>",
-            "author": "Josh Elsass"
-          }
-        },
-        "textarea_U4pBTF": {
-          "type": "textarea",
-          "settings": {
-            "text": "<h5><em>“SilverAnt’s quality speaks for itself. My forest hikes wouldn’t be the same without it.”</em></h5>",
-            "author": "Ari"
-          }
-        },
-        "textarea_JKHtrW": {
-          "type": "textarea",
-          "settings": {
-            "text": "<h5><em>“Light. Durable. Timeless. I’ll never need another water bottle again.”</em></h5>",
-            "author": "Dallas Murphy"
-          }
-        }
-      },
-      "block_order": [
-        "textarea_i9B8rw",
-        "textarea_U4pBTF",
-        "textarea_JKHtrW"
-      ],
-      "name": "Product testimonials",
-      "settings": {
-        "image_style": "circle"
-      }
-    },
-    "image_gallery_QQrQnq": {
-      "type": "image--gallery",
-      "blocks": {
-        "image_ByAQeE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Fire_proof_1.png",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "image_VnLEUE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAntOutdoorsLargeTitaniumWaterBottle1200ml-2.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        },
-        "image_MaCzCt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/SilverAntOutdoorsLargeTitaniumWaterBottle1200ml-4.jpg",
-            "link": "",
-            "subheading": "",
-            "title": "",
-            "overlay-btn-text": "",
-            "show-gradient-overlay": true,
-            "overlay_font_color": "#ffffff",
-            "overlay_color": "#323232"
-          }
-        }
-      },
-      "block_order": [
-        "image_ByAQeE",
-        "image_VnLEUE",
-        "image_MaCzCt"
-      ],
-      "disabled": true,
-      "name": "Gallery",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "richtext": "",
-        "remove-spacing": true,
-        "full-width": false,
-        "section-width": "full",
-        "content-position": "hide"
-      }
-    },
-    "image_logo_list_UGUkc8": {
-      "type": "image--logo-list",
-      "blocks": {
-        "logo_image_Cwkhxc": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/3_1025276f-8ce2-4613-a9de-4a979041be34.png",
-            "link": ""
-          }
-        },
-        "logo_image_peKrfr": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/4_ead5554c-297a-4412-b8c4-3cb53e8d0d74.png",
-            "link": ""
-          }
-        },
-        "logo_image_kAXPGV": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/6.png",
-            "link": ""
-          }
-        },
-        "logo_image_nFB7eQ": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify://shop_images/5.png",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_image_Cwkhxc",
-        "logo_image_peKrfr",
-        "logo_image_kAXPGV",
-        "logo_image_nFB7eQ"
-      ],
-      "disabled": true,
-      "name": "Logo list",
-      "settings": {
-        "colors": "white",
-        "width": 240,
-        "title": "The SilverAnt Outdoors Experience:"
-      }
-    },
-    "text_testimonials_mBpmni": {
-      "type": "text--testimonials",
-      "blocks": {
-        "text_8RGx8V": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/SilverAntOutdoorsLargeTitaniumWaterBottle1200ml-6.jpg",
-            "testimonial_text": "<p><em>“This bottle is incredible for everything — camping, climbing, traveling, you name it. Worth every penny.”</em></p>",
-            "customer_name": "— Elizabeth Bailey",
-            "link": "",
-            "stars": 5
-          }
-        }
-      },
-      "block_order": [
-        "text_8RGx8V"
-      ],
-      "disabled": true,
-      "name": "Testimonials",
-      "settings": {
-        "colors": "white",
-        "circle_images": true,
-        "title": ""
-      }
-    },
-    "text_rich_text_qzMpbw": {
-      "type": "text--rich-text",
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h2><strong>STOP Wasting $100s on Flimsy Gear</strong></h2><p>Cracked Nalgenes. Warped aluminum. More plastic junk.</p><p>You’ve already spent more than $119.99.</p><p><strong>Buy once. Never again.</strong></p>",
-        "button_label": "BUY NOW",
-        "button_link": "https://silverantoutdoors.com/cart/44497316970674:1?checkout"
-      }
-    },
-    "text_rich_text_NT97fM": {
-      "type": "text--rich-text",
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h2><strong>Limited Production Runs — Act Fast</strong></h2><p><strong>We own our factory.<br/></strong>We don’t mass produce. We <strong>control production</strong> carefully to minimize waste and ensure quality across our full titanium product line.</p><p>It means these bottles…</p><ul><li><strong>Go fast.</strong></li><li><strong>And they don’t come back until everything else is fully restocked.</strong></li></ul><p><strong>No backorders.</strong> When they're gone, they're <em>gone</em>.</p>",
-        "button_label": "BUY NOW",
-        "button_link": "https://silverantoutdoors.com/cart/44497316970674:1?checkout"
-      }
-    },
-    "text_rich_text_rH9xGH": {
-      "type": "text--rich-text",
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h2><strong>Lifetime Guarantee. Zero Risk.</strong></h2><p>Try it. Use it. Put it through hell.<br/><br/>If you don’t think it’s the best bottle you’ve ever owned — send it back. We’ll take care of you.</p><p>Buy Once. Own It Forever.</p>",
-        "button_label": "BUY NOW",
-        "button_link": "https://silverantoutdoors.com/cart/44497316970674:1?checkout"
+        "enable_sticky": false
       }
     },
     "accordion_QfcGHj": {
@@ -456,20 +175,9 @@
       ],
       "name": "Accordion/FAQ",
       "settings": {
-        "colors": "white",
         "title": "You May Be Thinking...",
-        "faq_icon": "plus_minus"
-      }
-    },
-    "text_rich_text_hG777d": {
-      "type": "text--rich-text",
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "You know this is the one",
-        "text": "",
-        "button_label": "UPGRADE NOW",
-        "button_link": "https://silverantoutdoors.com/cart/44497316970674:1?checkout"
+        "faq_icon": "plus_minus",
+        "colors": "white"
       }
     },
     "1696136166eb28b41e": {
@@ -487,125 +195,47 @@
         "include_margins": true
       }
     },
-    "text_rich_text_itjKRx": {
-      "type": "text--rich-text",
-      "name": "Rich text",
-      "settings": {
-        "colors": "white",
-        "title": "",
-        "text": "<h2><strong>Final Word</strong></h2><p>If you’re the kind of person who takes pride in their gear...<br/><br/>If you care about what goes into your pack, and how it performs when it matters…</p><p>Then this isn’t just a bottle.</p><p><strong>This is the upgrade you’ve been looking for.</strong></p>",
-        "button_label": "BUY NOW",
-        "button_link": "https://silverantoutdoors.com/cart/44497316970674:1?checkout"
-      }
-    },
     "recently-viewed": {
       "type": "template--product--recently-viewed",
-      "blocks": {
-        "product_card_image": {
-          "type": "product_card_image",
-          "settings": {
-            "hover-effect": false,
-            "enable_badges": true
-          }
-        },
-        "product_card_title": {
-          "type": "product_card_title",
-          "settings": {}
-        },
-        "product_card_vendor": {
-          "type": "product_card_vendor",
-          "settings": {}
-        },
-        "product_card_price": {
-          "type": "product_card_price",
-          "settings": {}
-        },
-        "product_card_button": {
-          "type": "product_card_button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "product_card_image",
-        "product_card_title",
-        "product_card_vendor",
-        "product_card_price",
-        "product_card_button"
-      ],
-      "settings": {
-        "enable_recently_viewed": false,
-        "recently_viewed_title": "Recently viewed products"
-      }
+      "settings": {}
     },
     "product-recommendations": {
       "type": "template--product--recommendations",
+      "settings": {}
+    },
+    "product-description": {
+      "type": "template--product--description",
       "blocks": {
-        "product_card_image": {
-          "type": "product_card_image",
-          "settings": {
-            "hover-effect": true,
-            "enable_badges": true
-          }
-        },
-        "product_card_title": {
-          "type": "product_card_title",
+        "product-description": {
+          "type": "product_description",
           "settings": {}
         },
-        "product_card_vendor": {
-          "type": "product_card_vendor",
+        "collapsible-tab-1": {
+          "type": "collapsible_tab",
           "settings": {}
         },
-        "product_card_price": {
-          "type": "product_card_price",
-          "settings": {}
-        },
-        "product_card_button": {
-          "type": "product_card_button",
+        "collapsible-tab-2": {
+          "type": "collapsible_tab",
           "settings": {}
         }
       },
       "block_order": [
-        "product_card_image",
-        "product_card_title",
-        "product_card_vendor",
-        "product_card_price",
-        "product_card_button"
+        "product-description",
+        "collapsible-tab-1",
+        "collapsible-tab-2"
       ],
+      "disabled": true,
       "settings": {
-        "enable_product_recommendations": true,
-        "product_recommendations_heading": "Customers Like You Also Purchased"
-      }
-    },
-    "advanced_layout_custom_liquid_3DzKk8": {
-      "type": "advanced-layout--custom-liquid",
-      "custom_css": [
-        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
-      ],
-      "settings": {
-        "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\n\tdocument.getElementById(\"AddToCart\").addEventListener('click',function (){\n \t\t_learnq.push(['track', 'Added to Cart', item]);\n\t});</script>"
+        "enable_readmore": false
       }
     }
   },
   "order": [
-    "text_rich_text_FfFxUw",
-    "image_image_with_text_overlay_UJWJwd",
-    "text_rich_text_dHQWVj",
     "product-form",
-    "text_rich_text_YR4H9y",
-    "text_rich_text_zWPytE",
-    "text_product_testimonials_qVUt9W",
-    "image_gallery_QQrQnq",
-    "image_logo_list_UGUkc8",
-    "text_testimonials_mBpmni",
-    "text_rich_text_qzMpbw",
-    "text_rich_text_NT97fM",
-    "text_rich_text_rH9xGH",
+    "product-description",
     "accordion_QfcGHj",
-    "text_rich_text_hG777d",
     "1696136166eb28b41e",
-    "text_rich_text_itjKRx",
     "recently-viewed",
-    "product-recommendations",
-    "advanced_layout_custom_liquid_3DzKk8"
+    "product-recommendations"
   ]
 }

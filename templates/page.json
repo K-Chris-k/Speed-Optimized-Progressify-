@@ -14,18 +14,9 @@
       "settings": {
         "page_width": "full-width"
       }
-    },
-    "49fd4361-2a9b-4126-b4d3-6d70ae001953": {
-      "type": "newsletter--newsletter",
-      "settings": {
-        "colors": "accent",
-        "newsletter_heading": "Join Community & Plant A Tree",
-        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
-      }
     }
   },
   "order": [
-    "main",
-    "49fd4361-2a9b-4126-b4d3-6d70ae001953"
+    "main"
   ]
 }

@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "Overlay",
+  "sections": {
+    "offers-drawer": {
+      "type": "offers-drawer",
+      "settings": {
+      },
+      "blocks": {
+        "offer-0": {
+          "type": "offer",
+          "settings": {
+            "description": "<p>Provide additional details about the offer you're running.</p>",
+            "discount_code": "FLASHSALE",
+            "button_label": ""
+          }
+        },
+        "offer-1": {
+          "type": "offer",
+          "settings": {
+            "description": "<p>Provide additional details about the offer you're running.</p>",
+            "show_countdown": true,
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "offer-0",
+        "offer-1"
+      ]
+    }
+  },
+  "order": [
+    "offers-drawer"
+  ]
+}
