@@ -15,9 +15,105 @@
       "settings": {
         "page_width": "full-width"
       }
+    },
+    "b37928c2-368f-494f-bbac-2e4e28801133": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--16056586535090__b37928c2-368f-494f-bbac-2e4e28801133-1679307902de4999d0-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Information_Videos_Youtube_Thumbnails_900_x_1600_px_3.jpg",
+            "mobile_image": "shopify://shop_images/Information_Videos_Youtube_Thumbnails_900_x_1600_px_2.jpg",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "captionHorizontal": "left",
+            "captionAlignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "template--16056586535090__b37928c2-368f-494f-bbac-2e4e28801133-1679307902de4999d0-0"
+      ],
+      "settings": {
+        "slider-animation": "slide",
+        "slider-width": "fixed",
+        "vertical-alignment": true,
+        "text-below-image": true,
+        "slider-slide-time": 5,
+        "caption-heading-size": 30,
+        "caption-subheading-size": 16,
+        "caption-button-size": 14,
+        "show-slide-dots": false,
+        "show-slide-arrows": false,
+        "slider-navigation-color": "#ffffff"
+      }
+    },
+    "99b849c7-4423-4b1c-833a-fcdb4788d50c": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "p {text-align: left;}",
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "text": "<p>At SilverAnt Outdoors, we take pride in the quality of our products. It’s why we offer a lifetime warranty and our mission is to, \"build gear for a lifetime of adventures.\"</p><p>We understand that when it comes to outdoor equipment, durability, and strength are crucial. That is why we use Grade 1 to Grade 3 titanium, depending on the titanium product and its function.</p><p>SilverAnt sources all our titanium from Sichuan Province. Which is known for producing some of the highest-quality <a href=\"https://en.wikipedia.org/wiki/Titanium\" target=\"_blank\" title=\"https://en.wikipedia.org/wiki/Titanium\"><strong>titanium</strong></a> in the world.</p><p>Each batch of titanium we use is individually tested for purity, ensuring that we only use titanium that is certified 99.7% pure and above.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "864475c8-3150-4f6a-9f68-24607514355a": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "p {text-align: left;}",
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "Certification",
+        "text": "<p>At SilverAnt Outdoors, we manufacture everything we make in our own ISO:9001-2015 certified manufacturing facility. We take pride in our facility, which is equipped with state-of-the-art technology, enabling us to manufacture titanium outdoor products to the highest standards.</p><p>As well as our manufacturing and titanium purity certifications we understand the importance of meeting regulatory requirements. Which is why all our products are certified by the relevant regulating bodies. SilverAnt's products are certified by SGS in Europe, the FDA in North America, and in Japan by the Food and Health Ministry.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "96589028-ef02-457b-b6df-ecc232f6d1cc": {
+      "type": "text--rich-text",
+      "custom_css": [
+        "p {text-align: left;}",
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "title": "Manufacturing",
+        "text": "<p>In the manufacturing process, we operate a closed loop. We have owned and operated one of the largest titanium manufacturing facilities in Asia for 20+ years! Our closed-loop process ensures that waste is minimized, and we make the most efficient use of resources. In addition, we can guarantee the quality and craftsmanship of everything we make!</p><p>To learn more about our manufacturing process you can watch our YouTube series we made specifically to tell our customers the steps of production.</p><p>At SilverAnt we believe in honesty and transparency. In a world where more is being asked of responsible businesses, we answer that call by being entirely transparent about who we are and what we stand for.</p><p>To read more head over to our <a href=\"https://silverantoutdoors.com/pages/sustainability-responsibility\" target=\"_blank\" title=\"https://silverantoutdoors.com/pages/sustainability-responsibility\">sustainability and responsibility policy</a> as well as <a href=\"https://silverantoutdoors.com/pages/about-us\" target=\"_blank\" title=\"https://silverantoutdoors.com/pages/about-us\">who we are</a> and our history page.</p>",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "3e154295-9cae-4cd8-9819-eebae788b8dc": {
+      "type": "newsletter--newsletter",
+      "custom_css": [
+        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 10px;}"
+      ],
+      "settings": {
+        "colors": "white",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Subscribe to our mailing list to receive a small weekly snippet of fun. From product promotions to articles, podcasts, and product guides. This newsletter gives you the lowdown on our weekly inspiration and of course our titanium outdoor products. Subscribe Now!</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "b37928c2-368f-494f-bbac-2e4e28801133",
+    "99b849c7-4423-4b1c-833a-fcdb4788d50c",
+    "864475c8-3150-4f6a-9f68-24607514355a",
+    "96589028-ef02-457b-b6df-ecc232f6d1cc",
+    "3e154295-9cae-4cd8-9819-eebae788b8dc"
   ]
 }

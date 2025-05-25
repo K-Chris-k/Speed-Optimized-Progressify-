@@ -18,25 +18,16 @@
 {% assign sizes_array = sizes | split: ', ' %}
 {% assign last_size = sizes_array.first %}
 
-{% assign focal_point = responsive-background-image.presentation.focal_point %}
-
-{% if focal_point %}
-  {% capture focal_point_styles %}
-    background-size: cover;
-    background-position: {{ focal_point }} !important;
-  {% endcapture %}
-{% endif %}
-
+{% capture url_size %}{{ last_size }}x{% endcapture %}
 {{ selector }} {
-  background-image: url('{{ responsive-background-image | image_url: width: last_size }}');
-  {{ focal_point_styles }}
+  background-image: url('{{ responsive-background-image | img_url: url_size }}');
 }
 
 {% for size in sizes_array offset: 1 %}
+  {% capture url_size %}{{ size }}x{% endcapture %}
 @media (min-width: {{ last_size | plus: 1 }}px){% if size != sizes_array.last %} and (max-width: {{ size }}px){% endif %} {
   {{ selector }} {
-    background-image: url('{{ responsive-background-image | image_url: width: size }}');
-    {{ focal_point_styles }}
+    background-image: url('{{ responsive-background-image | img_url: url_size }}');
   }
 }
   {% assign last_size = size %}

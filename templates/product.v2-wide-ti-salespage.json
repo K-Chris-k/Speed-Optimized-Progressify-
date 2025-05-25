@@ -1,0 +1,429 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "advanced_layout_custom_liquid_NDdhiE": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<!-- BLOCK 1: HERO HOOK SECTION -->\n<div class=\"custom-section\" style=\"background-color: #F8F8F6; padding: 60px 20px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h1 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 40px; color: #2C2C2C; text-transform: uppercase; line-height: 1.2; margin-bottom: 20px;\">\n    Can a Bottle Really Survive Fire, Cliffs, and the Next Decade?\n  </h1>\n  <p style=\"font-size: 18px; font-weight: 400; color: #2C2C2C; max-width: 700px; margin: 0 auto 30px;\">\n    You saw the ad. You know what we said. <br>\n    Now it’s time to see if it’s true.\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 600px; margin: 0 auto 40px;\">\n    This isn’t just some pretty product shot. This is where you find out if the bottle lives up to the myth. Scroll down and see it get tested—for real.\n  </p>\n  <a href=\"#proof-video\" style=\"background-color: #D35400; color: #ffffff; padding: 14px 28px; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 6px; transition: background-color 0.3s ease;\">\n    Show Me The Proof\n  </a>\n</div>\n\n<!-- BLOCK 2: VIDEO SECTION -->\n<div id=\"proof-video\" class=\"custom-section\" style=\"background-color: #ffffff; padding: 60px 20px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <div style=\"position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; max-width: 400px; margin: 0 auto;\">\n    <video\n      id=\"trailVideo\"\n      src=\"https://cdn.shopify.com/videos/c/o/v/76303a07fe314c73aaf4c5b4c0d0bd67.mp4\"\n      playsinline\n      controls\n      preload=\"auto\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;\">\n      Your browser does not support the video tag.\n    </video>\n  </div>\n</div>\n\n<!-- BLOCK 3: DURABILITY / VALUE PROOF -->\n<div class=\"custom-section\" style=\"background-color: #F8F8F6; padding: 60px 20px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 32px; color: #2C2C2C; margin-bottom: 20px;\">\n    Our 23-Year Untold Secret to Unmatched Durability\n  </h2>\n  <p style=\"font-size: 18px; color: #2C2C2C; max-width: 700px; margin: 0 auto 20px;\">\n    For over two decades, our family-owned titanium factory has been hands-on through every stage.<br>\n    From first sketch. To final cap twist.\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 700px; margin: 0 auto 30px;\">\n    Every bottle is made with <strong>99.7% pure titanium</strong>, certified by the FDA and built under strict ISO:9001 standards.<br>\n    A bottle you can reach for now…<br>\n    And trust ten years later.\n  </p>\n  <p style=\"font-weight: 700; color: #2C2C2C; font-size: 18px; margin-bottom: 30px;\">\n    Backed by our lifetime guarantee, this is the bottle proven to endure any test and be trail ready every time.<br>\n    <span style=\"font-style: italic;\">Just like you.</span>\n  </p>\n</div>\n\n<!-- BLOCK 4: MIKE YOUNG VIDEO TESTIMONIAL -->\n<div class=\"custom-section\" style=\"background-color: #ffffff; padding: 60px 20px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; color: #2C2C2C; margin-bottom: 20px;\">\n    Hear what Mike Young has to say about SilverAnt Quality\n  </h2>\n  <div style=\"position: relative; padding-bottom: 75%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto;\">\n    <video\n      id=\"mikeVideo\"\n      src=\"https://cdn.shopify.com/videos/c/o/v/29f12c59d6bd40109d6de5141b108c19.mp4\"\n      playsinline\n      controls\n      preload=\"auto\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;\">\n      Your browser does not support the video tag.\n    </video>\n  </div>\n</div>\n\n\n\n<script>\n  function isInViewport(el) {\n    const rect = el.getBoundingClientRect();\n    return rect.top < window.innerHeight && rect.bottom > 0;\n  }\n\n  const video = document.getElementById(\"trailVideo\");\n  const mikeVideo = document.getElementById(\"mikeVideo\");\n  let hasPlayedTrail = false;\n  let hasPlayedMike = false;\n\n  window.addEventListener(\"scroll\", function () {\n    if (!hasPlayedTrail && isInViewport(video)) {\n      hasPlayedTrail = true;\n      video.play();\n    }\n    if (!hasPlayedMike && isInViewport(mikeVideo)) {\n      hasPlayedMike = true;\n      mikeVideo.play();\n    }\n  });\n</script>\n\n<style>\n  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;700&display=swap');\n\n  a:hover {\n    background-color: #B84200 !important;\n    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);\n  }\n\n  .custom-cta-btn {\n    background-color: #D35400;\n    color: white;\n    font-weight: 700;\n    font-size: 16px;\n    padding: 14px 28px;\n    border-radius: 6px;\n    border: none;\n    cursor: pointer;\n    transition: background-color 0.3s ease, box-shadow 0.3s ease;\n  }\n  .custom-cta-btn:hover {\n    background-color: #B84200;\n    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);\n  }\n</style>"
+      }
+    },
+    "advanced_layout_custom_liquid_jTnkcK": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"background:#fff; padding:80px 20px; font-family:'Open Sans', sans-serif; text-align:center;\">\n\n  <!-- HEADLINE -->\n  <h2 style=\"font-family:'Oswald', sans-serif; font-size:34px; color:#2C2C2C; margin-bottom:30px;\">\n    SilverAnt Bottles Are Meant to Survive the Trails Other Bottles Can’t\n  </h2>\n\n  <!-- IMAGE -->\n  <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Untitled_design_18.png?v=1747326286\" \n       alt=\"SilverAnt Trail Visual\" \n       style=\"max-width:900px; width:100%; margin:0 auto 40px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.1); display:block;\">\n\n  <!-- BODY COPY -->\n  <p style=\"font-size:18px; color:#2C2C2C; max-width:750px; margin:0 auto 30px; line-height:1.6;\">\n    <strong>Picture this:</strong><br><br>\n    You’re three days into the trail. Everything hurts—but your bottle… <em>flawless</em>.<br><br>\n    Your buddy pulls out his third cracked Nalgene.<br>\n    You pull out the titanium bottle that still looks brand new.<br><br>\n    He looks at it. Then at you.<br><br>\n    <strong>That’s the moment. That’s the flex.</strong><br><br>\n    That’s why this isn’t just a bottle—it’s who you are.\n  </p>\n\n  <!-- SOCIAL PROOF -->\n  <p style=\"font-size:18px; font-weight:600; color:#2C2C2C; margin-top:40px;\">\n    Now, there's <strong>17,000 other campers, thru-hikers, and backpackers</strong> who flex with SilverAnt.<br>\n    <em>And this is the bottle they trust for the long haul…</em>\n  </p>\n\n</div>"
+      }
+    },
+    "advanced_layout_custom_liquid_ezfyXX": {
+      "type": "advanced-layout--custom-liquid",
+      "custom_css": [],
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .custom-testimonial-section {\n    padding: 80px 20px;\n    background-color: #F8F8F6;\n    font-family: 'Open Sans', sans-serif;\n  }\n\n  .custom-testimonial-section h2 {\n    font-family: 'Oswald', sans-serif;\n    font-weight: 700;\n    font-size: 32px;\n    color: #2C2C2C;\n    text-align: center;\n    margin-bottom: 60px;\n  }\n\n  .testimonial-grid {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    gap: 30px;\n  }\n\n  .testimonial-card {\n    background: #fff;\n    border: 1px solid #A9A9A9;\n    border-radius: 12px;\n    padding: 30px;\n    width: 300px;\n    box-shadow: 0px 4px 8px rgba(0,0,0,0.08);\n    text-align: center;\n  }\n\n  .testimonial-img {\n    width: 60px;\n    height: 60px;\n    border-radius: 50%;\n    object-fit: cover;\n    margin-bottom: 10px;\n  }\n\n  .stars {\n    color: #D35400;\n    margin-bottom: 10px;\n  }\n\n  .testimonial-text {\n    font-size: 16px;\n    color: #2C2C2C;\n    margin-bottom: 20px;\n  }\n\n  .testimonial-name {\n    font-weight: 700;\n    color: #D35400;\n  }\n\n  .fade-in {\n    opacity: 0;\n    transform: translateY(20px);\n    transition: opacity 0.6s ease-out, transform 0.6s ease-out;\n  }\n\n  .fade-in.visible {\n    opacity: 1;\n    transform: translateY(0);\n  }\n</style>\n\n<div class=\"custom-testimonial-section\">\n  <h2>What Other Outdoorsmen Are Saying</h2>\n  <div class=\"testimonial-grid\">\n    <div class=\"testimonial-card fade-in\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\" class=\"testimonial-img\" alt=\"Customer 1\">\n      <div class=\"stars\">★★★★★</div>\n      <p class=\"testimonial-text\"><em>“So much lighter than any other product I’ve used… I’ve dropped this onto hard rocks multiple times while it was full and the bottle sustained zero damage.”</em></p>\n      <p class=\"testimonial-name\">— Christopher D. Chaput</p>\n    </div>\n    <div class=\"testimonial-card fade-in\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Snapinsta.app_446195975_769853444968437_2642969448803393193_n_1080_66ce88fb-671b-4d6c-9d75-9b79b8cc53a2.jpg?v=1748032510\" class=\"testimonial-img\" alt=\"Customer 2\">\n      <div class=\"stars\">★★★★★</div>\n      <p class=\"testimonial-text\"><em>“The titanium is very durable and is perfect for my forest hiking adventures... SilverAnt is such a cool brand, I can’t wait to take this bottle out again!”</em></p>\n      <p class=\"testimonial-name\">— Ari</p>\n    </div>\n    <div class=\"testimonial-card fade-in\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\" class=\"testimonial-img\" alt=\"Customer 3\">\n      <div class=\"stars\">★★★★★</div>\n      <p class=\"testimonial-text\"><em>“The bottle is amazingly light and durable… As long as I never lose it, I'll never need another water bottle again!”</em></p>\n      <p class=\"testimonial-name\">— Dallas Murphy</p>\n    </div>\n  </div>\n</div>\n\n<script>\n  document.addEventListener(\"DOMContentLoaded\", function () {\n    const faders = document.querySelectorAll(\".fade-in\");\n    const observer = new IntersectionObserver((entries, observer) => {\n      entries.forEach(entry => {\n        if (entry.isIntersecting) {\n          entry.target.classList.add(\"visible\");\n          observer.unobserve(entry.target);\n        }\n      });\n    }, { threshold: 0.1 });\n    faders.forEach(el => observer.observe(el));\n  });\n</script>"
+      }
+    },
+    "advanced_layout_custom_liquid_iQpgac": {
+      "type": "advanced-layout--custom-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<script>\n  const faders = document.querySelectorAll('.fade-in');\n\n  const appearOptions = {\n    threshold: 0.1,\n    rootMargin: \"0px 0px -100px 0px\"\n  };\n\n  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {\n    entries.forEach(entry => {\n      if (!entry.isIntersecting) return;\n      entry.target.classList.add(\"visible\");\n      appearOnScroll.unobserve(entry.target);\n    });\n  }, appearOptions);\n\n  faders.forEach(fader => {\n    appearOnScroll.observe(fader);\n  });\n</script>"
+      }
+    },
+    "advanced_layout_custom_liquid_LapJzx": {
+      "type": "advanced-layout--custom-liquid",
+      "custom_css": [],
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"background:#fff; padding:60px 10px;\">\n  <h2 style=\"font-family:'Oswald',sans-serif; font-size:32px; text-align:center; margin-bottom:40px; color:#2C2C2C;\">\n    Real People. Real Gear. Real Trails.\n  </h2>\n\n  <div style=\"display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; max-width:1000px; margin:0 auto;\">\n\n    <!-- VIDEO 1 -->\n    <div>\n      <iframe src=\"https://www.youtube.com/embed/aWBXZWriPXE\" allowfullscreen\n        style=\"width:100%; height:300px; border:none; border-radius:10px;\"></iframe>\n    </div>\n\n    <!-- VIDEO 2 -->\n    <div>\n      <iframe src=\"https://www.youtube.com/embed/n2Quwas3zJw\" allowfullscreen\n        style=\"width:100%; height:300px; border:none; border-radius:10px;\"></iframe>\n    </div>\n\n    <!-- VIDEO 3 -->\n    <div>\n      <iframe src=\"https://www.youtube.com/embed/GZ47DiYYrBA\" allowfullscreen\n        style=\"width:100%; height:300px; border:none; border-radius:10px;\"></iframe>\n    </div>\n\n    <!-- VIDEO 4 -->\n    <div>\n      <iframe src=\"https://www.youtube.com/embed/MOTsiHp36-8\" allowfullscreen\n        style=\"width:100%; height:300px; border:none; border-radius:10px;\"></iframe>\n    </div>\n\n  </div>\n</div>"
+      }
+    },
+    "product-form": {
+      "type": "template--product",
+      "blocks": {
+        "media": {
+          "type": "media",
+          "settings": {
+            "image_size": "medium",
+            "image-display": "thumbnails",
+            "thumbnail_position": "below",
+            "enable_image_zoom": true,
+            "enable_video_loop": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "shipping_policy": true,
+            "tax_included": true
+          }
+        },
+        "82f0bd81-d4e0-4618-aace-8c9d28ac737e": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "options": {
+          "type": "options",
+          "settings": {
+            "product_variant_style": "dropdowns",
+            "thumbnail_changes_variant": true,
+            "hide_soldout_variants": true
+          }
+        },
+        "custom_liquid_P3AYF6": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"padding-top: 40px; padding-bottom: 30px;\">\n  <style>\n    .custom-product-highlights {\n      font-family: 'Open Sans', sans-serif;\n      font-size: 18px;\n      line-height: 1.8;\n    }\n\n    .custom-product-highlights ul {\n      list-style-type: disc;\n      padding-left: 25px;\n      margin: 20px 0;\n    }\n\n    .custom-product-highlights li {\n      margin-bottom: 12px;\n    }\n\n    .custom-product-highlights strong {\n      font-weight: bold;\n    }\n\n    .custom-product-highlights em {\n      font-style: italic;\n    }\n  </style>\n\n  <div class=\"custom-product-highlights\">\n   \nForged in our own titanium factory from <em>99.7% pure titanium</em>. <p><strong>Built to survive fire, cliffs, and time itself.</strong><br>\n\n    <ul>\n      <li><strong>✅ Certified Highest Grade Titanium</strong> — This isn’t the bottle you’ll retire, it’s the one you’ll end up passing down.</li>\n      <li><strong>✅ Ultralight (224g) &amp; Packable</strong> — About the weight of your trail mix bag—seriously. Stackable with other gear, so you can fit more in your pack.</li>\n      <li><strong>✅ Thick single-walled &amp; Fireproof design</strong> — Have peace of mind when you know you can toss it in the coals or drop it multiple times, and it comes out stronger.</li>\n      <li><strong>✅ Wide Mouth &amp; Large Capacity</strong> — 1200ml or 1500ml. One fill and that’s full hydration for 48 hours. PLUS an easy-to-clean and fill design, just so you can do it all again.</li>\n      <li><strong>✅ Bio-compatible &amp; Hypoallergenic</strong> — Safe for you. Safe for the wild.</li>\n      <li><strong>✅ Anti-corrosive &amp; No Aftertaste</strong> — What you pour in, you taste. Not metal. Not chemicals. Just clean.</li>\n      <li><strong>✅ Camelback Lid Compatible</strong> — Swap it in. Lock it down. And flex harder on the trail.</li>\n    </ul>\n\n    <p>If you’re serious about the outdoors, it’s time to <strong>claim your spot at the top of the gear food chain.</strong></p>\n  </div>\n</div>"
+          }
+        },
+        "text_with_icon_FzgRzm": {
+          "type": "text-with-icon",
+          "settings": {
+            "icon": "wallet",
+            "text": "Taxes Included",
+            "link": ""
+          }
+        },
+        "text_with_icon_EDker8": {
+          "type": "text-with-icon",
+          "settings": {
+            "icon": "price-tag",
+            "text": "Free shipping on orders $125+",
+            "link": ""
+          }
+        },
+        "12405fb2-d0cf-468a-9133-3d850b5ee912": {
+          "type": "text-with-icon",
+          "disabled": true,
+          "settings": {
+            "icon": "map-pin",
+            "text": "All orders typically leave the warehouse in 1-2 business days.",
+            "link": ""
+          }
+        },
+        "afc01261-caa5-458b-9190-7984d135882e": {
+          "type": "text-with-icon",
+          "disabled": true,
+          "settings": {
+            "icon": "heart",
+            "text": "Customization of the product is available; click to discover further details.",
+            "link": "shopify://pages/customize"
+          }
+        },
+        "custom_liquid_dt3K4C": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div id='product-component-1747081790597'></div>\n<script type=\"text/javascript\">\n/*<![CDATA[*/\n(function () {\n  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';\n  if (window.ShopifyBuy) {\n    if (window.ShopifyBuy.UI) {\n      ShopifyBuyInit();\n    } else {\n      loadScript();\n    }\n  } else {\n    loadScript();\n  }\n  function loadScript() {\n    var script = document.createElement('script');\n    script.async = true;\n    script.src = scriptURL;\n    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);\n    script.onload = ShopifyBuyInit;\n  }\n  function ShopifyBuyInit() {\n    var client = ShopifyBuy.buildClient({\n      domain: 'silverantoutdoors.myshopify.com',\n      storefrontAccessToken: '2a6af71f55ca265268133585aa02e701',\n    });\n    ShopifyBuy.UI.onReady(client).then(function (ui) {\n      ui.createComponent('product', {\n        id: '7713803468978',\n        node: document.getElementById('product-component-1747081790597'),\n        moneyFormat: '%24%7B%7Bamount%7D%7D',\n        options: {\n  \"product\": {\n    \"styles\": {\n      \"product\": {\n        \"@media (min-width: 601px)\": {\n          \"max-width\": \"calc(25% - 20px)\",\n          \"margin-left\": \"20px\",\n          \"margin-bottom\": \"50px\"\n        }\n      }\n    },\n    \"text\": {\n      \"button\": \"Add to cart\"\n    }\n  },\n  \"productSet\": {\n    \"styles\": {\n      \"products\": {\n        \"@media (min-width: 601px)\": {\n          \"margin-left\": \"-20px\"\n        }\n      }\n    }\n  },\n  \"modalProduct\": {\n    \"contents\": {\n      \"img\": false,\n      \"imgWithCarousel\": true,\n      \"button\": false,\n      \"buttonWithQuantity\": true\n    },\n    \"styles\": {\n      \"product\": {\n        \"@media (min-width: 601px)\": {\n          \"max-width\": \"100%\",\n          \"margin-left\": \"0px\",\n          \"margin-bottom\": \"0px\"\n        }\n      }\n    },\n    \"text\": {\n      \"button\": \"Add to cart\"\n    }\n  },\n  \"option\": {},\n  \"cart\": {\n    \"text\": {\n      \"total\": \"Subtotal\",\n      \"button\": \"Checkout\"\n    }\n  },\n  \"toggle\": {}\n},\n      });\n    });\n  }\n})();\n/*]]>*/\n</script>"
+          }
+        },
+        "custom_liquid_mxb3NH": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"margin-top: 30px; font-style: italic; color: #444; border-left: 4px solid #ccc; padding-left: 15px; font-weight: bold;\">\n  “So much lighter than any other product I’ve used… I’ve dropped this onto hard rocks multiple times while it was full and the bottle sustained zero damage.”\n  <span style=\"font-style: normal; margin-top: 10px; display: block;\">— Christopher D. Chaput</span>\n</div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_smart_checkout": true
+          }
+        },
+        "custom_liquid_Y3Kkhj": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p style=\"font-size:14px; color:#A9A9A9; margin-top:5px;\">$11.99/year for 10 years — built to outlast your trail.</p>\n\n<div style=\"display:flex; align-items:center; margin-top:10px;\">\n  <svg xmlns=\"http://www.w3.org/2000/svg\" style=\"width:18px; height:18px; margin-right:6px;\" fill=\"#2C2C2C\" viewBox=\"0 0 24 24\"><path d=\"M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 13.5l-4-4 1.41-1.41L12 11.67l4.59-4.58L18 9.5l-6 6z\"/></svg>\n  <span style=\"font-size:14px; color:#2C2C2C;\">Lifetime Guarantee Included</span>\n</div>"
+          }
+        },
+        "46a68c53-9aaa-404f-8759-76be46d7045b": {
+          "type": "trust_badges",
+          "disabled": true,
+          "settings": {
+            "trust-badge_max_width": 500,
+            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
+          }
+        },
+        "69de8680-44b2-42ab-8b77-2a049ccd2f20": {
+          "type": "shopify://apps/greenspark/blocks/impact-settings-widgets/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
+          "disabled": true,
+          "settings": {
+            "impact_setting_type": "offsetPerOrder",
+            "style": "simplified",
+            "horizontal_alignment": "center",
+            "size": "full_width",
+            "fullwidth_justification": "center",
+            "greenspark_widget_color": "#3B755F",
+            "enable_popup": true,
+            "greenspark_popup_theme": "light"
+          }
+        }
+      },
+      "block_order": [
+        "media",
+        "title",
+        "price",
+        "82f0bd81-d4e0-4618-aace-8c9d28ac737e",
+        "options",
+        "custom_liquid_P3AYF6",
+        "text_with_icon_FzgRzm",
+        "text_with_icon_EDker8",
+        "12405fb2-d0cf-468a-9133-3d850b5ee912",
+        "afc01261-caa5-458b-9190-7984d135882e",
+        "custom_liquid_dt3K4C",
+        "custom_liquid_mxb3NH",
+        "buy_buttons",
+        "custom_liquid_Y3Kkhj",
+        "46a68c53-9aaa-404f-8759-76be46d7045b",
+        "69de8680-44b2-42ab-8b77-2a049ccd2f20"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky": false,
+        "show_out_of_stock_email": false
+      }
+    },
+    "accordion_tiR3wk": {
+      "type": "accordion",
+      "blocks": {
+        "tab_content_JynrU9": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Specifications",
+            "text": "<p><strong>Large Titanium Water Bottle</strong><br/><strong>Weight:</strong> 224g/7.90 ounces<br/><strong>Capacity:</strong> 1200ml/42.2 fl oz<br/><strong>Bottom Diameter: </strong>90mm/3.54 inches<br/><strong>Lid Diameter:</strong> 68mm/2.67 inches<br/><strong>Height: </strong>212mm/8.34 inches<br/><br/><strong>Extra Large Titanium Water Bottle</strong><br/><strong>Weight: </strong>258g/9.1 ounces<br/><strong>Capacity: </strong>1500ml/52.8 fl oz<br/><strong>Bottom Diameter:</strong> 90mm/3.54 inches<br/><strong>Lid Diameter:</strong> 68mm/2.67 inches<br/><strong>Height: </strong>260mm/10.23 inches</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_content_JynrU9"
+      ],
+      "name": "Accordion/FAQ",
+      "settings": {
+        "colors": "white",
+        "title": "",
+        "faq_icon": "plus_minus"
+      }
+    },
+    "advanced_layout_custom_liquid_3GhHzA": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n/* FORCE Add to Cart Button Styling */\nbutton#AddToCart.btn,\nbutton#AddToCart {\n  background-color: #D35400 !important;\n  color: white !important;\n  border: none !important;\n  font-family: 'Oswald', sans-serif !important;\n  font-weight: 700 !important;\n  font-size: 16px !important;\n  padding: 14px 24px !important;\n  text-transform: uppercase !important;\n  letter-spacing: 1px !important;\n  transition: all 0.2s ease !important;\n  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;\n}\n\nbutton#AddToCart:hover {\n  background-color: #B84200 !important;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;\n  cursor: pointer !important;\n}\n</style>"
+      }
+    },
+    "advanced_layout_custom_liquid_VfNQ3H": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<!-- BLOCK 5: SEASONED VET VIDEO TESTIMONIAL -->\n<div class=\"custom-section\" style=\"background-color: #F8F8F6; padding: 80px 20px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 32px; color: #2C2C2C; margin-bottom: 30px;\">\n    See if you know this seasoned vet who still has our bottle to this day.\n  </h2>\n  <div style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto;\">\n    <video\n      id=\"vetVideo\"\n      src=\"https://cdn.shopify.com/videos/c/o/v/cb05f6e2822c47bbbe62ad18251e3d89.mp4\"\n      playsinline\n      muted\n      preload=\"auto\"\n      style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 10px;\">\n      Your browser does not support the video tag.\n    </video>\n  </div>\n</div>\n\n<script>\n  const vetVideo = document.getElementById(\"vetVideo\");\n  let hasPlayedVet = false;\n\n  window.addEventListener(\"scroll\", function () {\n    if (!hasPlayedVet && isInViewport(vetVideo)) {\n      hasPlayedVet = true;\n      vetVideo.play();\n    }\n  });\n</script>"
+      }
+    },
+    "advanced_layout_custom_liquid_kpExym": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<!-- SECTION 1: The Bottle You’ll Still Be Reaching for in 10 Years -->\n<div class=\"custom-section\" style=\"background-color: #ffffff; padding: 100px 20px 80px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 36px; color: #2C2C2C; margin-bottom: 30px;\">\n    The Bottle You’ll Still Be Reaching for in 10 Years\n  </h2>\n  <p style=\"font-size: 18px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    While everyone else is cycling through replacements,<br><br>\n    <strong>You’ll be the one with the bottle that keeps surviving.</strong>\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    Because you chose a bottle that <em>reflects you</em>… one that outlasts, outrails, and outperforms.\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 40px;\">\n    So now there’s 2 options–<strong>stick with the flimsy gear that fails when you need it most</strong> or become the adventurer that only invests in gear that’s <em>built to last for a decade.</em>\n  </p>\n  <a href=\"https://silverantoutdoors.com/cart/44497316970674:1?checkout\" class=\"custom-cta-btn\">BUY NOW</a>\n</div>"
+      }
+    },
+    "advanced_layout_custom_liquid_RRV7tF": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<!-- SECTION 2: If You’re Serious About Your Gear… -->\n<div class=\"custom-section\" style=\"background-color: #F8F8F6; padding: 100px 20px 80px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <p style=\"font-size: 18px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    <strong>If you’re serious about your gear… then you already do this math.</strong>\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    A cheap bottle costs about $40. Breaks in a year.<br>\n    In 10 years, you’ve burned through $400+… and been left stranded without water twice.\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    This one? <strong>$119. Premium built to last the long haul…</strong> a bottle you can trust to survive drop after drop.\n  </p>\n  <p style=\"font-size: 16px; font-style: italic; color: #2C2C2C; max-width: 750px; margin: 0 auto 40px;\">\n    Divide it over 10 years—that’s $11.99 a year for a bottle you’ll never replace.\n  </p>\n  <p style=\"font-size: 16px; font-weight: 700; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    If you're truly dedicated to the outdoors then <strong>be the guy who never has to buy more than once.</strong>\n  </p>\n  <a href=\"https://silverantoutdoors.com/cart/44497316970674:1?checkout\" class=\"custom-cta-btn\">BUY NOW</a>\n</div>"
+      }
+    },
+    "advanced_layout_custom_liquid_dkfHq3": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<!-- SECTION 3: Lifetime Guarantee -->\n<div class=\"custom-section\" style=\"background-color: #ffffff; padding: 100px 20px 80px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 32px; color: #2C2C2C; margin-bottom: 30px;\">\n    Lifetime Guarantee. For Those Who Don’t Compromise.\n  </h2>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    This isn’t gear you have to test.\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    We’ve already shown you how strong it really is.<br>\n    <strong>You’ve seen it endure. Every time.</strong>\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    We’re so confident we backed it with a <strong>lifetime guarantee.</strong><br>\n    And real support that answers within 24 hours.\n  </p>\n  <p style=\"font-size: 16px; font-style: italic; color: #2C2C2C; max-width: 750px; margin: 0 auto 40px;\">\n    Now take that confidence with you. Down every trail. Every journey.\n  </p>\n  <a href=\"https://silverantoutdoors.com/cart/44497316970674:1?checkout\" class=\"custom-cta-btn\">BUY NOW</a>\n</div>"
+      }
+    },
+    "accordion_QfcGHj": {
+      "type": "accordion",
+      "blocks": {
+        "tab_content_h8KmXR": {
+          "type": "tab_content",
+          "settings": {
+            "question": "\"99.7% Titanium? Why not 100%?\"",
+            "text": "<p>Because 99.7% is the <em>purest form of titanium</em> used in production — any purer, and it wouldn’t be usable. <br/><br/>You'll be holding the best there is.</p>"
+          }
+        },
+        "tab_content_TEHrBz": {
+          "type": "tab_content",
+          "settings": {
+            "question": "“Is this another China knockoff?”",
+            "text": "<p>No. We own the factory. FDA Certified. ISO:9001 Approved. No white-label. <br/><br/>We’ve been doing this for over two decades. <br/><br/>Others rebrand — we <em>build</em>. </p>"
+          }
+        },
+        "tab_content_B3BhBB": {
+          "type": "tab_content",
+          "settings": {
+            "question": "“Is $119.99 really worth it?\"",
+            "text": "<p>That depends on if you want to keep spending money to replace gear that broke or will break. <br/><br/>This one replaces every water bottle you’ve ever bought — for life. <br/><br/>With a lifetime guarantee that backs that up</p>"
+          }
+        },
+        "tab_content_U3M3iE": {
+          "type": "tab_content",
+          "settings": {
+            "question": "\"Should I wait to buy?\"",
+            "text": "<p>Only if you want to carry heavy, dented, leaking gear for one more trip.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_content_h8KmXR",
+        "tab_content_TEHrBz",
+        "tab_content_B3BhBB",
+        "tab_content_U3M3iE"
+      ],
+      "name": "Accordion/FAQ",
+      "settings": {
+        "colors": "white",
+        "title": "You May Be Thinking...",
+        "faq_icon": "plus_minus"
+      }
+    },
+    "advanced_layout_custom_liquid_NhmqnL": {
+      "type": "advanced-layout--custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<!-- SECTION 5: Final Word -->\n<div class=\"custom-section\" style=\"background-color: #ffffff; padding: 100px 20px 80px; text-align: center; font-family: 'Open Sans', sans-serif;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 32px; color: #2C2C2C; margin-bottom: 30px;\">\n    Final Word\n  </h2>\n  <p style=\"font-size: 18px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    If you’re the kind of person who takes pride in their gear…\n  </p>\n  <p style=\"font-size: 16px; color: #2C2C2C; max-width: 750px; margin: 0 auto 30px;\">\n    If you care about what goes into your pack, and how it performs when it matters…<br>\n    Then this isn’t just a bottle.<br>\n    <strong>This is the legacy you’ve been looking for.</strong><br>\n    <em>Own the bottle that will last long enough to be passed down.</em>\n  </p>\n  <a href=\"https://silverantoutdoors.com/cart/44497316970674:1?checkout\" class=\"custom-cta-btn\">BUY NOW</a>\n</div>"
+      }
+    },
+    "1696136166eb28b41e": {
+      "type": "apps",
+      "blocks": {
+        "516e7e47-0737-4662-a239-ecce32e81114": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "516e7e47-0737-4662-a239-ecce32e81114"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "recently-viewed": {
+      "type": "template--product--recently-viewed",
+      "blocks": {
+        "product_card_image": {
+          "type": "product_card_image",
+          "settings": {
+            "hover-effect": false,
+            "enable_badges": true
+          }
+        },
+        "product_card_title": {
+          "type": "product_card_title",
+          "settings": {}
+        },
+        "product_card_vendor": {
+          "type": "product_card_vendor",
+          "settings": {}
+        },
+        "product_card_price": {
+          "type": "product_card_price",
+          "settings": {}
+        },
+        "product_card_button": {
+          "type": "product_card_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_card_image",
+        "product_card_title",
+        "product_card_vendor",
+        "product_card_price",
+        "product_card_button"
+      ],
+      "settings": {
+        "enable_recently_viewed": false,
+        "recently_viewed_title": "Recently viewed products"
+      }
+    },
+    "product-recommendations": {
+      "type": "template--product--recommendations",
+      "blocks": {
+        "product_card_image": {
+          "type": "product_card_image",
+          "settings": {
+            "hover-effect": true,
+            "enable_badges": true
+          }
+        },
+        "product_card_title": {
+          "type": "product_card_title",
+          "settings": {}
+        },
+        "product_card_vendor": {
+          "type": "product_card_vendor",
+          "settings": {}
+        },
+        "product_card_price": {
+          "type": "product_card_price",
+          "settings": {}
+        },
+        "product_card_button": {
+          "type": "product_card_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_card_image",
+        "product_card_title",
+        "product_card_vendor",
+        "product_card_price",
+        "product_card_button"
+      ],
+      "settings": {
+        "enable_product_recommendations": true,
+        "product_recommendations_heading": "Customers Like You Also Purchased"
+      }
+    },
+    "advanced_layout_custom_liquid_3DzKk8": {
+      "type": "advanced-layout--custom-liquid",
+      "custom_css": [
+        "div {padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;}"
+      ],
+      "settings": {
+        "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\n\tdocument.getElementById(\"AddToCart\").addEventListener('click',function (){\n \t\t_learnq.push(['track', 'Added to Cart', item]);\n\t});</script>"
+      }
+    }
+  },
+  "order": [
+    "advanced_layout_custom_liquid_NDdhiE",
+    "advanced_layout_custom_liquid_jTnkcK",
+    "advanced_layout_custom_liquid_ezfyXX",
+    "advanced_layout_custom_liquid_iQpgac",
+    "advanced_layout_custom_liquid_LapJzx",
+    "product-form",
+    "accordion_tiR3wk",
+    "advanced_layout_custom_liquid_3GhHzA",
+    "advanced_layout_custom_liquid_VfNQ3H",
+    "advanced_layout_custom_liquid_kpExym",
+    "advanced_layout_custom_liquid_RRV7tF",
+    "advanced_layout_custom_liquid_dkfHq3",
+    "accordion_QfcGHj",
+    "advanced_layout_custom_liquid_NhmqnL",
+    "1696136166eb28b41e",
+    "recently-viewed",
+    "product-recommendations",
+    "advanced_layout_custom_liquid_3DzKk8"
+  ]
+}

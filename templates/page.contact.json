@@ -9,169 +9,76 @@
  */
 {
   "sections": {
-    "image_with_text_overlay_h9kPCd": {
-      "type": "image-with-text-overlay",
+    "f6ede803-ebda-49fc-b707-b58e4c163081": {
+      "type": "advanced-layout--custom-html",
       "blocks": {
-        "heading_ciw3R9": {
-          "type": "heading",
-          "settings": {}
-        },
-        "text_iKYjgP": {
+        "template--16052689469618__f6ede803-ebda-49fc-b707-b58e4c163081-1679990811d0cdc483-0": {
+          "type": "html",
+          "settings": {
+            "code": "<meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        .padded {\n        padding: 50px 0;\n    padding-left: 80px;\n    padding-right: 60px;\n}\n.hero-container{\n    position: relative; \n  \n}\n      p.Lines {\n    border-top: 1px solid;\n\n    width: 73px;\n}\n.hero-containe img{\n    max-width: 100%;\n}\n      h2.lowercase-text {\n    line-height: 58px;\n    margin-right: 130px;\n}\n      section.section-instagram-feed-wrapper {\n    padding-bottom: 8rem;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 48px;\n    color: #fff;\n    margin: 0;\n}\n\n.lowercase {\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    padding-left: 145px;\n    padding-right: 145px;\n}\n.story-description {\n    width: calc(50% - 23px);\n    padding: 60px;\n    display: flex;\n    flex-direction: column;\n    text-align: left;\n    justify-content: center;\n}\n.story-description p {\n    line-height: 30px;\n}\n.image-wrapper {\n    width: calc(50% - 23px);\n    overflow: hidden;\n}\nsection.padded .igt-story:nth-child(odd){\n    flex-direction: row-reverse;\n}\n.igt-story {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 60px;\n}\n.section-text-with-image-wrapper .element-container {\n    position: relative;\n    align-items: center;\n}\nsection-text-with-image-wrapper .element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.section-text-with-image-wrapper .element-media {\n    width: 100%;\n    padding-left: 0;\n}\n.section-text-with-image-wrapper .element-content {\n    padding-right: 0;\n}\n.section-text-with-image-wrapper .text-block {\n    margin-bottom: 32px;\n}\n    section.newsl-foot {\n\n    padding-left: 5%;\n}\n.section-text-with-image-wrapper .element-action {\n    margin-top: 28px;\n}\n.element-content.padded {\n   \n    padding-left: 60px;\n    padding-right: 0;\n}\n.element-container.flex {\n    display: flex;\n    position: relative;\n    align-items: center;\n}\n.element-content-wrapper {\n    width: 40%;\n    margin-right: 150px;\n    padding: 30px 0;\n}\n.element-media.padded {\n    width: 100%;\n    padding-left: 0;\n}\n.element-media.padded img {\n    width: 100%;\n}\nh2.letterspace {\n    margin-bottom: 20px;\n    font-size: 50px;\n    line-height: 60px;\n}\np.leading {\n    font-size: 16px;\n    line-height: 30px;\n    color: #000;\n}\na.underlined.text-leading.reset-letterspace {\n    color: #000;\n}\n.padded.home-img h3 {\n    text-align: center;\n}\n.padded.home-img img {\n    width: 100px;\n  \n}\na.tdoors {\n    color: #000;\n    font-size: 26px;\n    letter-spacing: .17em;\n    line-height: 30px;\n \n    text-transform: uppercase;\n    text-decoration: none;\n}\n.hide-Mobile{\n    display: none;\n}\n@media only screen and (max-width: 576px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n.hide-Mobile{\n    display: block;\n}\n.hide-desktop{\n    display: none;\n}\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n}\n@media only screen and (max-width: 1025px){\n    .padded {\n    padding: 20px 0;\n    padding-left: 50px;\n    padding-right: 20px;\n}\n  section.newsl-foot{\n    padding-left:0;\n  }\n.lowercase{\n    display: block;\n    padding: 0;\n}\n.hero-container p {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 20px;\n    color: #fff;\n    margin: 0;\n    width: 100%;\n    text-align: center;\n}\nh2.h3.story-headline {\n    font-size: 28px;\n}\n.image-wrapper img{\n   max-width: 100%;\n}\n    .story-description{\n        width: 100%;\n        padding: 0;\n    }\n    .image-wrapper img{\n   max-width: 100%;\n}\n.igt-story{\n    display: block;\n    margin-bottom: 20px;\n}\n.image-wrapper{\nwidth: 100%;\n}\n.element-container.flex{\n    flex-direction: column-reverse;\n}\n.element-content.padded{\n    padding-left: 0;\n}\n.element-content-wrapper{\n    width: 100%;\n    padding: 0 20px;\n    margin: 0;\n}\nh2.letterspace{\n    font-size: 28px;\n    line-height:36px;\n}\np.leading{\n    line-height: 24px;\n}\n\n    </style>\n\n\n\n    <div class=\"container\">\n        <div class=\"padded\">\n          <div class=\"hero-container\">\n        \n               <img class=\"hide-desktop\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Information_1600_x_900_px_2.jpg?v=1680147554\" style=\"width: 100%;\" alt=\"Contact Us\">\n               <img class=\"hide-Mobile\" src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/pages_900_x_1200_px_7.jpg?v=1680147453\" style=\"width: 100%;\" alt=\"Contact Us\">\n               <!-- <p>This is some centered text.</p> -->\n          </div>\n        </div>\n      </div>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "template--16052689469618__f6ede803-ebda-49fc-b707-b58e4c163081-1679990811d0cdc483-0"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "template--page-contact",
+      "blocks": {
+        "name": {
           "type": "text",
-          "settings": {}
-        },
-        "button_wHJRXc": {
-          "type": "button",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "heading_ciw3R9",
-        "text_iKYjgP",
-        "button_wHJRXc"
-      ],
-      "settings": {
-        "height_desktop": "original",
-        "text_position_desktop": "center",
-        "text_position_mobile": "center",
-        "animation_style": "none"
-      }
-    },
-    "1645633383c94b2bb2": {
-      "type": "accordion",
-      "blocks": {
-        "16456333831a200dc8-0": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "16456333831a200dc8-1": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "16456333831a200dc8-2": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "b8952142-22e1-4b16-b9bd-9e42747928c9": {
-          "type": "tab_content",
-          "settings": {}
-        },
-        "a379cb7a-ba34-48da-b0af-2b0379b8db62": {
-          "type": "tab_content",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "16456333831a200dc8-0",
-        "16456333831a200dc8-1",
-        "16456333831a200dc8-2",
-        "b8952142-22e1-4b16-b9bd-9e42747928c9",
-        "a379cb7a-ba34-48da-b0af-2b0379b8db62"
-      ],
-      "settings": {
-        "faq_icon": "caret",
-        "colors": "white"
-      }
-    },
-    "164563343647211871": {
-      "type": "rich-text",
-      "blocks": {
-        "6a2f6ce0-606a-4133-b01a-ee3926268a9e": {
-          "type": "heading",
           "settings": {
-            "heading": "Still got Q's?"
+            "field-type": "text",
+            "form-field-label": "",
+            "required": false
           }
         },
-        "9f90cfb3-0430-4b6c-90df-8309138e865a": {
-          "type": "richtext",
+        "email": {
+          "type": "text",
           "settings": {
-            "text": "<p>Direct your customers towards an FAQs page or somewhere they can find out more information</p>",
-            "text_size": 14
+            "field-type": "email",
+            "form-field-label": "",
+            "required": false
           }
         },
-        "c1f278da-fb1a-46ad-9d1f-1e169afa696c": {
-          "type": "button",
+        "message": {
+          "type": "text",
           "settings": {
-            "button_text": "See FAQs"
+            "field-type": "textbox",
+            "form-field-label": "",
+            "required": false
           }
         }
       },
       "block_order": [
-        "6a2f6ce0-606a-4133-b01a-ee3926268a9e",
-        "9f90cfb3-0430-4b6c-90df-8309138e865a",
-        "c1f278da-fb1a-46ad-9d1f-1e169afa696c"
+        "name",
+        "email",
+        "message"
+      ],
+      "custom_css": [
+        ".sitewide--title-wrapper {display: none;}"
       ],
       "settings": {
-        "section_width": "narrow",
-        "text_alignment_desktop": "center",
-        "text_alignment_mobile": "center",
-        "colors": "light"
+        "banner-image-size": "20vh",
+        "parallax": true,
+        "layout": "right"
       }
     },
-    "057a50d5-3fee-4ea2-a832-2d38f47b959a": {
-      "type": "contact-form",
-      "blocks": {
-        "template--14753984643142__057a50d5-3fee-4ea2-a832-2d38f47b959a-16788945317184afd8-0": {
-          "type": "name_input",
-          "settings": {
-            "required": true,
-            "input_width": "full"
-          }
-        },
-        "template--14753984643142__057a50d5-3fee-4ea2-a832-2d38f47b959a-16788945317184afd8-1": {
-          "type": "email_input",
-          "settings": {
-            "required": true,
-            "input_width": "partial"
-          }
-        },
-        "f03adfd7-1474-4f7a-a28a-c0c1430bd42d": {
-          "type": "tel_input",
-          "settings": {
-            "required": false,
-            "input_width": "partial"
-          }
-        },
-        "fbb2a872-0770-4f56-913c-b7853e33a9c0": {
-          "type": "custom_input",
-          "settings": {
-            "required": false,
-            "input_width": "full"
-          }
-        },
-        "template--14753984643142__057a50d5-3fee-4ea2-a832-2d38f47b959a-16788945317184afd8-3": {
-          "type": "message_input",
-          "settings": {
-            "required": false,
-            "input_width": "full"
-          }
-        }
-      },
-      "block_order": [
-        "template--14753984643142__057a50d5-3fee-4ea2-a832-2d38f47b959a-16788945317184afd8-0",
-        "template--14753984643142__057a50d5-3fee-4ea2-a832-2d38f47b959a-16788945317184afd8-1",
-        "f03adfd7-1474-4f7a-a28a-c0c1430bd42d",
-        "fbb2a872-0770-4f56-913c-b7853e33a9c0",
-        "template--14753984643142__057a50d5-3fee-4ea2-a832-2d38f47b959a-16788945317184afd8-3"
-      ],
+    "0964b603-b3ea-4f00-8a19-a729409f681a": {
+      "type": "newsletter--newsletter",
       "settings": {
-        "form_width": "narrow",
-        "section_color_scheme": "white"
-      }
-    },
-    "f9008be2-cc52-4777-becc-c975f680a054": {
-      "type": "map",
-      "settings": {
-        "layout": "right",
-        "colors": "white"
+        "colors": "white",
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "<p>Subscribe to our mailing list to receive a small weekly snippet of fun. From product promotions to articles, podcasts, and product guides. This newsletter gives you the lowdown on our weekly inspiration and of course our titanium outdoor products. Subscribe Now!</p>"
       }
     }
   },
   "order": [
-    "image_with_text_overlay_h9kPCd",
-    "1645633383c94b2bb2",
-    "164563343647211871",
-    "057a50d5-3fee-4ea2-a832-2d38f47b959a",
-    "f9008be2-cc52-4777-becc-c975f680a054"
+    "f6ede803-ebda-49fc-b707-b58e4c163081",
+    "main",
+    "0964b603-b3ea-4f00-8a19-a729409f681a"
   ]
 }

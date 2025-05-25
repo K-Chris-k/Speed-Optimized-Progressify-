@@ -38,11 +38,21 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "b0a36bcf-fedf-478f-b182-dcc1ad6e98ec": {
+      "type": "collection--products-block",
+      "disabled": true,
+      "settings": {
+        "title": "Recommended Products",
+        "richtext": "<p>Our customer's favorite titanium gear.</p>",
+        "collection": "customer-recommended-products"
+      }
     }
   },
   "order": [
     "1718919721a1e6ee34",
     "main",
-    "168838222852c1b609"
+    "168838222852c1b609",
+    "b0a36bcf-fedf-478f-b182-dcc1ad6e98ec"
   ]
 }
