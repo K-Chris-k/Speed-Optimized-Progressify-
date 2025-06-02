@@ -44,7 +44,7 @@
       "pages": "Pages",
       "collections": "Collections",
       "results": "Results",
-      "view_all": "View all results",
+      "view_all": "View all",
       "clear": "Clear"
     },
     "social": {
@@ -55,13 +55,13 @@
       "no_products_html": "You have no products in your home page collection. This placeholder will appear until you <a href=\"/admin/collections?tutorial=Frontpage\">add a product to this collection</a>.",
       "add_product": "Add a product",
       "product_title": "Product title",
-      "product_description": "This area is used to describe your product’s details. Tell customers about the look, feel, and style of your product. Add details on color, materials used, sizing, and where it was made.",
+      "product_description": "This area is used to describe your product's details. Tell customers about the look, feel, and style of your product. Add details on color, materials used, sizing, and where it was made.",
       "no_collections_html": "You don't have any collections to show here. <a href=\"/admin/custom_collections\">Add some collections</a> to go along with the default home page.",
       "add_collection": "Add a collection",
       "collection_title": "Collection title",
       "blog_title": "Your post's title",
-      "blog_excerpt": "Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog.",
-      "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+      "blog_excerpt": "Your store hasn't published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify's ecommerce blog for inspiration and advice for your own store and blog.",
+      "no_content": "This section doesn't currently include any content. Add content to this section using the sidebar."
     },
     "verification_popup": {
       "return_text": "Back"
@@ -103,21 +103,34 @@
   },
   "cart": {
     "general": {
-      "title": "Shopping cart",
+      "title": "Cart",
       "remove": "Remove",
-      "note": "Special instructions for seller",
+      "note": "Order notes",
       "see_more": "See more",
       "subtotal": "Subtotal",
-      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
+      "taxes_and_shipping_at_checkout": "Tax and shipping calculated at checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Tax and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
       "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
       "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "update": "Update cart",
-      "checkout": "Check out",
+      "checkout": "Checkout",
       "empty": "Your cart is currently empty.",
       "continue_browsing_html": "Continue browsing <a href=\"/collections/all\">here</a>.",
-      "close_cart": "Close cart",
-      "savings_html": "You're saving {{ price }}"
+      "close_cart": "Close Cart",
+      "savings_html": "You're saving {{ price }}",
+      "add_note": "Add a note",
+      "edit_note": "Edit note",
+      "save_note": "Save note",
+      "save": "Save",
+      "add_gift_note": "Add gift note",
+      "edit_gift_note": "Edit gift note",
+      "save_gift_note": "Save gift note",
+      "regular_subtotal": "Regular subtotal",
+      "sale_subtotal": "Sale subtotal",
+      "taxes_and_shipping_at_checkout": "Tax and shipping calculated at checkout.",
+      "taxes_and_shipping_policy_at_checkout_html": "Tax and shipping calculated at checkout.",
+      "taxes_and_shipping_at_checkout": "Tax and shipping calculated at checkout.",
+      "view_cart": "View Cart"
     },
     "label": {
       "product": "Product",
@@ -168,7 +181,7 @@
     },
     "paginate": {
       "youve_viewed": "You've viewed {{ x }} of {{ y }} products",
-      "loading": "loading...",
+      "loading": "Loading...",
       "load_more": "Load more"
     }
   },
@@ -325,7 +338,7 @@
       "no_collections_html": "You don't have any collections to show here. <a href=\"/admin/custom_collections\">Add some collections</a> to go along with the default Frontpage.",
       "add_collection": "Add a collection",
       "collection_title": "Collection title",
-      "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+      "no_content": "This section doesn't currently include any content. Add content to this section using the sidebar."
     }
   },
   "layout": {
@@ -378,8 +391,32 @@
       "product_reviews": "Product reviews",
       "yes": "Yes",
       "giftwrap_label": "Gift wrap",
-      "giftwrap_note": "Gift message",
-      "giftwrap_note_placeholder": "Add your gift message here"
+      "giftwrap_note": "Gift note",
+      "giftwrap_note_placeholder": "Add a gift note",
+      "sold_out": "Sold out",
+      "on_sale": "On sale",
+      "on_sale_from_html": "On Sale from {{ price }}",
+      "unavailable": "Unavailable",
+      "compare_at": "Compare at",
+      "quantity": "Quantity",
+      "add_to_cart": "Add to cart",
+      "view_options": "View options",
+      "added": "Added",
+      "quick_shop": "Quick shop",
+      "tags": "Tags",
+      "category": "Category",
+      "type": "Type",
+      "include_taxes": "Tax included.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "out_of_stock_html": "Click <a href=\"#\"><strong>here</strong></a> to be notified by email when {{ product }} becomes available.",
+      "wrong_email": "Please provide a valid email address.",
+      "out_of_stock_success": "Thanks! We will notify you when this product becomes available!",
+      "read_more_html": "Read more",
+      "read_less_html": "Read less",
+      "view_in_space": "View in your space",
+      "view_in_space_label": "View in your space, loads item in augmented reality window",
+      "video_thumbnail_alt": "Load and play video in Gallery viewer, {{ imageAlt }}",
+      "model_thumbnail_alt": "Load 3D model into Gallery viewer, {{ imageAlt }}"
     },
     "product": {
       "sold_out": "Sold out",
@@ -388,10 +425,10 @@
       "unavailable": "Unavailable",
       "compare_at": "Compare at",
       "quantity": "Quantity",
-      "add_to_cart": "Buy Now",
+      "add_to_cart": "Add to cart",
       "view_options": "View options",
       "added": "Added",
-      "quick_shop": "Quick view",
+      "quick_shop": "Quick shop",
       "tags": "Tags",
       "category": "Category",
       "type": "Type",
@@ -442,6 +479,39 @@
       "store_owner_html": "<a href=\"/admin\">Log in here</a>",
       "continue": "Continue",
       "powered_by_html": "This store will be powered by <a href=\"http://www.shopify.com\">Shopify</a>"
+    }
+  },
+  "all": {
+    "Heading": "Heading",
+    "Optional": "Optional"
+  },
+  "settings_schema": {
+    "Cart": {
+      "settings": {
+        "product_recommendations": {
+          "header": "Product recommendations",
+          "show_cart_recommendations": {
+            "label": "Show dynamic recommendations",
+            "info": "Dynamic recommendations use order and product information to change and improve with time"
+          }
+        },
+        "empty_cart": {
+          "empty_cart_products": "Empty cart collection"
+        }
+      }
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "Login"
+    },
+    "order": {
+      "discount": "Discount"
+    }
+  },
+  "collections": {
+    "paginate": {
+      "loading": "Loading..."
     }
   }
 }

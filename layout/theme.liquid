@@ -116,133 +116,135 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- CSS ================================================== -->
     {% render 'css-variables' %}
 
+    <!-- 购物车修复脚本 -->
+    <script src="{{ 'fix-cart.js' | asset_url }}" defer></script>
 
-<!-- {% if request.path contains 'how-did-you-find-us' %}
-  <style>
-    form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
+    <!-- {% if request.path contains 'how-did-you-find-us' %}
+      <style>
+        form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
+            border: none !important;
+        }
+        input#email_01JTQ25J9V3RB2Y1WMKYC6SW73 {
+        max-width: 488px;
+    }
+    .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 400px !important;
+        min-width: 400px !important;
+    }
+
+        .klaviyo-form-WrDavz.klaviyo-form.form-version-cid-1 {
+            padding: 0 60px;
+        }
+
+        .klaviyo-form.klaviyo-form.klaviyo-form {
+        -webkit-overflow-scrolling: touch;
         border: none !important;
-    }
-    input#email_01JTQ25J9V3RB2Y1WMKYC6SW73 {
-    max-width: 488px;
-}
-.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 400px !important;
-    min-width: 400px !important;
-}
-
-    .klaviyo-form-WrDavz.klaviyo-form.form-version-cid-1 {
-        padding: 0 60px;
+        }
+    .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 500px !important;
+        min-width: 70% !important;
+              left: 5%;
+     position: relative;
     }
 
-    .klaviyo-form.klaviyo-form.klaviyo-form {
-    -webkit-overflow-scrolling: touch;
-    border: none !important;
-    }
-.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 500px !important;
-    min-width: 70% !important;
-          left: 5%;
-   position: relative;
-}
-
-    form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
-    border: none !important;
+        form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
+        border: none !important;
               position: relative;
         left: 25%;
-}
-     @media (max-width: 1440px) {
-       .needsclick.kl-private-reset-css-Xuajs1 {
-    width: 450px !important;
-    /* min-width: 100% !important; */
-}
-    .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 350px ! IMPORTANT;
-}
+    }
+         @media (max-width: 1440px) {
+           .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 450px !important;
+        /* min-width: 100% !important; */
+    }
+        .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
+        width: 350px ! IMPORTANT;
+    }
            form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
-    border: none !important;
+        border: none !important;
               position: relative;
         left: 20%;
-}
-     }
-         @media (max-width: 1280px) {
-           .needsclick.kl-private-reset-css-Xuajs1 {
-    width: 570px !important;
-    /* min-width: 100% !important; */
-}
-    .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 300px ! IMPORTANT;
-}
+    }
          }
-         @media (max-width: 1200px) {
+             @media (max-width: 1280px) {
+               .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 570px !important;
+        /* min-width: 100% !important; */
+    }
+        .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
+        width: 300px ! IMPORTANT;
+    }
+             }
+             @media (max-width: 1200px) {
+               .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 500px !important;
+        /* min-width: 100% !important; */
+    }
            .needsclick.kl-private-reset-css-Xuajs1 {
-    width: 500px !important;
-    /* min-width: 100% !important; */
-}
-           .needsclick.kl-private-reset-css-Xuajs1 {
-    width: 500px !important;
-    min-width: 70% !important;
-          left: 2%;
-   position: relative;
-}
-    .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 350px ! IMPORTANT;
-}
+        width: 500px !important;
+        min-width: 70% !important;
+              left: 2%;
+     position: relative;
+    }
+        .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
+        width: 350px ! IMPORTANT;
+    }
                form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
-    border: none !important;
+        border: none !important;
               position: relative;
         left: 18%;
-}
+    }
          }
-         @media (max-width: 1024px) {
-                 form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
-    border: none !important;
+             @media (max-width: 1024px) {
+                     form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
+        border: none !important;
               position: relative;
         left: 10%;
-}
+    }
          }
                    @media (max-width: 900px) {
                      form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go417382439.kl-private-reset-css-Xuajs1 {
-    border: none !important;
+        border: none !important;
               position: relative;
         left: 0%;
-}
+    }
              @media (max-width: 820px) {
- 
+     
              }
- @media (max-width: 768px) {
-       .shopify-section .homepage-sections-wrapper.homepage-sections-wrapper--no-padding .grid {
-    margin: 0;
-}
- 
-   .klaviyo-form-WrDavz.klaviyo-form.form-version-cid-1 {
-    padding: 0 20px;
-}
-   .klaviyo-form-WrDavz.klaviyo-form.form-version-cid-1 {
-     padding: 0px; 
-}
-       .needsclick.kl-private-reset-css-Xuajs1 {
-    width: 500px !important;
-    min-width: 70% !important;
-          left: 0%;
-   position: relative;
-}       .needsclick.kl-private-reset-css-Xuajs1 {
-    width: 100% !important;
-    /* min-width: 100% !important; */
-}
-    .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 300px ! IMPORTANT;
-}.needsclick.kl-private-reset-css-Xuajs1 {
-    width: 100% !important;
-    min-width: 90% !important;
-}
-  
+     @media (max-width: 768px) {
+           .shopify-section .homepage-sections-wrapper.homepage-sections-wrapper--no-padding .grid {
+        margin: 0;
+    }
+     
+       .klaviyo-form-WrDavz.klaviyo-form.form-version-cid-1 {
+        padding: 0 20px;
+    }
+       .klaviyo-form-WrDavz.klaviyo-form.form-version-cid-1 {
+         padding: 0px; 
+    }
+           .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 500px !important;
+        min-width: 70% !important;
+              left: 0%;
+     position: relative;
+    }           .needsclick.kl-private-reset-css-Xuajs1 {
+        width: 100% !important;
+        /* min-width: 100% !important; */
+    }
+        .needsclick.kl-private-reset-css-Xuajs1 img.needsclick.kl-private-reset-css-Xuajs1 {
+        width: 300px ! IMPORTANT;
+    }.needsclick.kl-private-reset-css-Xuajs1 {
+        width: 100% !important;
+        min-width: 90% !important;
+    }
+      
 
- }
+     }
 
 
-  </style>
+      </style>
 
-    {% endif %} -->
+        {% endif %} -->
 
     
     
@@ -632,6 +634,55 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 server.observe(document.body, { childList: true, subtree: true });
 
+</script>
+
+<!-- 修复View options按钮行为 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 修复"View options"按钮行为，确保它打开产品快速查看视图
+    document.addEventListener('click', function(e) {
+      // 检查是否点击的是"View options"按钮
+      if (e.target.classList.contains('quick-add-button-variants') || 
+          (e.target.tagName === 'A' && e.target.textContent && 
+           e.target.textContent.trim().indexOf('View options') >= 0)) {
+        
+        // 阻止默认行为和事件冒泡
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // 获取产品URL
+        const productUrl = e.target.href;
+        if (productUrl && window.wetheme) {
+          // 使用toggleRightDrawer打开shop-now抽屉，显示产品详情
+          window.wetheme.toggleRightDrawer("shop-now", true, {url: productUrl});
+          return false;
+        }
+      }
+    }, true); // 使用捕获阶段确保在其他事件处理程序之前执行
+    
+    // 修复theme.min.js中的handleShopNow函数，确保它正确处理View options按钮
+    setTimeout(function() {
+      if (window.wetheme) {
+        // 确保shop-now抽屉正确显示产品详情
+        const sections = Object.values(window.wetheme.sectionById || {});
+        
+        sections.forEach(function(section) {
+          if (section && typeof section.handleShopNow === 'function') {
+            // 保存原始函数
+            const originalHandleShopNow = section.handleShopNow;
+            
+            // 覆盖handleShopNow函数
+            section.handleShopNow = function(e) {
+              // 对于所有按钮，调用原始函数以确保shop-now抽屉正确打开
+              return originalHandleShopNow.call(this, e);
+            };
+          }
+        });
+        
+        console.log('View options button behavior fixed');
+      }
+    }, 1000);
+  });
 </script>
 
 
