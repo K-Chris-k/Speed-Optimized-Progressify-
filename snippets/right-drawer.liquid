@@ -1284,10 +1284,15 @@ button.ajaxcart__remove {
                     <div class="shipping-progress-bar__fill" :style="{ width: getShippingProgressPercentage() + '%' }"></div>
                   </div>
                   <div class="shipping-progress-text shipping-progress-success-container" v-if="cart.total_price >= freeShippingThreshold">
-                    <span class="shipping-progress-success">Congrats! You are eligible for FREE Shipping</span>
+                    <span class="shipping-progress-success">{% if settings.free_shipping_success_message != blank %}{{ settings.free_shipping_success_message }}{% else %}Congrats! You are eligible for FREE Shipping{% endif %}</span>
                   </div>
                   <div class="shipping-progress-text" v-else>
-                    Buy <span class="shipping-progress-remaining" v-money="freeShippingThreshold - cart.total_price"></span> more to enjoy FREE Shipping
+                    {% if settings.free_shipping_threshold_message != blank %}
+                      {% assign threshold_message = settings.free_shipping_threshold_message %}
+                      {{ threshold_message | replace: '[amount]', '<span class="shipping-progress-remaining" v-money="freeShippingThreshold - cart.total_price"></span>' }}
+                    {% else %}
+                      Buy <span class="shipping-progress-remaining" v-money="freeShippingThreshold - cart.total_price"></span> more to enjoy FREE Shipping
+                    {% endif %}
                   </div>
                 </div>
                 
@@ -1606,7 +1611,8 @@ button.ajaxcart__remove {
                       {% assign recommended_collection = collections[recommended_collection_handle] %}
                       
                       <div class="cart-drawer__recommendations-grid">
-                        {% for product in recommended_collection.products limit: 6 %}
+                        {% assign recommendations_limit = settings.cart_recommendations_limit | default: 8 %}
+                        {% for product in recommended_collection.products limit: recommendations_limit %}
                           {% if product.available %}
                             <div class="product-card-basic cart-drawer__product-card">
                               <div class="product-card-basic__image">
@@ -1700,7 +1706,8 @@ button.ajaxcart__remove {
                       {% assign recommended_collection = collections[recommended_collection_handle] %}
                       
                       <div class="cart-drawer__recommendations-grid">
-                        {% for product in recommended_collection.products limit: 8 %}
+                        {% assign recommendations_limit = settings.cart_recommendations_limit | default: 8 %}
+                        {% for product in recommended_collection.products limit: recommendations_limit %}
                           {% if product.available %}
                             <div class="product-card-basic cart-drawer__product-card">
                               <div class="product-card-basic__image">
@@ -1844,7 +1851,7 @@ button.ajaxcart__remove {
   var drawerVueInstance = null;
   
   // Free shipping threshold in cents (e.g., 100000 = $1000.00)
-  var freeShippingThreshold = 100000;
+  var freeShippingThreshold = {{ settings.free_shipping_threshold | default: 10000 }};
 
   // Function to get the drawer Vue instance
   function getDrawerVueInstance() {
