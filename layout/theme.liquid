@@ -537,6 +537,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endif %}
 <!--Structed data markup code added by Simprosys Infomedia - End -->
    <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+   {% if template contains 'product' %}
+   <script src="{{ 'bottom-purchase-dropdown.js' | asset_url }}"></script>
+   <script src="{{ 'bottom-bar-fix.js' | asset_url }}"></script>
+   {% endif %}
    {% include 'smile-initializer' %}
 
 
@@ -622,8 +626,7 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('Pathname:', window.location.pathname);
 
   if (
-    window.location.pathname.toLowerCase().includes('checkout') ||
-
+    window.location.pathname.toLowerCase().includes('checkout')
   ) {
     console.log('Triggering Klaviyo form...');
     window._klOnsite = window._klOnsite || [];
@@ -632,8 +635,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('This is not the checkouts or cart page.');
   }
 });
-server.observe(document.body, { childList: true, subtree: true });
-
 </script>
 
 <!-- 修复View options按钮行为 -->
@@ -685,7 +686,37 @@ server.observe(document.body, { childList: true, subtree: true });
   });
 </script>
 
+{% render 'footer-scripts' %}
+  
+  <!-- 确保底部购买栏脚本在所有页面上正确加载 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 检查是否在产品页面
+      const isProductPage = document.body.classList.contains('template-product') || 
+                          window.location.pathname.includes('/products/');
+      
+      if (isProductPage) {
+        // 确保底部购买栏显示
+        const bottomBar = document.querySelector('.bottom-purchase-info');
+        if (bottomBar) {
+          bottomBar.classList.add('is-visible');
+          console.log('底部购买栏已激活');
+        } else {
+          console.log('底部购买栏元素未找到');
+        }
+        
+        // 确保页面有足够的底部填充，以防止内容被底部栏遮挡
+        const mainContent = document.querySelector('main') || document.querySelector('#MainContent');
+        if (mainContent) {
+          mainContent.style.paddingBottom = '70px';
+        }
+      }
+    });
+  </script>
 
+  {% if template contains 'product' %}
+    {% render 'bottom-purchase-bar' %}
+  {% endif %}
 </body>
 
 </html>

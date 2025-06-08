@@ -1,0 +1,206 @@
+<!-- products/product-template.liquid -->
+<div id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-template" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+
+  {% comment %}
+    {% render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
+  {% endcomment %}
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_media | img_url: 'grande' }}">
+  <meta itemprop="name" content="{{ product.title }}{% if current_variant.title != 'Default Title' %} - {{ current_variant.title }}{% endif %}">
+
+  <!-- 确保在产品页面中引入底部购买栏 -->
+  {% if product and product.has_only_default_variant == false %}
+    {% render 'swatch' with 'Style' %}
+  {% endif %}
+
+  <script>
+    // 在产品模板中添加脚本加载底部购买栏JS
+    document.addEventListener('DOMContentLoaded', function() {
+      const productTemplateElement = document.querySelector('[data-section-type="product-template"]');
+      if (productTemplateElement) {
+        document.body.classList.add('template-product');
+        
+        // 确保底部购买栏显示
+        const bottomBar = document.querySelector('.bottom-purchase-info');
+        if (bottomBar) {
+          bottomBar.classList.add('is-visible');
+        }
+      }
+    });
+  </script>
+
+  <div class="grid product-single">
+    <div class="grid__item large--seven-twelfths product-single__photos">
+      {% render 'product-images' with product: product, section_id: section.id %}
+    </div>
+
+    <div class="grid__item large--five-twelfths">
+      <div class="product-single__meta">
+        <h1 class="product-details-product-title" itemprop="name">{{ product.title }}</h1>
+
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          {% if product.available %}
+            <link itemprop="availability" href="http://schema.org/InStock">
+          {% else %}
+            <link itemprop="availability" href="http://schema.org/OutOfStock">
+          {% endif %}
+
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+          <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+          <meta itemprop="priceValidUntil" content="{{ 'now' | date: '%Y-%m-%d' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' }}">
+
+          <ul class="product-single__meta-list">
+            {% if product.available %}
+              <li id="ProductPrice" class="product-single__price">
+                <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}" v-bind:content="variant ? variant.price / 100 : null" v-html="variant ? money(variant.price) : '{{ 'products.product.unavailable' | t }}'">
+                  {{ current_variant.price | money }}
+                </span>
+              </li>
+
+              {% if current_variant.compare_at_price > current_variant.price %}
+                <li class="product-single__sale-price">
+                  <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                  <s v-if="variant && variant.compare_at_price > variant.price" v-html="money(variant.compare_at_price)">
+                    {{ current_variant.compare_at_price | money }}
+                  </s>
+                </li>
+              {% endif %}
+            {% else %}
+              <li>
+                {{ 'products.product.unavailable' | t }}
+              </li>
+            {% endif %}
+
+            {% if shop.taxes_included or shop.shipping_policy.body != blank %}
+              <div class="product-single__policies rte">
+                {% if shop.taxes_included %}
+                  {{ 'products.general.include_taxes' | t }}
+                {% endif %}
+
+                {% if shop.shipping_policy.body != blank %}
+                  {{ 'products.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {% endif %}
+              </div>
+            {% endif %}
+          </ul>
+
+          {% if shop.metafields.loox["average_score"] > 0 and shop.metafields.loox["review_count"] > 0 %}
+            <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ shop.metafields.loox["average_score"] }}" data-raters="{{ shop.metafields.loox["review_count"] }}"></div>
+          {% endif %}
+
+          <div class="product-single__description rte">
+            {{ product.description }}
+          </div>
+
+          <div id="AddToCartForm-{{ section.id }}" class="product-form__wrapper">
+            {% unless product.has_only_default_variant %}
+              <div class="product-form__item">
+                {% for option in product.options_with_values %}
+                  <div class="selector-wrapper">
+                    <label for="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}">
+                      {{ option.name }}
+                    </label>
+
+                    <select class="single-option-selector form-control"
+                      id="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}"
+                      data-option-index="{{ forloop.index0 }}"
+                      data-section-id="{{ section.id }}"
+                      name="option{{ forloop.index }}"
+                      v-model="option{{ forloop.index }}"
+                    >
+                      {% for value in option.values %}
+                        <option
+                          value="{{ value | escape }}"
+                          {% if option.selected_value == value %}selected="selected"{% endif %}
+                        >
+                          {{ value }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endunless %}
+
+            {% comment %}
+              Hidden input for variant ID
+            {% endcomment %}
+            <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants no-js" v-bind:value="variant ? variant.id : null">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}"
+                  {% unless variant.available %}disabled="disabled"{% endunless %}
+                >
+                  {{ variant.title }} {% unless variant.available %}- {{ 'products.product.sold_out' | t }}{% endunless %}
+                </option>
+              {% endfor %}
+            </select>
+
+            <div class="product-form__item product-form__item--quantity">
+              <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+              <div class="js-qty">
+                <button
+                  type="button"
+                  aria-label="-"
+                  class="js-qty__adjust js-qty__adjust--minus icon-fallback-text"
+                  data-action="decrease"
+                >
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                  <span class="fallback-text">−</span>
+                </button>
+                <input
+                  type="number"
+                  class="js-qty__num"
+                  value="1"
+                  min="1"
+                  aria-label="quantity"
+                  pattern="[0-9]*"
+                  name="quantity"
+                  id="Quantity"
+                  data-quantity-input="main"
+                >
+                <button
+                  type="button"
+                  aria-label="+"
+                  class="js-qty__adjust js-qty__adjust--plus icon-fallback-text"
+                  data-action="increase"
+                >
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                  <span class="fallback-text">+</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="product-form__item product-form__item--submit">
+              <div class="product-form__controls-group">
+                <div class="product-form__controls-group-submit">
+                  <button
+                    type="submit"
+                    name="add"
+                    id="AddToCartText-{{ section.id }}"
+                    class="btn btn--full btn--add-to-cart"
+                    {% unless current_variant.available %}disabled="disabled"{% endunless %}
+                    v-bind:disabled="!variant || !variant.available"
+                  >
+                    <span v-if="variant && variant.available">
+                      {{ 'products.product.add_to_cart' | t }}
+                    </span>
+                    <span v-else>
+                      {{ 'products.product.sold_out' | t }}
+                    </span>
+                  </button>
+
+                  {% if section.settings.enable_payment_button %}
+                    {{ form | payment_button }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'recently-viewed-products' %} 

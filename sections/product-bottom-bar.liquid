@@ -1,0 +1,58 @@
+{% if product %}
+  {% if product.has_only_default_variant == false %}
+    {% render 'swatch' with 'Style' %}
+  {% endif %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 确保底部购买栏显示
+      const bottomBar = document.querySelector('.bottom-purchase-info');
+      if (bottomBar) {
+        bottomBar.classList.add('is-visible');
+        console.log('底部购买栏已通过section加载和激活');
+      }
+      
+      // 确保产品页面标记
+      document.body.classList.add('template-product');
+      
+      // 确保页面有足够的底部填充，以防止内容被底部栏遮挡
+      const mainContent = document.querySelector('main') || document.querySelector('#MainContent');
+      if (mainContent) {
+        mainContent.style.paddingBottom = '70px';
+      }
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "底部购买栏",
+  "class": "product-bottom-bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_bottom_bar",
+      "label": "启用底部购买栏",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quantity_selector",
+      "label": "显示数量选择器",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_variant_selector",
+      "label": "显示变体选择器",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "底部购买栏",
+      "category": "产品"
+    }
+  ]
+}
+{% endschema %} 

@@ -1,0 +1,116 @@
+{% if product %}
+<div class="bottom-purchase-info">
+  <div class="bottom-purchase-info__container">
+    <div class="bottom-purchase-info__image">
+      <img src="{{ product.selected_or_first_available_variant.featured_media | default: product.featured_media | img_url: '120x' }}"
+        alt="{{ product.title | escape }}" class="js-bottom-variant-image" data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        width="70" height="70">
+    </div>
+    <div class="bottom-purchase-info__content">
+      <h3 class="bottom-purchase-info__title">{{ product.title | escape }}</h3>
+      <div class="bottom-purchase-info__review-badge">
+        {% render 'proviews_review_badge' with product as product %}      
+      </div>
+      <span class="visually-hidden bottom-purchase-info__compare-price js-bottom-compare-price">
+        Regular price
+      </span>
+      <span id="BottomProductPrice" class="bottom-purchase-info__price" itemprop="price" content="{{ product.selected_or_first_available_variant.price | divided_by: 100 }}"
+        v-bind:content="variant ? variant.price / 100 : null"
+        v-html="variant ? money(variant.price) : 'Unavailable'">
+        <span class="money">{{ product.selected_or_first_available_variant.price | money }}</span>
+      </span>
+    </div>
+    <div class="bottom-purchase-info__dropdown-wrapper-new-style">
+      
+      {% if product.options.size > 0 and product.variants.size > 1 %}
+      {% for option in product.options %}
+      {% assign option_index = forloop.index0 %}
+      {% assign downcased_option = option | downcase %}
+      {% assign is_color = false %}
+      {% assign color_langs = 'color,colour,couleur,colore,farbe,색,色,färg,farve' | split: ',' %}
+      {% if color_langs contains downcased_option %}
+        {% assign is_color = true %}
+      {% endif %}
+      
+      <div class="bottom-purchase-dropdown">
+        <div class="bottom-purchase-dropdown__header">{{ option }}</div>
+        <div class="bottom-purchase-dropdown__wrapper">
+          <select class="bottom-purchase-dropdown__select" name="option-{{ option_index | plus: 1 }}" v-model="option{{ option_index | plus: 1 }}">
+            {% for value in product.options_with_values[option_index].values %}
+            
+            {% assign variant_available = false %}
+            {% for variant in product.variants %}
+              {% if variant.options[option_index] == value and variant.available %}
+                {% assign variant_available = true %}
+              {% endif %}
+            {% endfor %}
+            
+            <option 
+              value="{{ value | escape }}" 
+              {% if product.selected_or_first_available_variant.options[option_index] == value %}selected="selected"{% endif %}
+              {% unless variant_available %}disabled="disabled"{% endunless %}
+            >
+              {{ value }}{% unless variant_available %} - Sold Out{% endunless %}
+            </option>
+            {% endfor %}
+          </select>
+          <div class="bottom-purchase-dropdown__arrow">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+      <div class="bottom-purchase-dropdown__quantity-wrapper">
+        <div class="js-qty">
+          <button
+            type="button"
+            aria-label="-"
+            class="js-qty__adjust js-qty__adjust--minus icon-fallback-text"
+            data-action="decrease"
+          >
+            <i class="fa fa-minus" aria-hidden="true"></i>
+            <span class="fallback-text">−</span>
+          </button>
+          <input
+            type="number"
+            class="js-qty__num"
+            value="1"
+            min="1"
+            aria-label="quantity"
+            pattern="[0-9]*"
+            name="quantity-bottom"
+            id="BottomQuantity"
+            data-quantity-input="bottom"
+          >
+          <button
+            type="button"
+            aria-label="+"
+            class="js-qty__adjust js-qty__adjust--plus icon-fallback-text"
+            data-action="increase"
+          >
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span class="fallback-text">+</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="bottom-purchase-info__btn-container">
+        <button
+          type="button"
+          aria-label="Add to cart"
+          name="add"
+          id="AddToCart"
+          class="btn bottom-add-to-cart-button"
+          data-bottom-add-to-cart
+        >
+          <span>Add to cart</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %} 
