@@ -290,6 +290,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     overflow: visible;
     clip: auto;
     }
+    .grid__item.large--six-twelfths.product-sticky{
+      position: relative;
+      z-index:900;
+    }
+    select.bottom-purchase-dropdown__select {
+    margin: 0 !important;
+}
     {% endstyle %}
 
     <!-- Header hook for plugins ================================================== -->
@@ -540,6 +547,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    {% if template contains 'product' %}
    <script src="{{ 'bottom-purchase-dropdown.js' | asset_url }}"></script>
    <script src="{{ 'bottom-bar-fix.js' | asset_url }}"></script>
+   <script src="{{ 'simple-quantity-fix.js' | asset_url }}"></script>
    {% endif %}
    {% include 'smile-initializer' %}
 

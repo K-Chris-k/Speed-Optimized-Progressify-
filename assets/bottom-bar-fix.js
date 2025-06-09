@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
         img.style.objectFit = 'contain';
       }
     }
-    
+  
     // 优化内容容器，确保标题完整显示
     const contentContainer = bottomBar.querySelector('.bottom-purchase-info__content');
     if (contentContainer) {

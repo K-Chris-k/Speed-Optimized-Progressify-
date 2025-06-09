@@ -234,9 +234,14 @@ body:not(.template-product) .bottom-purchase-info {
 .bottom-purchase-info .paymentButtonsWrapper {
   display: flex;
   align-items: center;
-  height: 36px;
+    /* height: 36px; */
+    margin: 0;
 }
-
+.paymentButtonsWrapper button#AddToCart {
+  border-radius: 8px;
+}select.bottom-purchase-dropdown__select {
+  margin: 0;
+}
 /* 确保底部留出空间，避免被固定底部遮挡 */
 .template-product main,
 .template-product #MainContent {
