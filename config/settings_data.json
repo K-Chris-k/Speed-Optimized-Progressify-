@@ -31,7 +31,8 @@
     "logo_font_size": 19,
     "ajax_cart_method": "drawer",
     "cart_recommendations_heading": "Don‘t forget these...",
-    "free_shipping_threshold": 12500,
+    "cart_recommendations_collection": "side-cart-recommendations",
+    "free_shipping_threshold": 10000,
     "show_discount": "hide",
     "product-grid": "natural",
     "predictive_search_articles": true,
@@ -617,31 +618,31 @@
         "disabled": true,
         "settings": {}
       },
-      "9696655121035291526": {
-        "type": "shopify://apps/rapi/blocks/app-embed/99617c17-a32b-4e70-a883-7a155610d032",
-        "disabled": false,
-        "settings": {}
-      },
-      "16936614187718193802": {
-        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
-        "disabled": false,
-        "settings": {}
-      },
       "9468172321995857178": {
         "type": "shopify://apps/qikify-bogo-freegift/blocks/app-embed/2e94b962-8172-4839-8ad9-7837eb8b017a",
         "disabled": true,
         "settings": {}
       },
+      "13672250894428551832": {
+        "type": "shopify://apps/qikify-slide-cart/blocks/app-embed/39da5d6e-3e04-4687-bc69-e23fafb93294",
+        "disabled": true,
+        "settings": {}
+      },
       "12120936241911852800": {
         "type": "shopify://apps/judge-me-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "position": "bottom"
         }
       },
-      "13672250894428551832": {
-        "type": "shopify://apps/qikify-slide-cart/blocks/app-embed/39da5d6e-3e04-4687-bc69-e23fafb93294",
+      "9696655121035291526": {
+        "type": "shopify://apps/rapi/blocks/app-embed/99617c17-a32b-4e70-a883-7a155610d032",
         "disabled": true,
+        "settings": {}
+      },
+      "16936614187718193802": {
+        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
+        "disabled": false,
         "settings": {}
       }
     }

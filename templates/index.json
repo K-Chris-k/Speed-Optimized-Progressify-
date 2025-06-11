@@ -31,6 +31,7 @@
         },
         "image_jpjDrx": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle_2_cdd37438-c3f3-4c37-a077-458d840d9579.png",
             "mobile_image": "shopify://shop_images/Stove_cup_kit_2.png",
