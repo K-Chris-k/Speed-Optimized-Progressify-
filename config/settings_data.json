@@ -30,6 +30,7 @@
     "product_page_font_style": "normal",
     "logo_font_size": 19,
     "ajax_cart_method": "drawer",
+    "empty_cart_products": "side-cart-recommendations",
     "cart_recommendations_heading": "Don‘t forget these...",
     "cart_recommendations_collection": "side-cart-recommendations",
     "free_shipping_threshold": 10000,
