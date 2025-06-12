@@ -1,12 +1,12 @@
 <style>
   /* Cart Item Layout Styles */
-  
+
   /* Variant Selector Styles */
   .product-card-basic__variants {
     margin: 5px 0;
     width: 100%;
   }
-  
+
   .product-card-variant-selector {
     width: 100%;
     padding: 6px 8px;
@@ -27,21 +27,21 @@
     overflow: hidden;
     white-space: nowrap;
   }
-  
+
   .product-card-variant-selector:focus {
     outline: none;
     border-color: #999;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
-  
+
   .product-card-variant-selector option {
     font-size: 12px;
   }
-  
+
   .product-card-variant-selector option:disabled {
     color: #999;
   }
-  
+
   /* Compare price styles */
   .product-card-basic__compare-price {
     text-decoration: line-through;
@@ -50,13 +50,13 @@
     font-size: 0.9em;
     display: inline-block;
   }
-  
+
   .product-card-basic__price {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
   }
-  
+
   /* Mobile-specific variant selector styles */
   @media screen and (max-width: 767px) {
     .product-card-variant-selector {
@@ -64,7 +64,7 @@
       font-size: 11px;
       background-position: right 6px center;
     }
-    
+
     .product-card-basic__variants {
       margin: 3px 0;
     }
@@ -366,7 +366,7 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .product-card-basic--info--body {
     display: flex;
     flex-direction: column;
@@ -935,7 +935,7 @@
     transition: all 0.2s ease !important;
     margin-top: 5px !important;
   }
-  
+
   .cart-drawer-recommendations-sidebar .add-to-cart-btn:hover {
     background: #ebebeb !important;
     border-color: #d8d8d8 !important;
@@ -1173,7 +1173,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     transition: all 0.2s ease;
   }
-  
+
   .product-card-basic.cart-drawer__product-card:hover {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
@@ -1750,13 +1750,13 @@
                                         <a href="{{ product.url }}">{{ product.title }}</a>
                                       </div>
                                     </div>
-                                    
+
                                     {% if product.has_only_default_variant == false and product.variants.size > 1 %}
                                       <div class="product-card-basic__variants">
                                         <select class="product-card-variant-selector" data-product-id="{{ product.id }}" onchange="updateRecommendationVariant(this, {{ product.id }})">
                                           {% for variant in product.variants %}
-                                            <option 
-                                              value="{{ variant.id }}" 
+                                            <option
+                                              value="{{ variant.id }}"
                                               data-price="{{ variant.price }}"
                                               data-compare-price="{{ variant.compare_at_price | default: 0 }}"
                                               {% if variant.available == false %}disabled{% endif %}>
@@ -1861,13 +1861,13 @@
                                         <a href="{{ product.url }}">{{ product.title }}</a>
                                       </div>
                                     </div>
-                                    
+
                                     {% if product.has_only_default_variant == false and product.variants.size > 1 %}
                                       <div class="product-card-basic__variants">
                                         <select class="product-card-variant-selector" data-product-id="{{ product.id }}" onchange="updateRecommendationVariant(this, {{ product.id }})">
                                           {% for variant in product.variants %}
-                                            <option 
-                                              value="{{ variant.id }}" 
+                                            <option
+                                              value="{{ variant.id }}"
                                               data-price="{{ variant.price }}"
                                               data-compare-price="{{ variant.compare_at_price | default: 0 }}"
                                               {% if variant.available == false %}disabled{% endif %}>
