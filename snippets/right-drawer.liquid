@@ -74,7 +74,8 @@
     display: none;
   }
 
-  .desktop-cart-drawer-none-container-recommendations {}
+  .desktop-cart-drawer-none-container-recommendations {
+  }
 
   .ajaxcart__row {
     padding: 15px 0;
@@ -270,7 +271,7 @@
   }
 
   /* 确保购物车内容区域和底部之间没有多余间距 */
-  .ajaxcart__inner>.cart-drawer-flex-container {
+  .ajaxcart__inner > .cart-drawer-flex-container {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
   }
@@ -615,7 +616,7 @@
   }
 
   /* Remove divider lines between quantity buttons and input */
-  .ajaxcart__qty>* {
+  .ajaxcart__qty > * {
     border: none !important;
     box-shadow: none !important;
     outline: none !important;
@@ -1005,7 +1006,6 @@
 
   /* 响应式调整 */
   @media screen and (max-width: 820px) {
-
     /* Change layout direction for cart drawer on mobile */
     form.cart.ajaxcart.new-cust-cart-drawer-flex-container {
       flex-direction: column;
@@ -1134,7 +1134,6 @@
 
   /* Mobile-specific styles for recommendations */
   @media screen and (max-width: 820px) {
-
     /* Make recommendations more prominent on mobile */
     .cart-drawer-recommendations-sidebar {
       position: relative;
@@ -1274,7 +1273,6 @@
 
   /* 移动端特殊处理推荐产品区域 */
   @media screen and (max-width: 820px) {
-
     /* 调整推荐产品标题 */
     .cart-drawer-recommendations-sidebar h5.text-link-animated {
       font-size: 14px;
@@ -1336,7 +1334,7 @@
     }
   }
 
-    /* Loading State Styles */
+  /* Loading State Styles */
   .cart-loading-container {
     display: flex;
     flex-direction: column;
@@ -1346,7 +1344,7 @@
     padding: 40px 20px;
     min-height: 300px;
   }
-  
+
   .cart-loading-spinner {
     width: 50px;
     height: 50px;
@@ -1356,20 +1354,20 @@
     animation: spin 1s linear infinite;
     margin-bottom: 20px;
   }
-  
+
   @keyframes spin {
     to {
       transform: rotate(360deg);
     }
   }
-  
+
   .cart-loading-text {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 30px;
     color: #333;
   }
-  
+
   .cart-loading-fallback {
     margin-top: 20px;
     padding-top: 20px;
@@ -1377,13 +1375,13 @@
     width: 100%;
     max-width: 300px;
   }
-  
+
   .cart-loading-fallback p {
     font-size: 14px;
     color: #666;
     margin-bottom: 15px;
   }
-  
+
   .cart-loading-button {
     padding: 10px 20px;
     font-weight: 600;
@@ -1392,7 +1390,7 @@
     min-width: 150px;
     display: inline-block;
   }
-  
+
   /* Empty Cart Styles */
   .empty-cart-container {
     display: flex;
@@ -1403,25 +1401,25 @@
     padding: 40px 20px;
     min-height: 300px;
   }
-  
+
   .empty-cart-icon {
     margin-bottom: 20px;
   }
-  
+
   .empty-cart-title {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
     color: #333;
   }
-  
+
   .empty-cart-text {
     font-size: 14px;
     color: #666;
     margin-bottom: 25px;
     max-width: 250px;
   }
-  
+
   .empty-cart-button {
     padding: 12px 30px;
     font-weight: 600;
@@ -1429,43 +1427,127 @@
     transition: all 0.2s ease;
     min-width: 150px;
   }
-  
+
   .empty-cart-button:hover {
     opacity: 0.9;
     transform: translateY(-1px);
   }
-  
+
   @media screen and (max-width: 767px) {
     .cart-loading-container,
     .empty-cart-container {
       padding: 30px 15px;
       min-height: 250px;
     }
-    
+
     .cart-loading-spinner {
       width: 40px;
       height: 40px;
     }
-    
+
     .cart-loading-text {
       font-size: 16px;
     }
-    
+
     .empty-cart-icon svg {
       width: 100px;
       height: 100px;
     }
-    
+
     .empty-cart-title {
       font-size: 18px;
     }
-    
+
     .empty-cart-text {
       font-size: 13px;
       margin-bottom: 20px;
     }
   }
 </style>
+
+<!-- 添加货币转换脚本 -->
+<script>
+  // 货币转换配置
+  window.currencyConfig = {
+    // 基准货币 - 所有免运费阈值都基于此货币
+    baseCurrency: 'USD',
+    
+    // 免运费阈值 (美元)
+    freeShippingThresholdUSD: {{ settings.free_shipping_threshold | default: 10000 | divided_by: 100.0 | json }},
+    
+    // 货币汇率表 (相对于USD)
+    currencyRates: {
+      'USD': 1.0,
+      'EUR': 1.08,  // 1 EUR = 1.08 USD
+      'GBP': 1.27,  // 1 GBP = 1.27 USD
+      'CAD': 0.74,  // 1 CAD = 0.74 USD
+      'AUD': 0.66,  // 1 AUD = 0.66 USD
+      'JPY': 0.0067, // 1 JPY = 0.0067 USD
+      'CNY': 0.14,  // 1 CNY = 0.14 USD
+      'KM': 0.55,   // 1 KM = 0.55 USD (假设KM是某种货币)
+      // 添加更多货币汇率
+    },
+    
+    // 货币符号映射
+    currencySymbols: {
+      'USD': '$',
+      'EUR': '€',
+      'GBP': '£',
+      'CAD': 'C$',
+      'AUD': 'A$',
+      'JPY': '¥',
+      'CNY': '¥',
+      'KM': 'KM',
+      // 添加更多货币符号
+    }
+  };
+  
+  // 获取当前货币
+  window.getCurrentCurrency = function() {
+    return Shopify && Shopify.currency ? Shopify.currency.active : '{{ cart.currency.iso_code | default: shop.currency }}';
+  };
+  
+  // 获取当前货币符号
+  window.getCurrentCurrencySymbol = function() {
+    const currency = window.getCurrentCurrency();
+    return window.currencyConfig.currencySymbols[currency] || '$';
+  };
+  
+  // 将任意货币金额转换为USD (输入cents)
+  window.convertToUSD = function(amount, fromCurrency) {
+    const currency = fromCurrency || window.getCurrentCurrency();
+    const rate = window.currencyConfig.currencyRates[currency] || 1.0;
+    // 先转换为美元金额 (dollars)
+    return (amount / 100) / rate;
+  };
+  
+  // 将USD金额转换为当前货币 (返回cents)
+  window.convertFromUSD = function(usdAmount, toCurrency) {
+    const currency = toCurrency || window.getCurrentCurrency();
+    const rate = window.currencyConfig.currencyRates[currency] || 1.0;
+    // 转换为当前货币的分 (cents)
+    return usdAmount * rate * 100;
+  };
+  
+  // 格式化USD金额为美元字符串
+  window.formatUSD = function(amount) {
+    return '$' + parseFloat(amount).toFixed(2);
+  };
+  
+  // 格式化金额为当前货币字符串
+  window.formatCurrentCurrency = function(amount) {
+    const currency = window.getCurrentCurrency();
+    const symbol = window.currencyConfig.currencySymbols[currency] || '$';
+    
+    // 根据货币调整格式
+    if (currency === 'JPY') {
+      // 日元不使用小数点
+      return symbol + Math.round(amount);
+    } else {
+      return symbol + parseFloat(amount).toFixed(2);
+    }
+  };
+</script>
 
 <!-- 修复View options按钮行为 -->
 <script>
@@ -1530,11 +1612,16 @@
 
 <div class="right-drawer-vue">
   {% comment %} There's no route available for the predictive search api URL yet {% endcomment %}
-  <wetheme-right-drawer search-url="/search/suggest.json" login-url="{{ routes.account_login_url }}"
-    is-predictive="{{ settings.predictive_search_enabled }}" search-products="{{ settings.predictive_search_products }}"
-    search-pages="{{ settings.predictive_search_pages }}" search-articles="{{ settings.predictive_search_articles }}"
+  <wetheme-right-drawer
+    search-url="/search/suggest.json"
+    login-url="{{ routes.account_login_url }}"
+    is-predictive="{{ settings.predictive_search_enabled }}"
+    search-products="{{ settings.predictive_search_products }}"
+    search-pages="{{ settings.predictive_search_pages }}"
+    search-articles="{{ settings.predictive_search_articles }}"
     search-collections="{{ settings.predictive_search_collections }}"
-    language-url="{{ localization.language.root_url }}">
+    language-url="{{ localization.language.root_url }}"
+  >
   </wetheme-right-drawer>
 </div>
 <script type="text/x-template" id="wetheme-right-drawer-template">
@@ -1571,15 +1658,15 @@
                     <div class="shipping-progress-bar">
                       <div class="shipping-progress-bar__fill" :style="{ width: getShippingProgressPercentage() + '%' }"></div>
                     </div>
-                    <div class="shipping-progress-text shipping-progress-success-container" v-if="cart && cart.total_price >= freeShippingThreshold">
+                    <div class="shipping-progress-text shipping-progress-success-container" v-if="cart && isEligibleForFreeShipping()">
                       <span class="shipping-progress-success">{% if settings.free_shipping_success_message != blank %}{{ settings.free_shipping_success_message }}{% else %}Congrats! You are eligible for FREE Shipping{% endif %}</span>
                     </div>
                     <div class="shipping-progress-text" v-else>
                       {% if settings.free_shipping_threshold_message != blank %}
                         {% assign threshold_message = settings.free_shipping_threshold_message %}
-                        {{ threshold_message | replace: '[amount]', '<span class="shipping-progress-remaining" v-money="cart ? (freeShippingThreshold - cart.total_price) : freeShippingThreshold"></span>' }}
+                        {{ threshold_message | replace: '[amount]', '<span class="shipping-progress-remaining" v-html="getRemainingAmountForFreeShipping()"></span>' }}
                       {% else %}
-                        Buy <span class="shipping-progress-remaining" v-money="cart ? (freeShippingThreshold - cart.total_price) : freeShippingThreshold"></span> more to enjoy FREE Shipping
+                        Buy <span class="shipping-progress-remaining" v-html="getRemainingAmountForFreeShipping()"></span> more to enjoy FREE Shipping
                       {% endif %}
                     </div>
                   </div>
@@ -1594,7 +1681,7 @@
                         <a href="/cart" class="btn dynamic-section-button--drawer-filled cart-loading-button">View Cart Page</a>
                       </div>
                     </div>
-                    
+
                     <!-- Empty Cart State -->
                     <div class="empty-cart-container" v-if="cart && cart.item_count === 0">
                       <div class="empty-cart-icon">
@@ -1605,11 +1692,13 @@
                           <path d="M24 20h8l4 12M96 20h-8l-4 12M50 50h20M46 60h28M42 70h36" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                       </div>
-                      <h3 class="empty-cart-title">{{ settings.empty_cart_title[request.locale.iso_code] | default: settings.empty_cart_title.en | default: 'Your cart is empty' }}</h3>
-                      <p class="empty-cart-text">{{ settings.empty_cart_text[request.locale.iso_code] | default: settings.empty_cart_text.en | default: 'Looks like you haven\'t added any items to your cart yet.' }}</p>
+                      <h3 class="empty-cart-title">
+                        {{ settings.empty_cart_title }}
+                    </h3>
+                      <p class="empty-cart-text">{{ settings.empty_cart_text }}</p>
                       <a href="{{ settings.empty_cart_button_link | default: '/collections/all' }}" class="btn dynamic-section-button--drawer-filled empty-cart-button">{{ settings.empty_cart_button_text[request.locale.iso_code] | default: settings.empty_cart_button_text.en | default: 'Shop Now' }}</a>
                     </div>
-                    
+
                     <!-- Cart Items -->
                     <span v-if="cart && cart.total_discount > 0" class="hide auto-discount--active"></span>
                     <div class="ajaxcart__product" v-for="(item, index) in cart.items" :key="index + item.id" v-if="cart && cart.item_count > 0">
@@ -1900,7 +1989,7 @@
               {% if settings.show_cart_recommendations %}
                 {%- liquid
                   assign show_recommendations = true
-                  
+
                   # 找出购物车中价格最高的商品ID用于推荐
                   assign max_price = 0
                   assign max_price_product_id = ""
@@ -2008,7 +2097,7 @@
               {% if settings.show_cart_recommendations %}
                 {%- liquid
                   assign show_recommendations = true
-                  
+
                   # 找出购物车中价格最高的商品ID用于推荐
                   assign max_price = 0
                   assign max_price_product_id = ""
@@ -2197,1635 +2286,1684 @@
 <script></script>
 
 <script>
-  // Global variable to store the Vue instance reference
-  var drawerVueInstance = null;
-
-  // Free shipping threshold in cents (e.g., 100000 = $1000.00)
-  var freeShippingThreshold = {{ settings.free_shipping_threshold | default: 10000 }};
-
-  // Function to get the drawer Vue instance
-  function getDrawerVueInstance() {
-    if (drawerVueInstance) return drawerVueInstance;
-
-    const drawerElement = document.querySelector('.right-drawer-vue');
-    if (drawerElement && drawerElement.__vue__) {
-      drawerVueInstance = drawerElement.__vue__.$children[0];
-      return drawerVueInstance;
-    }
-    return null;
-  }
-
-  // Add specific listener for checkout button to ensure it works
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function () {
-      // Create a function to handle direct checkout
-      function handleDirectCheckout() {
-        const form = document.getElementById('CartDrawer-Form');
-        if (form) {
-          // Create a hidden input for checkout action
-          const checkoutInput = document.createElement('input');
-          checkoutInput.type = 'hidden';
-          checkoutInput.name = 'checkout';
-          checkoutInput.value = '1';
-          form.appendChild(checkoutInput);
-
-          // Submit the form directly
-          form.submit();
-          return false;
-        }
+    // Global variable to store the Vue instance reference
+    var drawerVueInstance = null;
+  
+    // Free shipping threshold in cents (e.g., 100000 = $1000.00)
+    var freeShippingThreshold = {{ settings.free_shipping_threshold | default: 10000 }};
+  
+    // Function to get the drawer Vue instance
+    function getDrawerVueInstance() {
+      if (drawerVueInstance) return drawerVueInstance;
+  
+      const drawerElement = document.querySelector('.right-drawer-vue');
+      if (drawerElement && drawerElement.__vue__) {
+        drawerVueInstance = drawerElement.__vue__.$children[0];
+        return drawerVueInstance;
       }
-
-      // Add a document-level event listener to catch checkout button clicks
-      document.addEventListener('click', function (e) {
-        if (e.target.closest('#CartDrawer-Checkout')) {
-          e.preventDefault();
-          return handleDirectCheckout();
+      return null;
+    }
+  
+    // Add specific listener for checkout button to ensure it works
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        // Create a function to handle direct checkout
+        function handleDirectCheckout() {
+          const form = document.getElementById('CartDrawer-Form');
+          if (form) {
+            // Create a hidden input for checkout action
+            const checkoutInput = document.createElement('input');
+            checkoutInput.type = 'hidden';
+            checkoutInput.name = 'checkout';
+            checkoutInput.value = '1';
+            form.appendChild(checkoutInput);
+  
+            // Submit the form directly
+            form.submit();
+            return false;
+          }
         }
-      });
-    }, 1000);
-  });
-
-      // 初始化购物车数据并打开抽屉
-    function initializeCartDrawer() {
-      // Set a timeout for slow connections
-      const timeoutPromise = new Promise((resolve) => {
-        // After 3 seconds, provide a fallback empty cart object
-        setTimeout(() => {
-          resolve({
+  
+        // Add a document-level event listener to catch checkout button clicks
+        document.addEventListener('click', function (e) {
+          if (e.target.closest('#CartDrawer-Checkout')) {
+            e.preventDefault();
+            return handleDirectCheckout();
+          }
+        });
+      }, 1000);
+    });
+  
+        // 初始化购物车数据并打开抽屉
+      function initializeCartDrawer() {
+        // Set a timeout for slow connections
+        const timeoutPromise = new Promise((resolve) => {
+          // After 3 seconds, provide a fallback empty cart object
+          setTimeout(() => {
+            resolve({
+              item_count: 0,
+              items: [],
+              total_price: 0,
+              original_total_price: 0
+            });
+          }, 3000);
+        });
+        
+        // Create the fetch promise
+        const fetchPromise = fetch('/cart.js', { 
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-store'
+        })
+        .then(res => res.json())
+        .catch(err => {
+          console.error('Error fetching cart data:', err);
+          // Return an empty cart on error
+          return {
             item_count: 0,
             items: [],
             total_price: 0,
             original_total_price: 0
-          });
-        }, 3000);
-      });
-      
-      // Create the fetch promise
-      const fetchPromise = fetch('/cart.js', { 
-        method: 'GET',
-        headers: { 'Accept': 'application/json' },
-        cache: 'no-store'
-      })
-      .then(res => res.json())
-      .catch(err => {
-        console.error('Error fetching cart data:', err);
-        // Return an empty cart on error
-        return {
-          item_count: 0,
-          items: [],
-          total_price: 0,
-          original_total_price: 0
-        };
-      });
-      
-      // Race between the fetch and the timeout
-      Promise.race([fetchPromise, timeoutPromise])
-        .then(cartData => {
-          const drawerInstance = getDrawerVueInstance();
-          if (drawerInstance) {
-            // Initialize with the cart data (either real or fallback)
-            drawerInstance.cart = cartData;
-            drawerInstance.type = 'cart';
-            
-            // Force Vue to update
-            if (typeof drawerInstance.$forceUpdate === 'function') {
-              drawerInstance.$forceUpdate();
-            }
-            
-            // If we got the fallback data, continue trying to get real data
-            if (cartData.isTimeoutFallback) {
-              fetchPromise.then(realCartData => {
-                drawerInstance.cart = realCartData;
-                if (typeof drawerInstance.$forceUpdate === 'function') {
-                  drawerInstance.$forceUpdate();
-                }
-              });
-            }
-          } else {
-            console.error('Could not get drawer Vue instance');
-          }
+          };
         });
-    }
-
-  // Add shipping progress percentage calculation method to Vue component
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function () {
-      const drawerInstance = getDrawerVueInstance();
-      if (drawerInstance) {
-        // Add the free shipping threshold to the Vue instance
-        drawerInstance.freeShippingThreshold = freeShippingThreshold;
-
-                  // Add the shipping progress calculation method
-         drawerInstance.getShippingProgressPercentage = function () {
-            // If cart isn't loaded yet, show 0%
+        
+        // Race between the fetch and the timeout
+        Promise.race([fetchPromise, timeoutPromise])
+          .then(cartData => {
+            const drawerInstance = getDrawerVueInstance();
+            if (drawerInstance) {
+              // Initialize with the cart data (either real or fallback)
+              drawerInstance.cart = cartData;
+              drawerInstance.type = 'cart';
+              
+              // Force Vue to update
+              if (typeof drawerInstance.$forceUpdate === 'function') {
+                drawerInstance.$forceUpdate();
+              }
+              
+              // If we got the fallback data, continue trying to get real data
+              if (cartData.isTimeoutFallback) {
+                fetchPromise.then(realCartData => {
+                  drawerInstance.cart = realCartData;
+                  if (typeof drawerInstance.$forceUpdate === 'function') {
+                    drawerInstance.$forceUpdate();
+                  }
+                });
+              }
+            } else {
+              console.error('Could not get drawer Vue instance');
+            }
+          });
+      }
+  
+    // Add shipping progress percentage calculation method to Vue component
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        const drawerInstance = getDrawerVueInstance();
+        if (drawerInstance) {
+          // Add the free shipping threshold to the Vue instance
+          drawerInstance.freeShippingThreshold = freeShippingThreshold;
+  
+          // 添加多货币支持的方法
+          
+          // 检查是否符合免运费条件
+          drawerInstance.isEligibleForFreeShipping = function() {
+            if (!this.cart) return false;
+            
+            const cartTotal = this.cart.total_price || 0;
+            const currentCurrency = window.getCurrentCurrency();
+            
+            // 将购物车金额转换为美元
+            const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
+            
+            // 与美元阈值比较
+            return cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD;
+          };
+          
+          // 获取距离免运费还差多少(显示当前货币金额)
+          drawerInstance.getRemainingAmountForFreeShipping = function() {
             if (!this.cart) {
-              return 0;
+              // 如果购物车为空，显示完整的免运费阈值(以当前货币显示)
+              const thresholdInCurrentCurrency = window.convertFromUSD(
+                window.currencyConfig.freeShippingThresholdUSD, 
+                window.getCurrentCurrency()
+              ) / 100; // 转换为当前货币金额
+              
+              return window.formatCurrentCurrency(thresholdInCurrentCurrency);
             }
             
             const cartTotal = this.cart.total_price || 0;
+            const currentCurrency = window.getCurrentCurrency();
             
-            // Calculate percentage (max 100%)
-            const percentage = Math.min(100, (cartTotal / freeShippingThreshold) * 100);
-            return percentage;
+            // 将购物车金额转换为美元
+            const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
+            
+            // 计算还差多少美元
+            const remainingUSD = Math.max(0, window.currencyConfig.freeShippingThresholdUSD - cartTotalUSD);
+            
+            // 转换回当前货币
+            const remainingCurrentCurrency = window.convertFromUSD(remainingUSD, currentCurrency) / 100;
+            
+            // 格式化为当前货币字符串
+            return window.formatCurrentCurrency(remainingCurrentCurrency);
           };
-
-        // Add submitCheckout method to handle checkout button click
-        drawerInstance.submitCheckout = function () {
-          console.log('Checkout button clicked via Vue method');
-
-          // Method 1: Direct form submission
-          const form = document.getElementById('CartDrawer-Form');
-          if (form) {
-            // Make sure the form has the correct action
-            form.action = '/cart/checkout';
-
-            // Ensure checkout parameter is included
-            let checkoutInput = form.querySelector('input[name="checkout"]');
-            if (!checkoutInput) {
-              checkoutInput = document.createElement('input');
-              checkoutInput.type = 'hidden';
-              checkoutInput.name = 'checkout';
-              checkoutInput.value = '1';
-              form.appendChild(checkoutInput);
-            }
-
-            // Submit the form directly
-            form.submit();
-            return false;
-          } else {
-            // Fallback: Direct URL navigation
-            window.location.href = '/checkout';
-            return false;
-          }
-        };
-
-        // Add method to calculate total compare price
-        drawerInstance.getCartComparePrice = function () {
-          let compareTotal = 0;
-
-          // If cart is not loaded yet, return 0
-          if (!this.cart || !this.cart.items) {
-            return 0;
-          }
-
-          // Loop through all items and add up their compare prices
-          this.cart.items.forEach(item => {
-            if (item.compare_at_price > 0) {
-              // For each item, add (compare price × quantity)
-              compareTotal += item.compare_at_price * item.quantity;
-            } else {
-              // If no compare price, use the regular price
-              compareTotal += item.original_price * item.quantity;
-            }
-          });
-
-          return compareTotal;
-        };
-
-        // Add removeItem method for smoother item removal
-        drawerInstance.removeItem = function (line, itemId) {
-          // Immediately hide the item for a smoother experience
-          if (this.cart && this.cart.items) {
-            const itemIndex = line - 1;
-            if (itemIndex >= 0 && itemIndex < this.cart.items.length) {
-              // Create a visual effect of removal
-              const itemRow = document.querySelector(`.ajaxcart__row[data-line="${line}"]`);
-              if (itemRow) {
-                // Apply a fade-out effect
-                itemRow.style.transition = 'opacity 0.3s ease';
-                itemRow.style.opacity = '0.5';
+          
+          // 计算进度条百分比(基于美元)
+          drawerInstance.getShippingProgressPercentage = function() {
+            if (!this.cart) return 0;
+            
+            const cartTotal = this.cart.total_price || 0;
+            const currentCurrency = window.getCurrentCurrency();
+            
+            // 将购物车金额转换为美元
+            const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
+            
+            // 计算百分比(最大100%)
+            return Math.min(100, (cartTotalUSD / window.currencyConfig.freeShippingThresholdUSD) * 100);
+          };
+  
+          // Add submitCheckout method to handle checkout button click
+          drawerInstance.submitCheckout = function () {
+            console.log('Checkout button clicked via Vue method');
+  
+            // Method 1: Direct form submission
+            const form = document.getElementById('CartDrawer-Form');
+            if (form) {
+              // Make sure the form has the correct action
+              form.action = '/cart/checkout';
+  
+              // Ensure checkout parameter is included
+              let checkoutInput = form.querySelector('input[name="checkout"]');
+              if (!checkoutInput) {
+                checkoutInput = document.createElement('input');
+                checkoutInput.type = 'hidden';
+                checkoutInput.name = 'checkout';
+                checkoutInput.value = '1';
+                form.appendChild(checkoutInput);
               }
+  
+              // Submit the form directly
+              form.submit();
+              return false;
+            } else {
+              // Fallback: Direct URL navigation
+              window.location.href = '/checkout';
+              return false;
             }
-          }
-
-          // Call the actual quantity update with a small delay
-          setTimeout(() => {
-            this.setQuantity(line, 0);
-            this.setSubtotal();
-            this.updateCartPriceDisplay(true);
-          }, 100);
-        };
-
-        // Enhance setQuantity method to be more efficient
-        const originalSetQuantity = drawerInstance.setQuantity;
-        if (originalSetQuantity) {
-          drawerInstance.setQuantity = function (line, quantity, optimized = false) {
-            // Skip redundant updates for small changes if optimized
-            if (optimized && this.cart && this.cart.items) {
+          };
+  
+          // Add method to calculate total compare price
+          drawerInstance.getCartComparePrice = function () {
+            let compareTotal = 0;
+  
+            // If cart is not loaded yet, return 0
+            if (!this.cart || !this.cart.items) {
+              return 0;
+            }
+  
+            // Loop through all items and add up their compare prices
+            this.cart.items.forEach(item => {
+              if (item.compare_at_price > 0) {
+                // For each item, add (compare price × quantity)
+                compareTotal += item.compare_at_price * item.quantity;
+              } else {
+                // If no compare price, use the regular price
+                compareTotal += item.original_price * item.quantity;
+              }
+            });
+  
+            return compareTotal;
+          };
+  
+          // Add removeItem method for smoother item removal
+          drawerInstance.removeItem = function (line, itemId) {
+            // Immediately hide the item for a smoother experience
+            if (this.cart && this.cart.items) {
               const itemIndex = line - 1;
               if (itemIndex >= 0 && itemIndex < this.cart.items.length) {
-                const currentItem = this.cart.items[itemIndex];
-                // If quantity is the same, don't update
-                if (currentItem.quantity === quantity) {
-                  return;
-                }
-
-                // If this is just incrementing/decrementing by 1, optimize the update
-                if (Math.abs(currentItem.quantity - quantity) === 1) {
-                  // Update the local cart data immediately for a smoother experience
-                  currentItem.quantity = quantity;
-                  this.$forceUpdate();
+                // Create a visual effect of removal
+                const itemRow = document.querySelector(`.ajaxcart__row[data-line="${line}"]`);
+                if (itemRow) {
+                  // Apply a fade-out effect
+                  itemRow.style.transition = 'opacity 0.3s ease';
+                  itemRow.style.opacity = '0.5';
                 }
               }
             }
-
-            // Call the original method
-            return originalSetQuantity.call(this, line, quantity);
+  
+            // Call the actual quantity update with a small delay
+            setTimeout(() => {
+              this.setQuantity(line, 0);
+              this.setSubtotal();
+              this.updateCartPriceDisplay(true);
+            }, 100);
           };
-        }
-
-        // 确保购物车数据已初始化
-        if (!drawerInstance.cart) {
-          initializeCartDrawer();
-        }
-      } else {
-        console.error('Could not get drawer Vue instance on DOMContentLoaded');
-        // 尝试延迟再次初始化
-        setTimeout(initializeCartDrawer, 500);
-      }
-    }, 1000);
-
-    // 添加额外的初始化尝试，确保购物车数据加载
-    setTimeout(initializeCartDrawer, 2000);
-  });
-
-  // Function to update price elements in the cart drawer
-  function updateCartPriceElements(cartData) {
-    if (!cartData) {
-      console.error('No cart data provided to updateCartPriceElements');
-      return;
-    }
-
-    try {
-      // Check if cart is empty
-      if (!cartData.item_count || cartData.item_count === 0) {
-        console.log('Cart is empty, updating price elements');
-
-        // Update any subtotal that might show $0.00
-        const subtotalElements = document.querySelectorAll('.cart-drawer__subtotal--price-value, .cart-drawer__subtotal--price span:last-child');
-        if (subtotalElements.length > 0) {
-          subtotalElements.forEach(el => {
-            el.innerHTML = formatMoney(0);
-          });
-        }
-
-        // Don't return, continue to allow other functions to run
-      }
-
-      // Always show the footer
-      const footerElement = document.querySelector('.global-drawer__footer');
-      if (footerElement) {
-        footerElement.style.display = '';
-      }
-
-      // Format the price according to the store's currency format
-      let formattedPrice = formatMoney(cartData.total_price);
-
-      // Calculate total compare price
-      let totalComparePrice = 0;
-      if (cartData.items && cartData.items.length > 0) {
-        cartData.items.forEach(item => {
-          if (item.compare_at_price > 0) {
-            totalComparePrice += item.compare_at_price * item.quantity;
-          } else {
-            totalComparePrice += item.original_price * item.quantity;
-          }
-        });
-      }
-
-      // 直接更新价格元素，确保价格正确显示
-      const priceElement = document.querySelector('.cart-drawer__subtotal--price-value');
-      if (priceElement) {
-        priceElement.innerHTML = formattedPrice;
-      }
-
-      // 更新比较价格（如果有折扣）
-      const compareElement = document.querySelector('.cart-drawer__subtotal--compare');
-      if (compareElement) {
-        if (totalComparePrice > cartData.total_price) {
-          compareElement.innerHTML = formatMoney(totalComparePrice);
-          compareElement.style.display = 'inline-block';
-
-          // 添加折扣样式
-          if (priceElement) {
-            priceElement.classList.add('cart-drawer__subtotal--sale');
-          }
-        } else {
-          compareElement.style.display = 'none';
-
-          // 移除折扣样式
-          if (priceElement) {
-            priceElement.classList.remove('cart-drawer__subtotal--sale');
-          }
-        }
-      }
-
-      // 更新购物车总价显示
-      const subtotalPriceElements = document.querySelectorAll('.cart-drawer__subtotal--price .money, .cart-drawer__subtotal--price span:not(.visually-hidden):not(.cart-drawer__subtotal--compare)');
-      if (subtotalPriceElements.length > 0) {
-        subtotalPriceElements.forEach(el => {
-          el.innerHTML = formattedPrice;
-        });
-      }
-
-      // 更新折扣显示
-      updateDiscountDisplay(cartData);
-
-      // 更新免运费进度条
-      updateShippingProgressBar(cartData);
-    } catch (error) {
-      console.error('Error in updateCartPriceElements:', error);
-    }
-  }
-
-  // Function to update the shipping progress bar
-  function updateShippingProgressBar(cartData) {
-    if (!cartData) return;
-
-    const cartTotal = cartData.total_price || 0;
-
-    // Calculate percentage (max 100%)
-    const percentage = Math.min(100, (cartTotal / freeShippingThreshold) * 100);
-
-    // Update progress bar fill width - add a small delay to ensure smooth animation
-    const progressBarFill = document.querySelector('.shipping-progress-bar__fill');
-    if (progressBarFill) {
-      // Use requestAnimationFrame for smoother updates
-      requestAnimationFrame(() => {
-        progressBarFill.style.width = percentage + '%';
-      });
-    }
-
-    // Update text messages - use direct selectors for better performance
-    const successContainer = document.querySelector('.shipping-progress-success-container');
-    const remainingContainer = document.querySelector('.shipping-progress-text:not(.shipping-progress-success-container)');
-    const remainingAmount = document.querySelector('.shipping-progress-remaining');
-
-    // Check if we already meet the threshold
-    const alreadyMetThreshold = window.shippingThresholdMet === true;
-
-    if (cartTotal >= freeShippingThreshold) {
-      // We now meet the threshold
-      window.shippingThresholdMet = true;
-
-      // Only make changes if we weren't already showing success message
-      if (!alreadyMetThreshold) {
-        // Show success message, hide remaining message
-        if (successContainer) {
-          successContainer.style.display = 'block';
-          successContainer.style.opacity = '1';
-        }
-        if (remainingContainer) {
-          remainingContainer.style.display = 'none';
-          remainingContainer.style.opacity = '0';
-        }
-      }
-    } else {
-      // We don't meet the threshold
-      window.shippingThresholdMet = false;
-
-      // Only make changes if we were previously showing success message
-      if (alreadyMetThreshold || alreadyMetThreshold === undefined) {
-        // Show remaining message, hide success message
-        if (successContainer) {
-          successContainer.style.display = 'none';
-          successContainer.style.opacity = '0';
-        }
-        if (remainingContainer) {
-          remainingContainer.style.display = 'block';
-          remainingContainer.style.opacity = '1';
-        }
-      }
-
-      // Always update the remaining amount text
-      if (remainingAmount) {
-        const amountLeft = freeShippingThreshold - cartTotal;
-        remainingAmount.textContent = formatMoney(amountLeft);
-      }
-    }
-  }
-
-  // Helper function to format money according to Shopify's format
-  function formatMoney(cents) {
-    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-      return Shopify.formatMoney(cents);
-    }
-
-    // Fallback formatter if Shopify's isn't available
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD', // Default to USD if we can't detect
-    });
-
-    return formatter.format(cents / 100);
-  }
-
-  // Update discount display if needed
-  function updateDiscountDisplay(cartData) {
-    const discountElements = document.querySelectorAll('.cart-drawer__discounts');
-
-    // If there are cart-level discounts, make sure they're displayed
-    if (cartData.cart_level_discount_applications && cartData.cart_level_discount_applications.length > 0) {
-      // Update or create discount elements as needed
-    }
-  }
-
-  // Function to add product to cart and open drawer
-  function addToCartDrawer(variantId, quantity, button) {
-    // Show loading state on button
-    const originalText = button.innerHTML;
-    const buttonWidth = button.offsetWidth;
-
-    // Set a minimum width to prevent layout shift
-    button.style.minWidth = buttonWidth + 'px';
-
-    // Remove any existing borders or outlines
-    button.style.border = 'none';
-    button.style.boxShadow = 'none';
-    button.style.outline = 'none';
-
-    // Replace content with just the spinner for cleaner look
-    button.innerHTML = '<span class="loading-spinner"></span>';
-    button.disabled = true;
-
-    // Check if we already have cart data to avoid unnecessary reloads
-    const hasExistingCart = window.lastCartData && window.lastCartTime &&
-      (Date.now() - window.lastCartTime < 5000); // 5 seconds cache
-
-    // Add to cart via AJAX
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        items: [{
-          id: variantId,
-          quantity: quantity
-        }]
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Get updated cart data
-        return fetch('/cart.js').then(res => res.json());
-      })
-      .then(cartData => {
-        // Store cart data for potential reuse
-        window.lastCartData = cartData;
-        window.lastCartTime = Date.now();
-
-        // Get the drawer instance once to avoid multiple lookups
-        const drawerInstance = getDrawerVueInstance();
-
-        // Check if the drawer is already open
-        const isDrawerOpen = drawerInstance && drawerInstance.isOpen;
-
-        // Create a function to perform updates efficiently
-        const performEfficientUpdates = (data) => {
-          // Only update if drawer instance exists
-          if (drawerInstance) {
-            drawerInstance.cart = data;
-
-            // Force Vue to update immediately
-            if (typeof drawerInstance.$forceUpdate === 'function') {
-              drawerInstance.$forceUpdate();
-            }
-
-            // Only update DOM elements if necessary
-            // Use a single requestAnimationFrame for better performance
-            requestAnimationFrame(() => {
-              // Check if the threshold status would change
-              const currentThresholdMet = window.shippingThresholdMet;
-              const wouldThresholdBeMet = data.total_price >= freeShippingThreshold;
-
-              // Only update shipping bar if threshold status changes
-              if (currentThresholdMet !== wouldThresholdBeMet) {
-                updateShippingProgressBar(data);
+  
+          // Enhance setQuantity method to be more efficient
+          const originalSetQuantity = drawerInstance.setQuantity;
+          if (originalSetQuantity) {
+            drawerInstance.setQuantity = function (line, quantity, optimized = false) {
+              // Skip redundant updates for small changes if optimized
+              if (optimized && this.cart && this.cart.items) {
+                const itemIndex = line - 1;
+                if (itemIndex >= 0 && itemIndex < this.cart.items.length) {
+                  const currentItem = this.cart.items[itemIndex];
+                  // If quantity is the same, don't update
+                  if (currentItem.quantity === quantity) {
+                    return;
+                  }
+  
+                  // If this is just incrementing/decrementing by 1, optimize the update
+                  if (Math.abs(currentItem.quantity - quantity) === 1) {
+                    // Update the local cart data immediately for a smoother experience
+                    currentItem.quantity = quantity;
+                    this.$forceUpdate();
+                  }
+                }
               }
-
-              // Always update price elements as they need to reflect the new total
-              updateCartPriceElements(data);
-            });
-          }
-        };
-
-        if (drawerInstance) {
-          // Method 1: Direct Vue update
-          drawerInstance.cart = cartData;
-          drawerInstance.type = 'cart';
-
-          // Only open the drawer if it's not already open
-          if (!isDrawerOpen) {
-            drawerInstance.isOpen = true;
-
-            // If we're opening the drawer for the first time, do a complete update
-            performEfficientUpdates(cartData);
-          } else {
-            // If drawer is already open, just update the data efficiently
-            performEfficientUpdates(cartData);
-          }
-        } else {
-          // Fallback methods if drawer instance isn't available
-          if (typeof theme !== 'undefined') {
-            if (typeof theme.openCartDrawer === 'function') {
-              theme.openCartDrawer();
-            } else if (typeof theme.Drawers !== 'undefined' && theme.Drawers.drawerCart) {
-              theme.Drawers.drawerCart.open();
-            }
-          } else {
-            // Last resort: click the cart toggle
-            const cartToggle = document.querySelector('[data-cart-toggle]') ||
-              document.querySelector('[data-drawer-toggle="cart"]') ||
-              document.querySelector('[aria-controls="CartDrawer"]');
-            if (cartToggle) {
-              cartToggle.click();
-            }
-          }
-
-          // Update the cart data after a short delay to ensure drawer is open
-          setTimeout(() => {
-            const newDrawerInstance = getDrawerVueInstance();
-            if (newDrawerInstance) {
-              performEfficientUpdates(cartData);
-            } else {
-              // Direct DOM updates as fallback
-              updateCartPriceElements(cartData);
-              updateShippingProgressBar(cartData);
-            }
-          }, 300);
-        }
-
-        // Show success message briefly
-        button.innerHTML = '<span class="add-to-cart-success">Added ✓</span>';
-
-        // Reset button state after a delay
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.disabled = false;
-          // Remove the fixed width and styling after animation completes
-          setTimeout(() => {
-            button.style.minWidth = '';
-            button.style.border = '';
-            button.style.boxShadow = '';
-            button.style.outline = '';
-          }, 300);
-        }, 1000);
-      })
-      .catch(error => {
-        console.error('Error adding item to cart:', error);
-        button.innerHTML = originalText;
-        button.disabled = false;
-        button.style.minWidth = '';
-        button.style.border = '';
-        button.style.boxShadow = '';
-        button.style.outline = '';
-        alert('Error adding item to cart. Please try again.');
-      });
-
-    return false;
-  }
-
-  // Initialize when DOM is ready
-  document.addEventListener('DOMContentLoaded', function () {
-    // Try to get the Vue instance
-    setTimeout(function () {
-      const drawerInstance = getDrawerVueInstance();
-
-      // Add the updateCartPriceDisplay method to the Vue instance
-      if (drawerInstance) {
-        drawerInstance.updateCartPriceDisplay = function (optimized = false) {
-          // Skip redundant updates if optimized flag is set
-          if (optimized && window.lastCartUpdateTime) {
-            const now = Date.now();
-            // If updated within the last 100ms, skip this update
-            if (now - window.lastCartUpdateTime < 100) {
-              return;
-            }
-          }
-
-          // Record this update time
-          window.lastCartUpdateTime = Date.now();
-
-          // 获取最新的购物车数据
-          fetch('/cart.js', {
-            method: 'GET',
-            headers: { 'Accept': 'application/json' },
-            cache: 'no-store' // 避免缓存，确保获取最新数据
-          })
-            .then(res => res.json())
-            .then(cartData => {
-              // 存储购物车数据以便重用
-              window.lastCartData = cartData;
-              window.lastCartTime = Date.now();
-
-              // 更新Vue数据
-              this.cart = cartData;
-
-              // 强制Vue立即更新
-              this.$forceUpdate();
-
-              // 使用单个requestAnimationFrame优化性能
-              requestAnimationFrame(() => {
-                // 直接调用我们的修复函数
-                fixCartPriceDisplay();
-
-                // 同时也更新运费进度条
-                updateShippingProgressBar(cartData);
-              });
-            })
-            .catch(err => console.error('Error updating cart price display:', err));
-        };
-      }
-    }, 1000);
-
-    // Listen for drawer open events to refresh the instance reference
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
-        setTimeout(function () {
-          const drawerInstance = getDrawerVueInstance();
-
-          // Add the updateCartPriceDisplay method if it doesn't exist
-          if (drawerInstance && !drawerInstance.updateCartPriceDisplay) {
-            drawerInstance.updateCartPriceDisplay = function () {
-              // Remove excessive logging
-              // console.log('Updating cart price display (drawer open)');
-              fetch('/cart.js')
-                .then(res => res.json())
-                .then(cartData => {
-                  // Remove excessive logging
-                  // console.log('Got cart data:', cartData.total_price);
-                  this.cart = cartData;
-
-                  // Force Vue to update
-                  this.$forceUpdate();
-
-                  // Update DOM directly
-                  setTimeout(() => {
-                    updateCartPriceElements(cartData);
-                    updateShippingProgressBar(cartData);
-                  }, 100);
-
-                  // Make a second update attempt
-                  setTimeout(() => {
-                    updateCartPriceElements(cartData);
-                    updateShippingProgressBar(cartData);
-                  }, 500);
-                })
-                .catch(err => console.error('Error updating cart price display:', err));
+  
+              // Call the original method
+              return originalSetQuantity.call(this, line, quantity);
             };
           }
-        }, 500);
-      }
+  
+          // 确保购物车数据已初始化
+          if (!drawerInstance.cart) {
+            initializeCartDrawer();
+          }
+        } else {
+          console.error('Could not get drawer Vue instance on DOMContentLoaded');
+          // 尝试延迟再次初始化
+          setTimeout(initializeCartDrawer, 500);
+        }
+      }, 1000);
+  
+      // 添加额外的初始化尝试，确保购物车数据加载
+      setTimeout(initializeCartDrawer, 2000);
     });
-
-    // Set up a MutationObserver to watch for changes in the cart drawer
-    setTimeout(() => {
-      const cartContainer = document.getElementById('CartContainer');
-      if (cartContainer) {
-        const observer = new MutationObserver((mutations) => {
-          // When changes are detected in the cart, update prices
-          fetch('/cart.js')
-            .then(res => res.json())
-            .then(cartData => {
-              // Remove excessive logging
-              // console.log('MutationObserver detected changes, updating prices with total:', cartData.total_price);
+  
+    // Function to update price elements in the cart drawer
+    function updateCartPriceElements(cartData) {
+      if (!cartData) {
+        console.error('No cart data provided to updateCartPriceElements');
+        return;
+      }
+  
+      try {
+        // Check if cart is empty
+        if (!cartData.item_count || cartData.item_count === 0) {
+          console.log('Cart is empty, updating price elements');
+  
+          // Update any subtotal that might show $0.00
+          const subtotalElements = document.querySelectorAll('.cart-drawer__subtotal--price-value, .cart-drawer__subtotal--price span:last-child');
+          if (subtotalElements.length > 0) {
+            subtotalElements.forEach(el => {
+              el.innerHTML = formatMoney(0);
+            });
+          }
+  
+          // Don't return, continue to allow other functions to run
+        }
+  
+        // Always show the footer
+        const footerElement = document.querySelector('.global-drawer__footer');
+        if (footerElement) {
+          footerElement.style.display = '';
+        }
+  
+        // Format the price according to the store's currency format
+        let formattedPrice = formatMoney(cartData.total_price);
+  
+        // Calculate total compare price
+        let totalComparePrice = 0;
+        if (cartData.items && cartData.items.length > 0) {
+          cartData.items.forEach(item => {
+            if (item.compare_at_price > 0) {
+              totalComparePrice += item.compare_at_price * item.quantity;
+            } else {
+              totalComparePrice += item.original_price * item.quantity;
+            }
+          });
+        }
+  
+        // 直接更新价格元素，确保价格正确显示
+        const priceElement = document.querySelector('.cart-drawer__subtotal--price-value');
+        if (priceElement) {
+          priceElement.innerHTML = formattedPrice;
+        }
+  
+        // 更新比较价格（如果有折扣）
+        const compareElement = document.querySelector('.cart-drawer__subtotal--compare');
+        if (compareElement) {
+          if (totalComparePrice > cartData.total_price) {
+            compareElement.innerHTML = formatMoney(totalComparePrice);
+            compareElement.style.display = 'inline-block';
+  
+            // 添加折扣样式
+            if (priceElement) {
+              priceElement.classList.add('cart-drawer__subtotal--sale');
+            }
+          } else {
+            compareElement.style.display = 'none';
+  
+            // 移除折扣样式
+            if (priceElement) {
+              priceElement.classList.remove('cart-drawer__subtotal--sale');
+            }
+          }
+        }
+  
+        // 更新购物车总价显示
+        const subtotalPriceElements = document.querySelectorAll('.cart-drawer__subtotal--price .money, .cart-drawer__subtotal--price span:not(.visually-hidden):not(.cart-drawer__subtotal--compare)');
+        if (subtotalPriceElements.length > 0) {
+          subtotalPriceElements.forEach(el => {
+            el.innerHTML = formattedPrice;
+          });
+        }
+  
+        // 更新折扣显示
+        updateDiscountDisplay(cartData);
+  
+        // 更新免运费进度条
+        updateShippingProgressBar(cartData);
+      } catch (error) {
+        console.error('Error in updateCartPriceElements:', error);
+      }
+    }
+  
+    // Function to update the shipping progress bar
+    function updateShippingProgressBar(cartData) {
+      if (!cartData) return;
+  
+      const cartTotal = cartData.total_price || 0;
+      const currentCurrency = window.getCurrentCurrency();
+      
+      // 将购物车金额转换为美元
+      const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
+      
+      // 计算百分比(最大100%)
+      const percentage = Math.min(100, (cartTotalUSD / window.currencyConfig.freeShippingThresholdUSD) * 100);
+  
+      // Update progress bar fill width - add a small delay to ensure smooth animation
+      const progressBarFill = document.querySelector('.shipping-progress-bar__fill');
+      if (progressBarFill) {
+        // Use requestAnimationFrame for smoother updates
+        requestAnimationFrame(() => {
+          progressBarFill.style.width = percentage + '%';
+        });
+      }
+  
+      // Update text messages - use direct selectors for better performance
+      const successContainer = document.querySelector('.shipping-progress-success-container');
+      const remainingContainer = document.querySelector('.shipping-progress-text:not(.shipping-progress-success-container)');
+      const remainingAmount = document.querySelector('.shipping-progress-remaining');
+  
+      // Check if we already meet the threshold
+      const alreadyMetThreshold = window.shippingThresholdMet === true;
+      
+      // 计算还差多少美元
+      const remainingUSD = Math.max(0, window.currencyConfig.freeShippingThresholdUSD - cartTotalUSD);
+      
+      // 转换为当前货币
+      const remainingCurrentCurrency = window.convertFromUSD(remainingUSD, currentCurrency) / 100;
+  
+      if (cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD) {
+        // We now meet the threshold
+        window.shippingThresholdMet = true;
+  
+        // Only make changes if we weren't already showing success message
+        if (!alreadyMetThreshold) {
+          // Show success message, hide remaining message
+          if (successContainer) {
+            successContainer.style.display = 'block';
+            successContainer.style.opacity = '1';
+          }
+          if (remainingContainer) {
+            remainingContainer.style.display = 'none';
+            remainingContainer.style.opacity = '0';
+          }
+        }
+      } else {
+        // We don't meet the threshold
+        window.shippingThresholdMet = false;
+  
+        // Only make changes if we were previously showing success message
+        if (alreadyMetThreshold || alreadyMetThreshold === undefined) {
+          // Show remaining message, hide success message
+          if (successContainer) {
+            successContainer.style.display = 'none';
+            successContainer.style.opacity = '0';
+          }
+          if (remainingContainer) {
+            remainingContainer.style.display = 'block';
+            remainingContainer.style.opacity = '1';
+          }
+        }
+  
+        // Always update the remaining amount text
+        if (remainingAmount) {
+          remainingAmount.innerHTML = window.formatCurrentCurrency(remainingCurrentCurrency);
+        }
+      }
+    }
+  
+    // Helper function to format money according to Shopify's format
+    function formatMoney(cents) {
+      if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+        return Shopify.formatMoney(cents);
+      }
+  
+      // 使用当前货币格式化
+      const amount = cents / 100;
+      return window.formatCurrentCurrency(amount);
+    }
+  
+    // Update discount display if needed
+    function updateDiscountDisplay(cartData) {
+      const discountElements = document.querySelectorAll('.cart-drawer__discounts');
+  
+      // If there are cart-level discounts, make sure they're displayed
+      if (cartData.cart_level_discount_applications && cartData.cart_level_discount_applications.length > 0) {
+        // Update or create discount elements as needed
+      }
+    }
+  
+    // Function to add product to cart and open drawer
+    function addToCartDrawer(variantId, quantity, button) {
+      // Show loading state on button
+      const originalText = button.innerHTML;
+      const buttonWidth = button.offsetWidth;
+  
+      // Set a minimum width to prevent layout shift
+      button.style.minWidth = buttonWidth + 'px';
+  
+      // Remove any existing borders or outlines
+      button.style.border = 'none';
+      button.style.boxShadow = 'none';
+      button.style.outline = 'none';
+  
+      // Replace content with just the spinner for cleaner look
+      button.innerHTML = '<span class="loading-spinner"></span>';
+      button.disabled = true;
+  
+      // Check if we already have cart data to avoid unnecessary reloads
+      const hasExistingCart = window.lastCartData && window.lastCartTime &&
+        (Date.now() - window.lastCartTime < 5000); // 5 seconds cache
+  
+      // Add to cart via AJAX
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          items: [{
+            id: variantId,
+            quantity: quantity
+          }]
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Get updated cart data
+          return fetch('/cart.js').then(res => res.json());
+        })
+        .then(cartData => {
+          // Store cart data for potential reuse
+          window.lastCartData = cartData;
+          window.lastCartTime = Date.now();
+  
+          // Get the drawer instance once to avoid multiple lookups
+          const drawerInstance = getDrawerVueInstance();
+  
+          // Check if the drawer is already open
+          const isDrawerOpen = drawerInstance && drawerInstance.isOpen;
+  
+          // Create a function to perform updates efficiently
+          const performEfficientUpdates = (data) => {
+            // Only update if drawer instance exists
+            if (drawerInstance) {
+              drawerInstance.cart = data;
+  
+              // Force Vue to update immediately
+              if (typeof drawerInstance.$forceUpdate === 'function') {
+                drawerInstance.$forceUpdate();
+              }
+  
+              // Only update DOM elements if necessary
+              // Use a single requestAnimationFrame for better performance
               requestAnimationFrame(() => {
+                // Check if the threshold status would change
+                const currentThresholdMet = window.shippingThresholdMet;
+                const wouldThresholdBeMet = data.total_price >= freeShippingThreshold;
+  
+                // Only update shipping bar if threshold status changes
+                if (currentThresholdMet !== wouldThresholdBeMet) {
+                  updateShippingProgressBar(data);
+                }
+  
+                // Always update price elements as they need to reflect the new total
+                updateCartPriceElements(data);
+              });
+            }
+          };
+  
+          if (drawerInstance) {
+            // Method 1: Direct Vue update
+            drawerInstance.cart = cartData;
+            drawerInstance.type = 'cart';
+  
+            // Only open the drawer if it's not already open
+            if (!isDrawerOpen) {
+              drawerInstance.isOpen = true;
+  
+              // If we're opening the drawer for the first time, do a complete update
+              performEfficientUpdates(cartData);
+            } else {
+              // If drawer is already open, just update the data efficiently
+              performEfficientUpdates(cartData);
+            }
+          } else {
+            // Fallback methods if drawer instance isn't available
+            if (typeof theme !== 'undefined') {
+              if (typeof theme.openCartDrawer === 'function') {
+                theme.openCartDrawer();
+              } else if (typeof theme.Drawers !== 'undefined' && theme.Drawers.drawerCart) {
+                theme.Drawers.drawerCart.open();
+              }
+            } else {
+              // Last resort: click the cart toggle
+              const cartToggle = document.querySelector('[data-cart-toggle]') ||
+                document.querySelector('[data-drawer-toggle="cart"]') ||
+                document.querySelector('[aria-controls="CartDrawer"]');
+              if (cartToggle) {
+                cartToggle.click();
+              }
+            }
+  
+            // Update the cart data after a short delay to ensure drawer is open
+            setTimeout(() => {
+              const newDrawerInstance = getDrawerVueInstance();
+              if (newDrawerInstance) {
+                performEfficientUpdates(cartData);
+              } else {
+                // Direct DOM updates as fallback
                 updateCartPriceElements(cartData);
                 updateShippingProgressBar(cartData);
-              });
+              }
+            }, 300);
+          }
+  
+          // Show success message briefly
+          button.innerHTML = '<span class="add-to-cart-success">Added ✓</span>';
+  
+          // Reset button state after a delay
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.disabled = false;
+            // Remove the fixed width and styling after animation completes
+            setTimeout(() => {
+              button.style.minWidth = '';
+              button.style.border = '';
+              button.style.boxShadow = '';
+              button.style.outline = '';
+            }, 300);
+          }, 1000);
+        })
+        .catch(error => {
+          console.error('Error adding item to cart:', error);
+          button.innerHTML = originalText;
+          button.disabled = false;
+          button.style.minWidth = '';
+          button.style.border = '';
+          button.style.boxShadow = '';
+          button.style.outline = '';
+          alert('Error adding item to cart. Please try again.');
+        });
+  
+      return false;
+    }
+  
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      // Try to get the Vue instance
+      setTimeout(function () {
+        const drawerInstance = getDrawerVueInstance();
+  
+        // Add the updateCartPriceDisplay method to the Vue instance
+        if (drawerInstance) {
+          drawerInstance.updateCartPriceDisplay = function (optimized = false) {
+            // Skip redundant updates if optimized flag is set
+            if (optimized && window.lastCartUpdateTime) {
+              const now = Date.now();
+              // If updated within the last 100ms, skip this update
+              if (now - window.lastCartUpdateTime < 100) {
+                return;
+              }
+            }
+  
+            // Record this update time
+            window.lastCartUpdateTime = Date.now();
+  
+            // 获取最新的购物车数据
+            fetch('/cart.js', {
+              method: 'GET',
+              headers: { 'Accept': 'application/json' },
+              cache: 'no-store' // 避免缓存，确保获取最新数据
             })
-            .catch(err => console.error('Error in MutationObserver cart update:', err));
-        });
-
-        // Start observing the cart container for changes
-        observer.observe(cartContainer, {
-          childList: true,
-          subtree: true,
-          characterData: true,
-          attributes: true
-        });
-        console.log('MutationObserver set up for cart container');
-      }
-    }, 2000);
-
-    // Add a direct event listener for quantity changes
-    document.addEventListener('click', function (e) {
-      // Check if the clicked element is a quantity button
-      if (e.target.closest('.ajaxcart__qty-adjust') || e.target.closest('.ajaxcart__remove')) {
-        // Remove excessive logging
-        // console.log('Quantity button clicked, will update prices');
-
-        // Immediate update attempt for better responsiveness
-        fetch('/cart.js')
-          .then(res => res.json())
-          .then(cartData => {
-            requestAnimationFrame(() => {
-              updateCartPriceElements(cartData);
-              updateShippingProgressBar(cartData);
-              ensureLastProductVisible(); // Ensure last product is visible
-            });
-          })
-          .catch(err => { });
-
-        // Wait for the cart to update
-        setTimeout(() => {
+              .then(res => res.json())
+              .then(cartData => {
+                // 存储购物车数据以便重用
+                window.lastCartData = cartData;
+                window.lastCartTime = Date.now();
+  
+                // 更新Vue数据
+                this.cart = cartData;
+  
+                // 强制Vue立即更新
+                this.$forceUpdate();
+  
+                // 使用单个requestAnimationFrame优化性能
+                requestAnimationFrame(() => {
+                  // 直接调用我们的修复函数
+                  fixCartPriceDisplay();
+  
+                  // 同时也更新运费进度条
+                  updateShippingProgressBar(cartData);
+                });
+              })
+              .catch(err => console.error('Error updating cart price display:', err));
+          };
+        }
+      }, 1000);
+  
+      // Listen for drawer open events to refresh the instance reference
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+          setTimeout(function () {
+            const drawerInstance = getDrawerVueInstance();
+  
+            // Add the updateCartPriceDisplay method if it doesn't exist
+            if (drawerInstance && !drawerInstance.updateCartPriceDisplay) {
+              drawerInstance.updateCartPriceDisplay = function () {
+                // Remove excessive logging
+                // console.log('Updating cart price display (drawer open)');
+                fetch('/cart.js')
+                  .then(res => res.json())
+                  .then(cartData => {
+                    // Remove excessive logging
+                    // console.log('Got cart data:', cartData.total_price);
+                    this.cart = cartData;
+  
+                    // Force Vue to update
+                    this.$forceUpdate();
+  
+                    // Update DOM directly
+                    setTimeout(() => {
+                      updateCartPriceElements(cartData);
+                      updateShippingProgressBar(cartData);
+                    }, 100);
+  
+                    // Make a second update attempt
+                    setTimeout(() => {
+                      updateCartPriceElements(cartData);
+                      updateShippingProgressBar(cartData);
+                    }, 500);
+                  })
+                  .catch(err => console.error('Error updating cart price display:', err));
+              };
+            }
+          }, 500);
+        }
+      });
+  
+      // Set up a MutationObserver to watch for changes in the cart drawer
+      setTimeout(() => {
+        const cartContainer = document.getElementById('CartContainer');
+        if (cartContainer) {
+          const observer = new MutationObserver((mutations) => {
+            // When changes are detected in the cart, update prices
+            fetch('/cart.js')
+              .then(res => res.json())
+              .then(cartData => {
+                // Remove excessive logging
+                // console.log('MutationObserver detected changes, updating prices with total:', cartData.total_price);
+                requestAnimationFrame(() => {
+                  updateCartPriceElements(cartData);
+                  updateShippingProgressBar(cartData);
+                });
+              })
+              .catch(err => console.error('Error in MutationObserver cart update:', err));
+          });
+  
+          // Start observing the cart container for changes
+          observer.observe(cartContainer, {
+            childList: true,
+            subtree: true,
+            characterData: true,
+            attributes: true
+          });
+          console.log('MutationObserver set up for cart container');
+        }
+      }, 2000);
+  
+      // Add a direct event listener for quantity changes
+      document.addEventListener('click', function (e) {
+        // Check if the clicked element is a quantity button
+        if (e.target.closest('.ajaxcart__qty-adjust') || e.target.closest('.ajaxcart__remove')) {
+          // Remove excessive logging
+          // console.log('Quantity button clicked, will update prices');
+  
+          // Immediate update attempt for better responsiveness
           fetch('/cart.js')
             .then(res => res.json())
             .then(cartData => {
-              // Remove excessive logging
-              // console.log('Direct event: updating prices with total:', cartData.total_price);
               requestAnimationFrame(() => {
                 updateCartPriceElements(cartData);
                 updateShippingProgressBar(cartData);
                 ensureLastProductVisible(); // Ensure last product is visible
               });
             })
-            .catch(err => console.error('Error in direct event cart update:', err));
-        }, 200);
-      }
-    });
-
-    // Listen for custom cart update events from Shopify
-    document.addEventListener('cart:updated', function (event) {
-      console.log('Detected cart:updated event');
-      fetch('/cart.js')
-        .then(res => res.json())
-        .then(cartData => {
-          console.log('Cart event: updating prices with total:', cartData.total_price);
-          updateCartPriceElements(cartData);
-          updateShippingProgressBar(cartData);
-        })
-        .catch(err => console.error('Error in cart event update:', err));
-    });
-
-    // Also listen for the deprecated cart.requestComplete event
-    document.addEventListener('cart.requestComplete', function (event) {
-      console.log('Detected cart.requestComplete event');
-      if (event.detail && event.detail.cart) {
-        updateCartPriceElements(event.detail.cart);
-        updateShippingProgressBar(event.detail.cart);
-      } else {
+            .catch(err => { });
+  
+          // Wait for the cart to update
+          setTimeout(() => {
+            fetch('/cart.js')
+              .then(res => res.json())
+              .then(cartData => {
+                // Remove excessive logging
+                // console.log('Direct event: updating prices with total:', cartData.total_price);
+                requestAnimationFrame(() => {
+                  updateCartPriceElements(cartData);
+                  updateShippingProgressBar(cartData);
+                  ensureLastProductVisible(); // Ensure last product is visible
+                });
+              })
+              .catch(err => console.error('Error in direct event cart update:', err));
+          }, 200);
+        }
+      });
+  
+      // Listen for custom cart update events from Shopify
+      document.addEventListener('cart:updated', function (event) {
+        console.log('Detected cart:updated event');
         fetch('/cart.js')
           .then(res => res.json())
           .then(cartData => {
+            console.log('Cart event: updating prices with total:', cartData.total_price);
             updateCartPriceElements(cartData);
             updateShippingProgressBar(cartData);
           })
           .catch(err => console.error('Error in cart event update:', err));
+      });
+  
+      // Also listen for the deprecated cart.requestComplete event
+      document.addEventListener('cart.requestComplete', function (event) {
+        console.log('Detected cart.requestComplete event');
+        if (event.detail && event.detail.cart) {
+          updateCartPriceElements(event.detail.cart);
+          updateShippingProgressBar(event.detail.cart);
+        } else {
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cartData => {
+              updateCartPriceElements(cartData);
+              updateShippingProgressBar(cartData);
+            })
+            .catch(err => console.error('Error in cart event update:', err));
+        }
+      });
+  
+      // Add a polyfill for older browsers
+      if (!Element.prototype.matches) {
+        Element.prototype.matches =
+          Element.prototype.matchesSelector ||
+          Element.prototype.mozMatchesSelector ||
+          Element.prototype.msMatchesSelector ||
+          Element.prototype.oMatchesSelector ||
+          Element.prototype.webkitMatchesSelector ||
+          function (s) {
+            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+              i = matches.length;
+            while (--i >= 0 && matches.item(i) !== this) { }
+            return i > -1;
+          };
       }
-    });
-
-    // Add a polyfill for older browsers
-    if (!Element.prototype.matches) {
-      Element.prototype.matches =
-        Element.prototype.matchesSelector ||
-        Element.prototype.mozMatchesSelector ||
-        Element.prototype.msMatchesSelector ||
-        Element.prototype.oMatchesSelector ||
-        Element.prototype.webkitMatchesSelector ||
-        function (s) {
-          var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-            i = matches.length;
-          while (--i >= 0 && matches.item(i) !== this) { }
-          return i > -1;
+  
+      if (!Element.prototype.closest) {
+        Element.prototype.closest = function (s) {
+          var el = this;
+          do {
+            if (Element.prototype.matches.call(el, s)) return el;
+            el = el.parentElement || el.parentNode;
+          } while (el !== null && el.nodeType === 1);
+          return null;
         };
-    }
-
-    if (!Element.prototype.closest) {
-      Element.prototype.closest = function (s) {
-        var el = this;
-        do {
-          if (Element.prototype.matches.call(el, s)) return el;
-          el = el.parentElement || el.parentNode;
-        } while (el !== null && el.nodeType === 1);
-        return null;
-      };
-    }
-
-    // Set up periodic price check to ensure consistency
-    setInterval(() => {
-      // Add throttling - only update if it's been at least 30 seconds since last update
-      const now = Date.now();
-      if (!window.lastCartUpdateTime || now - window.lastCartUpdateTime > 30000) {
-        fetch('/cart.js')
-          .then(res => res.json())
-          .then(cartData => {
-            updateCartPriceElements(cartData);
-            updateShippingProgressBar(cartData);
-            window.lastCartUpdateTime = now;
-          })
-          .catch(err => { });
       }
-    }, 30000); // Changed from 5000 (5 seconds) to 30000 (30 seconds)
-
-    // 添加调整布局的函数
-    function adjustCartDrawerLayout() {
-      const drawer = document.querySelector('.drawer--cart');
-      if (!drawer) return;
-
-      const header = drawer.querySelector('.drawer__header');
-      const title = drawer.querySelector('.drawer__title');
-      const footer = drawer.querySelector('.global-drawer__footer');
-      const content = drawer.querySelector('.cart-drawer-main-content');
-      const recommendationsContainer = drawer.querySelector('.cart-drawer-recommendations-sidebar');
-
-      if (content) {
-        // 确保底部元素完全可见
-        if (footer) {
-          footer.style.position = 'sticky';
-          footer.style.bottom = '0';
-          footer.style.width = '100%';
-          footer.style.zIndex = '10';
-          footer.style.backgroundColor = '#fff';
-
-          // 确保底部元素不会被遮挡
-          const checkoutBtn = footer.querySelector('.cart-drawer__checkout-btn');
-          if (checkoutBtn) {
-            const checkoutRect = checkoutBtn.getBoundingClientRect();
-            if (checkoutRect.bottom > window.innerHeight) {
-              const offset = checkoutRect.bottom - window.innerHeight + 20;
-              footer.style.paddingBottom = offset + 'px';
+  
+      // Set up periodic price check to ensure consistency
+      setInterval(() => {
+        // Add throttling - only update if it's been at least 30 seconds since last update
+        const now = Date.now();
+        if (!window.lastCartUpdateTime || now - window.lastCartUpdateTime > 30000) {
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cartData => {
+              updateCartPriceElements(cartData);
+              updateShippingProgressBar(cartData);
+              window.lastCartUpdateTime = now;
+            })
+            .catch(err => { });
+        }
+      }, 30000); // Changed from 5000 (5 seconds) to 30000 (30 seconds)
+  
+      // 添加调整布局的函数
+      function adjustCartDrawerLayout() {
+        const drawer = document.querySelector('.drawer--cart');
+        if (!drawer) return;
+  
+        const header = drawer.querySelector('.drawer__header');
+        const title = drawer.querySelector('.drawer__title');
+        const footer = drawer.querySelector('.global-drawer__footer');
+        const content = drawer.querySelector('.cart-drawer-main-content');
+        const recommendationsContainer = drawer.querySelector('.cart-drawer-recommendations-sidebar');
+  
+        if (content) {
+          // 确保底部元素完全可见
+          if (footer) {
+            footer.style.position = 'sticky';
+            footer.style.bottom = '0';
+            footer.style.width = '100%';
+            footer.style.zIndex = '10';
+            footer.style.backgroundColor = '#fff';
+  
+            // 确保底部元素不会被遮挡
+            const checkoutBtn = footer.querySelector('.cart-drawer__checkout-btn');
+            if (checkoutBtn) {
+              const checkoutRect = checkoutBtn.getBoundingClientRect();
+              if (checkoutRect.bottom > window.innerHeight) {
+                const offset = checkoutRect.bottom - window.innerHeight + 20;
+                footer.style.paddingBottom = offset + 'px';
+              }
             }
           }
         }
       }
-    }
-
-    // 在抽屉打开时调整布局
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
-        // 立即清除最后一个产品的边距
-        const lastProduct = document.querySelector('.ajaxcart__product:last-child');
-        if (lastProduct) {
-          lastProduct.style.marginBottom = '0';
-        }
-
-        // 多次调用以确保正确计算高度
-        setTimeout(adjustCartDrawerLayout, 100);
-        setTimeout(adjustCartDrawerLayout, 300);
-        setTimeout(adjustCartDrawerLayout, 500);
-
-        // 额外调用以确保底部元素完全可见
-        setTimeout(ensureFooterVisible, 600);
-
-        // 确保最后一个产品完全可见
-        setTimeout(ensureLastProductVisible, 300);
-        setTimeout(ensureLastProductVisible, 700);
-
-        // 额外的清除最后一个产品边距的尝试
-        setTimeout(function () {
+  
+      // 在抽屉打开时调整布局
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+          // 立即清除最后一个产品的边距
           const lastProduct = document.querySelector('.ajaxcart__product:last-child');
           if (lastProduct) {
             lastProduct.style.marginBottom = '0';
           }
-        }, 800);
-      }
-    });
-
-    // 确保底部元素完全可见的函数
-    function ensureFooterVisible() {
-      const drawer = document.querySelector('.drawer--cart');
-      if (!drawer) return;
-
-      const footer = drawer.querySelector('.global-drawer__footer');
-      if (!footer) return;
-
-      // 获取所有需要确保可见的元素
-      const checkoutBtn = footer.querySelector('.cart-drawer__checkout-btn');
-      const viewCartBtn = footer.querySelector('.cart-drawer__view-cart-btn');
-      const subtotalElem = footer.querySelector('.cart-drawer__subtotal');
-
-      if (checkoutBtn) {
-        // 检查结账按钮是否完全可见
-        const checkoutRect = checkoutBtn.getBoundingClientRect();
-        if (checkoutRect.bottom > window.innerHeight) {
-          // 如果结账按钮底部超出视口，添加额外的底部内边距
-          const offset = checkoutRect.bottom - window.innerHeight + 20;
-          footer.style.paddingBottom = offset + 'px';
-
-          // 强制重新计算布局
+  
+          // 多次调用以确保正确计算高度
           setTimeout(adjustCartDrawerLayout, 100);
+          setTimeout(adjustCartDrawerLayout, 300);
+          setTimeout(adjustCartDrawerLayout, 500);
+  
+          // 额外调用以确保底部元素完全可见
+          setTimeout(ensureFooterVisible, 600);
+  
+          // 确保最后一个产品完全可见
+          setTimeout(ensureLastProductVisible, 300);
+          setTimeout(ensureLastProductVisible, 700);
+  
+          // 额外的清除最后一个产品边距的尝试
+          setTimeout(function () {
+            const lastProduct = document.querySelector('.ajaxcart__product:last-child');
+            if (lastProduct) {
+              lastProduct.style.marginBottom = '0';
+            }
+          }, 800);
         }
-      }
-
-      // 确保底部区域有足够的空间
-      const footerRect = footer.getBoundingClientRect();
-      const bottomSpace = window.innerHeight - footerRect.bottom;
-      if (bottomSpace < 20) {
-        footer.style.paddingBottom = (20 - bottomSpace) + 'px';
-      }
-
-      // 确保最后一个产品完全可见
-      ensureLastProductVisible();
-    }
-
-    // 确保最后一个产品完全可见
-    function ensureLastProductVisible() {
-      const lastProduct = document.querySelector('.ajaxcart__product:last-child');
-      if (!lastProduct) return;
-
-      // 强制移除任何边距
-      lastProduct.style.marginBottom = '0';
-
-      // 移除所有子元素的边距
-      const childElements = lastProduct.querySelectorAll('*');
-      childElements.forEach(function (element) {
-        element.style.marginBottom = '0';
       });
-
-      // 确保内容容器没有过多的底部内边距
-      const contentContainer = document.querySelector('.cart-drawer-main-content');
-      if (contentContainer) {
-        contentContainer.style.paddingBottom = '20px';
-      }
-    }
-
-    // 添加滚动事件监听器，确保在滚动时最后一个产品可见
-    document.addEventListener('DOMContentLoaded', function () {
-      setTimeout(function () {
-        const mainContent = document.querySelector('.cart-drawer-main-content');
-        if (mainContent) {
-          mainContent.addEventListener('scroll', function () {
-            requestAnimationFrame(ensureLastProductVisible);
-          });
+  
+      // 确保底部元素完全可见的函数
+      function ensureFooterVisible() {
+        const drawer = document.querySelector('.drawer--cart');
+        if (!drawer) return;
+  
+        const footer = drawer.querySelector('.global-drawer__footer');
+        if (!footer) return;
+  
+        // 获取所有需要确保可见的元素
+        const checkoutBtn = footer.querySelector('.cart-drawer__checkout-btn');
+        const viewCartBtn = footer.querySelector('.cart-drawer__view-cart-btn');
+        const subtotalElem = footer.querySelector('.cart-drawer__subtotal');
+  
+        if (checkoutBtn) {
+          // 检查结账按钮是否完全可见
+          const checkoutRect = checkoutBtn.getBoundingClientRect();
+          if (checkoutRect.bottom > window.innerHeight) {
+            // 如果结账按钮底部超出视口，添加额外的底部内边距
+            const offset = checkoutRect.bottom - window.innerHeight + 20;
+            footer.style.paddingBottom = offset + 'px';
+  
+            // 强制重新计算布局
+            setTimeout(adjustCartDrawerLayout, 100);
+          }
         }
-      }, 1000);
-    });
-
-    // 确保在窗口大小变化时重新计算
-    window.addEventListener('resize', function () {
-      setTimeout(ensureLastProductVisible, 100);
-    });
-
-    // 在购物车更新时确保最后一个产品可见
-    document.addEventListener('cart:updated', function () {
-      setTimeout(ensureLastProductVisible, 300);
-      setTimeout(ensureLastProductVisible, 600);
-    });
-
-    // 添加MutationObserver监听购物车内容变化
-    document.addEventListener('DOMContentLoaded', function () {
-      setTimeout(function () {
-        const cartContainer = document.querySelector('.cart-drawer-main-content');
-        if (cartContainer) {
-          // 创建一个观察器实例
-          const observer = new MutationObserver(function (mutations) {
-            // 当购物车内容变化时，立即修复最后一个产品的边距
-            fixLastProductSpacing();
-
-            // 同时修复价格显示
-            fixCartPriceDisplay();
-          });
-
-          // 配置观察选项
-          const config = {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['style', 'class']
-          };
-
-          // 开始观察目标节点
-          observer.observe(cartContainer, config);
-          console.log('MutationObserver set up for cart container to fix margins and prices');
+  
+        // 确保底部区域有足够的空间
+        const footerRect = footer.getBoundingClientRect();
+        const bottomSpace = window.innerHeight - footerRect.bottom;
+        if (bottomSpace < 20) {
+          footer.style.paddingBottom = (20 - bottomSpace) + 'px';
         }
-      }, 1000);
-    });
-
-    // 专门用于修复最后一个产品和底部之间的间距问题
-    function fixLastProductSpacing() {
-      // 获取最后一个产品
-      const lastProduct = document.querySelector('.ajaxcart__product:last-child');
-      if (!lastProduct) return;
-
-      // 移除任何边距
-      lastProduct.style.marginBottom = '0';
-
-      // 获取底部区域
-      const footer = document.querySelector('.global-drawer__footer');
-      if (!footer) return;
-
-      // 确保底部区域紧贴最后一个产品
-      footer.style.marginTop = '0';
-
-      // 确保内容区域没有过多的内边距
-      const contentContainer = document.querySelector('.cart-drawer-main-content');
-      if (contentContainer) {
-        contentContainer.style.paddingBottom = '20px';
+  
+        // 确保最后一个产品完全可见
+        ensureLastProductVisible();
       }
-
-      // 确保购物车内容区域没有过多的内边距
-      const cartInner = document.querySelector('.ajaxcart__inner');
-      if (cartInner) {
-        cartInner.style.paddingBottom = '0';
+  
+      // 确保最后一个产品完全可见
+      function ensureLastProductVisible() {
+        const lastProduct = document.querySelector('.ajaxcart__product:last-child');
+        if (!lastProduct) return;
+  
+        // 强制移除任何边距
+        lastProduct.style.marginBottom = '0';
+  
+        // 移除所有子元素的边距
+        const childElements = lastProduct.querySelectorAll('*');
+        childElements.forEach(function (element) {
+          element.style.marginBottom = '0';
+        });
+  
+        // 确保内容容器没有过多的底部内边距
+        const contentContainer = document.querySelector('.cart-drawer-main-content');
+        if (contentContainer) {
+          contentContainer.style.paddingBottom = '20px';
+        }
       }
-    }
-
-    // 在购物车打开时修复间距
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
-        setTimeout(fixLastProductSpacing, 100);
-        setTimeout(fixLastProductSpacing, 500);
-        setTimeout(fixLastProductSpacing, 1000);
-      }
-    });
-
-    // 在购物车更新时修复间距
-    document.addEventListener('cart:updated', function () {
-      setTimeout(fixLastProductSpacing, 300);
-      setTimeout(fixLastProductSpacing, 600);
-    });
-
-    // 专门用于修复价格显示问题
-    function fixCartPriceDisplay() {
-      fetch('/cart.js')
-        .then(res => res.json())
-        .then(cartData => {
-          // 直接更新价格元素
-          const formattedPrice = formatMoney(cartData.total_price);
-
-          // 更新购物车总价显示
-          const subtotalElements = document.querySelectorAll('.cart-drawer__subtotal--price-value, .cart-drawer__subtotal--price .money, .cart-drawer__subtotal--price span:not(.visually-hidden):not(.cart-drawer__subtotal--compare)');
-          if (subtotalElements.length > 0) {
-            subtotalElements.forEach(el => {
-              el.innerHTML = formattedPrice;
+  
+      // 添加滚动事件监听器，确保在滚动时最后一个产品可见
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+          const mainContent = document.querySelector('.cart-drawer-main-content');
+          if (mainContent) {
+            mainContent.addEventListener('scroll', function () {
+              requestAnimationFrame(ensureLastProductVisible);
             });
           }
-
-          // 计算比较价格
-          let totalComparePrice = 0;
-          if (cartData.items && cartData.items.length > 0) {
-            cartData.items.forEach(item => {
-              if (item.compare_at_price > 0) {
-                totalComparePrice += item.compare_at_price * item.quantity;
+        }, 1000);
+      });
+  
+      // 确保在窗口大小变化时重新计算
+      window.addEventListener('resize', function () {
+        setTimeout(ensureLastProductVisible, 100);
+      });
+  
+      // 在购物车更新时确保最后一个产品可见
+      document.addEventListener('cart:updated', function () {
+        setTimeout(ensureLastProductVisible, 300);
+        setTimeout(ensureLastProductVisible, 600);
+      });
+  
+      // 添加MutationObserver监听购物车内容变化
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+          const cartContainer = document.querySelector('.cart-drawer-main-content');
+          if (cartContainer) {
+            // 创建一个观察器实例
+            const observer = new MutationObserver(function (mutations) {
+              // 当购物车内容变化时，立即修复最后一个产品的边距
+              fixLastProductSpacing();
+  
+              // 同时修复价格显示
+              fixCartPriceDisplay();
+            });
+  
+            // 配置观察选项
+            const config = {
+              childList: true,
+              subtree: true,
+              attributes: true,
+              attributeFilter: ['style', 'class']
+            };
+  
+            // 开始观察目标节点
+            observer.observe(cartContainer, config);
+            console.log('MutationObserver set up for cart container to fix margins and prices');
+          }
+        }, 1000);
+      });
+  
+      // 专门用于修复最后一个产品和底部之间的间距问题
+      function fixLastProductSpacing() {
+        // 获取最后一个产品
+        const lastProduct = document.querySelector('.ajaxcart__product:last-child');
+        if (!lastProduct) return;
+  
+        // 移除任何边距
+        lastProduct.style.marginBottom = '0';
+  
+        // 获取底部区域
+        const footer = document.querySelector('.global-drawer__footer');
+        if (!footer) return;
+  
+        // 确保底部区域紧贴最后一个产品
+        footer.style.marginTop = '0';
+  
+        // 确保内容区域没有过多的内边距
+        const contentContainer = document.querySelector('.cart-drawer-main-content');
+        if (contentContainer) {
+          contentContainer.style.paddingBottom = '20px';
+        }
+  
+        // 确保购物车内容区域没有过多的内边距
+        const cartInner = document.querySelector('.ajaxcart__inner');
+        if (cartInner) {
+          cartInner.style.paddingBottom = '0';
+        }
+      }
+  
+      // 在购物车打开时修复间距
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+          setTimeout(fixLastProductSpacing, 100);
+          setTimeout(fixLastProductSpacing, 500);
+          setTimeout(fixLastProductSpacing, 1000);
+        }
+      });
+  
+      // 在购物车更新时修复间距
+      document.addEventListener('cart:updated', function () {
+        setTimeout(fixLastProductSpacing, 300);
+        setTimeout(fixLastProductSpacing, 600);
+      });
+  
+      // 专门用于修复价格显示问题
+      function fixCartPriceDisplay() {
+        fetch('/cart.js')
+          .then(res => res.json())
+          .then(cartData => {
+            // 直接更新价格元素
+            const formattedPrice = formatMoney(cartData.total_price);
+  
+            // 更新购物车总价显示
+            const subtotalElements = document.querySelectorAll('.cart-drawer__subtotal--price-value, .cart-drawer__subtotal--price .money, .cart-drawer__subtotal--price span:not(.visually-hidden):not(.cart-drawer__subtotal--compare)');
+            if (subtotalElements.length > 0) {
+              subtotalElements.forEach(el => {
+                el.innerHTML = formattedPrice;
+              });
+            }
+  
+            // 计算比较价格
+            let totalComparePrice = 0;
+            if (cartData.items && cartData.items.length > 0) {
+              cartData.items.forEach(item => {
+                if (item.compare_at_price > 0) {
+                  totalComparePrice += item.compare_at_price * item.quantity;
+                } else {
+                  totalComparePrice += item.original_price * item.quantity;
+                }
+              });
+            }
+  
+            // 更新比较价格（如果有折扣）
+            const compareElement = document.querySelector('.cart-drawer__subtotal--compare');
+            if (compareElement) {
+              if (totalComparePrice > cartData.total_price) {
+                compareElement.innerHTML = formatMoney(totalComparePrice);
+                compareElement.style.display = 'inline-block';
+  
+                // 添加折扣样式
+                const priceElement = document.querySelector('.cart-drawer__subtotal--price-value');
+                if (priceElement) {
+                  priceElement.classList.add('cart-drawer__subtotal--sale');
+                }
               } else {
-                totalComparePrice += item.original_price * item.quantity;
-              }
-            });
-          }
-
-          // 更新比较价格（如果有折扣）
-          const compareElement = document.querySelector('.cart-drawer__subtotal--compare');
-          if (compareElement) {
-            if (totalComparePrice > cartData.total_price) {
-              compareElement.innerHTML = formatMoney(totalComparePrice);
-              compareElement.style.display = 'inline-block';
-
-              // 添加折扣样式
-              const priceElement = document.querySelector('.cart-drawer__subtotal--price-value');
-              if (priceElement) {
-                priceElement.classList.add('cart-drawer__subtotal--sale');
-              }
-            } else {
-              compareElement.style.display = 'none';
-
-              // 移除折扣样式
-              const priceElement = document.querySelector('.cart-drawer__subtotal--price-value');
-              if (priceElement) {
-                priceElement.classList.remove('cart-drawer__subtotal--sale');
+                compareElement.style.display = 'none';
+  
+                // 移除折扣样式
+                const priceElement = document.querySelector('.cart-drawer__subtotal--price-value');
+                if (priceElement) {
+                  priceElement.classList.remove('cart-drawer__subtotal--sale');
+                }
               }
             }
-          }
-
-          // 确保小计区域可见
-          const subtotalContainer = document.querySelector('.cart-drawer__subtotal');
-          if (subtotalContainer) {
-            subtotalContainer.style.display = 'flex';
-          }
-
-          // 确保底部区域可见
-          const footerElement = document.querySelector('.global-drawer__footer');
-          if (footerElement) {
-            footerElement.style.display = '';
-          }
-        })
-        .catch(err => console.error('Error fixing cart price display:', err));
-    }
-
-    // 在购物车打开时修复价格显示
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
-        setTimeout(fixCartPriceDisplay, 100);
-        setTimeout(fixCartPriceDisplay, 500);
-        setTimeout(fixCartPriceDisplay, 1000);
+  
+            // 确保小计区域可见
+            const subtotalContainer = document.querySelector('.cart-drawer__subtotal');
+            if (subtotalContainer) {
+              subtotalContainer.style.display = 'flex';
+            }
+  
+            // 确保底部区域可见
+            const footerElement = document.querySelector('.global-drawer__footer');
+            if (footerElement) {
+              footerElement.style.display = '';
+            }
+          })
+          .catch(err => console.error('Error fixing cart price display:', err));
       }
-    });
-
-    // 在购物车更新时修复价格显示
-    document.addEventListener('cart:updated', function () {
-      setTimeout(fixCartPriceDisplay, 300);
-      setTimeout(fixCartPriceDisplay, 600);
-    });
-
-    // 在数量变化时修复价格显示
-    document.addEventListener('click', function (e) {
-      if (e.target.closest('.ajaxcart__qty-adjust') || e.target.closest('.ajaxcart__remove')) {
+  
+      // 在购物车打开时修复价格显示
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+          setTimeout(fixCartPriceDisplay, 100);
+          setTimeout(fixCartPriceDisplay, 500);
+          setTimeout(fixCartPriceDisplay, 1000);
+        }
+      });
+  
+      // 在购物车更新时修复价格显示
+      document.addEventListener('cart:updated', function () {
         setTimeout(fixCartPriceDisplay, 300);
         setTimeout(fixCartPriceDisplay, 600);
-      }
+      });
+  
+      // 在数量变化时修复价格显示
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('.ajaxcart__qty-adjust') || e.target.closest('.ajaxcart__remove')) {
+          setTimeout(fixCartPriceDisplay, 300);
+          setTimeout(fixCartPriceDisplay, 600);
+        }
+      });
     });
-  });
-
-  // 专门用于调整推荐产品区域的函数
-  function adjustRecommendationsArea() {
-    const isMobile = window.innerWidth <= 820;
-    if (!isMobile) return;
-
-    const drawer = document.querySelector('.drawer--cart');
-    if (!drawer) return;
-
-    const recommendationsArea = drawer.querySelector('.cart-drawer-flex-container-recommendations');
-    if (!recommendationsArea) return;
-
-    // 限制推荐产品区域的高度
-    recommendationsArea.style.maxHeight = '200px'; // 限制最大高度
-
-    // 确保推荐产品区域不会被底部结账按钮遮挡
-    const footer = drawer.querySelector('.global-drawer__footer');
-    if (footer) {
-      const footerHeight = footer.offsetHeight || 150;
-      recommendationsArea.style.marginBottom = (footerHeight + 20) + 'px';
+  
+    // 专门用于调整推荐产品区域的函数
+    function adjustRecommendationsArea() {
+      const isMobile = window.innerWidth <= 820;
+      if (!isMobile) return;
+  
+      const drawer = document.querySelector('.drawer--cart');
+      if (!drawer) return;
+  
+      const recommendationsArea = drawer.querySelector('.cart-drawer-flex-container-recommendations');
+      if (!recommendationsArea) return;
+  
+      // 限制推荐产品区域的高度
+      recommendationsArea.style.maxHeight = '200px'; // 限制最大高度
+  
+      // 确保推荐产品区域不会被底部结账按钮遮挡
+      const footer = drawer.querySelector('.global-drawer__footer');
+      if (footer) {
+        const footerHeight = footer.offsetHeight || 150;
+        recommendationsArea.style.marginBottom = (footerHeight + 20) + 'px';
+      }
+  
+      // 确保推荐产品区域的标题更加紧凑
+      const title = recommendationsArea.querySelector('.text-link-animated');
+      if (title) {
+        title.style.fontSize = '14px';
+        title.style.margin = '0 0 10px 0';
+        title.style.padding = '0 15px';
+      }
+  
+      // 确保推荐产品卡片是左右布局
+      const productCards = recommendationsArea.querySelectorAll('.product-card-basic.cart-drawer__product-card');
+      productCards.forEach(card => {
+        card.style.display = 'flex';
+        card.style.flexDirection = 'row';
+        card.style.alignItems = 'center';
+        card.style.gap = '10px';
+        card.style.padding = '8px';
+        card.style.marginBottom = '8px';
+        card.style.height = 'auto';
+        card.style.minHeight = '80px';
+  
+        // 调整图片大小
+        const image = card.querySelector('.product-card-basic__image');
+        if (image) {
+          image.style.width = '30%';
+          image.style.maxWidth = '80px';
+          image.style.flexShrink = '0';
+        }
+  
+        // 调整文字区域
+        const info = card.querySelector('.product-card-basic--info');
+        if (info) {
+          info.style.width = '70%';
+          info.style.padding = '0';
+        }
+  
+        // 调整按钮大小
+        const button = card.querySelector('.add-to-cart-btn');
+        if (button) {
+          button.style.padding = '4px 8px';
+          button.style.fontSize = '11px';
+          button.style.minHeight = '0';
+          button.style.lineHeight = '1';
+        }
+      });
     }
-
-    // 确保推荐产品区域的标题更加紧凑
-    const title = recommendationsArea.querySelector('.text-link-animated');
-    if (title) {
-      title.style.fontSize = '14px';
-      title.style.margin = '0 0 10px 0';
-      title.style.padding = '0 15px';
-    }
-
-    // 确保推荐产品卡片是左右布局
-    const productCards = recommendationsArea.querySelectorAll('.product-card-basic.cart-drawer__product-card');
-    productCards.forEach(card => {
-      card.style.display = 'flex';
-      card.style.flexDirection = 'row';
-      card.style.alignItems = 'center';
-      card.style.gap = '10px';
-      card.style.padding = '8px';
-      card.style.marginBottom = '8px';
-      card.style.height = 'auto';
-      card.style.minHeight = '80px';
-
-      // 调整图片大小
-      const image = card.querySelector('.product-card-basic__image');
-      if (image) {
-        image.style.width = '30%';
-        image.style.maxWidth = '80px';
-        image.style.flexShrink = '0';
-      }
-
-      // 调整文字区域
-      const info = card.querySelector('.product-card-basic--info');
-      if (info) {
-        info.style.width = '70%';
-        info.style.padding = '0';
-      }
-
-      // 调整按钮大小
-      const button = card.querySelector('.add-to-cart-btn');
-      if (button) {
-        button.style.padding = '4px 8px';
-        button.style.fontSize = '11px';
-        button.style.minHeight = '0';
-        button.style.lineHeight = '1';
-      }
-    });
-  }
-
-  // 在各种事件中调用adjustRecommendationsArea
-  document.addEventListener('DOMContentLoaded', function () {
-    // 初始化时调用
-    setTimeout(adjustRecommendationsArea, 500);
-
-    // 窗口大小变化时调用
-    window.addEventListener('resize', adjustRecommendationsArea);
-
-    // 购物车打开时调用
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+  
+    // 在各种事件中调用adjustRecommendationsArea
+    document.addEventListener('DOMContentLoaded', function () {
+      // 初始化时调用
+      setTimeout(adjustRecommendationsArea, 500);
+  
+      // 窗口大小变化时调用
+      window.addEventListener('resize', adjustRecommendationsArea);
+  
+      // 购物车打开时调用
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+          setTimeout(adjustRecommendationsArea, 300);
+          setTimeout(adjustRecommendationsArea, 600);
+          setTimeout(adjustRecommendationsArea, 1000);
+        }
+      });
+  
+      // 购物车更新时调用
+      document.addEventListener('cart:updated', function () {
         setTimeout(adjustRecommendationsArea, 300);
         setTimeout(adjustRecommendationsArea, 600);
-        setTimeout(adjustRecommendationsArea, 1000);
-      }
+      });
     });
-
-    // 购物车更新时调用
-    document.addEventListener('cart:updated', function () {
-      setTimeout(adjustRecommendationsArea, 300);
-      setTimeout(adjustRecommendationsArea, 600);
-    });
-  });
-
-  // Function to ensure correct mobile layout
-  function ensureMobileLayout() {
-    const isMobile = window.innerWidth <= 820;
-    const cartForm = document.querySelector('form.cart.ajaxcart.new-cust-cart-drawer-flex-container');
-    const drawer = document.querySelector('.drawer--cart');
-
-    if (cartForm && drawer) {
-      if (isMobile) {
-        cartForm.classList.add('mobile-layout');
-
-        // 确保正确的顺序
-        const cartContent = cartForm.querySelector('.cart-drawer-flex-container-cart-customer');
-        const footer = cartForm.querySelector('.global-drawer__footer');
-        const recommendations = cartForm.querySelector('.cart-drawer-flex-container-recommendations');
-
-        if (cartContent && footer) {
-          // 确保购物车内容在上方
-          cartForm.appendChild(cartContent);
-
-          // 确保推荐产品在底部，但在结账按钮之前
-          if (recommendations) {
-            cartForm.appendChild(recommendations);
-          }
-
-          // 确保结账按钮在最底部并固定
-          footer.style.position = 'fixed';
-          footer.style.bottom = '0';
-          footer.style.left = '0';
-          footer.style.right = '0';
-          footer.style.width = '100%';
-          footer.style.zIndex = '1000';
-          footer.style.background = '#fff';
-          footer.style.boxShadow = '0 -2px 10px rgba(0,0,0,0.1)';
-
-          // 确保内容不被遮挡
-          const footerHeight = footer.offsetHeight || 150;
-          const contentContainer = cartForm.querySelector('.cart-drawer-main-content');
-          if (contentContainer) {
-            contentContainer.style.paddingBottom = (footerHeight + 20) + 'px';
-          }
-
-          if (recommendations) {
-            recommendations.style.marginBottom = (footerHeight + 20) + 'px';
-          }
-
-          // 添加到抽屉的末尾，确保它在视觉上位于最底部
-          drawer.appendChild(footer);
-
-          // 设置一个定时器，确保在内容变化后重新调整布局
-          setTimeout(adjustFooterPosition, 300);
-
-          // 调整推荐产品区域
-          setTimeout(adjustRecommendationsArea, 300);
-        }
-      } else {
-        cartForm.classList.remove('mobile-layout');
-
-        // 恢复正常布局
-        const footer = drawer.querySelector('.global-drawer__footer');
-        if (footer) {
-          footer.style.position = '';
-          footer.style.bottom = '';
-          footer.style.left = '';
-          footer.style.right = '';
-          footer.style.width = '';
-          footer.style.zIndex = '';
-
-          // 将footer放回原位
+  
+    // Function to ensure correct mobile layout
+    function ensureMobileLayout() {
+      const isMobile = window.innerWidth <= 820;
+      const cartForm = document.querySelector('form.cart.ajaxcart.new-cust-cart-drawer-flex-container');
+      const drawer = document.querySelector('.drawer--cart');
+  
+      if (cartForm && drawer) {
+        if (isMobile) {
+          cartForm.classList.add('mobile-layout');
+  
+          // 确保正确的顺序
           const cartContent = cartForm.querySelector('.cart-drawer-flex-container-cart-customer');
-          if (cartContent) {
-            cartForm.insertBefore(footer, cartContent.nextSibling);
-          } else {
-            cartForm.appendChild(footer);
+          const footer = cartForm.querySelector('.global-drawer__footer');
+          const recommendations = cartForm.querySelector('.cart-drawer-flex-container-recommendations');
+  
+          if (cartContent && footer) {
+            // 确保购物车内容在上方
+            cartForm.appendChild(cartContent);
+  
+            // 确保推荐产品在底部，但在结账按钮之前
+            if (recommendations) {
+              cartForm.appendChild(recommendations);
+            }
+  
+            // 确保结账按钮在最底部并固定
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+            footer.style.left = '0';
+            footer.style.right = '0';
+            footer.style.width = '100%';
+            footer.style.zIndex = '1000';
+            footer.style.background = '#fff';
+            footer.style.boxShadow = '0 -2px 10px rgba(0,0,0,0.1)';
+  
+            // 确保内容不被遮挡
+            const footerHeight = footer.offsetHeight || 150;
+            const contentContainer = cartForm.querySelector('.cart-drawer-main-content');
+            if (contentContainer) {
+              contentContainer.style.paddingBottom = (footerHeight + 20) + 'px';
+            }
+  
+            if (recommendations) {
+              recommendations.style.marginBottom = (footerHeight + 20) + 'px';
+            }
+  
+            // 添加到抽屉的末尾，确保它在视觉上位于最底部
+            drawer.appendChild(footer);
+  
+            // 设置一个定时器，确保在内容变化后重新调整布局
+            setTimeout(adjustFooterPosition, 300);
+  
+            // 调整推荐产品区域
+            setTimeout(adjustRecommendationsArea, 300);
+          }
+        } else {
+          cartForm.classList.remove('mobile-layout');
+  
+          // 恢复正常布局
+          const footer = drawer.querySelector('.global-drawer__footer');
+          if (footer) {
+            footer.style.position = '';
+            footer.style.bottom = '';
+            footer.style.left = '';
+            footer.style.right = '';
+            footer.style.width = '';
+            footer.style.zIndex = '';
+  
+            // 将footer放回原位
+            const cartContent = cartForm.querySelector('.cart-drawer-flex-container-cart-customer');
+            if (cartContent) {
+              cartForm.insertBefore(footer, cartContent.nextSibling);
+            } else {
+              cartForm.appendChild(footer);
+            }
           }
         }
       }
     }
-  }
-
-  // Add specific event handler for the checkout button
-  document.addEventListener('DOMContentLoaded', function () {
-    // Direct handler for checkout button
-    document.addEventListener('click', function (event) {
-      const checkoutBtn = event.target.closest('#CartDrawer-Checkout');
-      if (checkoutBtn) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        console.log('Checkout button clicked');
-
-        // Get the form
-        const form = document.getElementById('CartDrawer-Form');
-        if (form) {
-          // Add a hidden checkout input if needed
-          if (!form.querySelector('input[name="checkout"]')) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'checkout';
-            input.value = '1';
-            form.appendChild(input);
-          }
-
-          // Submit the form
-          setTimeout(function () {
-            form.submit();
-          }, 10);
-        } else {
-          // Fallback to direct navigation
-          window.location.href = '/checkout';
-        }
-
-        return false;
-      }
-    });
-  });
-
-  // Reliable checkout handler that tries multiple methods
-  document.addEventListener('DOMContentLoaded', function () {
-    function setupCheckoutHandlers() {
-      // Get the checkout button
-      const checkoutBtn = document.getElementById('CartDrawer-Checkout');
-      if (checkoutBtn) {
-        // Replace the existing onclick with a more reliable one
-        checkoutBtn.onclick = function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          // Try multiple checkout methods in sequence
-
-          // Method 1: Use the Vue instance if available
-          const drawerInstance = window.getDrawerVueInstance ? getDrawerVueInstance() : null;
-          if (drawerInstance && typeof drawerInstance.submitCheckout === 'function') {
-            try {
-              drawerInstance.submitCheckout();
-              return false;
-            } catch (err) {
-              console.error('Vue checkout method failed:', err);
-            }
-          }
-
-          // Method 2: Direct form submission
+  
+    // Add specific event handler for the checkout button
+    document.addEventListener('DOMContentLoaded', function () {
+      // Direct handler for checkout button
+      document.addEventListener('click', function (event) {
+        const checkoutBtn = event.target.closest('#CartDrawer-Checkout');
+        if (checkoutBtn) {
+          event.preventDefault();
+          event.stopPropagation();
+  
+          console.log('Checkout button clicked');
+  
+          // Get the form
           const form = document.getElementById('CartDrawer-Form');
           if (form) {
-            try {
-              // Make sure the form action is correct
-              form.action = '/cart/checkout';
-
-              // Add checkout parameter if needed
-              if (!form.querySelector('input[name="checkout"]')) {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'checkout';
-                input.value = '1';
-                form.appendChild(input);
-              }
-
+            // Add a hidden checkout input if needed
+            if (!form.querySelector('input[name="checkout"]')) {
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = 'checkout';
+              input.value = '1';
+              form.appendChild(input);
+            }
+  
+            // Submit the form
+            setTimeout(function () {
               form.submit();
-              return false;
-            } catch (err) {
-              console.error('Direct form submission failed:', err);
-            }
+            }, 10);
+          } else {
+            // Fallback to direct navigation
+            window.location.href = '/checkout';
           }
-
-          // Method 3: Use fallback form
-          const fallbackForm = document.getElementById('cart-drawer-fallback-form');
-          if (fallbackForm) {
-            try {
-              // Update fallback form action
-              fallbackForm.action = '/cart/checkout';
-              fallbackForm.submit();
-              return false;
-            } catch (err) {
-              console.error('Fallback form submission failed:', err);
-            }
-          }
-
-          // Method 4: Direct URL navigation as last resort
-          window.location.href = '/checkout';
+  
           return false;
-        };
-      }
-    }
-
-    // Setup immediately and also with a delay to handle dynamic loading
-    setupCheckoutHandlers();
-    setTimeout(setupCheckoutHandlers, 1000);
-    setTimeout(setupCheckoutHandlers, 2000);
-
-    // Also setup when the cart drawer is opened
-    document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
-        setTimeout(setupCheckoutHandlers, 500);
-      }
+        }
+      });
     });
-  });
-
-  // 确保直接跳转到结账页面而不是购物车页面
-  document.addEventListener('DOMContentLoaded', function () {
-    // 直接的结账按钮点击处理
-    document.addEventListener('click', function (e) {
-      if (e.target.closest('#CartDrawer-Checkout')) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        console.log('Direct checkout button click detected');
-
-        const form = document.getElementById('CartDrawer-Form');
-        if (form) {
-          // 确保表单有正确的目标地址
-          form.action = '/cart/checkout';
-
-          // 添加结账参数
-          if (!form.querySelector('input[name="checkout"]')) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'checkout';
-            input.value = '1';
-            form.appendChild(input);
-          }
-
-          // 提交表单
-          form.submit();
-        } else {
-          // 后备：直接导航到结账页面
-          window.location.href = '/checkout';
-        }
-
-        return false;
-      }
-    }, true); // 使用捕获阶段以确保在其他处理程序之前执行
-  });
-
-  // 存储产品变体数据的全局变量
-  window.productVariantsCache = window.productVariantsCache || {};
-
-  // 处理变体选择的函数
-  function updateRecommendationVariant(selectElement, productId) {
-    try {
-      const variantId = parseInt(selectElement.value);
-      const card = selectElement.closest('.product-card-basic');
-
-      if (!card) return;
-
-      // 获取选中的选项元素以获取价格数据
-      const selectedOption = selectElement.options[selectElement.selectedIndex];
-      const variantPrice = selectedOption.getAttribute('data-price');
-      const variantComparePrice = selectedOption.getAttribute('data-compare-price');
-
-      // 更新添加到购物车按钮的变体ID
-      const addToCartBtn = card.querySelector('.add-to-cart-btn');
-      const hiddenInput = card.querySelector('input[name="id"]');
-
-      if (addToCartBtn) {
-        // 更新onclick属性
-        addToCartBtn.setAttribute('onclick', `addToCartDrawer(${variantId}, 1, this)`);
-      }
-
-      if (hiddenInput) {
-        // 更新隐藏输入字段的值
-        hiddenInput.value = variantId;
-      }
-
-      // 直接使用选项中的价格数据更新显示
-      updatePriceFromAttributes(card, variantPrice, variantComparePrice);
-    } catch (err) {
-      console.error('Error in updateRecommendationVariant:', err);
-    }
-  }
-
-  // 使用属性数据更新价格显示的辅助函数
-  function updatePriceFromAttributes(card, variantPrice, variantComparePrice) {
-    try {
-      // 更新价格显示
-      const priceElement = card.querySelector('.product-card-basic__price .money');
-      if (priceElement && variantPrice) {
-        // 格式化价格
-        if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-          priceElement.innerHTML = Shopify.formatMoney(variantPrice);
-        } else {
-          priceElement.innerHTML = formatMoney(variantPrice);
+  
+    // Reliable checkout handler that tries multiple methods
+    document.addEventListener('DOMContentLoaded', function () {
+      function setupCheckoutHandlers() {
+        // Get the checkout button
+        const checkoutBtn = document.getElementById('CartDrawer-Checkout');
+        if (checkoutBtn) {
+          // Replace the existing onclick with a more reliable one
+          checkoutBtn.onclick = function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+  
+            // Try multiple checkout methods in sequence
+  
+            // Method 1: Use the Vue instance if available
+            const drawerInstance = window.getDrawerVueInstance ? getDrawerVueInstance() : null;
+            if (drawerInstance && typeof drawerInstance.submitCheckout === 'function') {
+              try {
+                drawerInstance.submitCheckout();
+                return false;
+              } catch (err) {
+                console.error('Vue checkout method failed:', err);
+              }
+            }
+  
+            // Method 2: Direct form submission
+            const form = document.getElementById('CartDrawer-Form');
+            if (form) {
+              try {
+                // Make sure the form action is correct
+                form.action = '/cart/checkout';
+  
+                // Add checkout parameter if needed
+                if (!form.querySelector('input[name="checkout"]')) {
+                  const input = document.createElement('input');
+                  input.type = 'hidden';
+                  input.name = 'checkout';
+                  input.value = '1';
+                  form.appendChild(input);
+                }
+  
+                form.submit();
+                return false;
+              } catch (err) {
+                console.error('Direct form submission failed:', err);
+              }
+            }
+  
+            // Method 3: Use fallback form
+            const fallbackForm = document.getElementById('cart-drawer-fallback-form');
+            if (fallbackForm) {
+              try {
+                // Update fallback form action
+                fallbackForm.action = '/cart/checkout';
+                fallbackForm.submit();
+                return false;
+              } catch (err) {
+                console.error('Fallback form submission failed:', err);
+              }
+            }
+  
+            // Method 4: Direct URL navigation as last resort
+            window.location.href = '/checkout';
+            return false;
+          };
         }
       }
-
-      // 更新比较价格（如果有）
-      let comparePriceElement = card.querySelector('.product-card-basic__compare-price');
-
-      if (variantComparePrice && parseInt(variantComparePrice) > parseInt(variantPrice)) {
-        // 如果没有比较价格元素，创建一个
-        if (!comparePriceElement) {
-          const newComparePriceElement = document.createElement('s');
-          newComparePriceElement.className = 'product-card-basic__compare-price';
-          newComparePriceElement.style.marginRight = '5px';
-          const moneySpan = document.createElement('span');
-          moneySpan.className = 'money';
-
-          if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-            moneySpan.innerHTML = Shopify.formatMoney(variantComparePrice);
+  
+      // Setup immediately and also with a delay to handle dynamic loading
+      setupCheckoutHandlers();
+      setTimeout(setupCheckoutHandlers, 1000);
+      setTimeout(setupCheckoutHandlers, 2000);
+  
+      // Also setup when the cart drawer is opened
+      document.addEventListener('click', function (e) {
+        if (e.target.matches('[data-cart-toggle], [data-drawer-toggle="cart"], [aria-controls="CartDrawer"]')) {
+          setTimeout(setupCheckoutHandlers, 500);
+        }
+      });
+    });
+  
+    // 确保直接跳转到结账页面而不是购物车页面
+    document.addEventListener('DOMContentLoaded', function () {
+      // 直接的结账按钮点击处理
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('#CartDrawer-Checkout')) {
+          e.preventDefault();
+          e.stopPropagation();
+  
+          console.log('Direct checkout button click detected');
+  
+          const form = document.getElementById('CartDrawer-Form');
+          if (form) {
+            // 确保表单有正确的目标地址
+            form.action = '/cart/checkout';
+  
+            // 添加结账参数
+            if (!form.querySelector('input[name="checkout"]')) {
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = 'checkout';
+              input.value = '1';
+              form.appendChild(input);
+            }
+  
+            // 提交表单
+            form.submit();
           } else {
-            moneySpan.innerHTML = formatMoney(variantComparePrice);
+            // 后备：直接导航到结账页面
+            window.location.href = '/checkout';
           }
-
-          newComparePriceElement.appendChild(moneySpan);
-
-          // 将比较价格元素插入到价格元素之前
-          const priceContainer = card.querySelector('.product-card-basic__price');
-          if (priceContainer) {
-            priceContainer.insertBefore(newComparePriceElement, priceContainer.firstChild);
+  
+          return false;
+        }
+      }, true); // 使用捕获阶段以确保在其他处理程序之前执行
+    });
+  
+    // 存储产品变体数据的全局变量
+    window.productVariantsCache = window.productVariantsCache || {};
+  
+    // 处理变体选择的函数
+    function updateRecommendationVariant(selectElement, productId) {
+      try {
+        const variantId = parseInt(selectElement.value);
+        const card = selectElement.closest('.product-card-basic');
+  
+        if (!card) return;
+  
+        // 获取选中的选项元素以获取价格数据
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const variantPrice = selectedOption.getAttribute('data-price');
+        const variantComparePrice = selectedOption.getAttribute('data-compare-price');
+  
+        // 更新添加到购物车按钮的变体ID
+        const addToCartBtn = card.querySelector('.add-to-cart-btn');
+        const hiddenInput = card.querySelector('input[name="id"]');
+  
+        if (addToCartBtn) {
+          // 更新onclick属性
+          addToCartBtn.setAttribute('onclick', `addToCartDrawer(${variantId}, 1, this)`);
+        }
+  
+        if (hiddenInput) {
+          // 更新隐藏输入字段的值
+          hiddenInput.value = variantId;
+        }
+  
+        // 直接使用选项中的价格数据更新显示
+        updatePriceFromAttributes(card, variantPrice, variantComparePrice);
+      } catch (err) {
+        console.error('Error in updateRecommendationVariant:', err);
+      }
+    }
+  
+    // 使用属性数据更新价格显示的辅助函数
+    function updatePriceFromAttributes(card, variantPrice, variantComparePrice) {
+      try {
+        // 更新价格显示
+        const priceElement = card.querySelector('.product-card-basic__price .money');
+        if (priceElement && variantPrice) {
+          // 格式化价格
+          if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+            priceElement.innerHTML = Shopify.formatMoney(variantPrice);
+          } else {
+            priceElement.innerHTML = formatMoney(variantPrice);
           }
-        } else {
-          // 更新现有比较价格元素
-          const moneySpan = comparePriceElement.querySelector('.money');
-          if (moneySpan) {
+        }
+  
+        // 更新比较价格（如果有）
+        let comparePriceElement = card.querySelector('.product-card-basic__compare-price');
+  
+        if (variantComparePrice && parseInt(variantComparePrice) > parseInt(variantPrice)) {
+          // 如果没有比较价格元素，创建一个
+          if (!comparePriceElement) {
+            const newComparePriceElement = document.createElement('s');
+            newComparePriceElement.className = 'product-card-basic__compare-price';
+            newComparePriceElement.style.marginRight = '5px';
+            const moneySpan = document.createElement('span');
+            moneySpan.className = 'money';
+  
             if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
               moneySpan.innerHTML = Shopify.formatMoney(variantComparePrice);
             } else {
               moneySpan.innerHTML = formatMoney(variantComparePrice);
             }
-          }
-          comparePriceElement.style.display = 'inline-block';
-        }
-      } else if (comparePriceElement) {
-        // 如果没有比较价格，隐藏比较价格元素
-        comparePriceElement.style.display = 'none';
-      }
-    } catch (err) {
-      console.error('Error in updatePriceFromAttributes:', err);
-    }
-  }
-
-  // 更新价格显示的辅助函数
-  function updatePriceDisplay(card, variantId, productData) {
-    try {
-      // 查找当前变体
-      const variant = productData.variants.find(v => v.id === variantId);
-      if (!variant) return;
-
-      // 获取价格和比较价格
-      const variantPrice = variant.price;
-      const variantComparePrice = variant.compare_at_price;
-
-      // 更新价格显示
-      const priceElement = card.querySelector('.product-card-basic__price .money');
-      if (priceElement) {
-        // 移除任何加载指示器
-        priceElement.innerHTML = priceElement.innerHTML.replace(/<span class="loading-spinner".*?<\/span>/g, '');
-
-        // 格式化价格
-        if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-          priceElement.innerHTML = Shopify.formatMoney(variantPrice);
-        } else {
-          priceElement.innerHTML = formatMoney(variantPrice);
-        }
-      }
-
-      // 更新比较价格（如果有）
-      let comparePriceElement = card.querySelector('.product-card-basic__compare-price');
-
-      if (variantComparePrice && parseInt(variantComparePrice) > parseInt(variantPrice)) {
-        // 如果没有比较价格元素，创建一个
-        if (!comparePriceElement) {
-          const newComparePriceElement = document.createElement('s');
-          newComparePriceElement.className = 'product-card-basic__compare-price';
-          newComparePriceElement.style.marginRight = '5px';
-          const moneySpan = document.createElement('span');
-          moneySpan.className = 'money';
-
-          if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-            moneySpan.innerHTML = Shopify.formatMoney(variantComparePrice);
+  
+            newComparePriceElement.appendChild(moneySpan);
+  
+            // 将比较价格元素插入到价格元素之前
+            const priceContainer = card.querySelector('.product-card-basic__price');
+            if (priceContainer) {
+              priceContainer.insertBefore(newComparePriceElement, priceContainer.firstChild);
+            }
           } else {
-            moneySpan.innerHTML = formatMoney(variantComparePrice);
+            // 更新现有比较价格元素
+            const moneySpan = comparePriceElement.querySelector('.money');
+            if (moneySpan) {
+              if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+                moneySpan.innerHTML = Shopify.formatMoney(variantComparePrice);
+              } else {
+                moneySpan.innerHTML = formatMoney(variantComparePrice);
+              }
+            }
+            comparePriceElement.style.display = 'inline-block';
           }
-
-          newComparePriceElement.appendChild(moneySpan);
-
-          // 将比较价格元素插入到价格元素之前
-          const priceContainer = card.querySelector('.product-card-basic__price');
-          if (priceContainer) {
-            priceContainer.insertBefore(newComparePriceElement, priceContainer.firstChild);
+        } else if (comparePriceElement) {
+          // 如果没有比较价格，隐藏比较价格元素
+          comparePriceElement.style.display = 'none';
+        }
+      } catch (err) {
+        console.error('Error in updatePriceFromAttributes:', err);
+      }
+    }
+  
+    // 更新价格显示的辅助函数
+    function updatePriceDisplay(card, variantId, productData) {
+      try {
+        // 查找当前变体
+        const variant = productData.variants.find(v => v.id === variantId);
+        if (!variant) return;
+  
+        // 获取价格和比较价格
+        const variantPrice = variant.price;
+        const variantComparePrice = variant.compare_at_price;
+  
+        // 更新价格显示
+        const priceElement = card.querySelector('.product-card-basic__price .money');
+        if (priceElement) {
+          // 移除任何加载指示器
+          priceElement.innerHTML = priceElement.innerHTML.replace(/<span class="loading-spinner".*?<\/span>/g, '');
+  
+          // 格式化价格
+          if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+            priceElement.innerHTML = Shopify.formatMoney(variantPrice);
+          } else {
+            priceElement.innerHTML = formatMoney(variantPrice);
           }
-        } else {
-          // 更新现有比较价格元素
-          const moneySpan = comparePriceElement.querySelector('.money');
-          if (moneySpan) {
+        }
+  
+        // 更新比较价格（如果有）
+        let comparePriceElement = card.querySelector('.product-card-basic__compare-price');
+  
+        if (variantComparePrice && parseInt(variantComparePrice) > parseInt(variantPrice)) {
+          // 如果没有比较价格元素，创建一个
+          if (!comparePriceElement) {
+            const newComparePriceElement = document.createElement('s');
+            newComparePriceElement.className = 'product-card-basic__compare-price';
+            newComparePriceElement.style.marginRight = '5px';
+            const moneySpan = document.createElement('span');
+            moneySpan.className = 'money';
+  
             if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
               moneySpan.innerHTML = Shopify.formatMoney(variantComparePrice);
             } else {
               moneySpan.innerHTML = formatMoney(variantComparePrice);
             }
+  
+            newComparePriceElement.appendChild(moneySpan);
+  
+            // 将比较价格元素插入到价格元素之前
+            const priceContainer = card.querySelector('.product-card-basic__price');
+            if (priceContainer) {
+              priceContainer.insertBefore(newComparePriceElement, priceContainer.firstChild);
+            }
+          } else {
+            // 更新现有比较价格元素
+            const moneySpan = comparePriceElement.querySelector('.money');
+            if (moneySpan) {
+              if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+                moneySpan.innerHTML = Shopify.formatMoney(variantComparePrice);
+              } else {
+                moneySpan.innerHTML = formatMoney(variantComparePrice);
+              }
+            }
+            comparePriceElement.style.display = 'inline-block';
           }
-          comparePriceElement.style.display = 'inline-block';
+        } else if (comparePriceElement) {
+          // 如果没有比较价格，隐藏比较价格元素
+          comparePriceElement.style.display = 'none';
         }
-      } else if (comparePriceElement) {
-        // 如果没有比较价格，隐藏比较价格元素
-        comparePriceElement.style.display = 'none';
+      } catch (err) {
+        console.error('Error in updatePriceDisplay:', err);
       }
-    } catch (err) {
-      console.error('Error in updatePriceDisplay:', err);
     }
-  }
-
-  // 在页面加载时初始化变体选择器
-  document.addEventListener('DOMContentLoaded', function () {
-    // 初始化所有变体选择器
-    const variantSelectors = document.querySelectorAll('.product-card-variant-selector');
-    variantSelectors.forEach(selector => {
-      // 触发一次变更事件以确保正确的初始状态
-      const event = new Event('change');
-      selector.dispatchEvent(event);
+  
+    // 在页面加载时初始化变体选择器
+    document.addEventListener('DOMContentLoaded', function () {
+      // 初始化所有变体选择器
+      const variantSelectors = document.querySelectorAll('.product-card-variant-selector');
+      variantSelectors.forEach(selector => {
+        // 触发一次变更事件以确保正确的初始状态
+        const event = new Event('change');
+        selector.dispatchEvent(event);
+      });
     });
-  });
 </script>
