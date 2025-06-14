@@ -161,6 +161,12 @@
   .shipping-progress-remaining {
     font-weight: 600;
     color: #333;
+    display: inline-block;
+  }
+  
+  .free-shipping-message {
+    display: block;
+    line-height: 1.4;
   }
 
   /* Responsive styles for shipping progress bar */
@@ -1469,23 +1475,54 @@
 <script>
   // 货币转换配置
   window.currencyConfig = {
-    // 基准货币 - 所有免运费阈值都基于此货币
+          // 基准货币 - 所有免运费阈值都基于此货币
     baseCurrency: 'USD',
     
     // 免运费阈值 (美元)
     freeShippingThresholdUSD: {{ settings.free_shipping_threshold | default: 10000 | divided_by: 100.0 | json }},
     
-    // 货币汇率表 (相对于USD)
+    // 记录货币配置启动
+    debug: function() {
+      console.log('Currency configuration initialized');
+      console.log('Base currency: ' + this.baseCurrency);
+      console.log('Free shipping threshold: $' + this.freeShippingThresholdUSD);
+      
+      if (Shopify && Shopify.currency) {
+        console.log('Current Shopify currency: ' + Shopify.currency.active);
+      }
+    },
+    
+    // 货币汇率表 (相对于USD) - 2024年6月更新
     currencyRates: {
       'USD': 1.0,
-      'EUR': 1.08,  // 1 EUR = 1.08 USD
-      'GBP': 1.27,  // 1 GBP = 1.27 USD
-      'CAD': 0.74,  // 1 CAD = 0.74 USD
-      'AUD': 0.66,  // 1 AUD = 0.66 USD
-      'JPY': 0.0067, // 1 JPY = 0.0067 USD
-      'CNY': 0.14,  // 1 CNY = 0.14 USD
-      'KM': 0.55,   // 1 KM = 0.55 USD (假设KM是某种货币)
-      // 添加更多货币汇率
+      'EUR': 0.9258,  // 1 USD = 0.9258 EUR
+      'GBP': 0.7874,  // 1 USD = 0.7874 GBP
+      'CAD': 1.3698,  // 1 USD = 1.3698 CAD
+      'AUD': 1.5152,  // 1 USD = 1.5152 AUD
+      'JPY': 157.63,  // 1 USD = 157.63 JPY
+      'CNY': 7.2464,  // 1 USD = 7.2464 CNY
+      'KM': 1.82,     // 1 USD = 1.82 KM
+      'RM': 4.63,     // 1 USD = 4.63 RM (马来西亚林吉特)
+      'AZN': 1.7,     // 1 USD = 1.7 AZN (阿塞拜疆马纳特)
+      'ALL': 84.937,  // 1 USD = 84.937 ALL (阿尔巴尼亚列克)
+      'INR': 83.35,   // 1 USD = 83.35 INR (印度卢比)
+      'MXN': 16.73,   // 1 USD = 16.73 MXN (墨西哥比索)
+      'BRL': 5.42,    // 1 USD = 5.42 BRL (巴西雷亚尔)
+      'TRY': 32.17,   // 1 USD = 32.17 TRY (土耳其里拉)
+      'ZAR': 18.30,   // 1 USD = 18.30 ZAR (南非兰特)
+      'SGD': 1.34,    // 1 USD = 1.34 SGD (新加坡元)
+      'NZD': 1.64,    // 1 USD = 1.64 NZD (新西兰元)
+      'CHF': 0.90,    // 1 USD = 0.90 CHF (瑞士法郎)
+      'HKD': 7.81,    // 1 USD = 7.81 HKD (港币)
+      'SEK': 10.45,   // 1 USD = 10.45 SEK (瑞典克朗)
+      'NOK': 10.60,   // 1 USD = 10.60 NOK (挪威克朗)
+      'DKK': 6.91,    // 1 USD = 6.91 DKK (丹麦克朗)
+      'PLN': 3.95,    // 1 USD = 3.95 PLN (波兰兹罗提)
+      'RUB': 88.25,   // 1 USD = 88.25 RUB (俄罗斯卢布)
+      'AED': 3.67,    // 1 USD = 3.67 AED (阿联酋迪拉姆)
+      'SAR': 3.75,    // 1 USD = 3.75 SAR (沙特里亚尔)
+      'm': 1.0,       // 默认回退汇率
+      // 最后更新时间: 2024年6月
     },
     
     // 货币符号映射
@@ -1498,35 +1535,269 @@
       'JPY': '¥',
       'CNY': '¥',
       'KM': 'KM',
-      // 添加更多货币符号
+      'RM': 'RM',
+      'AZN': '₼',
+      'ALL': 'Lek',
+      'INR': '₹',
+      'MXN': 'Mex$',
+      'BRL': 'R$',
+      'TRY': '₺',
+      'ZAR': 'R',
+      'SGD': 'S$',
+      'NZD': 'NZ$',
+      'CHF': 'CHF',
+      'HKD': 'HK$',
+      'SEK': 'kr',
+      'NOK': 'kr',
+      'DKK': 'kr',
+      'PLN': 'zł',
+      'RUB': '₽',
+      'AED': 'د.إ',
+      'SAR': '﷼',
+      'm': 'm.',
+      // 添加更多货币符号 - 2024年6月更新
     }
   };
   
   // 获取当前货币
   window.getCurrentCurrency = function() {
-    return Shopify && Shopify.currency ? Shopify.currency.active : '{{ cart.currency.iso_code | default: shop.currency }}';
+    // 尝试多种方法获取正确的货币代码
+    
+    // 方法1：从Shopify对象中获取
+    if (Shopify && Shopify.currency && Shopify.currency.active) {
+      console.log('Currency from Shopify.currency.active: ' + Shopify.currency.active);
+      return Shopify.currency.active;
+    }
+    
+    // 方法2：从页面上的货币选择器中获取
+    const currencySelector = document.querySelector('[data-currency-selector], .currency-selector, .currency-form select');
+    if (currencySelector && currencySelector.value) {
+      console.log('Currency from currency selector: ' + currencySelector.value);
+      return currencySelector.value;
+    }
+    
+    // 方法3：尝试从货币元素中提取
+    const currencyElements = document.querySelectorAll('.currency-code, .currency, [data-currency]');
+    for (let i = 0; i < currencyElements.length; i++) {
+      const el = currencyElements[i];
+      const currencyCode = el.getAttribute('data-currency') || el.textContent.trim();
+      if (currencyCode && currencyCode.length === 3) {
+        console.log('Currency from currency element: ' + currencyCode);
+        return currencyCode;
+      }
+    }
+    
+    // 方法4：尝试从价格元素中提取货币代码
+    const priceElement = document.querySelector('.money, .price');
+    if (priceElement) {
+      const priceText = priceElement.textContent.trim();
+      // 如果价格文本以"Lek"开头，则可能是阿尔巴尼亚列克
+      if (priceText.startsWith('Lek')) {
+        console.log('Currency detected as ALL from price text');
+        return 'ALL';
+      }
+    }
+    
+    // 回退到默认值
+    const defaultCurrency = '{{ cart.currency.iso_code | default: shop.currency }}';
+    console.log('Falling back to default currency: ' + defaultCurrency);
+    return defaultCurrency;
   };
   
   // 获取当前货币符号
   window.getCurrentCurrencySymbol = function() {
     const currency = window.getCurrentCurrency();
+    
+    // 首先尝试从Shopify本身获取符号
+    if (Shopify && Shopify.currency && Shopify.currency.active && Shopify.formatMoney) {
+      // 使用Shopify的formatMoney函数来获取当前符号
+      const formatted = Shopify.formatMoney(100);
+      // 提取数字前面的符号
+      const symbol = formatted.match(/^([^\d]+)/);
+      if (symbol && symbol[1]) {
+        // 过滤并净化符号（删除任何不应该是货币符号的部分）
+        const cleanSymbol = symbol[1].trim();
+        // 如果清理后的符号看起来像一个正常的货币符号，使用它
+        if (cleanSymbol && cleanSymbol.length < 5) {
+          return cleanSymbol;
+        }
+      }
+    }
+    
+    // 从Shopify全局变量中获取货币符号
+    if (Shopify && Shopify.currency) {
+      // 尝试使用货币代码获取符号
+      const currencyCode = Shopify.currency.active || currency;
+      
+      // 如果在我们的映射中有这个货币，使用它
+      if (window.currencyConfig.currencySymbols[currencyCode]) {
+        return window.currencyConfig.currencySymbols[currencyCode];
+      }
+    }
+    
+    // 最后回退到预定义的符号映射或默认美元符号
     return window.currencyConfig.currencySymbols[currency] || '$';
   };
   
   // 将任意货币金额转换为USD (输入cents)
   window.convertToUSD = function(amount, fromCurrency) {
+    // 如果输入是0或者无效，直接返回0
+    if (!amount || isNaN(amount) || amount <= 0) {
+      return 0;
+    }
+  
     const currency = fromCurrency || window.getCurrentCurrency();
-    const rate = window.currencyConfig.currencyRates[currency] || 1.0;
-    // 先转换为美元金额 (dollars)
-    return (amount / 100) / rate;
+    
+    // 如果已经是USD，简单地转换
+    if (currency === 'USD') {
+      return amount / 100; // 直接从分转换为美元
+    }
+    
+    // 记录实际的货币代码供调试
+    console.log('convertToUSD: Currency code = ' + currency);
+    
+    // 对于非美元货币，使用汇率转换
+    let rate = window.currencyConfig.currencyRates[currency];
+    let usedCurrency = currency;
+    
+    // 如果找不到汇率，尝试查找不区分大小写的匹配
+    if (!rate) {
+      // 尝试查找大写版本
+      const upperCaseCurrency = currency.toUpperCase();
+      rate = window.currencyConfig.currencyRates[upperCaseCurrency];
+      if (rate) usedCurrency = upperCaseCurrency;
+      
+      // 如果还是找不到，尝试查找首字母小写版本
+      if (!rate) {
+        const lowerCaseCurrency = currency.toLowerCase();
+        rate = window.currencyConfig.currencyRates[lowerCaseCurrency];
+        if (rate) usedCurrency = lowerCaseCurrency;
+      }
+    }
+    
+    // 特殊情况：检测阿尔巴尼亚列克
+    if (!rate && (currency === 'ALL' || currency === 'Lek' || /Lek/i.test(currency))) {
+      console.log('Detected Albanian Lek currency');
+      rate = window.currencyConfig.currencyRates['ALL'];
+      usedCurrency = 'ALL';
+    }
+    
+    // 特殊情况：检测其他常见货币名称
+    if (!rate) {
+      // 尝试从货币符号或名称中识别
+      const currencyLower = currency.toLowerCase();
+      
+      if (currencyLower.includes('euro') || currencyLower === '€') {
+        rate = window.currencyConfig.currencyRates['EUR'];
+        usedCurrency = 'EUR';
+      } else if (currencyLower.includes('pound') || currencyLower.includes('gbp') || currencyLower === '£') {
+        rate = window.currencyConfig.currencyRates['GBP'];
+        usedCurrency = 'GBP';
+      } else if (currencyLower.includes('yen') || currencyLower === '¥') {
+        rate = window.currencyConfig.currencyRates['JPY'];
+        usedCurrency = 'JPY';
+      } else if (currencyLower.includes('yuan') || currencyLower.includes('rmb')) {
+        rate = window.currencyConfig.currencyRates['CNY'];
+        usedCurrency = 'CNY';
+      }
+    }
+    
+    // 如果仍然找不到汇率，使用默认值1.0
+    if (!rate) {
+      console.warn('No exchange rate found for currency: ' + currency + ', using default rate 1.0');
+      rate = 1.0;
+    }
+    
+    // 使用直接比率 - 当前货币到USD的转换率
+    const result = (amount / 100) * (1 / rate);
+    
+    // 记录转换过程供调试
+    console.log('convertToUSD: ' + amount + ' ' + usedCurrency + ' = ' + result + ' USD (rate: ' + rate + ')');
+    
+    return result;
   };
   
   // 将USD金额转换为当前货币 (返回cents)
   window.convertFromUSD = function(usdAmount, toCurrency) {
+    // 如果输入是0或者无效，直接返回0
+    if (!usdAmount || isNaN(usdAmount) || usdAmount <= 0) {
+      return 0;
+    }
+    
     const currency = toCurrency || window.getCurrentCurrency();
-    const rate = window.currencyConfig.currencyRates[currency] || 1.0;
+    
+    // 记录实际的货币代码供调试
+    console.log('convertFromUSD: Target currency code = ' + currency);
+    
+    if (currency === 'USD') {
+      return usdAmount * 100; // 直接从美元转换为分
+    }
+    
+    // 对于非美元货币，使用汇率转换
+    let rate = window.currencyConfig.currencyRates[currency];
+    let usedCurrency = currency;
+    
+    // 如果找不到汇率，尝试查找不区分大小写的匹配
+    if (!rate) {
+      // 尝试查找大写版本
+      const upperCaseCurrency = currency.toUpperCase();
+      rate = window.currencyConfig.currencyRates[upperCaseCurrency];
+      if (rate) usedCurrency = upperCaseCurrency;
+      
+      // 如果还是找不到，尝试查找首字母小写版本
+      if (!rate) {
+        const lowerCaseCurrency = currency.toLowerCase();
+        rate = window.currencyConfig.currencyRates[lowerCaseCurrency];
+        if (rate) usedCurrency = lowerCaseCurrency;
+      }
+    }
+    
+    // 特殊情况：检测阿尔巴尼亚列克
+    if (!rate && (currency === 'ALL' || currency === 'Lek' || /Lek/i.test(currency))) {
+      console.log('Detected Albanian Lek currency for conversion');
+      rate = window.currencyConfig.currencyRates['ALL'];
+      usedCurrency = 'ALL';
+    }
+    
+    // 特殊情况：检测其他常见货币名称
+    if (!rate) {
+      // 尝试从货币符号或名称中识别
+      const currencyLower = currency.toLowerCase();
+      
+      if (currencyLower.includes('euro') || currencyLower === '€') {
+        rate = window.currencyConfig.currencyRates['EUR'];
+        usedCurrency = 'EUR';
+      } else if (currencyLower.includes('pound') || currencyLower.includes('gbp') || currencyLower === '£') {
+        rate = window.currencyConfig.currencyRates['GBP'];
+        usedCurrency = 'GBP';
+      } else if (currencyLower.includes('yen') || currencyLower === '¥') {
+        rate = window.currencyConfig.currencyRates['JPY'];
+        usedCurrency = 'JPY';
+      } else if (currencyLower.includes('yuan') || currencyLower.includes('rmb')) {
+        rate = window.currencyConfig.currencyRates['CNY'];
+        usedCurrency = 'CNY';
+      } else if (currencyLower.includes('rupee') || currencyLower === '₹') {
+        rate = window.currencyConfig.currencyRates['INR']; 
+        usedCurrency = 'INR';
+      } else if (currencyLower.includes('real') || currencyLower === 'r$') {
+        rate = window.currencyConfig.currencyRates['BRL'];
+        usedCurrency = 'BRL';
+      }
+    }
+    
+    // 如果仍然找不到汇率，使用默认值1.0
+    if (!rate) {
+      console.warn('No exchange rate found for currency: ' + currency + ', using default rate 1.0');
+      rate = 1.0;
+    }
+    
     // 转换为当前货币的分 (cents)
-    return usdAmount * rate * 100;
+    const result = usdAmount * rate * 100;
+    
+    // 记录转换过程供调试
+    console.log('convertFromUSD: ' + usdAmount + ' USD = ' + (result/100) + ' ' + usedCurrency + ' (' + result + ' cents, rate: ' + rate + ')');
+    
+    return result;
   };
   
   // 格式化USD金额为美元字符串
@@ -1537,8 +1808,24 @@
   // 格式化金额为当前货币字符串
   window.formatCurrentCurrency = function(amount) {
     const currency = window.getCurrentCurrency();
-    const symbol = window.currencyConfig.currencySymbols[currency] || '$';
+    const symbol = window.getCurrentCurrencySymbol();
     
+    console.log('Formatting amount: ' + amount + ' for currency: ' + currency + ' with symbol: ' + symbol);
+    
+    // 特殊处理阿尔巴尼亚列克
+    if (currency === 'ALL' || /Lek/i.test(currency)) {
+      return 'Lek ' + parseFloat(amount).toFixed(2);
+    }
+    
+    // 首先尝试使用Shopify的formatMoney，但不用于进度条显示
+    // 因为这会覆盖原始货币符号，仅用于内部计算
+    if (typeof Shopify !== 'undefined' && Shopify.formatMoney && window.isInternalFormatting !== true) {
+      // 将金额转换为分
+      const cents = Math.round(amount * 100);
+      return Shopify.formatMoney(cents);
+    }
+    
+    // 备用格式化逻辑
     // 根据货币调整格式
     if (currency === 'JPY') {
       // 日元不使用小数点
@@ -1547,6 +1834,80 @@
       return symbol + parseFloat(amount).toFixed(2);
     }
   };
+  
+  // 执行初始化调试
+  window.currencyConfig.debug();
+  
+  // 监听货币变化并更新购物车显示
+  document.addEventListener('DOMContentLoaded', function() {
+    // 检查是否存在货币选择器
+    const currencySelectors = document.querySelectorAll('.currency-selector, [data-currency-selector], .localization-form__select');
+    
+    if (currencySelectors.length) {
+      currencySelectors.forEach(selector => {
+        selector.addEventListener('change', function() {
+          // 当货币变化时，延迟一会再更新购物车显示，确保Shopify已更新货币
+          setTimeout(function() {
+            // 尝试获取Vue实例并更新免运费进度条
+            const drawerInstance = getDrawerVueInstance();
+            if (drawerInstance && drawerInstance.cart) {
+              // 使用更新后的货币刷新显示
+              if (typeof drawerInstance.getShippingProgressPercentage === 'function') {
+                const percentage = drawerInstance.getShippingProgressPercentage();
+                const progressBarFill = document.querySelector('.shipping-progress-bar__fill');
+                if (progressBarFill) {
+                  progressBarFill.style.width = percentage + '%';
+                }
+              }
+              
+              // 更新文本显示
+              if (typeof drawerInstance.isEligibleForFreeShipping === 'function') {
+                const isEligible = drawerInstance.isEligibleForFreeShipping();
+                const successContainer = document.querySelector('.shipping-progress-success-container');
+                const remainingContainer = document.querySelector('.shipping-progress-text:not(.shipping-progress-success-container)');
+                
+                if (isEligible) {
+                  if (successContainer) successContainer.style.display = 'block';
+                  if (remainingContainer) remainingContainer.style.display = 'none';
+                } else {
+                  if (successContainer) successContainer.style.display = 'none';
+                  if (remainingContainer) remainingContainer.style.display = 'block';
+                  
+                  // 更新剩余金额
+                  const remainingAmount = document.querySelector('.shipping-progress-remaining');
+                  if (remainingAmount && typeof drawerInstance.getRemainingAmountForFreeShipping === 'function') {
+                    remainingAmount.innerHTML = drawerInstance.getRemainingAmountForFreeShipping();
+                  }
+                }
+              }
+            }
+          }, 300);
+        });
+      });
+    }
+    
+    // 如果网站使用自定义的货币切换器，尝试监听可能的DOM变化
+    const currencyObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && (mutation.attributeName === 'data-currency' || mutation.attributeName === 'class')) {
+          // 可能的货币变化，尝试更新显示
+          setTimeout(function() {
+            const drawerInstance = getDrawerVueInstance();
+            if (drawerInstance && drawerInstance.cart) {
+              // 刷新免运费进度条
+              updateShippingProgressBar(drawerInstance.cart);
+            }
+          }, 300);
+        }
+      });
+    });
+    
+    // 尝试观察可能包含货币信息的元素
+    const currencyElements = document.querySelectorAll('body, .currency-selector-wrapper, .localization-form');
+    currencyElements.forEach(function(element) {
+      currencyObserver.observe(element, { attributes: true, subtree: true });
+    });
+  });
 </script>
 
 <!-- 修复View options按钮行为 -->
@@ -1666,7 +2027,7 @@
                         {% assign threshold_message = settings.free_shipping_threshold_message %}
                         {{ threshold_message | replace: '[amount]', '<span class="shipping-progress-remaining" v-html="getRemainingAmountForFreeShipping()"></span>' }}
                       {% else %}
-                        Buy <span class="shipping-progress-remaining" v-html="getRemainingAmountForFreeShipping()"></span> more to enjoy FREE Shipping
+                        <span class="free-shipping-message">Add <span class="shipping-progress-remaining" v-html="getRemainingAmountForFreeShipping()"></span> to get FREE Shipping</span>
                       {% endif %}
                     </div>
                   </div>
@@ -2401,11 +2762,6 @@
       setTimeout(function () {
         const drawerInstance = getDrawerVueInstance();
         if (drawerInstance) {
-          // Add the free shipping threshold to the Vue instance
-          drawerInstance.freeShippingThreshold = freeShippingThreshold;
-  
-          // 添加多货币支持的方法
-          
           // 检查是否符合免运费条件
           drawerInstance.isEligibleForFreeShipping = function() {
             if (!this.cart) return false;
@@ -2415,6 +2771,27 @@
             
             // 将购物车金额转换为美元
             const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
+            
+            // 保存在商店中用于调试
+            if (!window.cartConversionDebug) {
+              window.cartConversionDebug = {};
+            }
+            
+            window.cartConversionDebug = {
+              currency: currentCurrency,
+              originalAmount: cartTotal,
+              usdAmount: cartTotalUSD,
+              threshold: window.currencyConfig.freeShippingThresholdUSD,
+              isEligible: cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD,
+              timestamp: new Date().toISOString()
+            };
+            
+            // 为调试目的，记录关键值
+            console.log('Currency:', currentCurrency);
+            console.log('Cart Total (original):', cartTotal);
+            console.log('Cart Total in USD:', cartTotalUSD);
+            console.log('Free Shipping Threshold USD:', window.currencyConfig.freeShippingThresholdUSD);
+            console.log('Is Eligible:', cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD);
             
             // 与美元阈值比较
             return cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD;
@@ -2429,23 +2806,52 @@
                 window.getCurrentCurrency()
               ) / 100; // 转换为当前货币金额
               
-              return window.formatCurrentCurrency(thresholdInCurrentCurrency);
+              // 标记这是用于进度条显示，不应该覆盖原始货币符号
+              window.isInternalFormatting = true;
+              const formatted = window.formatCurrentCurrency(thresholdInCurrentCurrency);
+              window.isInternalFormatting = false;
+              return formatted;
             }
             
             const cartTotal = this.cart.total_price || 0;
             const currentCurrency = window.getCurrentCurrency();
             
+            // 记录原始数据供调试
+            console.log('Cart total in current currency: ' + cartTotal + ' ' + currentCurrency);
+            
             // 将购物车金额转换为美元
             const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
+            console.log('Cart total in USD: ' + cartTotalUSD);
+            console.log('Free shipping threshold in USD: ' + window.currencyConfig.freeShippingThresholdUSD);
             
             // 计算还差多少美元
             const remainingUSD = Math.max(0, window.currencyConfig.freeShippingThresholdUSD - cartTotalUSD);
+            console.log('Remaining amount in USD: ' + remainingUSD);
             
             // 转换回当前货币
-            const remainingCurrentCurrency = window.convertFromUSD(remainingUSD, currentCurrency) / 100;
+            const remainingCents = window.convertFromUSD(remainingUSD, currentCurrency);
+            console.log('Remaining amount in current currency (cents): ' + remainingCents);
             
-            // 格式化为当前货币字符串
-            return window.formatCurrentCurrency(remainingCurrentCurrency);
+            const remainingCurrentCurrency = remainingCents / 100;
+            console.log('Remaining amount in current currency: ' + remainingCurrentCurrency);
+            
+            // 特殊处理阿尔巴尼亚列克
+            if (currentCurrency === 'ALL' || /Lek/i.test(currentCurrency)) {
+              console.log('Using special format for Albanian Lek');
+              return 'Lek ' + parseFloat(remainingCurrentCurrency).toFixed(2);
+            }
+            
+            // 标记这是用于进度条显示，不应该覆盖原始货币符号
+            window.isInternalFormatting = true;
+            
+            // 使用我们自己的格式化函数，确保不覆盖原始货币符号
+            console.log('Using our own formatCurrentCurrency for formatting');
+            const result = window.formatCurrentCurrency(remainingCurrentCurrency);
+            
+            // 取消标记
+            window.isInternalFormatting = false;
+            
+            return result;
           };
           
           // 计算进度条百分比(基于美元)
@@ -2458,8 +2864,17 @@
             // 将购物车金额转换为美元
             const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
             
+            // 记录转换计算的详细日志
+            console.log('Progress calculation:');
+            console.log('- Cart total in ' + currentCurrency + ': ' + cartTotal + ' cents');
+            console.log('- Cart total in USD: $' + cartTotalUSD.toFixed(2));
+            console.log('- Free shipping threshold: $' + window.currencyConfig.freeShippingThresholdUSD.toFixed(2));
+            
             // 计算百分比(最大100%)
-            return Math.min(100, (cartTotalUSD / window.currencyConfig.freeShippingThresholdUSD) * 100);
+            const percentage = Math.min(100, (cartTotalUSD / window.currencyConfig.freeShippingThresholdUSD) * 100);
+            console.log('- Progress percentage: ' + percentage.toFixed(2) + '%');
+            
+            return percentage;
           };
   
           // Add submitCheckout method to handle checkout button click
