@@ -128,7 +128,7 @@ Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
       <div class="bottom-purchase-info__image">
         <img src="{{ product.selected_or_first_available_variant.featured_media | default: product.featured_media | img_url: '120x' }}"
           alt="{{ product.title | escape }}" class="js-bottom-variant-image" data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-          width="70" height="70" loading="lazy" fetchpriority="low" onerror="this.onerror=null;this.src='//cdn.shopify.com/s/assets/admin/no-image-medium-cc9732cb976dd349a0df1d39816fbcc7.gif'">
+          width="70" height="70">
       </div>
       <div class="bottom-purchase-info__content">
         <h3 class="bottom-purchase-info__title">{{ product.title | escape }}</h3>
