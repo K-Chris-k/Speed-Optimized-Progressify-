@@ -594,26 +594,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // 查找所有具有类名 "page-width col-md-12" 的元素
     var elements = document.querySelectorAll(".homepage-gallery-grid-inner.info-below-image");
 
-    // 添加点击事件处理程序到每个找到的元素
     elements.forEach(function(element) {
       element.addEventListener("click", function(event) {
-        event.preventDefault(); // 阻止默认的链接跳转行为
+        event.preventDefault();
 
-        // 获取目标元素的ID
         var targetId = "globo-formbuilder-20655"; // 目标元素的ID
 
-        // 查找目标元素
         var targetElement = document.getElementById(targetId);
 
-        // 检查是否找到了目标元素
+
         if (targetElement) {
-          // 获取目标元素的顶部位置
+
           var targetTop = targetElement.getBoundingClientRect().top;
 
-          // 计算滚动位置，考虑目标元素在页面上方的距离
+
           var scrollToPosition = window.scrollY + targetTop - 150;
 
-          // 平滑滚动到计算出的位置
           window.scrollTo({
             top: scrollToPosition,
             behavior: "smooth"
@@ -696,15 +692,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 {% render 'footer-scripts' %}
   
-  <!-- 确保底部购买栏脚本在所有页面上正确加载 -->
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 检查是否在产品页面
+
       const isProductPage = document.body.classList.contains('template-product') || 
                           window.location.pathname.includes('/products/');
       
       if (isProductPage) {
-        // 确保底部购买栏显示
+
         const bottomBar = document.querySelector('.bottom-purchase-info');
         if (bottomBar) {
           bottomBar.classList.add('is-visible');
@@ -713,7 +709,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('底部购买栏元素未找到');
         }
         
-        // 确保页面有足够的底部填充，以防止内容被底部栏遮挡
+
         const mainContent = document.querySelector('main') || document.querySelector('#MainContent');
         if (mainContent) {
           mainContent.style.paddingBottom = '70px';
