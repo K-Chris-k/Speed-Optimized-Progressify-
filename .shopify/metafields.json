@@ -158,6 +158,16 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "coffee-tea-set-pieces-included",
+      "namespace": "shopify",
+      "name": "Coffee/Tea set pieces included",
+      "description": "Details the individual items within a coffee or tea set, like cups and saucers",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
