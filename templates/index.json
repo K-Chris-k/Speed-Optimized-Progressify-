@@ -31,6 +31,7 @@
         },
         "image_jpjDrx": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Hip_flask_shot_glasses_bundle_2_cdd37438-c3f3-4c37-a077-458d840d9579.png",
             "mobile_image": "shopify://shop_images/Stove_cup_kit_2.png",
@@ -340,6 +341,22 @@
         "button-background": "#000000"
       }
     },
+    "fat_tire_banner_qVdkAR": {
+      "type": "fat-tire-banner",
+      "disabled": true,
+      "custom_css": [
+        "div {padding: 0px 0px 0px 0px;}"
+      ],
+      "name": "Fat Tire Banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Why_SilverAnt_2_dec7d2c4-ad39-4c19-b715-cc9f20e75f5f.png",
+        "mobile_image": "shopify://shop_images/Why_SilverAnt_2_ea10d2e8-90f6-4dab-b0db-9c543e1a3745.png",
+        "heading": "",
+        "subheading": "",
+        "heading_color": "#ffffff",
+        "subheading_color": "#ffffff"
+      }
+    },
     "1628585461cbddcdb9": {
       "type": "collection--collection-list",
       "blocks": {
@@ -403,23 +420,6 @@
         "remove-spacing": false,
         "section-width": "full",
         "content-position": "below-image"
-      }
-    },
-    "collection-featured-collection-1": {
-      "type": "collection--featured-collection",
-      "disabled": true,
-      "settings": {
-        "colors": "white",
-        "title": "Ultralight Titanium Camping Cookware",
-        "richtext": "<p>Cook up a gourmet meal at the campsite, or boil your dehydrated food bag with any of SilverAnt's titanium camping cookware pots, pans, or kettles.</p>",
-        "collection": "titanium-camping-cookware",
-        "grid-desktop": 4,
-        "grid-tablet": 2,
-        "grid-mobile": 2,
-        "rows": 1,
-        "hover-effect": true,
-        "show-vendor": false,
-        "show_view_all": true
       }
     },
     "1628585681433938e6": {
@@ -795,8 +795,8 @@
     "1628585507e0d6e3a0",
     "72005107-2e2e-403f-ae5b-093dcbf049f1",
     "1628585721a8b1b9a7",
+    "fat_tire_banner_qVdkAR",
     "1628585461cbddcdb9",
-    "collection-featured-collection-1",
     "1628585681433938e6",
     "1628585918569b36f8",
     "1654152249fa522a20",

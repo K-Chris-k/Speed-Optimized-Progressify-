@@ -225,17 +225,17 @@
         },
         "text_block_XWgBGq": {
           "type": "text_block",
-          "disabled": true,
           "settings": {
-            "title": "Example title",
-            "acronyms": "Example title",
-            "ins_url": "",
-            "ins": "Author Link",
-            "share_url": "",
-            "more": "Button Label",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products.</p>",
+            "image": "shopify://shop_images/image0_1.jpg",
+            "title": "Gonzo Wild Camping",
+            "acronyms": "Wild Camper | Bushman | Chef | Filmmaker",
+            "ins_url": "https://www.instagram.com/gonzowildcamping/",
+            "ins": "@gonzowildcamping",
+            "share_url": "https://www.youtube.com/@gonzowildcamping",
+            "more": "Learn More",
+            "text": "<p>Born in the north of the United Kingdom, Mark was fortunate enough to be surrounded by a multitude of outdoor environments. From dramatic coastlines, rolling hills, ancient woodlands, and vast moorland, it was inevitable that he would grow a thirst for the outdoors.<br/>Mark was greatly influenced by his father, who grew up with the old Yorkshire ways and imparted some of his considerable knowledge to Mark, sparking a love of not only nature but of a more peaceful time.<br/>Mark has since become an avid wild camper, with a sprinkle of bushcraft in the mix.  He has a real passion for not only cooking amazing meals outside, but also to help encourage others to cook as well. “A great meal makes a great camp even better” is somewhat of a motto, and sharing food with friends is always a great feeling.<br/>Another passion of Mark's is filmmaking. His wild camping videos on YouTube have a style not found elsewhere in the community. His creative editing, combined with careful music selection, gives each video its own distinctive view of nature.</p>",
             "button_label": "",
-            "button_link": "",
+            "button_link": "https://www.youtube.com/@gonzowildcamping",
             "code": ""
           }
         }
