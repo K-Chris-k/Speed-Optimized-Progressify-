@@ -77,10 +77,19 @@
         },
         "46a68c53-9aaa-404f-8759-76be46d7045b": {
           "type": "trust_badges",
-          "disabled": true,
           "settings": {
-            "trust-badge_max_width": 500,
-            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
+            "discount_title": "Buy More, Save More",
+            "option_1_name": "One",
+            "option_1_qty": 1,
+            "option_1_discount": 0,
+            "option_2_name": "Two",
+            "option_2_qty": 2,
+            "option_2_discount": 10,
+            "option_4_name": "Four",
+            "option_4_qty": 4,
+            "option_4_discount": 20,
+            "show_best_value": true,
+            "best_value_text": "Best Value"
           }
         },
         "69de8680-44b2-42ab-8b77-2a049ccd2f20": {
@@ -420,6 +429,54 @@
         "circle_images": true,
         "title": "Testimonials"
       }
+    },
+    "ugc_carousel_LF9zfa": {
+      "type": "ugc-carousel",
+      "blocks": {
+        "image_qxe6BC": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_kwqwQc": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_tgmUNC": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_PkqVYQ": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "alt": "Customer Image"
+          }
+        }
+      },
+      "block_order": [
+        "image_qxe6BC",
+        "image_kwqwQc",
+        "image_tgmUNC",
+        "image_PkqVYQ"
+      ],
+      "disabled": true,
+      "name": "UGC Carousel",
+      "settings": {
+        "heading": "Trusted by Real Adventurers Everywhere",
+        "subheading": "Real customer photos",
+        "footer_text": "Real customers. Real gear. Real adventures.",
+        "scroll_speed": 30,
+        "background_color": "#fafafa"
+      }
     }
   },
   "order": [
@@ -436,6 +493,7 @@
     "16544961157403b632",
     "proviews_review_widget_1685971421918",
     "advanced_layout_custom_liquid_3DzKk8",
-    "about_logo_swiper_dVMXqk"
+    "about_logo_swiper_dVMXqk",
+    "ugc_carousel_LF9zfa"
   ]
 }

@@ -1483,10 +1483,7 @@
       
       // 记录货币配置启动
       debug: function() {
-        console.log('Currency configuration initialized');
-        console.log('Base currency: ' + this.baseCurrency);
-        console.log('Free shipping threshold: $' + this.freeShippingThresholdUSD);
-        
+        // Debug function disabled to prevent console logging
         if (Shopify && Shopify.currency) {
         }
       },
@@ -1615,14 +1612,12 @@
       
       // 方法1：从Shopify对象中获取
       if (Shopify && Shopify.currency && Shopify.currency.active) {
-        console.log('Currency from Shopify.currency.active: ' + Shopify.currency.active);
         return Shopify.currency.active;
       }
       
       // 方法2：从页面上的货币选择器中获取
       const currencySelector = document.querySelector('[data-currency-selector], .currency-selector, .currency-form select');
       if (currencySelector && currencySelector.value) {
-        console.log('Currency from currency selector: ' + currencySelector.value);
         return currencySelector.value;
       }
       
@@ -1632,7 +1627,6 @@
         const el = currencyElements[i];
         const currencyCode = el.getAttribute('data-currency') || el.textContent.trim();
         if (currencyCode && currencyCode.length === 3) {
-          console.log('Currency from currency element: ' + currencyCode);
           return currencyCode;
         }
       }
@@ -1649,7 +1643,6 @@
       
       // 回退到默认值
       const defaultCurrency = '{{ cart.currency.iso_code | default: shop.currency }}';
-      console.log('Falling back to default currency: ' + defaultCurrency);
       return defaultCurrency;
     };
     
@@ -1702,7 +1695,6 @@
         return amount / 100; // 直接从分转换为美元
       }
       
-     
       // 对于非美元货币，使用汇率转换
       let rate = window.currencyConfig.currencyRates[currency];
       let usedCurrency = currency;
@@ -1766,9 +1758,6 @@
       
       const currency = toCurrency || window.getCurrentCurrency();
       
-      // 记录实际的货币代码供调试
-      console.log('convertFromUSD: Target currency code = ' + currency);
-      
       if (currency === 'USD') {
         return usdAmount * 100; // 直接从美元转换为分
       }
@@ -1794,7 +1783,6 @@
       
       // 特殊情况：检测阿尔巴尼亚列克
       if (!rate && (currency === 'ALL' || currency === 'Lek' || /Lek/i.test(currency))) {
-        console.log('Detected Albanian Lek currency for conversion');
         rate = window.currencyConfig.currencyRates['ALL'];
         usedCurrency = 'ALL';
       }
@@ -1827,15 +1815,11 @@
       
       // 如果仍然找不到汇率，使用默认值1.0
       if (!rate) {
-        console.warn('No exchange rate found for currency: ' + currency + ', using default rate 1.0');
         rate = 1.0;
       }
       
       // 转换为当前货币的分 (cents)
       const result = usdAmount * rate * 100;
-      
-      // 记录转换过程供调试
-      console.log('convertFromUSD: ' + usdAmount + ' USD = ' + (result/100) + ' ' + usedCurrency + ' (' + result + ' cents, rate: ' + rate + ')');
       
       return result;
     };
@@ -1849,8 +1833,6 @@
     window.formatCurrentCurrency = function(amount) {
       const currency = window.getCurrentCurrency();
       const symbol = window.getCurrentCurrencySymbol();
-      
-      console.log('Formatting amount: ' + amount + ' for currency: ' + currency + ' with symbol: ' + symbol);
       
       // 特殊处理阿尔巴尼亚列克
       if (currency === 'ALL' || /Lek/i.test(currency)) {
@@ -2002,7 +1984,7 @@
             }
           });
   
-          console.log('View options button behavior fixed');
+
         }
       }, 1000);
     });
@@ -2823,13 +2805,6 @@
                 timestamp: new Date().toISOString()
               };
               
-              // 为调试目的，记录关键值
-              console.log('Currency:', currentCurrency);
-              console.log('Cart Total (original):', cartTotal);
-              console.log('Cart Total in USD:', cartTotalUSD);
-              console.log('Free Shipping Threshold USD:', window.currencyConfig.freeShippingThresholdUSD);
-              console.log('Is Eligible:', cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD);
-              
               // 与美元阈值比较
               return cartTotalUSD >= window.currencyConfig.freeShippingThresholdUSD;
             };
@@ -2853,28 +2828,19 @@
               const cartTotal = this.cart.total_price || 0;
               const currentCurrency = window.getCurrentCurrency();
               
-              // 记录原始数据供调试
-              console.log('Cart total in current currency: ' + cartTotal + ' ' + currentCurrency);
-              
               // 将购物车金额转换为美元
               const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
-              console.log('Cart total in USD: ' + cartTotalUSD);
-              console.log('Free shipping threshold in USD: ' + window.currencyConfig.freeShippingThresholdUSD);
               
               // 计算还差多少美元
               const remainingUSD = Math.max(0, window.currencyConfig.freeShippingThresholdUSD - cartTotalUSD);
-              console.log('Remaining amount in USD: ' + remainingUSD);
               
               // 转换回当前货币
               const remainingCents = window.convertFromUSD(remainingUSD, currentCurrency);
-              console.log('Remaining amount in current currency (cents): ' + remainingCents);
               
               const remainingCurrentCurrency = remainingCents / 100;
-              console.log('Remaining amount in current currency: ' + remainingCurrentCurrency);
               
               // 特殊处理阿尔巴尼亚列克
               if (currentCurrency === 'ALL' || /Lek/i.test(currentCurrency)) {
-                console.log('Using special format for Albanian Lek');
                 return 'Lek ' + parseFloat(remainingCurrentCurrency).toFixed(2);
               }
               
@@ -2882,7 +2848,6 @@
               window.isInternalFormatting = true;
               
               // 使用我们自己的格式化函数，确保不覆盖原始货币符号
-              console.log('Using our own formatCurrentCurrency for formatting');
               const result = window.formatCurrentCurrency(remainingCurrentCurrency);
               
               // 取消标记
@@ -2901,22 +2866,14 @@
               // 将购物车金额转换为美元
               const cartTotalUSD = window.convertToUSD(cartTotal, currentCurrency);
               
-              // 记录转换计算的详细日志
-              console.log('Progress calculation:');
-              console.log('- Cart total in ' + currentCurrency + ': ' + cartTotal + ' cents');
-              console.log('- Cart total in USD: $' + cartTotalUSD.toFixed(2));
-              console.log('- Free shipping threshold: $' + window.currencyConfig.freeShippingThresholdUSD.toFixed(2));
-              
               // 计算百分比(最大100%)
               const percentage = Math.min(100, (cartTotalUSD / window.currencyConfig.freeShippingThresholdUSD) * 100);
-              console.log('- Progress percentage: ' + percentage.toFixed(2) + '%');
               
               return percentage;
             };
     
             // Add submitCheckout method to handle checkout button click
             drawerInstance.submitCheckout = function () {
-              console.log('Checkout button clicked via Vue method');
     
               // Method 1: Direct form submission
               const form = document.getElementById('CartDrawer-Form');
@@ -3024,7 +2981,7 @@
               initializeCartDrawer();
             }
           } else {
-            console.error('Could not get drawer Vue instance on DOMContentLoaded');
+  
             // 尝试延迟再次初始化
             setTimeout(initializeCartDrawer, 500);
           }
@@ -3037,15 +2994,12 @@
       // Function to update price elements in the cart drawer
       function updateCartPriceElements(cartData) {
         if (!cartData) {
-          console.error('No cart data provided to updateCartPriceElements');
           return;
         }
     
-        try {
+              try {
           // Check if cart is empty
           if (!cartData.item_count || cartData.item_count === 0) {
-            console.log('Cart is empty, updating price elements');
-    
             // Update any subtotal that might show $0.00
             const subtotalElements = document.querySelectorAll('.cart-drawer__subtotal--price-value, .cart-drawer__subtotal--price span:last-child');
             if (subtotalElements.length > 0) {
@@ -3119,7 +3073,7 @@
           // 更新免运费进度条
           updateShippingProgressBar(cartData);
         } catch (error) {
-          console.error('Error in updateCartPriceElements:', error);
+          // Silent error handling to avoid console logs
         }
       }
     
@@ -3438,13 +3392,9 @@
               // Add the updateCartPriceDisplay method if it doesn't exist
               if (drawerInstance && !drawerInstance.updateCartPriceDisplay) {
                 drawerInstance.updateCartPriceDisplay = function () {
-                  // Remove excessive logging
-                  // console.log('Updating cart price display (drawer open)');
                   fetch('/cart.js')
                     .then(res => res.json())
                     .then(cartData => {
-                      // Remove excessive logging
-                      // console.log('Got cart data:', cartData.total_price);
                       this.cart = cartData;
     
                       // Force Vue to update
@@ -3478,24 +3428,22 @@
               fetch('/cart.js')
                 .then(res => res.json())
                 .then(cartData => {
-                  // Remove excessive logging
-                  // console.log('MutationObserver detected changes, updating prices with total:', cartData.total_price);
+                  
                   requestAnimationFrame(() => {
                     updateCartPriceElements(cartData);
                     updateShippingProgressBar(cartData);
                   });
                 })
-                .catch(err => console.error('Error in MutationObserver cart update:', err));
+                .catch(err => {});
             });
     
             // Start observing the cart container for changes
-            observer.observe(cartContainer, {
-              childList: true,
-              subtree: true,
-              characterData: true,
-              attributes: true
-            });
-            console.log('MutationObserver set up for cart container');
+                    observer.observe(cartContainer, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+          attributes: true
+        });
           }
         }, 2000);
     
@@ -3503,8 +3451,7 @@
         document.addEventListener('click', function (e) {
           // Check if the clicked element is a quantity button
           if (e.target.closest('.ajaxcart__qty-adjust') || e.target.closest('.ajaxcart__remove')) {
-            // Remove excessive logging
-            // console.log('Quantity button clicked, will update prices');
+
     
             // Immediate update attempt for better responsiveness
             fetch('/cart.js')
@@ -3523,35 +3470,31 @@
               fetch('/cart.js')
                 .then(res => res.json())
                 .then(cartData => {
-                  // Remove excessive logging
-                  // console.log('Direct event: updating prices with total:', cartData.total_price);
+
                   requestAnimationFrame(() => {
                     updateCartPriceElements(cartData);
                     updateShippingProgressBar(cartData);
                     ensureLastProductVisible(); // Ensure last product is visible
                   });
                 })
-                .catch(err => console.error('Error in direct event cart update:', err));
+                .catch(err => {});
             }, 200);
           }
         });
     
         // Listen for custom cart update events from Shopify
         document.addEventListener('cart:updated', function (event) {
-          console.log('Detected cart:updated event');
           fetch('/cart.js')
             .then(res => res.json())
             .then(cartData => {
-              console.log('Cart event: updating prices with total:', cartData.total_price);
               updateCartPriceElements(cartData);
               updateShippingProgressBar(cartData);
             })
-            .catch(err => console.error('Error in cart event update:', err));
+            .catch(err => {});
         });
     
         // Also listen for the deprecated cart.requestComplete event
         document.addEventListener('cart.requestComplete', function (event) {
-          console.log('Detected cart.requestComplete event');
           if (event.detail && event.detail.cart) {
             updateCartPriceElements(event.detail.cart);
             updateShippingProgressBar(event.detail.cart);
@@ -3562,7 +3505,7 @@
                 updateCartPriceElements(cartData);
                 updateShippingProgressBar(cartData);
               })
-              .catch(err => console.error('Error in cart event update:', err));
+              .catch(err => {});
           }
         });
     
@@ -3778,7 +3721,6 @@
     
               // 开始观察目标节点
               observer.observe(cartContainer, config);
-              console.log('MutationObserver set up for cart container to fix margins and prices');
             }
           }, 1000);
         });
@@ -3890,7 +3832,7 @@
                 footerElement.style.display = '';
               }
             })
-            .catch(err => console.error('Error fixing cart price display:', err));
+            .catch(err => {});
         }
     
         // 在购物车打开时修复价格显示
@@ -4096,7 +4038,7 @@
             event.preventDefault();
             event.stopPropagation();
     
-            console.log('Checkout button clicked');
+
     
             // Get the form
             const form = document.getElementById('CartDrawer-Form');
@@ -4144,7 +4086,7 @@
                   drawerInstance.submitCheckout();
                   return false;
                 } catch (err) {
-                  console.error('Vue checkout method failed:', err);
+    
                 }
               }
     
@@ -4167,7 +4109,7 @@
                   form.submit();
                   return false;
                 } catch (err) {
-                  console.error('Direct form submission failed:', err);
+
                 }
               }
     
@@ -4180,7 +4122,7 @@
                   fallbackForm.submit();
                   return false;
                 } catch (err) {
-                  console.error('Fallback form submission failed:', err);
+
                 }
               }
     
@@ -4212,7 +4154,7 @@
             e.preventDefault();
             e.stopPropagation();
     
-            console.log('Direct checkout button click detected');
+
     
             const form = document.getElementById('CartDrawer-Form');
             if (form) {
@@ -4273,7 +4215,7 @@
           // 直接使用选项中的价格数据更新显示
           updatePriceFromAttributes(card, variantPrice, variantComparePrice);
         } catch (err) {
-          console.error('Error in updateRecommendationVariant:', err);
+
         }
       }
     
@@ -4333,7 +4275,7 @@
             comparePriceElement.style.display = 'none';
           }
         } catch (err) {
-          console.error('Error in updatePriceFromAttributes:', err);
+
         }
       }
     
@@ -4404,7 +4346,7 @@
             comparePriceElement.style.display = 'none';
           }
         } catch (err) {
-          console.error('Error in updatePriceDisplay:', err);
+
         }
       }
     

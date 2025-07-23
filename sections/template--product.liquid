@@ -20,6 +20,294 @@
   .product-medias__thumbnail img{
     height:132px;
   }
+  
+    /* Quantity discount styling */
+  .quantity-discount-container {
+    margin: 20px 0;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .quantity-discount-container {
+      margin: 15px 0;
+      padding: 12px 5px;
+    }
+    .quantity-discount-title {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+  .quantity-discount-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .quantity-discount-title::after {
+    content: "🛒";
+    margin-left: 5px;
+  }
+  .quantity-discount-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .quantity-option {
+    flex: 1;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 20px 15px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .quantity-option.standard-price {
+    background: #f0f0f0;
+  }
+  .quantity-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .quantity-option.selected {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .rapi-bundles__bar-most-popular__content {
+    background-color: var(--bar-most-popular-background-color);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: var(--bar-most-popular-color);
+    /* font-family: inter, sans-serif; */
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 8px;
+    padding: 6px 8px;
+    word-break: break-all;
+    background: #000;
+    color: #fff;
+}.rapi-bundles .rapi-bundles__bar-most-popular--above-title {
+    left: -10px;
+    position: relative;
+    top: unset
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content,.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content.square,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content.square {
+    border-radius: 0;
+    margin: 0
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content.rounded,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content.rounded {
+    border-radius: 8px;
+    margin: 0
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content:after,.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content:before,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content:after,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content:before {
+    content: unset
+}
+
+.rapi-bundles__bar-container .rapi-bundles__bar-most-popular--pill~.rapi-bundles__bar-main,.rapi-bundles__bar-container .rapi-bundles__bar-most-popular--top-bar~.rapi-bundles__bar-main {
+    margin-top: 8px
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular__content {
+    background-color: var(--bar-most-popular-background-color);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: var(--bar-most-popular-color);
+    font-family: inter,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 8px;
+    padding: 6px 8px;
+    word-break: break-all;
+}
+
+
+.rapi-bundles__bar-most-popular.heavy-bundle.rapi-bundles__bar-most-popular--top-bar {
+    margin-bottom: -20px;
+    position: relative;
+    right: 1px;
+    top: -30px;
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular__content:before {
+    border-left: 8px solid transparent;
+    border-left-color: transparent !important;
+    left: 0;
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    content: "";
+    display: block;
+    filter: brightness(.7);
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    background: #000;
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular__content:after {
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+}
+
+.rapi-bundles__bar-most-popular__content:before {
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    content: "";
+    display: block;
+    filter: brightness(.7);
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    border-bottom-color: #000 !important;
+    /* border-right: 8px solid transparent; */
+    /* border-right-color: transparent !important; */
+    /* right: 0; */
+}
+
+.rapi-bundles__bar-most-popular__content:after {
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    content: "";
+    display: block;
+    filter: brightness(.7);
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    border-bottom-color: #000 !important;
+}
+
+
+
+.rapi-bundles__bar-most-popular__content:before {
+    border-left: 8px solid transparent;
+    border-left-color: transparent !important;
+    left: 1px;
+}
+
+.rapi-bundles__bar-most-popular__content:after {
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+}
+  
+  @media screen and (max-width: 767px) {
+    .rapi-bundles__bar-most-popular__content:after {
+
+    right: -6px;
+  }
+
+
+  }
+  .rapi-bundles__bar-most-popular__content:before {
+
+    left: -7px;
+}
+.rapi-bundles__bar-most-popular__content{
+  margin: 0 0px;
+}
+
+  .quantity-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 16px;
+    color: #000;
+
+  }
+  .discount-label {
+    color: #000;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .standard-price-label {
+    color: #000;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .final-price {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .original-price {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+  }
+  .unit-price-container {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #777;
+  }
+
+  .quantity-option.selected {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: rgb(217, 217, 217);
+  }
+
+  @media screen and (max-width: 767px) {
+    .quantity-discount-options {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .quantity-option {
+      flex: 0 0 calc(33.33% - 10px);
+      margin-bottom: 15px;
+      padding: 15px 10px;
+    }
+    .quantity-name {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .final-price {
+      font-size: 16px;
+    }
+    .discount-label {
+      font-size: 14px;
+    }
+    .unit-price-container {
+      font-size: 12px;
+    }
+    .rapi-bundles__bar-most-popular.heavy-bundle.rapi-bundles__bar-most-popular--top-bar{
+      margin-bottom: -20px;
+    position: relative;
+    right: 1px;
+    top: -28px;
+    }
+  }
 </style>
 <div data-wetheme-section-type="template--product" data-wetheme-section-id="{{ section.id }}">
   {% assign pick_an_option = false %}
@@ -265,7 +553,7 @@
                             {% endif %}
 
                           {%- when 'quantity' -%}
-                            <div class="{% if options_block.settings.product_variant_style == 'dropdowns' %}selector-wrapper{% else %}swatches-wrapper{% endif %} {% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12">
+                            <div class="selector-wrapper{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12">
                               <label for="Quantity" class="quantity-selector product-sub-label">
                                 {{- 'products.product.quantity' | t -}}
                               </label>
@@ -315,7 +603,10 @@
                               </noscript>
                             </div>
 
-                          {%- when 'buy_buttons' -%}
+                       
+
+
+                            {%- when 'buy_buttons' -%}
                             <div class="paymentButtonsWrapper">
                               <div id="addtocart"></div>
                               <button
@@ -371,17 +662,188 @@
                             <div class="product-page--local-pickup" v-if="hasLocalPickup" v-html="hasLocalPickup"></div>
 
                           {%- when 'trust_badges' -%}
-                            {% if trust_block.settings['trust-badge'] %}
-                              <span class="trust-badge-container">
-                                {% capture styles %}width: {{ trust_block.settings.trust-badge_max_width | escape }}px{% endcapture %}
-                                {% render 'responsive-image' with trust_block.settings['trust-badge'],
-                                  class: 'trust-badge',
-                                  alt: '',
-                                  blur: false,
-                                  styles: styles
-                                %}
-                              </span>
-                            {% endif %}
+                            <div class="quantity-discount-container" {{ block.shopify_attributes }}>
+                              <div class="quantity-discount-title">{{ block.settings.discount_title }}</div>
+                              <div class="quantity-discount-options">
+                                {% comment %} Option 1 (One) {% endcomment %}
+                                {% assign option_name = 'option_1' %}
+                                {% assign qty_field = option_name | append: '_qty' %}
+                                {% assign discount_field = option_name | append: '_discount' %}
+                                {% assign name_field = option_name | append: '_name' %}
+                                
+                                {% if block.settings[qty_field] > 0 %}
+                                  {% assign quantity = block.settings[qty_field] %}
+                                  {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                                  {% assign total_regular_price = current_variant.price | times: quantity %}
+                                  {% assign discounted_price = total_regular_price %}
+                                  
+                                  <div class="quantity-option standard-price" 
+                                       data-quantity="{{ quantity }}" 
+                                       data-price="{{ discounted_price }}"
+                                       data-unit-price="{{ discounted_price | divided_by: quantity }}">
+                                    
+                                    <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                                    <div class="standard-price-label">Standard Price</div>
+                                    
+                                    <div class="final-price">
+                                      {{ discounted_price | money }}
+                                    </div>
+                                    
+                                    <div class="original-price">
+                                      {{ total_regular_price | money }}
+                                    </div>
+                                    
+                                    <div class="unit-price-container">
+                                      <small>{{ discounted_price | divided_by: quantity | money }} each</small>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                                
+                                {% comment %} Option 2 (Two) {% endcomment %}
+                                {% assign option_name = 'option_2' %}
+                                {% assign qty_field = option_name | append: '_qty' %}
+                                {% assign discount_field = option_name | append: '_discount' %}
+                                {% assign name_field = option_name | append: '_name' %}
+                                
+                                {% if block.settings[qty_field] > 0 %}
+                                  {% assign quantity = block.settings[qty_field] %}
+                                  {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                                  {% assign total_regular_price = current_variant.price | times: quantity %}
+                                  
+                                  {% if discount_percent > 0 %}
+                                    {% assign discount_amount = total_regular_price | times: discount_percent | divided_by: 100 %}
+                                    {% assign discounted_price = total_regular_price | minus: discount_amount %}
+                                  {% else %}
+                                    {% assign discounted_price = total_regular_price %}
+                                  {% endif %}
+                                  
+                                  <div class="quantity-option" 
+                                       data-quantity="{{ quantity }}" 
+                                       data-price="{{ discounted_price }}"
+                                       data-unit-price="{{ discounted_price | divided_by: quantity }}">
+                                    
+                                    <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                                    
+                                    {% if discount_percent > 0 %}
+                                      <div class="discount-label">{{ discount_percent }}% OFF</div>
+                                    {% endif %}
+                                    
+                                    <div class="final-price">
+                                      {{ discounted_price | money }}
+                                    </div>
+                                    
+                                    
+                                    <div class="original-price">
+                                      {% if discount_percent > 0 %}
+                                        {{ total_regular_price | money }}
+                                      {% endif %}
+                                    </div>
+                                    
+                                    <div class="unit-price-container">
+                                      <small>{{ discounted_price | divided_by: quantity | money }} each</small>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                                
+                                {% comment %} Option 3 (Three) - Added missing option {% endcomment %}
+                                <!-- {% assign option_name = 'option_3' %}
+                                {% assign qty_field = option_name | append: '_qty' %}
+                                {% assign discount_field = option_name | append: '_discount' %}
+                                {% assign name_field = option_name | append: '_name' %}
+                                
+                                {% if block.settings[qty_field] > 0 %}
+                                  {% assign quantity = block.settings[qty_field] %}
+                                  {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                                  {% assign total_regular_price = current_variant.price | times: quantity %}
+                                  
+                                  {% if discount_percent > 0 %}
+                                    {% assign discount_amount = total_regular_price | times: discount_percent | divided_by: 100 %}
+                                    {% assign discounted_price = total_regular_price | minus: discount_amount %}
+                                  {% else %}
+                                    {% assign discounted_price = total_regular_price %}
+                                  {% endif %}
+                                  
+                                  <div class="quantity-option" 
+                                       data-quantity="{{ quantity }}" 
+                                       data-price="{{ discounted_price }}"
+                                       data-unit-price="{{ discounted_price | divided_by: quantity }}">
+                                    
+                                    <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                                    
+                                    {% if discount_percent > 0 %}
+                                      <div class="discount-label">{{ discount_percent }}% OFF</div>
+                                    {% endif %}
+                                    
+                                    <div class="final-price">
+                                      {{ discounted_price | money }}
+                                    </div>
+                                    
+                                    <div class="original-price">
+                                      {% if discount_percent > 0 %}
+                                        {{ total_regular_price | money }}
+                                      {% endif %}
+                                    </div>
+                                    
+                                    <div class="unit-price-container">
+                                      <small>{{ discounted_price | divided_by: quantity | money }} each</small>
+                                    </div>
+                                  </div>
+                                {% endif %} -->
+                                
+                                {% comment %} Option 4 (Four) {% endcomment %}
+                                {% assign option_name = 'option_4' %}
+                                {% assign qty_field = option_name | append: '_qty' %}
+                                {% assign discount_field = option_name | append: '_discount' %}
+                                {% assign name_field = option_name | append: '_name' %}
+                                
+                                {% if block.settings[qty_field] > 0 %}
+                                  {% assign quantity = block.settings[qty_field] %}
+                                  {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                                  {% assign total_regular_price = current_variant.price | times: quantity %}
+                                  
+                                  {% if discount_percent > 0 %}
+                                    {% assign discount_amount = total_regular_price | times: discount_percent | divided_by: 100 %}
+                                    {% assign discounted_price = total_regular_price | minus: discount_amount %}
+                                  {% else %}
+                                    {% assign discounted_price = total_regular_price %}
+                                  {% endif %}
+                                  
+                                  <div class="quantity-option{% if block.settings.show_best_value %} best-value{% endif %}" 
+                                       data-quantity="{{ quantity }}" 
+                                       data-price="{{ discounted_price }}"
+                                       data-unit-price="{{ discounted_price | divided_by: quantity }}">
+                                    
+                                    {% if block.settings.show_best_value %}
+                                      <div class="rapi-bundles__bar-most-popular heavy-bundle rapi-bundles__bar-most-popular--top-bar">
+                                        <div class="rapi-bundles__bar-most-popular__content">
+                                          {{ block.settings.best_value_text }}
+                                        </div>
+                                      </div>
+                                    {% endif %}
+                                    
+                                    <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                                    
+                                    {% if discount_percent > 0 %}
+                                      <div class="discount-label">{{ discount_percent }}% OFF</div>
+                                    {% endif %}
+                                    
+                                    <div class="final-price">
+                                      {{ discounted_price | money }}
+                                    </div>
+                                    
+                                    <div class="original-price">
+                                      {% if discount_percent > 0 %}
+                                        {{ total_regular_price | money }}
+                                      {% endif %}
+                                    </div>
+                                    
+                                    <div class="unit-price-container">
+                                      <small>{{ discounted_price | divided_by: quantity | money }} each</small>
+                                    </div>
+                                  </div>
+                                {% endif %}
+                              </div>
+                            </div>
 
                           {%- when 'product_meta' -%}
                             <div class="product__meta">
@@ -519,12 +981,24 @@
                               {% endif %}
                             </div>
 
+
+                            
+                            
+
+
+
+
+
                           {% when 'text-with-icon' %}
                             {% render 'text-with-icon',
                               icon: block.settings.icon,
                               text: block.settings.text,
                               link: block.settings.link
                             %}
+
+
+
+
                         {%- endcase -%}
                       {%- endfor -%}
 
@@ -570,6 +1044,18 @@
       <div class="cross-sell-block" id="cross-sell-{{block.id}}">
         {% render 'cross-sells' with block_settings: block.settings %}
       </div>
+    
+
+      
+
+      
+      <style>
+        .quantity-option.selected {
+          border-color: #000;
+          background: #fff;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+      </style>
   {% endcase %}
 {% endfor %}
 
@@ -984,50 +1470,254 @@
       },
       {
         "type": "trust_badges",
-        "name": "Trust badges",
-        "limit": 1,
+        "name": "Quantity Discount",
         "settings": [
-          {
-            "type": "range",
-            "id": "trust-badge_max_width",
-            "min": 10,
-            "max": 920,
-            "step": 10,
-            "unit": {
-                "en": "px",
-                "de": "px",
-                "es": "px",
-                "fr": "px",
-                "pt-PT": "px"
-            },
-            "label": {
-                "en": "Width",
-                "de": "Breite",
-                "es": "Ancho",
-                "fr": "Largeur",
-                "pt-PT": "Largura"
-            },
-            "default": 260
-          },
-          {
-            "type": "image_picker",
-            "id": "trust-badge",
-            "label": {
-                "en": "Trust badge",
-                "de": "Vertrauenssiegel",
-                "es": "Distintivo de confianza",
-                "fr": "Badge de confiance",
-                "pt-PT": "Crachá de confiança"
-            },
-            "info": {
-                "en": "100 x 300px recommended. [Learn more](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
-                "de": "100 x 300 px empfohlen. [Mehr erfahren](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
-                "es": "Recomendado: 100 x 300px. [Aprenda más](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
-                "fr": "100 x 300 px recommandé. [En savoir plus] (https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
-                "pt-PT": "100 x 300px recomendado. [Saiba mais](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)"
-            }
-          }
-        ]
+    {
+      "type": "text",
+      "id": "discount_title",
+      "label": {
+        "en": "Title",
+        "de": "Titel",
+        "es": "Título", 
+        "fr": "Titre",
+        "pt-PT": "Título",
+        "zh-CN": "标题",
+        "ja": "タイトル"
+      },
+      "default": {
+        "en": "Buy More, Save More 🛒",
+        "de": "Mehr kaufen, mehr sparen 🛒",
+        "es": "Compra más, ahorra más 🛒",
+        "fr": "Achetez plus, économisez plus 🛒",
+        "pt-PT": "Compre mais, economize mais 🛒",
+        "zh-CN": "买更多，省更多 🛒",
+        "ja": "まとめ買いでお得 🛒"
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Option 1",
+        "de": "Option 1",
+        "es": "Opción 1",
+        "fr": "Option 1", 
+        "pt-PT": "Opção 1",
+        "zh-CN": "选项 1",
+        "ja": "オプション 1"
+      }
+    },
+    {
+      "type": "text",
+      "id": "option_1_name",
+      "label": {
+        "en": "Name",
+        "de": "Name",
+        "es": "Nombre",
+        "fr": "Nom",
+        "pt-PT": "Nome",
+        "zh-CN": "名称",
+        "ja": "名前"
+      },
+      "default": {
+        "en": "One",
+        "de": "Eins",
+        "es": "Uno",
+        "fr": "Un",
+        "pt-PT": "Um",
+        "zh-CN": "一个",
+        "ja": "1個"
+      }
+    },
+    {
+      "type": "number",
+      "id": "option_1_qty",
+      "label": {
+        "en": "Quantity",
+        "de": "Menge",
+        "es": "Cantidad",
+        "fr": "Quantité",
+        "pt-PT": "Quantidade",
+        "zh-CN": "数量",
+        "ja": "数量"
+      },
+      "default": 1
+    },
+    {
+      "type": "number",
+      "id": "option_1_discount",
+      "label": {
+        "en": "Discount percentage",
+        "de": "Rabatt in Prozent",
+        "es": "Porcentaje de descuento",
+        "fr": "Pourcentage de remise",
+        "pt-PT": "Percentagem de desconto",
+        "zh-CN": "折扣百分比",
+        "ja": "割引率"
+      },
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Option 2",
+        "de": "Option 2",
+        "es": "Opción 2",
+        "fr": "Option 2",
+        "pt-PT": "Opção 2",
+        "zh-CN": "选项 2",
+        "ja": "オプション 2"
+      }
+    },
+    {
+      "type": "text",
+      "id": "option_2_name",
+      "label": {
+        "en": "Name",
+        "de": "Name",
+        "es": "Nombre",
+        "fr": "Nom",
+        "pt-PT": "Nome",
+        "zh-CN": "名称",
+        "ja": "名前"
+      },
+      "default": {
+        "en": "Two",
+        "de": "Zwei",
+        "es": "Dos",
+        "fr": "Deux",
+        "pt-PT": "Dois",
+        "zh-CN": "两个",
+        "ja": "2個"
+      }
+    },
+    {
+      "type": "number",
+      "id": "option_2_qty",
+      "label": {
+        "en": "Quantity",
+        "de": "Menge", 
+        "es": "Cantidad",
+        "fr": "Quantité",
+        "pt-PT": "Quantidade",
+        "zh-CN": "数量",
+        "ja": "数量"
+      },
+      "default": 2
+    },
+    {
+      "type": "number",
+      "id": "option_2_discount",
+      "label": {
+        "en": "Discount percentage",
+        "de": "Rabatt in Prozent",
+        "es": "Porcentaje de descuento",
+        "fr": "Pourcentage de remise",
+        "pt-PT": "Percentagem de desconto",
+        "zh-CN": "折扣百分比",
+        "ja": "割引率"
+      },
+      "default": 10
+    },
+  
+    {
+      "type": "header",
+      "content": {
+        "en": "Option 4",
+        "de": "Option 4",
+        "es": "Opción 4",
+        "fr": "Option 4",
+        "pt-PT": "Opção 4",
+        "zh-CN": "选项 4",
+        "ja": "オプション 4"
+      }
+    },
+    {
+      "type": "text",
+      "id": "option_4_name",
+      "label": {
+        "en": "Name",
+        "de": "Name",
+        "es": "Nombre",
+        "fr": "Nom",
+        "pt-PT": "Nome",
+        "zh-CN": "名称",
+        "ja": "名前"
+      },
+      "default": {
+        "en": "Four",
+        "de": "Vier",
+        "es": "Cuatro",
+        "fr": "Quatre",
+        "pt-PT": "Quatro",
+        "zh-CN": "四个",
+        "ja": "4個"
+      }
+    },
+    {
+      "type": "number",
+      "id": "option_4_qty",
+      "label": {
+        "en": "Quantity",
+        "de": "Menge",
+        "es": "Cantidad",
+        "fr": "Quantité",
+        "pt-PT": "Quantidade",
+        "zh-CN": "数量",
+        "ja": "数量"
+      },
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "option_4_discount",
+      "label": {
+        "en": "Discount percentage",
+        "de": "Rabatt in Prozent",
+        "es": "Porcentaje de descuento",
+        "fr": "Pourcentage de remise",
+        "pt-PT": "Percentagem de desconto",
+        "zh-CN": "折扣百分比",
+        "ja": "割引率"
+      },
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_best_value",
+      "label": {
+        "en": "Show best value badge",
+        "de": "Bestes Preis-Leistungs-Verhältnis anzeigen",
+        "es": "Mostrar insignia de mejor valor", 
+        "fr": "Afficher le badge meilleure valeur",
+        "pt-PT": "Mostrar crachá de melhor valor",
+        "zh-CN": "显示最佳价值标签",
+        "ja": "ベストバリューバッジを表示"
+      },
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "best_value_text",
+      "label": {
+        "en": "Best value text",
+        "de": "Bester Wert Text",
+        "es": "Texto de mejor valor",
+        "fr": "Texte meilleure valeur",
+        "pt-PT": "Texto de melhor valor",
+        "zh-CN": "最佳价值文本",
+        "ja": "ベストバリューテキスト"
+      },
+      "default": {
+        "en": "Best Value",
+        "de": "Bester Wert",
+        "es": "Mejor Valor",
+        "fr": "Meilleure Valeur",
+        "pt-PT": "Melhor Valor",
+        "zh-CN": "最佳价值",
+        "ja": "ベストバリュー"
+      }
+    }
+  ]
       },
       {
         "type": "product_meta",
@@ -1519,6 +2209,7 @@
           }
         ]
       }
+   
     ]
 }
 {% endschema %}
@@ -1526,3 +2217,125 @@
 <div style="display:none" id="prorw_reviews_container_data" class="prorw-container  prorw-wide-container ">
   {% render 'proviews_widget' %}
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    setTimeout(function() {
+      const quantityOptions = document.querySelectorAll('.quantity-option');
+      if (quantityOptions.length === 0) return;
+      quantityOptions[0].classList.add('selected');
+      const allQuantityInputs = document.querySelectorAll('input[aria-label="quantity"], .js-qty__num, [id^="Quantity"], input[name="quantity"], input[name="quantity-js"]');
+      let vueInstance = null;
+      try {
+        const vueApp = document.querySelector('wetheme-product-form');
+        if (vueApp && vueApp.__vue__) {
+          vueInstance = vueApp.__vue__;
+          console.log('Vue实例已找到');
+        }
+      } catch(e) {
+        console.log('查找Vue实例时出错:', e);
+      }
+      quantityOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // 获取数量
+          const qty = parseInt(this.getAttribute('data-quantity'));
+          if (isNaN(qty)) return;
+          
+          console.log('选择了数量:', qty);
+          
+          // 更新选中状态
+          quantityOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+          
+          // 更新所有数量输入框
+          allQuantityInputs.forEach(input => {
+            // 更新值
+            input.value = qty;
+            
+            // 触发各种事件
+            try {
+              // 原生事件
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              
+              // jQuery事件
+              if (window.jQuery) {
+                window.jQuery(input).trigger('change').trigger('input');
+              }
+            } catch(e) {
+              console.log('触发事件时出错:', e);
+            }
+          });
+          
+          // 直接更新Vue实例
+          if (vueInstance) {
+            try {
+              vueInstance.quantity = qty;
+              if (typeof vueInstance.updateQuantity === 'function') {
+                vueInstance.updateQuantity(qty);
+              }
+            } catch(e) {
+              console.log('更新Vue实例时出错:', e);
+            }
+          }
+          
+          // 更新显示元素
+          updateDisplayElements(qty);
+          
+          // 如果有表单，直接更新表单中的数量
+          const form = document.getElementById('AddToCartForm');
+          if (form) {
+            const hiddenQty = form.querySelector('input[name="quantity"]');
+            if (hiddenQty) {
+              hiddenQty.value = qty;
+            }
+          }
+          
+          console.log('数量已更新为:', qty);
+        });
+      });
+      
+      // 更新显示元素
+      function updateDisplayElements(qty) {
+        // 查找底部数量选择器的数字显示元素
+        const bottomQuantityDisplay = document.querySelector('.div-js-qty-bottom-qty-container .quantity-display, .bottom-quantity, .qty-count');
+        if (bottomQuantityDisplay) {
+          bottomQuantityDisplay.textContent = qty;
+        }
+        
+        // 在特定范围内查找数量显示
+        const qtyContainers = document.querySelectorAll('.div-js-qty-bottom-qty-container, .js-qty, [class*="qty-container"]');
+        qtyContainers.forEach(container => {
+          const qtyDisplay = container.querySelector('span:not([class]), .qty-number');
+          if (qtyDisplay) {
+            qtyDisplay.textContent = qty;
+          }
+        });
+      }
+      
+      // 初始化：设置默认数量
+      const defaultQty = parseInt(quantityOptions[0].getAttribute('data-quantity')) || 1;
+      updateDisplayElements(defaultQty);
+      
+      // 确保所有输入框都有默认值
+      allQuantityInputs.forEach(input => {
+        input.value = defaultQty;
+      });
+      
+      // 如果有Vue实例，也更新它
+      if (vueInstance) {
+        try {
+          vueInstance.quantity = defaultQty;
+        } catch(e) {
+          console.log('初始化Vue实例时出错:', e);
+        }
+      }
+      
+      console.log('数量选择器初始化完成，默认数量:', defaultQty);
+    }, 1000); // 延迟1秒执行
+  });
+</script>
