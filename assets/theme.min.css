@@ -9275,7 +9275,7 @@ body.js-drawer-open {
   .drawer__close button {
     padding-top: 0;
     right: 8px;
-    top: -5px;
+    top: 5px;
   }
 }
 .drawer__close button:after,

@@ -175,6 +175,16 @@
         padding: 8px 0;
       }
   
+      .grid.display-table.custom-table-disple {
+    display: flex;
+}
+
+.grid__item.small--one-whole.medium--one-quarter.large--one-quarter.medium--display-table-cell {
+    width: 30%;
+}
+.grid__item.small--one-whole.medium--two-quarters.large--two-quarters.medium--display-table-cell {
+    padding-right: 40px;
+}
       .shipping-progress-bar {
         height: 6px;
       }
@@ -1028,18 +1038,29 @@
       .cart-drawer-flex-container-recommendations {
         width: 100%;
         margin-top: 15px;
-        border-top: 1px solid #e8e8e8;
+        /* border-top: 1px solid #e8e8e8; */
         padding-top: 15px;
         order: 2;
         /* Place recommendations after the footer */
       }
+
   
-      /* Ensure footer is between cart content and recommendations */
+      /* En
+      sure footer is between cart content and recommendations */
       .global-drawer__footer {
         order: 3;
         width: 100%;
       }
-  
+      .ajaxcart__inner {
+    padding-bottom: 0 !important;
+    min-height: 260px;
+    position: relative;
+    top: 20px;
+}
+.ajaxcart__row{
+  padding:0
+}
+
       /* Make recommendations sidebar full width */
       .cart-drawer-recommendations-sidebar {
         width: 100%;
@@ -2085,7 +2106,7 @@
                         <div class="ajaxcart__row" v-bind:data-line="index + 1"
                           v-bind:class="{ 'is-loading': index + 1 === lineQuantityUpdating }"
                         >
-                          <div class="grid display-table">
+                          <div class="grid display-table custom-table-disple">
                             <div class="grid__item small--one-whole medium--one-quarter large--one-quarter medium--display-table-cell">
                               <a v-bind:href="item.url" class="ajaxcart__product-image">
                                 <img
