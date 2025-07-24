@@ -200,8 +200,96 @@
       "block_order": [
         "html_AticWj"
       ],
+      "disabled": true,
       "name": "Custom HTML",
       "settings": {}
+    },
+    "ugc_carousel_B6e8HW": {
+      "type": "ugc-carousel",
+      "blocks": {
+        "image_W8QCVN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_GmMwir": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3_770b267d-4f84-45b3-9dcf-c975bda31248.png",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_MgYqLt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_9ThjEX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_xQHibj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_XARnPz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Snapinsta.app_446195975_769853444968437_2642969448803393193_n_1080_66ce88fb-671b-4d6c-9d75-9b79b8cc53a2.jpg",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_7trYkE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        },
+        "image_EVzUr6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/20231204_175218-5.jpg",
+            "link": "",
+            "alt": "Customer Image"
+          }
+        }
+      },
+      "block_order": [
+        "image_W8QCVN",
+        "image_GmMwir",
+        "image_MgYqLt",
+        "image_9ThjEX",
+        "image_xQHibj",
+        "image_XARnPz",
+        "image_7trYkE",
+        "image_EVzUr6"
+      ],
+      "name": "UGC Carousel",
+      "settings": {
+        "heading": "Trusted by Real Adventurers Everywhere",
+        "subheading": "",
+        "footer_text": "Real customers. Real gear. Real adventures.",
+        "scroll_speed": 30,
+        "background_color": "#fafafa"
+      }
     },
     "fat_tire_banner_GHaarL": {
       "type": "fat-tire-banner",
@@ -429,54 +517,6 @@
         "circle_images": true,
         "title": "Testimonials"
       }
-    },
-    "ugc_carousel_LF9zfa": {
-      "type": "ugc-carousel",
-      "blocks": {
-        "image_qxe6BC": {
-          "type": "image",
-          "settings": {
-            "link": "",
-            "alt": "Customer Image"
-          }
-        },
-        "image_kwqwQc": {
-          "type": "image",
-          "settings": {
-            "link": "",
-            "alt": "Customer Image"
-          }
-        },
-        "image_tgmUNC": {
-          "type": "image",
-          "settings": {
-            "link": "",
-            "alt": "Customer Image"
-          }
-        },
-        "image_PkqVYQ": {
-          "type": "image",
-          "settings": {
-            "link": "",
-            "alt": "Customer Image"
-          }
-        }
-      },
-      "block_order": [
-        "image_qxe6BC",
-        "image_kwqwQc",
-        "image_tgmUNC",
-        "image_PkqVYQ"
-      ],
-      "disabled": true,
-      "name": "UGC Carousel",
-      "settings": {
-        "heading": "Trusted by Real Adventurers Everywhere",
-        "subheading": "Real customer photos",
-        "footer_text": "Real customers. Real gear. Real adventures.",
-        "scroll_speed": 30,
-        "background_color": "#fafafa"
-      }
     }
   },
   "order": [
@@ -484,6 +524,7 @@
     "56c31eb2-f095-4866-b305-7436fae96d4b",
     "1654498491f6e8793c",
     "advanced_layout_custom_html_BTxK8C",
+    "ugc_carousel_B6e8HW",
     "fat_tire_banner_GHaarL",
     "product-recommendations",
     "1696136166eb28b41e",
@@ -493,7 +534,6 @@
     "16544961157403b632",
     "proviews_review_widget_1685971421918",
     "advanced_layout_custom_liquid_3DzKk8",
-    "about_logo_swiper_dVMXqk",
-    "ugc_carousel_LF9zfa"
+    "about_logo_swiper_dVMXqk"
   ]
 }

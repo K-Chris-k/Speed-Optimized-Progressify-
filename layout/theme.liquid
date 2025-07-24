@@ -295,7 +295,8 @@ span#ProductPrice {
     .grid__item.large--six-twelfths.product-sticky{
       position: relative;
       z-index:900;
-      top: 0 !important;
+            top: 0 !important;
+
     }
     select.bottom-purchase-dropdown__select {
     margin: 0 !important;
@@ -368,6 +369,28 @@ span#ProductPrice {
     .template-product .swiper-button-next,.template-product .swiper-container-rtl .swiper-button-prev {
           right: 0px;
           left: auto;
+      }
+      .grid__item.large--six-twelfths.context.mobile--no-top-margin {
+    position: sticky; 
+    top: 186px;
+}
+      @media (max-width: 1200px) {
+              .grid__item.large--six-twelfths.context.mobile--no-top-margin {
+    position: sticky; 
+    top: 146px;
+}
+      }
+       @media (max-width: 900px) {
+              .grid__item.large--six-twelfths.context.mobile--no-top-margin {
+    position: sticky; 
+    top: 80px;
+}
+      }
+       @media (max-width: 500px) {
+              .grid__item.large--six-twelfths.context.mobile--no-top-margin {
+       position: unset;
+    top: 0px;
+}
       }
    </style>
     <!-- Hotjar Tracking Code for https://silverantoutdoors.com/ -->
