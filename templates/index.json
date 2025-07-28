@@ -12,6 +12,23 @@
     "16285850521c6f1af2": {
       "type": "image--slideshow",
       "blocks": {
+        "image_CdTVrA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Summer_Clearance_Desktop_banner_1.jpg",
+            "mobile_image": "shopify://shop_images/Summer_Clearance_Mobile_Banner_2.jpg",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "https://silverantoutdoors.com/collections/summer-clearance",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "captionHorizontal": "left",
+            "captionAlignment": "left"
+          }
+        },
         "image_cUDmTR": {
           "type": "image",
           "settings": {
@@ -66,6 +83,7 @@
         },
         "16285850521c6f1af2-0": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Peyman_6399effb-4eca-4a80-b64e-3b57ff057126.png",
             "mobile_image": "shopify://shop_images/Peyman_eff76b30-d704-49bc-9c6f-c3b442d720ff.png",
@@ -80,32 +98,14 @@
             "captionHorizontal": "right",
             "captionAlignment": "right"
           }
-        },
-        "image_xk9YVk": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/SBSW_Desktop_banner.png",
-            "mobile_image": "shopify://shop_images/SBSW_Mobile_Banner.png",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "left",
-            "captionAlignment": "left"
-          }
         }
       },
       "block_order": [
+        "image_CdTVrA",
         "image_cUDmTR",
         "image_jpjDrx",
         "image_JnNTMW",
-        "16285850521c6f1af2-0",
-        "image_xk9YVk"
+        "16285850521c6f1af2-0"
       ],
       "settings": {
         "slider-animation": "slide",

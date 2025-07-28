@@ -78,10 +78,7 @@
         "46a68c53-9aaa-404f-8759-76be46d7045b": {
           "type": "trust_badges",
           "disabled": true,
-          "settings": {
-            "trust-badge_max_width": 500,
-            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
-          }
+          "settings": {}
         },
         "69de8680-44b2-42ab-8b77-2a049ccd2f20": {
           "type": "shopify://apps/greenspark/blocks/impact-settings-widgets/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
