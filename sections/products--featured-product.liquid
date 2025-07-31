@@ -120,7 +120,8 @@
                       {% form 'product', product, id: "AddToCartForm" %}
 
                         <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-                        <p id="ComparePrice" class="{% if settings.show_discount == 'hide' %}sale-price{% endif %}{% unless on_sale %} js{% endunless %}" v-if="isSale" v-money="variant.compare_at_price">
+                        <p id="ComparePrice" class="{% if settings.show_discount == 'hide' %}sale-price{% endif %}
+                        {% unless on_sale %} js{% endunless %}" v-if="isSale" v-money="variant.compare_at_price">
                           <span class="money">{{ current_variant.compare_at_price | money }}</span>
                         </p>
 

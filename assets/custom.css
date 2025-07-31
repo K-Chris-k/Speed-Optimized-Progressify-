@@ -100,6 +100,7 @@
   width: 40px;
   height: 36px;
   text-align: center;
+  border: none !important;
   border: none;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -381,4 +382,19 @@ body:not(.template-product) .bottom-purchase-info {
   .bottom-purchase-info__dropdown-wrapper-new-style {
     flex-wrap: nowrap;
   }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 确保价格比较元素在货币切换时正常显示 */
+.compare-price {
+  display: block !important;
+}
+
+/* 当没有折扣时隐藏价格比较元素 */
+.compare-price:empty,
+.compare-price .money:empty {
+  display: none !important;
 }

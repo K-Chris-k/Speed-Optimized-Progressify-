@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <button type="button" aria-label="-" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text" data-action="decrease" style="width: 35px; height: 40px; border: 1px solid #ddd; border-radius: 4px 0 0 4px;">
                     <i class="fa fa-minus" aria-hidden="true"></i>
                   </button>
-                  <input type="number" class="js-qty__num" value="1" min="1" aria-label="quantity" pattern="[0-9]*" name="quantity-bottom" id="BottomQuantity" data-quantity-input="bottom" style="width: 40px; height: 40px; text-align: center; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; border-left: none; border-right: none;">
+                  <input type="number" class="js-qty__num" value="1" min="1" aria-label="quantity" pattern="[0-9]*" name="quantity-bottom" id="BottomQuantity" data-quantity-input="bottom" style="width: 40px; height: 40px; text-align: center;  border-bottom: 1px solid #ddd; border-left: none; border-right: none;">
                   <button type="button" aria-label="+" class="js-qty__adjust js-qty__adjust--plus icon-fallback-text" data-action="increase" style="width: 35px; height: 40px; border: 1px solid #ddd; border-radius: 0 4px 4px 0;">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
