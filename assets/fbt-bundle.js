@@ -76,6 +76,13 @@ window.FBTBundle = (function () {
       const moneyFormat = parseMoneyFormat();
       const configuredDiscountPct = parseFloat(bundle.getAttribute('data-discount')) || 0;
 
+      // 同步所有选择器对应的缩略图
+      try {
+        bundle.querySelectorAll('[data-fbt-variant]').forEach(function (sel) {
+          if (sel && sel.tagName === 'SELECT') updateThumbFromSelect(sel);
+        });
+      } catch(e) {}
+
       // 更新单个价格
       bundle.querySelectorAll('.fbt-item').forEach(function (wrap) {
         const priceEl = wrap.querySelector('.fbt-price');
@@ -84,8 +91,16 @@ window.FBTBundle = (function () {
           cents = parseInt(priceEl?.getAttribute('data-price-cents') || '0', 10) || 0;
         } else {
           const sel = wrap.querySelector('[data-fbt-variant]');
-          const opt = sel?.options[sel.selectedIndex];
-          cents = parseInt(opt?.getAttribute('data-price') || '0', 10) || 0;
+          if (sel && sel.tagName === 'SELECT') {
+            const opt = sel.options[sel.selectedIndex];
+            cents = parseInt(
+              opt?.dataset.price || opt?.getAttribute('data-price') ||
+              sel?.dataset.price || sel?.getAttribute('data-price') || '0',
+              10
+            ) || 0;
+          } else if (sel) {
+            cents = parseInt(sel.dataset.price || sel.getAttribute('data-price') || '0', 10) || 0;
+          }
         }
         if (priceEl) {
           priceEl.setAttribute('data-price-cents', String(cents));
@@ -110,8 +125,14 @@ window.FBTBundle = (function () {
         if (vid) selectedIds.push(vid);
       });
 
-      // 折扣
-      const effectiveDiscountPct = (checkedCount > 1) ? configuredDiscountPct : 0;
+      // 折扣 - 只有当选择了额外产品时才应用折扣
+      // 检查是否选择了主产品之外的其他产品
+      // 主产品总是被选中的（已禁用取消选择）
+      const mainProductChecked = true;
+      const otherProductsChecked = Array.from(checkedItems).some(cb => !cb.closest('.fbt-item--current'));
+      
+      // 只有当主产品被选中且至少有一个其他产品被选中时才应用折扣
+      const effectiveDiscountPct = (mainProductChecked && otherProductsChecked) ? configuredDiscountPct : 0;
       const originalCents = total;
       const finalCents = effectiveDiscountPct > 0
         ? Math.round(total * (1 - effectiveDiscountPct / 100))
@@ -124,6 +145,18 @@ window.FBTBundle = (function () {
         originEl.style.display = effectiveDiscountPct > 0 ? 'inline-block' : 'none';
         originEl.innerHTML = effectiveDiscountPct > 0 ? formatMoney(originalCents, moneyFormat) : '';
       }
+      
+      // 更新折扣提示信息的显示/隐藏
+      const discountNote = bundle.querySelector('.fbt-note');
+      if (discountNote) {
+        discountNote.style.display = effectiveDiscountPct > 0 ? 'block' : 'none';
+      }
+      
+      // 更新顶部折扣副标题的显示/隐藏
+      const discountSubtitle = bundle.querySelector('.fbt-subtitle');
+      if (discountSubtitle) {
+        discountSubtitle.style.display = effectiveDiscountPct > 0 ? 'block' : 'none';
+      }
 
       // 更新按钮状态
       const btn = bundle.querySelector('.fbt-add-to-cart');
@@ -133,6 +166,39 @@ window.FBTBundle = (function () {
         btn.setAttribute('data-fbt-total-cents', String(finalCents));
       }
     }, 100);
+  }
+
+  function updateThumbFromSelect(selectEl) {
+    try {
+      if (!selectEl) return;
+      const wrap = selectEl.closest('.fbt-item');
+      if (!wrap) return;
+      // 优先切换预渲染的每个变体对应的图片
+      const vid = parseInt(selectEl.value, 10);
+      const allThumbs = wrap.querySelectorAll('.fbt-thumb .fbt-variant-thumb');
+      if (allThumbs.length) {
+        allThumbs.forEach(function (im) {
+          if (parseInt(im.getAttribute('data-vid'), 10) === vid) {
+            im.style.display = '';
+          } else {
+            im.style.display = 'none';
+          }
+        });
+        return;
+      }
+      // 兜底：只有单张图片时，直接替换 src
+      const img = wrap.querySelector('.fbt-thumb img');
+      if (!img) return;
+      if (selectEl.tagName !== 'SELECT') return;
+      const opt = selectEl.options[selectEl.selectedIndex];
+      if (!opt) return;
+      const imgUrl = opt.dataset.image || opt.getAttribute('data-image');
+      const mediaId = opt.dataset.mediaId || opt.getAttribute('data-media-id');
+      const alt = opt.dataset.title || opt.getAttribute('data-title') || img.alt;
+      if (imgUrl) img.src = imgUrl;
+      if (mediaId) img.setAttribute('data-media-id', mediaId);
+      if (alt) img.alt = alt;
+    } catch(e) {}
   }
 
   function buildPayload(bundleId) {
@@ -154,9 +220,12 @@ window.FBTBundle = (function () {
         }
       } else {
         const sel = wrap.querySelector('[data-fbt-variant]');
-        const opt = sel ? sel.options[sel.selectedIndex] : null;
+        let opt = null;
+        if (sel && sel.tagName === 'SELECT') {
+          opt = sel.options[sel.selectedIndex];
+        }
         const isAvailable = opt ? (String(opt.dataset.available) !== 'false') : true;
-        const vid = parseInt(opt?.value || sel?.value, 10);
+        const vid = parseInt((opt?.value || sel?.value), 10);
         if (vid && isAvailable) {
           items.push({ id: vid, quantity: qty });
         } else {
@@ -342,7 +411,7 @@ window.FBTBundle = (function () {
       bundle.querySelectorAll('.fbt-check').forEach(function (lbl) {
         lbl.addEventListener('click', function (e) {
           const input = lbl.querySelector('[data-fbt-checkbox]');
-          if (input) {
+          if (input && !input.hasAttribute('data-main-product')) {
             input.checked = !input.checked;
             input.dispatchEvent(new Event('change', { bubbles: true }));
             e.preventDefault();
@@ -351,7 +420,14 @@ window.FBTBundle = (function () {
       });
 
       bundle.querySelectorAll('[data-fbt-variant]').forEach(function (sel) {
-        sel.addEventListener('change', function () { recalc(bundleId); });
+        sel.addEventListener('change', function (e) {
+          e.stopPropagation();
+          updateThumbFromSelect(sel);
+          recalc(bundleId);
+        }, true);
+        sel.addEventListener('click', function (e) { e.stopPropagation(); }, true);
+        // 初始同步一次缩略图
+        updateThumbFromSelect(sel);
       });
 
       const btn = bundle.querySelector('.fbt-add-to-cart');

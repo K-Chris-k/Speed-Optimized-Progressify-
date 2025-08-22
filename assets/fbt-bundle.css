@@ -21,11 +21,21 @@
   margin: 0;
 }
 
-.fbt-items { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.fbt-items { display: grid; grid-template-columns: 1fr; gap: 14px; }
 
-.fbt-item { display: grid; grid-template-columns: 20px 52px 1fr; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px dashed #eee; }
-
-.fbt-item:last-child { border-bottom: none; }
+.fbt-item {
+  display: grid;
+  grid-template-columns: 20px 52px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  background: #fff;
+  position: relative;
+  overflow: visible;
+}
+.fbt-item:last-child { margin-bottom: 0; }
 
 .fbt-thumb img { width: 48px; height: 48px; object-fit: cover; border-radius: 4px; }
 
@@ -33,17 +43,19 @@
 
 .fbt-variant-note { font-size: 12px; color: #777; margin: 2px 0 6px; }
 
+.fbt-variant-select { position: relative; z-index: 1000; overflow: visible; }
 .fbt-variant-select select { 
   min-width: 180px; 
   position: relative;
-  z-index: 10;
+  z-index: 1001;
   pointer-events: auto;
-  background: white;
+  background: #fff;
+  color: inherit;
   border: 1px solid #ccc;
   padding: 4px 8px;
-  appearance: auto;
-  -webkit-appearance: auto;
-  -moz-appearance: auto;
+  appearance: menulist;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
 }
 
 .fbt-price { font-size: 14px; font-weight: 600; justify-self: end; }
@@ -52,20 +64,18 @@
 .fbt-info { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; }
 .fbt-variant-select, .fbt-variant-note { grid-column: 1 / -1; }
 
-.fbt-summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 12px;
-}
+.fbt-summary { margin-top: 18px; }
+.fbt-total { margin-bottom: 8px; }
 
 .fbt-total .money { margin-right: 8px; }
 
 .fbt-total-original { text-decoration: line-through; color: #888; }
 
-.fbt-add-to-cart { min-width: 260px; }
+.fbt-add-to-cart {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 4px;
+}
 
 /* Checkbox color (use accent color so the tick is white on black background) */
 .fbt-item-checkbox { width: 16px; height: 16px; accent-color: #000; cursor: pointer; }
