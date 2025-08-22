@@ -348,7 +348,10 @@
       "blocks": {
         "516e7e47-0737-4662-a239-ecce32e81114": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
         }
       },
       "block_order": [
@@ -495,28 +498,6 @@
       "settings": {
         "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\n\tdocument.getElementById(\"AddToCart\").addEventListener('click',function (){\n \t\t_learnq.push(['track', 'Added to Cart', item]);\n\t});</script>"
       }
-    },
-    "about_logo_swiper_dVMXqk": {
-      "type": "about-logo-swiper",
-      "blocks": {
-        "text_aCehd9": {
-          "type": "text",
-          "settings": {
-            "testimonial_text": "<p>\"Show off incredible feedback from your customers\"</p>",
-            "customer_name": "John Doe",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_aCehd9"
-      ],
-      "name": "About logo swiper",
-      "settings": {
-        "colors": "accent",
-        "circle_images": true,
-        "title": "Testimonials"
-      }
     }
   },
   "order": [
@@ -533,7 +514,6 @@
     "ac6e36b3-e2ad-48af-9b49-da85950cfc97",
     "16544961157403b632",
     "proviews_review_widget_1685971421918",
-    "advanced_layout_custom_liquid_3DzKk8",
-    "about_logo_swiper_dVMXqk"
+    "advanced_layout_custom_liquid_3DzKk8"
   ]
 }

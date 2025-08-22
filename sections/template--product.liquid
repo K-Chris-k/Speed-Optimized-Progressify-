@@ -1,9 +1,315 @@
 {{ 'plyr.min.css' | asset_url | stylesheet_tag }}
 {{ 'shopify-model-viewer-ui.min.css' | asset_url | stylesheet_tag }}
-{{ 'template-product.css' | asset_url | stylesheet_tag }}
-{{ 'fbt-bundle.css' | asset_url | stylesheet_tag }}
-{{ 'fbt-bundle.js' | asset_url | script_tag }}
-<div data-wetheme-section-type="template--product" data-wetheme-section-id="{{ section.id }}" data-money-format="{{ shop.money_format | escape }}" data-initial-price="{{ current_variant.price }}" data-initial-compare-price="{{ current_variant.compare_at_price }}">
+<style>
+  @media only screen and (max-width: 750px) {
+
+            .product-medias__thumbnails-new {    display: block !important;   }
+     .product-medias__thumbnail{
+      margin-bottom:0px;
+    }
+  }
+
+  .product-medias__thumbnail.product-single__media--selected ,.product-medias__thumbnail.swiper-slide-active{
+    box-sizing: border-box;
+    border: 1px solid #000000;
+  }
+  .product-medias__thumbnails-new {
+      position: relative;
+      margin-top: 30px;
+  }
+  .product-medias__thumbnail img{
+    height:132px;
+  }
+  
+    /* Quantity discount styling */
+  .quantity-discount-container {
+    margin: 20px 0;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .quantity-discount-container {
+      margin: 15px 0;
+      padding: 12px 5px;
+    }
+    .quantity-discount-title {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+  .quantity-discount-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .quantity-discount-title::after {
+    content: "🛒";
+    margin-left: 5px;
+  }
+  .quantity-discount-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .quantity-option {
+    flex: 1;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 20px 15px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .quantity-option.standard-price {
+    background: #f0f0f0;
+  }
+  .quantity-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .quantity-option.selected {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .rapi-bundles__bar-most-popular__content {
+    background-color: var(--bar-most-popular-background-color);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: var(--bar-most-popular-color);
+    /* font-family: inter, sans-serif; */
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 8px;
+    padding: 6px 8px;
+    word-break: break-all;
+    background: #000;
+    color: #fff;
+}.rapi-bundles .rapi-bundles__bar-most-popular--above-title {
+    left: -10px;
+    position: relative;
+    top: unset
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content,.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content.square,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content.square {
+    border-radius: 0;
+    margin: 0
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content.rounded,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content.rounded {
+    border-radius: 8px;
+    margin: 0
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content:after,.rapi-bundles .rapi-bundles__bar-most-popular--above-title .rapi-bundles__bar-most-popular__content:before,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content:after,.rapi-bundles .rapi-bundles__bar-most-popular--below-price .rapi-bundles__bar-most-popular__content:before {
+    content: unset
+}
+
+.rapi-bundles__bar-container .rapi-bundles__bar-most-popular--pill~.rapi-bundles__bar-main,.rapi-bundles__bar-container .rapi-bundles__bar-most-popular--top-bar~.rapi-bundles__bar-main {
+    margin-top: 8px
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular__content {
+    background-color: var(--bar-most-popular-background-color);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: var(--bar-most-popular-color);
+    font-family: inter,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 8px;
+    padding: 6px 8px;
+    word-break: break-all;
+}
+
+
+.rapi-bundles__bar-most-popular.heavy-bundle.rapi-bundles__bar-most-popular--top-bar {
+    margin-bottom: -20px;
+    position: relative;
+    right: 1px;
+    top: -30px;
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular__content:before {
+    border-left: 8px solid transparent;
+    border-left-color: transparent !important;
+    left: 0;
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    content: "";
+    display: block;
+    filter: brightness(.7);
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    background: #000;
+}
+
+.rapi-bundles .rapi-bundles__bar-most-popular__content:after {
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+}
+
+.rapi-bundles__bar-most-popular__content:before {
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    content: "";
+    display: block;
+    filter: brightness(.7);
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    border-bottom-color: #000 !important;
+    /* border-right: 8px solid transparent; */
+    /* border-right-color: transparent !important; */
+    /* right: 0; */
+}
+
+.rapi-bundles__bar-most-popular__content:after {
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    content: "";
+    display: block;
+    filter: brightness(.7);
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    border-bottom-color: #000 !important;
+}
+
+
+
+.rapi-bundles__bar-most-popular__content:before {
+    border-left: 8px solid transparent;
+    border-left-color: transparent !important;
+    left: 1px;
+}
+
+.rapi-bundles__bar-most-popular__content:after {
+    border-right: 8px solid transparent;
+    border-right-color: transparent !important;
+    right: 0;
+}
+  
+  @media screen and (max-width: 767px) {
+    .rapi-bundles__bar-most-popular__content:after {
+
+    right: -6px;
+  }
+
+
+  }
+  .rapi-bundles__bar-most-popular__content:before {
+
+    left: -7px;
+}
+.rapi-bundles__bar-most-popular__content{
+  margin: 0 0px;
+}
+
+  .quantity-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 16px;
+    color: #000;
+
+  }
+  .discount-label {
+    color: #000;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .standard-price-label {
+    color: #000;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .final-price {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .original-price {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+  }
+  .unit-price-container {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #777;
+  }
+
+  .quantity-option.selected {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: rgb(217, 217, 217);
+  }
+
+  @media screen and (max-width: 767px) {
+    .quantity-discount-options {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .quantity-option {
+      flex: 0 0 calc(33.33% - 10px);
+      margin-bottom: 15px;
+      padding: 15px 10px;
+    }
+    .quantity-name {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .final-price {
+      font-size: 16px;
+    }
+    .discount-label {
+      font-size: 14px;
+    }
+    .unit-price-container {
+      font-size: 12px;
+    }
+    .rapi-bundles__bar-most-popular.heavy-bundle.rapi-bundles__bar-most-popular--top-bar{
+      margin-bottom: -20px;
+    position: relative;
+    right: 1px;
+    top: -28px;
+    }
+  }
+</style>
+<div data-wetheme-section-type="template--product" data-wetheme-section-id="{{ section.id }}">
   {% assign pick_an_option = false %}
 
   {% if pick_an_option %}
@@ -120,168 +426,11 @@
                     {% form 'product', product, id: 'AddToCartForm' %}
                       {%- for block in section.blocks -%}
                         {%- case block.type -%}
-                          {%- when 'sale_badge' -%}
-                            <div class="fbt-bundle" id="fbt-{{ block.id }}" data-fbt="bundle" data-bundle-id="{{ block.id }}" data-discount="{{ block.settings.discount_percent | default: 0 }}">
-                              <div class="fbt-bundle__header">
-                                <h3 class="fbt-title">{{ block.settings.fbt_title }}</h3>
-                                {% if block.settings.discount_percent > 0 %}
-                                  <p class="fbt-subtitle" style="display: none;">{{ 'Buy This Bundle' }} {{ block.settings.discount_percent }}% OFF</p>
-                                {% endif %}
-                              </div>
-
-                              <div class="fbt-items">
-                                <div class="fbt-item fbt-item--current" data-variant-source="current">
-                                  <label class="fbt-check">
-                                    <input type="checkbox" class="fbt-item-checkbox alone-product-checkbox" data-fbt-checkbox="1" checked data-main-product="1" disabled>
-                                  </label>
-                                  <div class="fbt-thumb">
-                                    {% assign fmedia = current_variant.featured_media | default: product.featured_media %}
-                                    {% if fmedia %}
-                                      {% assign fimg = fmedia.preview_image %}
-                                      <img src="{{ fimg | image_url: width: 150 }}" alt="{{ current_variant.title | escape }}" width="150" height="150" data-media-id="{{ fmedia.id }}">
-                                    {% endif %}
-                                  </div>
-                                  <div class="fbt-info">
-                                    <div class="fbt-title-line">{{ product.title }}</div>
-                                    <div class="fbt-variant-note">{{ 'Uses selected options' }}</div>
-                                    <div class="fbt-price" data-price-cents="{{ current_variant.price }}">
-                                      <span class="money">{{ current_variant.price | money }}</span>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {% assign p = block.settings.product_1 %}
-                                {% if p %}
-                                  {% assign chosen_variant = p.selected_or_first_available_variant %}
-                                  <div class="fbt-item" data-product-handle="{{ p.handle }}">
-                                    <label class="fbt-check">
-                                          <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
-                                    </label>
-                                    <div class="fbt-thumb">
-                                      {% for v in p.variants %}
-                                        {% assign vfmedia = v.featured_media | default: p.featured_media %}
-                                        {% if vfmedia %}
-                                          {% assign vimg = vfmedia.preview_image %}
-                                          <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
-                                        {% endif %}
-                                      {% endfor %}
-                                    </div>
-                                    <div class="fbt-info">
-                                      <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
-                                          <div class="fbt-variant-select">
-                                        {% unless p.has_only_default_variant %}
-                                            <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
-                                          {% for v in p.variants %}
-                                            <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
-                                              {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
-                                            </option>
-                                          {% endfor %}
-                                        </select>
-                                        {% else %}
-                                          <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
-                                        {% endunless %}
-                                      </div>
-                                      <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
-                                        <span class="money">{{ chosen_variant.price | money }}</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {% endif %}
-
-                                {% assign p = block.settings.product_2 %}
-                                {% if p %}
-                                  {% assign chosen_variant = p.selected_or_first_available_variant %}
-                                  <div class="fbt-item" data-product-handle="{{ p.handle }}">
-                                    <label class="fbt-check">
-                                      <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
-                                    </label>
-                                    <div class="fbt-thumb">
-                                      {% for v in p.variants %}
-                                        {% assign vfmedia = v.featured_media | default: p.featured_media %}
-                                        {% if vfmedia %}
-                                          {% assign vimg = vfmedia.preview_image %}
-                                          <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
-                                        {% endif %}
-                                      {% endfor %}
-                                    </div>
-                                    <div class="fbt-info">
-                                      <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
-                                          <div class="fbt-variant-select">
-                                        {% unless p.has_only_default_variant %}
-                                        <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
-                                          {% for v in p.variants %}
-                                            <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
-                                              {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
-                                            </option>
-                                          {% endfor %}
-                                        </select>
-                                        {% else %}
-                                          <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
-                                        {% endunless %}
-                                      </div>
-                                      <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
-                                        <span class="money">{{ chosen_variant.price | money }}</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {% endif %}
-
-                                {% assign p = block.settings.product_3 %}
-                                {% if p %}
-                                  {% assign chosen_variant = p.selected_or_first_available_variant %}
-                                  <div class="fbt-item" data-product-handle="{{ p.handle }}">
-                                    <label class="fbt-check">
-                                      <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
-                                    </label>
-                                    <div class="fbt-thumb">
-                                      {% for v in p.variants %}
-                                        {% assign vfmedia = v.featured_media | default: p.featured_media %}
-                                        {% if vfmedia %}
-                                          {% assign vimg = vfmedia.preview_image %}
-                                          <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
-                                        {% endif %}
-                                      {% endfor %}
-                                    </div>
-                                    <div class="fbt-info">
-                                      <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
-                                          <div class="fbt-variant-select">
-                                        {% unless p.has_only_default_variant %}
-                                        <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
-                                          {% for v in p.variants %}
-                                            <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
-                                              {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
-                                            </option>
-                                          {% endfor %}
-                                        </select>
-                                        {% else %}
-                                          <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
-                                        {% endunless %}
-                                      </div>
-                                      <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
-                                        <span class="money">{{ chosen_variant.price | money }}</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                {% endif %}
-                              </div>
-
-                              <div class="fbt-summary">
-                                <div class="fbt-total">
-                                  <span class="fbt-total-final money"></span>
-                                  <span class="fbt-total-original money"></span>
-                                </div>
-                                {% if block.settings.discount_percent > 0 %}
-                                  <div class="fbt-note" style="display: none;">({{ block.settings.discount_percent }}% bundle offer on checkout)</div>
-                                {% endif %}
-                                <button type="button" class="btn fbt-add-to-cart">{{ block.settings.button_text }}</button>
-                              </div>
-                            </div>
                           {%- when '@app' -%}
                             <div id="shopify-block-{{block.id}}"></div>
                           {%- when 'cross-sells' -%}
                             <div id="cross-sell-{{block.id}}"></div>
                           {%- when 'sale_badge' -%}
-                
                             <div
                               class="product-page--sale-badge{% unless current_variant.compare_at_price > current_variant.price %} js{% endunless %}"
                               v-if="isSale"
@@ -367,7 +516,17 @@
                             {% render 'product-pricing', current_variant: current_variant %}
                             {% render 'unit-price-measurement-variant', variant: current_variant %}
 
-                            
+                            <script>
+                              document.addEventListener('DOMContentLoaded', function() {
+                                // 保存原始价格信息
+                                window.originalProductPrice = {{ current_variant.price }};
+                                window.originalComparePrice = {{ current_variant.compare_at_price }};
+                                window.originalPriceRatio = {{ current_variant.compare_at_price | divided_by: current_variant.price | default: 1 }};
+                                
+                                // 保存原始价格差值
+                                window.originalPriceDifference = {{ current_variant.compare_at_price | minus: current_variant.price | default: 0 }};
+                              });
+                            </script>
 
                             {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
                               <div class="product-page__policies rte">
@@ -836,11 +995,15 @@
       
 
       
-      
+      <style>
+        .quantity-option.selected {
+          border-color: #000;
+          background: #fff;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+      </style>
   {% endcase %}
 {% endfor %}
-
-
 
 {% schema %}
 {
@@ -878,46 +1041,6 @@
         }
     ],
     "blocks": [
-      {
-        "type": "sale_badge",
-        "name": "Bought Together",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "fbt_title",
-            "label": "Title",
-            "default": "Frequently Bought Together"
-          },
-          {
-            "type": "product",
-            "id": "product_1",
-            "label": "Product 1"
-          },
-          {
-            "type": "product",
-            "id": "product_2",
-            "label": "Product 2"
-          },
-          {
-            "type": "product",
-            "id": "product_3",
-            "label": "Product 3"
-          },
-          {
-            "type": "number",
-            "id": "discount_percent",
-            "label": "Bundle discount percent",
-            "default": 0
-          },
-          {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button text",
-            "default": "Add Bundle To Cart"
-          }
-        ]
-      },
       {
         "type": "@app"
       },
@@ -1101,11 +1224,11 @@
         "name": "Title",
         "limit": 1
       },
-      // {
-      //   "type": "sale_badge",
-      //   "name": "Sale badge",
-      //   "limit": 1
-      // },
+      {
+        "type": "sale_badge",
+        "name": "Sale badge",
+        "limit": 1
+      },
       {
         "type": "price",
         "name": "Price",
@@ -2041,4 +2164,411 @@
   {% render 'proviews_widget' %}
 </div>
 
-{{ 'template-product.js' | asset_url | script_tag }}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    setTimeout(function() {
+      const quantityOptions = document.querySelectorAll('.quantity-option');
+      if (quantityOptions.length === 0) return;
+      quantityOptions[0].classList.add('selected');
+      const allQuantityInputs = document.querySelectorAll('input[aria-label="quantity"], .js-qty__num, [id^="Quantity"], input[name="quantity"], input[name="quantity-js"]');
+      let vueInstance = null;
+      try {
+        const vueApp = document.querySelector('wetheme-product-form');
+        if (vueApp && vueApp.__vue__) {
+          vueInstance = vueApp.__vue__;
+          console.log('Vue实例已找到');
+        }
+      } catch(e) {
+        console.log('查找Vue实例时出错:', e);
+      }
+      quantityOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // 获取数量
+          const qty = parseInt(this.getAttribute('data-quantity'));
+          if (isNaN(qty)) return;
+          
+          console.log('选择了数量:', qty);
+          
+          // 更新选中状态
+          quantityOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+          
+          // 更新所有数量输入框
+          allQuantityInputs.forEach(input => {
+            // 更新值
+            input.value = qty;
+            
+            // 触发各种事件
+            try {
+              // 原生事件
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              
+              // jQuery事件
+              if (window.jQuery) {
+                window.jQuery(input).trigger('change').trigger('input');
+              }
+            } catch(e) {
+              console.log('触发事件时出错:', e);
+            }
+          });
+          
+          // 直接更新Vue实例
+          if (vueInstance) {
+            try {
+              vueInstance.quantity = qty;
+              if (typeof vueInstance.updateQuantity === 'function') {
+                vueInstance.updateQuantity(qty);
+              }
+            } catch(e) {
+              console.log('更新Vue实例时出错:', e);
+            }
+          }
+          
+          // 更新显示元素
+          updateDisplayElements(qty);
+          
+          // 如果有表单，直接更新表单中的数量
+          const form = document.getElementById('AddToCartForm');
+          if (form) {
+            const hiddenQty = form.querySelector('input[name="quantity"]');
+            if (hiddenQty) {
+              hiddenQty.value = qty;
+            }
+          }
+          
+          console.log('数量已更新为:', qty);
+        });
+      });
+      
+      // 更新显示元素
+      function updateDisplayElements(qty) {
+        // 查找底部数量选择器的数字显示元素
+        const bottomQuantityDisplay = document.querySelector('.div-js-qty-bottom-qty-container .quantity-display, .bottom-quantity, .qty-count');
+        if (bottomQuantityDisplay) {
+          bottomQuantityDisplay.textContent = qty;
+        }
+        
+        // 在特定范围内查找数量显示
+        const qtyContainers = document.querySelectorAll('.div-js-qty-bottom-qty-container, .js-qty, [class*="qty-container"]');
+        qtyContainers.forEach(container => {
+          const qtyDisplay = container.querySelector('span:not([class]), .qty-number');
+          if (qtyDisplay) {
+            qtyDisplay.textContent = qty;
+          }
+        });
+      }
+      
+      // 初始化：设置默认数量
+      const defaultQty = parseInt(quantityOptions[0].getAttribute('data-quantity')) || 1;
+      updateDisplayElements(defaultQty);
+      
+      // 确保所有输入框都有默认值
+      allQuantityInputs.forEach(input => {
+        input.value = defaultQty;
+      });
+      
+      // 如果有Vue实例，也更新它
+      if (vueInstance) {
+        try {
+          vueInstance.quantity = defaultQty;
+        } catch(e) {
+          console.log('初始化Vue实例时出错:', e);
+        }
+      }
+      
+      console.log('数量选择器初始化完成，默认数量:', defaultQty);
+    }, 1000); // 延迟1秒执行
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to format money based on shop's currency format
+    function formatMoney(cents, format) {
+      if (typeof cents === 'string') {
+        cents = cents.replace('.', '');
+      }
+      
+      var value = '';
+      var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+      var formatString = format || '¥{{amount}}';
+
+      function defaultTo(value, defaultValue) {
+        return value == null || value !== value ? defaultValue : value;
+      }
+
+      function formatWithDelimiters(number, precision, thousands, decimal) {
+        precision = defaultTo(precision, 2);
+        thousands = defaultTo(thousands, ',');
+        decimal = defaultTo(decimal, '.');
+
+        if (isNaN(number) || number == null) {
+          return 0;
+        }
+
+        number = (number / 100.0).toFixed(precision);
+
+        var parts = number.split('.');
+        var dollarsAmount = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands);
+        var centsAmount = parts[1] ? (decimal + parts[1]) : '';
+
+        return dollarsAmount + centsAmount;
+      }
+
+      switch (formatString.match(placeholderRegex)[1]) {
+        case 'amount':
+          value = formatWithDelimiters(cents, 2);
+          break;
+        case 'amount_no_decimals':
+          value = formatWithDelimiters(cents, 0);
+          break;
+        case 'amount_with_comma_separator':
+          value = formatWithDelimiters(cents, 2, '.', ',');
+          break;
+        case 'amount_no_decimals_with_comma_separator':
+          value = formatWithDelimiters(cents, 0, '.', ',');
+          break;
+        case 'amount_no_decimals_with_space_separator':
+          value = formatWithDelimiters(cents, 0, ' ');
+          break;
+      }
+
+      return formatString.replace(placeholderRegex, value);
+    }
+
+    // Get the current money format from the shop
+    var moneyFormat = {{ shop.money_format | json }};
+    
+    // Get product JSON data
+    var productJSON = null;
+    try {
+      var productJsonElement = document.getElementById('ProductJson-{{ section.id }}');
+      if (productJsonElement) {
+        productJSON = JSON.parse(productJsonElement.innerHTML);
+      }
+    } catch(e) {
+      console.error('Error parsing product JSON:', e);
+    }
+
+    // Throttle function to prevent too many updates
+    function throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    }
+
+    // Function to update quantity discount prices based on current variant price
+    function updateQuantityDiscountPrices(variantPrice) {
+      if (!variantPrice) return;
+      
+      const options = document.querySelectorAll('.quantity-option');
+      if (!options.length) return;
+      
+      options.forEach(option => {
+        const quantity = parseInt(option.getAttribute('data-quantity'));
+        const discountPercent = parseFloat(option.getAttribute('data-discount')) || 0;
+        
+        // Calculate prices
+        const totalRegularPrice = variantPrice * quantity;
+        let discountedPrice = totalRegularPrice;
+        
+        if (discountPercent > 0) {
+          const discountAmount = totalRegularPrice * (discountPercent / 100);
+          discountedPrice = totalRegularPrice - discountAmount;
+        }
+        
+        const unitPrice = discountedPrice / quantity;
+        
+        // Update the price displays
+        const finalPriceElement = option.querySelector('.final-price .money');
+        const originalPriceElement = option.querySelector('.original-price .money');
+        const unitPriceElement = option.querySelector('.unit-price-container .money');
+        
+        if (finalPriceElement) {
+          finalPriceElement.innerHTML = formatMoney(discountedPrice, moneyFormat);
+        }
+        
+        if (originalPriceElement) {
+          originalPriceElement.innerHTML = formatMoney(totalRegularPrice, moneyFormat);
+          // Only show original price if there's a discount
+          const originalPriceContainer = option.querySelector('.original-price');
+          if (originalPriceContainer) {
+            originalPriceContainer.style.display = discountPercent > 0 ? 'block' : 'none';
+          }
+        }
+        
+        if (unitPriceElement) {
+          unitPriceElement.innerHTML = formatMoney(unitPrice, moneyFormat);
+        }
+      });
+    }
+    
+    // Throttled version of update function
+    const throttledUpdate = throttle(updateQuantityDiscountPrices, 100);
+    
+    // Initialize with the current variant price
+    let currentVariantPrice = {{ current_variant.price }};
+    throttledUpdate(currentVariantPrice);
+    
+    // Get Vue instance
+    let vueInstance = null;
+    try {
+      const vueApp = document.querySelector('wetheme-product-form');
+      if (vueApp && vueApp.__vue__) {
+        vueInstance = vueApp.__vue__;
+        
+        // Initial update with Vue's current variant price
+        if (vueInstance.variant && vueInstance.variant.price) {
+          currentVariantPrice = vueInstance.variant.price;
+          throttledUpdate(currentVariantPrice);
+        }
+        
+        // Watch for variant changes in the Vue instance
+        if (vueInstance.$watch) {
+          vueInstance.$watch('variant', function(newVariant) {
+            if (newVariant && newVariant.price) {
+              currentVariantPrice = newVariant.price;
+              throttledUpdate(currentVariantPrice);
+            }
+          });
+        }
+      }
+    } catch(e) {
+      console.error('Error accessing Vue instance:', e);
+    }
+    
+    // Listen for variant changes via custom events
+    document.addEventListener('variant:changed', function(event) {
+      if (event.detail && event.detail.variant && event.detail.variant.price) {
+        currentVariantPrice = event.detail.variant.price;
+        throttledUpdate(currentVariantPrice);
+      }
+    });
+    
+    // Additional event for other themes
+    document.addEventListener('product:variant:change', function(event) {
+      if (event.detail && event.detail.variant && event.detail.variant.price) {
+        currentVariantPrice = event.detail.variant.price;
+        throttledUpdate(currentVariantPrice);
+      }
+    });
+    
+    // Fallback for jQuery events
+    if (window.jQuery) {
+      jQuery(document).on('variant:changed variantChange product:variant:change', function(event, data) {
+        if (data && data.variant && data.variant.price) {
+          currentVariantPrice = data.variant.price;
+          throttledUpdate(currentVariantPrice);
+        }
+      });
+    }
+    
+    // Add direct click event listeners to variant selectors
+    function setupVariantListeners() {
+      // Common variant selector classes
+      const variantSelectors = [
+        '.variant-input label', 
+        '.swatch-element label', 
+        '.swatch label', 
+        '[data-option-value]', 
+        '.single-option-selector-item',
+        '.product-form__input input[type="radio"]',
+        '.product-form__swatch input[type="radio"]'
+      ].join(',');
+      
+      document.querySelectorAll(variantSelectors).forEach(function(element) {
+        element.addEventListener('click', function() {
+          setTimeout(function() {
+            // Try to get the current variant price from Vue instance
+            if (vueInstance && vueInstance.variant && vueInstance.variant.price) {
+              currentVariantPrice = vueInstance.variant.price;
+              throttledUpdate(currentVariantPrice);
+              return;
+            }
+            
+            // Try to get the variant ID from the form
+            const variantInput = document.querySelector('input[name="id"], select[name="id"]');
+            if (variantInput && productJSON && productJSON.variants) {
+              const variantId = parseInt(variantInput.value);
+              const selectedVariant = productJSON.variants.find(v => v.id === variantId);
+              if (selectedVariant && selectedVariant.price) {
+                currentVariantPrice = selectedVariant.price;
+                throttledUpdate(currentVariantPrice);
+              }
+            }
+          }, 50);
+        });
+      });
+      
+      // Listen for change events on select elements
+      document.querySelectorAll('select.single-option-selector, select[id^="ProductSelect-"]').forEach(function(select) {
+        select.addEventListener('change', function() {
+          setTimeout(function() {
+            // Try to get the current variant price from Vue instance
+            if (vueInstance && vueInstance.variant && vueInstance.variant.price) {
+              currentVariantPrice = vueInstance.variant.price;
+              throttledUpdate(currentVariantPrice);
+            }
+          }, 50);
+        });
+      });
+    }
+    
+    // Setup variant listeners after a short delay
+    setTimeout(setupVariantListeners, 500);
+    
+    // Handle quantity option selection
+    const quantityOptions = document.querySelectorAll('.quantity-option');
+    quantityOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        // Update selected state
+        quantityOptions.forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        
+        // Get quantity
+        const qty = parseInt(this.getAttribute('data-quantity'));
+        if (isNaN(qty)) return;
+        
+        // Update all quantity inputs
+        const allQuantityInputs = document.querySelectorAll('input[aria-label="quantity"], .js-qty__num, [id^="Quantity"], input[name="quantity"], input[name="quantity-js"]');
+        allQuantityInputs.forEach(input => {
+          input.value = qty;
+          
+          // Trigger events
+          try {
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+          } catch(e) {
+            console.error('Error triggering input event:', e);
+          }
+        });
+        
+        // Update Vue instance if available
+        if (vueInstance) {
+          try {
+            vueInstance.quantity = qty;
+          } catch(e) {
+            console.error('Error updating Vue quantity:', e);
+          }
+        }
+      });
+    });
+    
+    // Initialize with first option selected
+    if (quantityOptions.length > 0) {
+      quantityOptions[0].classList.add('selected');
+    }
+  });
+</script>
