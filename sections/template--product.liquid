@@ -121,6 +121,12 @@
                       {%- for block in section.blocks -%}
                         {%- case block.type -%}
                           {%- when 'sale_badge' -%}
+                            {% assign show_bundle = false %}
+                            {% if product.metafields.custom.show_bundle_section == true or product.metafields.custom.show_bundle_section == "true" %}
+                              {% assign show_bundle = true %}
+                            {% endif %}
+                            
+                            {% if show_bundle %}
                             <div class="fbt-bundle" id="fbt-{{ block.id }}" data-fbt="bundle" data-bundle-id="{{ block.id }}" data-discount="{{ block.settings.discount_percent | default: 0 }}">
                               <div class="fbt-bundle__header">
                                 <h3 class="fbt-title">{{ block.settings.fbt_title }}</h3>
@@ -150,118 +156,127 @@
                                   </div>
                                 </div>
 
-                                {% assign p = block.settings.product_1 %}
-                                {% if p %}
-                                  {% assign chosen_variant = p.selected_or_first_available_variant %}
-                                  <div class="fbt-item" data-product-handle="{{ p.handle }}">
-                                    <label class="fbt-check">
-                                          <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
-                                    </label>
-                                    <div class="fbt-thumb">
-                                      {% for v in p.variants %}
-                                        {% assign vfmedia = v.featured_media | default: p.featured_media %}
-                                        {% if vfmedia %}
-                                          {% assign vimg = vfmedia.preview_image %}
-                                          <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
-                                        {% endif %}
-                                      {% endfor %}
-                                    </div>
-                                    <div class="fbt-info">
-                                      <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
-                                          <div class="fbt-variant-select">
-                                        {% unless p.has_only_default_variant %}
-                                            <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
-                                          {% for v in p.variants %}
-                                            <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
-                                              {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
-                                            </option>
-                                          {% endfor %}
-                                        </select>
-                                        {% else %}
-                                          <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
-                                        {% endunless %}
+                                {% assign bundle_product_1_handle = product.metafields.custom.bundle_product_1 %}
+                                {% if bundle_product_1_handle != blank %}
+                                  {% assign p = all_products[bundle_product_1_handle] %}
+                                  {% if p %}
+                                    {% assign chosen_variant = p.selected_or_first_available_variant %}
+                                    <div class="fbt-item" data-product-handle="{{ p.handle }}">
+                                      <label class="fbt-check">
+                                            <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
+                                      </label>
+                                      <div class="fbt-thumb">
+                                        {% for v in p.variants %}
+                                          {% assign vfmedia = v.featured_media | default: p.featured_media %}
+                                          {% if vfmedia %}
+                                            {% assign vimg = vfmedia.preview_image %}
+                                            <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
+                                          {% endif %}
+                                        {% endfor %}
                                       </div>
-                                      <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
-                                        <span class="money">{{ chosen_variant.price | money }}</span>
+                                      <div class="fbt-info">
+                                        <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
+                                            <div class="fbt-variant-select">
+                                          {% unless p.has_only_default_variant %}
+                                              <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
+                                            {% for v in p.variants %}
+                                              <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
+                                                {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
+                                              </option>
+                                            {% endfor %}
+                                          </select>
+                                          {% else %}
+                                            <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
+                                          {% endunless %}
+                                        </div>
+                                        <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
+                                          <span class="money">{{ chosen_variant.price | money }}</span>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  {% endif %}
                                 {% endif %}
 
-                                {% assign p = block.settings.product_2 %}
-                                {% if p %}
-                                  {% assign chosen_variant = p.selected_or_first_available_variant %}
-                                  <div class="fbt-item" data-product-handle="{{ p.handle }}">
-                                    <label class="fbt-check">
-                                      <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
-                                    </label>
-                                    <div class="fbt-thumb">
-                                      {% for v in p.variants %}
-                                        {% assign vfmedia = v.featured_media | default: p.featured_media %}
-                                        {% if vfmedia %}
-                                          {% assign vimg = vfmedia.preview_image %}
-                                          <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
-                                        {% endif %}
-                                      {% endfor %}
-                                    </div>
-                                    <div class="fbt-info">
-                                      <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
-                                          <div class="fbt-variant-select">
-                                        {% unless p.has_only_default_variant %}
-                                        <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
-                                          {% for v in p.variants %}
-                                            <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
-                                              {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
-                                            </option>
-                                          {% endfor %}
-                                        </select>
-                                        {% else %}
-                                          <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
-                                        {% endunless %}
+                                {% assign bundle_product_2_handle = product.metafields.custom.bundle_product_2 %}
+                                {% if bundle_product_2_handle != blank %}
+                                  {% assign p = all_products[bundle_product_2_handle] %}
+                                  {% if p %}
+                                    {% assign chosen_variant = p.selected_or_first_available_variant %}
+                                    <div class="fbt-item" data-product-handle="{{ p.handle }}">
+                                      <label class="fbt-check">
+                                        <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
+                                      </label>
+                                      <div class="fbt-thumb">
+                                        {% for v in p.variants %}
+                                          {% assign vfmedia = v.featured_media | default: p.featured_media %}
+                                          {% if vfmedia %}
+                                            {% assign vimg = vfmedia.preview_image %}
+                                            <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
+                                          {% endif %}
+                                        {% endfor %}
                                       </div>
-                                      <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
-                                        <span class="money">{{ chosen_variant.price | money }}</span>
+                                      <div class="fbt-info">
+                                        <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
+                                            <div class="fbt-variant-select">
+                                          {% unless p.has_only_default_variant %}
+                                          <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
+                                            {% for v in p.variants %}
+                                              <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
+                                                {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
+                                              </option>
+                                            {% endfor %}
+                                          </select>
+                                          {% else %}
+                                            <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
+                                          {% endunless %}
+                                        </div>
+                                        <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
+                                          <span class="money">{{ chosen_variant.price | money }}</span>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  {% endif %}
                                 {% endif %}
 
-                                {% assign p = block.settings.product_3 %}
-                                {% if p %}
-                                  {% assign chosen_variant = p.selected_or_first_available_variant %}
-                                  <div class="fbt-item" data-product-handle="{{ p.handle }}">
-                                    <label class="fbt-check">
-                                      <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
-                                    </label>
-                                    <div class="fbt-thumb">
-                                      {% for v in p.variants %}
-                                        {% assign vfmedia = v.featured_media | default: p.featured_media %}
-                                        {% if vfmedia %}
-                                          {% assign vimg = vfmedia.preview_image %}
-                                          <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
-                                        {% endif %}
-                                      {% endfor %}
-                                    </div>
-                                    <div class="fbt-info">
-                                      <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
-                                          <div class="fbt-variant-select">
-                                        {% unless p.has_only_default_variant %}
-                                        <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
-                                          {% for v in p.variants %}
-                                            <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
-                                              {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
-                                            </option>
-                                          {% endfor %}
-                                        </select>
-                                        {% else %}
-                                          <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
-                                        {% endunless %}
+                                {% assign bundle_product_3_handle = product.metafields.custom.bundle_product_3 %}
+                                {% if bundle_product_3_handle != blank %}
+                                  {% assign p = all_products[bundle_product_3_handle] %}
+                                  {% if p %}
+                                    {% assign chosen_variant = p.selected_or_first_available_variant %}
+                                    <div class="fbt-item" data-product-handle="{{ p.handle }}">
+                                      <label class="fbt-check">
+                                        <input type="checkbox" class="fbt-item-checkbox" data-fbt-checkbox="1" checked>
+                                      </label>
+                                      <div class="fbt-thumb">
+                                        {% for v in p.variants %}
+                                          {% assign vfmedia = v.featured_media | default: p.featured_media %}
+                                          {% if vfmedia %}
+                                            {% assign vimg = vfmedia.preview_image %}
+                                            <img class="fbt-variant-thumb" data-vid="{{ v.id }}" src="{{ vimg | image_url: width: 150 }}" alt="{{ v.title | escape }}" width="150" height="150" data-media-id="{{ vfmedia.id }}"{% unless v.id == chosen_variant.id %} style="display:none"{% endunless %}>
+                                          {% endif %}
+                                        {% endfor %}
                                       </div>
-                                      <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
-                                        <span class="money">{{ chosen_variant.price | money }}</span>
+                                      <div class="fbt-info">
+                                        <a class="fbt-title-line" href="{{ p.url }}">{{ p.title }}</a>
+                                            <div class="fbt-variant-select">
+                                          {% unless p.has_only_default_variant %}
+                                          <select class="fbt-variant" data-fbt-variant="1" id="fbt-variant-{{ p.id }}-{{ block.id }}" aria-label="variant">
+                                            {% for v in p.variants %}
+                                              <option value="{{ v.id }}" data-price="{{ v.price }}" data-available="{{ v.available }}" data-title="{{ v.title | escape }}"{% if v.featured_media %} data-image="{{ v.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ v.featured_media.id }}"{% else %} data-image="{{ p.featured_media.preview_image | image_url: width: 150 }}" data-media-id="{{ p.featured_media.id }}"{% endif %} {% if v.id == chosen_variant.id %}selected{% endif %}>
+                                                {{ v.title }}{% unless v.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
+                                              </option>
+                                            {% endfor %}
+                                          </select>
+                                          {% else %}
+                                            <input type="hidden" class="fbt-variant" data-fbt-variant="1" value="{{ chosen_variant.id }}" data-price="{{ chosen_variant.price }}">
+                                          {% endunless %}
+                                        </div>
+                                        <div class="fbt-price" data-price-cents="{{ chosen_variant.price }}">
+                                          <span class="money">{{ chosen_variant.price | money }}</span>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  {% endif %}
                                 {% endif %}
                               </div>
 
@@ -276,6 +291,7 @@
                                 <button type="button" class="btn fbt-add-to-cart">{{ block.settings.button_text }}</button>
                               </div>
                             </div>
+                            {% endif %}
                           {%- when '@app' -%}
                             <div id="shopify-block-{{block.id}}"></div>
                           {%- when 'cross-sells' -%}
@@ -890,19 +906,12 @@
             "default": "Frequently Bought Together"
           },
           {
-            "type": "product",
-            "id": "product_1",
-            "label": "Product 1"
+            "type": "paragraph",
+            "content": "Bundle products are now configured using product metafields: custom.bundle_product_1, custom.bundle_product_2, custom.bundle_product_3"
           },
           {
-            "type": "product",
-            "id": "product_2",
-            "label": "Product 2"
-          },
-          {
-            "type": "product",
-            "id": "product_3",
-            "label": "Product 3"
+            "type": "paragraph",
+            "content": "Use metafield custom.show_bundle_section (boolean) to control whether to show this section. Set to true to show the section, false or not set will hide it."
           },
           {
             "type": "number",

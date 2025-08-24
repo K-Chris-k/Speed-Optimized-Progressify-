@@ -24,7 +24,14 @@
         },
         "sale_badge": {
           "type": "sale_badge",
-          "settings": {}
+          "settings": {
+            "fbt_title": "Frequently Bought Together",
+            "product_1": "long-handle-titanium-spork",
+            "product_2": "crystallized-titanium-insulated-travel-coffee-mug-with-lid-400ml-14-fl-oz-4-colors",
+            "product_3": "large-2-piece-titanium-camping-cookware-set-with-hanger",
+            "discount_percent": 11,
+            "button_text": "Add Bundle To Cart"
+          }
         },
         "title": {
           "type": "title",
@@ -348,7 +355,10 @@
       "blocks": {
         "516e7e47-0737-4662-a239-ecce32e81114": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
         }
       },
       "block_order": [

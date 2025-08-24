@@ -145,10 +145,7 @@
         "46a68c53-9aaa-404f-8759-76be46d7045b": {
           "type": "trust_badges",
           "disabled": true,
-          "settings": {
-            "trust-badge_max_width": 500,
-            "trust-badge": "shopify://shop_images/SilverAnt_Trust_Payment_Options_450_x_150_px.png"
-          }
+          "settings": {}
         },
         "custom_liquid_y97TMJ": {
           "type": "custom_liquid",
