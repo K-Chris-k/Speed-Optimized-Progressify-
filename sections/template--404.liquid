@@ -1,8 +1,13 @@
-<div class="grid error-page--wrapper">
-	<div class="grid__item large--two-thirds push--large--one-sixth">
-    <div class="sitewide--title-wrapper">
-      <h1 class="page--title">{{ 'general.404.title' | t }}</h1>
+{{ 'template-404.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="wrapper-spacing--h wrapper-spacing--v--template show-on-scroll">
+  <div class="width--content">
+    <div class="error-page--wrapper">
+      <div class="template-title--wrapper">
+        <h1 class="page--title template-title" data-animate data-animate-order="1">{{ 'general.404.title' | t }}</h1>
+        <p class="template-description" data-animate data-animate-order="2">{{ 'general.404.subtext_html' | t }}</p>
+      </div>
+      <a href="{{ routes.all_products_collection_url }}" class="btn" data-animate data-animate-order="3">{{ 'general.continue_shopping' | t }}</a>
     </div>
-		<p>{{ 'general.404.subtext_html' | t }}</p>
-	</div>
+  </div>
 </div>

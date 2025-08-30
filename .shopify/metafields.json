@@ -238,6 +238,16 @@
         "name": "product_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "show_bundle_section",
+      "namespace": "custom",
+      "name": "Bought Together",
+      "description": "Bought Together",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
     }
   ],
   "variant": [

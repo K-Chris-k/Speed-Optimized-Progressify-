@@ -1,8 +1,24 @@
+{% liquid 
+  if settings.show_currency_code
+    assign current_variant_price = current_variant.price | money_with_currency
+  else 
+    assign current_variant_price = current_variant.price | money
+  endif
+%}
+
 <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-<span id="ProductPrice" class="h2" itemprop="price"
+<span 
+  data-product-price id="ProductPrice" itemprop="price"
   content="{{ current_variant.price | divided_by: 100 }}"
-  v-bind:content="variant ? variant.price / 100 : null"
-  v-html="variant ? money(variant.price) : '{{ 'products.product.unavailable' | t }}'"
 >
-  <span class="money">{{ current_variant.price | money }}</span>
+  {% unless current_variant %}
+    {{ 'products.product.unavailable' | t }}
+  {% else %}
+    <span 
+      data-price-text data-unavailable-text="{{ 'products.product.unavailable' | t }}" 
+      class="money"
+    >
+      {{ current_variant_price }}
+    </span>
+  {% endunless %}
 </span>

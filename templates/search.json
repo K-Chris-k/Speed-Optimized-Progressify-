@@ -12,10 +12,23 @@
   "sections": {
     "main": {
       "type": "template--search",
-      "settings": {}
+      "settings": {
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "ba0289a9-189c-44b4-a569-0217c0002607": {
+      "type": "newsletter",
+      "settings": {
+        "newsletter_heading": "Sign up to our newsletter",
+        "newsletter_description": "<p>Get priority access to events and exclusive offers<\/p>",
+        "colors": "light"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "ba0289a9-189c-44b4-a569-0217c0002607"
   ]
 }
