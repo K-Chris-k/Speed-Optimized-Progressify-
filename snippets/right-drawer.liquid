@@ -2145,13 +2145,13 @@ button.ajaxcart__remove{
                                 {% endif %}
                               </p>
                               <ul class="ajaxcart-item__discounts" aria-label="{{ 'customer.order.discount' | t }}">
-                                <li class="ajaxcart-item__discount auto-discount--price-container-custom" v-if="item.line_level_discount_allocations.amount > 0">
+                                {% comment %} <li class="ajaxcart-item__discount auto-discount--price-container-custom" v-if="item.line_level_discount_allocations.amount > 0">
                                   <span class="hide auto-discount--price" v-text="item.line_level_discount_allocations.amount"></span>
                                   <span class="ajaxcart-item__discount_title" v-text="item.line_level_discount_allocations.title"></span>
                                   <span class="ajaxcart-item__discount_money">- <span v-money="item.line_level_discount_allocations.amount">
                                   </span>
                                   </span>
-                                </li>
+                                </li> {% endcomment %}
                               </ul>
                               <div class="ajaxcart__price-quantity">
   

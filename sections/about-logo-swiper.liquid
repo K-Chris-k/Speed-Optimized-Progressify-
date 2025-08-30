@@ -28,7 +28,7 @@
       color:white;
     }
   .swiper-button-next, .swiper-button-prev{
-    /* visibility:hidden; */
+    {% comment %} visibility:hidden; {% endcomment %}
     color: black;
     padding: 20px;
     padding-top: 20px;
@@ -42,6 +42,18 @@
   .logo-list-content{
     text-align:center;
   }
+
+
+        @media (max-width: 500px) {
+          .swiper-button-next, .swiper-button-prev {
+    color: black;
+    padding: 14px;
+
+    background-color: white;
+    height: 30px;
+    width: 30px;
+}
+        }
 </style>
 <div class="main-container">
 <div class="swiper sample-slider">
