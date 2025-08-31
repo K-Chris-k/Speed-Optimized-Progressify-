@@ -382,12 +382,12 @@ h1.site-header__logo.site-title {
     width: 18px;
     height: 18px;
 }
-@media (max-width: 1366px) {
+@media (max-width: 1440px) {
   .mega-menu-wrapper .dropdown-submenu.large--one-quarter {
-    width: 22%;
+    width: 23%;
 }
 }
-@media (max-width: 1280px) {
+@media (max-width: 1360px) {
   .mega-menu-wrapper .dropdown-submenu.large--one-quarter {
     width: 22%;
 }

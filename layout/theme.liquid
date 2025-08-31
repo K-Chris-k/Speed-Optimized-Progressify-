@@ -15,6 +15,7 @@
   {{ 'theme.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'style.css' | asset_url | stylesheet_tag: preload: true }}
 
   {% if settings.favicon != blank %}
     <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 180, height: 180, crop: 'center' }}" type="image/png">
