@@ -226,6 +226,8 @@ Testing Cypress integration
                 if show_first_promo_image == true or show_second_promo_image == true
                   assign is-mega-menu = true
                 endif
+                assign mega-menu-block = block
+                assign menu-type = block.settings.menu_type
               endif
             endfor
           %}
@@ -973,6 +975,18 @@ Testing Cypress integration
   {% endif %}
 </style>
 
+<script>
+  $(function(){
+    $(".nav-sub-menu").mouseenter(function(){
+      var handle = $(this).data("handle");
+
+      $(".submenu-inner").removeClass("active");
+      $(".submenu-"+handle).addClass("active");
+    })
+  })
+</script>
+<script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll(".nav-sub-menu").forEach(function(subMenu){subMenu.addEventListener("mouseenter",function(){var handle=this.dataset.handle;document.querySelectorAll(".submenu-inner").forEach(function(submenuInner){submenuInner.classList.remove("active")});document.querySelector(".submenu-"+handle).classList.add("active");var mobileNavToggleOpen=this.querySelector(".mobile-nav__toggle-open");var mobileNavToggleClose=this.querySelector(".mobile-nav__toggle-close");var parent=this.parentNode;parent.querySelector(".mobile-nav__toggle-open").style.display="block";parent.querySelector(".mobile-nav__toggle-close").style.display="none";mobileNavToggleOpen.style.display="none";mobileNavToggleClose.style.display="block"})});document.querySelectorAll(".mobile-nav__has-sublistnew").forEach(function(element){element.addEventListener("click",function(){this.parentNode.querySelector(".menu__list").classList.add("show");document.querySelector(".mobile-nav-main").classList.add("slide-left");document.querySelector(".back-icon").classList.remove("hiddennew").classList.add("display")})});document.querySelector(".back-icon").addEventListener("click",function(){document.querySelector(".menu__list.show").classList.remove("show");document.querySelector(".mobile-nav-main").classList.remove("slide-left");document.querySelector(".back-icon").classList.remove("display").classList.add("hiddennew")});document.querySelectorAll(".mobile-nav__has-sublist .mobile-nav__link").forEach(function(link){link.addEventListener("click",function(){var parent=this.parentNode;parent.classList.contains("mobile-nav--expanded")?parent.classList.remove("mobile-nav--expanded"):parent.classList.add("mobile-nav--expanded")})})});</script>
+
 {% schema %}
 {
   "name": "t:sections.header.name",
@@ -1303,6 +1317,22 @@ Testing Cypress integration
       "name": "t:sections.header.blocks.content.name",
       "settings": [
         {
+          "type": "select",
+          "id": "menu_type",
+          "label": "Menu Type",
+          "default": "oldtype",
+          "options": [
+            {
+              "value": "oldtype",
+              "label": "Old Type"
+            },
+            {
+              "value": "newtype",
+              "label": "New Type"
+            }
+          ]
+        },
+        {
           "id": "mega-menu",
           "type": "text",
           "label": "t:all.Menu_item",
@@ -1447,7 +1477,25 @@ Testing Cypress integration
           "id": "overlay_text_color_promo_2",
           "label": "t:all.Text",
           "default": "#FFFFFF"
-        }
+        },
+        {
+                    "type": "header",
+                    "content": {
+                        "en": "Enter Paragraph Details"
+                    }
+                },
+				{
+                    "type": "text",
+                    "id": "menu_paragraph_header",
+                    "label": "Heading",
+                    "default": "Enter text here"
+                },
+                {
+                  "type": "textarea",
+                  "id": "menu_paragraph_text",
+                  "label": "Text",
+                  "default": "Welcome to my shop!"
+                }
       ]
     }
   ]
