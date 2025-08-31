@@ -141,7 +141,7 @@
             "collapsible_tab": true,
             "icon": "none",
             "heading": "Product Overview",
-            "open_close_icon": "plus_minus",
+            "open_close_icon": "caret",
             "open_by_default": false,
             "margin_bottom": 0
           }
@@ -150,10 +150,10 @@
           "type": "collapsible-tab",
           "settings": {
             "heading": "Specification",
-            "open_close_icon": "plus_minus",
+            "open_close_icon": "caret",
             "open_by_default": false,
             "icon": "none",
-            "text": "<p>Share some information about your product</p>",
+            "text": "<p>{{ product.metafields.my_fields.specifications | metafield_tag }}</p>",
             "page": "",
             "margin_bottom": 0
           }
@@ -162,10 +162,10 @@
           "type": "collapsible-tab",
           "settings": {
             "heading": "Features",
-            "open_close_icon": "plus_minus",
+            "open_close_icon": "caret",
             "open_by_default": false,
             "icon": "none",
-            "text": "<p>Share some information about your product</p>",
+            "text": "<p>{{ product.metafields.my_fields.features | metafield_tag }}</p>",
             "page": "",
             "margin_bottom": 0
           }
@@ -174,16 +174,17 @@
           "type": "collapsible-tab",
           "settings": {
             "heading": "FAQ's",
-            "open_close_icon": "plus_minus",
+            "open_close_icon": "caret",
             "open_by_default": false,
             "icon": "none",
-            "text": "<p>greetings</p>",
+            "text": "<p>{{ product.metafields.my_fields.faq | metafield_tag }}</p>",
             "page": "",
             "margin_bottom": 40
           }
         },
         "fbfe241f-1b44-41cd-ae22-e866bdad9aaf": {
           "type": "cross-sells",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "title": "You may also like...",
