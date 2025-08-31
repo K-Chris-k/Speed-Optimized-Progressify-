@@ -6,13 +6,12 @@
   {%- comment -%}DemoStoreRequirements{%- endcomment -%}
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  {%- unless settings.type_header_font.system? -%}
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-  {%- endunless -%}
+  <!-- Custom fonts are loaded from assets folder -->
 
   {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'photoswipe.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'theme.min.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'custom-fonts.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'style.css' | asset_url | stylesheet_tag: preload: true }}
@@ -27,16 +26,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ settings.favicon | image_url: width: 16, height: 16, crop: 'center' }}">
   {% endif %}
 
-  {%- unless settings.type_header_font.system? -%}
-    {% # theme-check-disable AssetPreload %}
-    <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
-    {% # theme-check-enable AssetPreload %}
-  {%- endunless -%}
-  {%- unless settings.type_base_font.system? -%}
-    {% # theme-check-disable AssetPreload %}
-    <link rel="preload" as="font" href="{{ settings.type_base_font | font_url }}" type="font/woff2" crossorigin>
-    {% # theme-check-enable AssetPreload %}
-  {%- endunless -%}
+  <!-- Preloading custom fonts -->
+  <link rel="preload" as="font" href="{{ 'ITCFranklinGothicStd-Hvy.otf' | asset_url }}" type="font/otf" crossorigin>
+  <link rel="preload" as="font" href="{{ 'Rajdhani-Regular.ttf' | asset_url }}" type="font/ttf" crossorigin>
 
   <!-- Title and description ================================================== -->
   <title>
