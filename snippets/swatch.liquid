@@ -221,7 +221,17 @@
           <div class="bottom-purchase-info__content">
             <h3 class="bottom-purchase-info__title">{{ product.title | escape }}</h3>
             <div class="bottom-purchase-info__review-badge">
-              {% render 'proviews_review_badge' with product as product %}      
+              {% render 'reviews-star-rating' with
+              rating_product: product,
+              star_color: settings.star_rating_color,
+              classes: alignment_class,
+              star_size: settings.star_size,
+              no_reviews_label: settings.no_reviews_label,
+              show_rating_as: settings.show_rating_as,
+              show_product_rating_if_no_reviews: settings.show_product_rating_if_no_reviews,
+              color_scheme: section_color_scheme,
+              wrapper_class: 'product-grid--rating'
+            %}
             </div>
             <span class="visually-hidden bottom-purchase-info__compare-price js-bottom-compare-price">
               Regular price
@@ -282,7 +292,7 @@
                   data-action="decrease"
                   data-quantity-button="decrease"
                 >
-                  <i class="fa fa-minus" aria-hidden="true"></i>
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="flex-full" aria-hidden="true"><path d="M5 10H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                   <span class="fallback-text">−</span>
                 </button>
                 <input
@@ -304,15 +314,15 @@
                   data-action="increase"
                   data-quantity-button="increase"
                 >
-                  <i class="fa fa-plus" aria-hidden="true"></i>
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="flex-full" aria-hidden="true"><path d="M5 10H10M10 10H15M10 10V5M10 10V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                   <span class="fallback-text">+</span>
                 </button>
               </div>
             </div>
             
             <div class="bottom-purchase-info__btn-container">
-              <div class="paymentButtonsWrapper">
-                <div id="addtocart"></div>
+              <div class="paymentButtonsWrapper btn-wrapper-default">
+                {% comment %} <div id="addtocart"></div> {% endcomment %}
                 <button
                   type="submit"
                   aria-label="{{ 'products.product.add_to_cart' | t }}"
@@ -325,17 +335,13 @@
                   data-bottom-add-to-cart-swatch
                 >
                   <i
-                    class="fa fa-circle-o-notch fa-spin fa-2x fa-fw js"
-                    v-if="state === 'adding'"
-                    v-cloak
+                    class="fa fa-circle-o-notch fa-spin fa-fw js bottom-loading-icon"
                     style="display: none;"
                   ></i>
                   <span class="sr-only">{{ 'collections.paginate.loading' | t }}</span>
                   <span
-                    class="btn-text-ready {% if current_variant.available %}js{% endif %}"
-                    v-if="state === 'ready'"
-                    v-cloak
-                    style="display: inline;"
+                    class="btn-text-ready"
+                    style="display: {% if current_variant.available %}inline{% else %}none{% endif %};"
                   >
                     {{- 'products.product.add_to_cart' | t -}}
                   </span>
@@ -348,9 +354,7 @@
                     {{- 'products.product.added' | t -}}
                   </span>
                   <span
-                    class="btn-text-soldout {% unless current_variant.available %}js{% endunless %}"
-                    v-if="state === 'soldOut'"
-                    v-cloak
+                    class="btn-text-soldout"
                     style="display: {% unless current_variant.available %}inline{% else %}none{% endunless %};"
                   >
                     {{- 'products.product.sold_out' | t -}}

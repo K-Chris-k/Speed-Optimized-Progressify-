@@ -24,6 +24,7 @@ class ProductSwatch extends HTMLElement {
     
     this.setEventListeners();
     this.setColorLabelState();
+    this.setupBottomAddToCartButton();
   }
 
   setEventListeners() {
@@ -155,6 +156,9 @@ class ProductSwatch extends HTMLElement {
     }
 
     this.emitVariantChangeEvent(currentVariant, productFetchUrl, productUrl, isCombinedListing);
+    
+    // Update bottom button text when variant changes
+    setTimeout(() => this.updateBottomButtonText(), 100);
   }
 
   emitVariantChangeEvent(variant, productFetchUrl, productUrl, isCombinedListing = false) {
@@ -274,6 +278,234 @@ class ProductSwatch extends HTMLElement {
 
   getVariantDataElement(inputId) {
     return this.querySelector(`script[type="application/json"][data-resource="${inputId}"]`);
+  }
+
+  setupBottomAddToCartButton() {
+    /* ===== Setup bottom add to cart button functionality ===== */
+    const bottomButton = this.querySelector('[data-bottom-add-to-cart-swatch]');
+    if (!bottomButton) return;
+
+    // Update bottom button text based on variant availability
+    this.updateBottomButtonText();
+
+    // Listen for variant changes to update button text
+    document.addEventListener('variant:change', () => {
+      setTimeout(() => this.updateBottomButtonText(), 100);
+    });
+
+    // Listen for dropdown changes in bottom bar
+    const bottomDropdowns = this.querySelectorAll('.bottom-purchase-dropdown__select');
+    bottomDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('change', () => {
+        setTimeout(() => this.updateBottomButtonText(), 50);
+      });
+    });
+
+    bottomButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      if (bottomButton.disabled) return;
+
+      // Show loading state
+      this.showBottomButtonLoading();
+
+      try {
+        // Get current variant ID and quantity
+        const variantId = this.getCurrentVariantId();
+        const quantity = this.querySelector('#BottomQuantity')?.value || 1;
+
+        if (!variantId) {
+          console.error('No variant ID found');
+          this.hideBottomButtonLoading();
+          return;
+        }
+
+        // Add to cart via AJAX
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: parseInt(quantity, 10)
+          })
+        });
+
+        if (response.ok) {
+          // Show success state briefly
+          this.showBottomButtonSuccess();
+          
+          // Trigger cart drawer update
+          if (typeof eventBus !== 'undefined' && eventBus.emit) {
+            eventBus.emit('cart:added', { sectionId: this.sectionId });
+            eventBus.emit('open:cart:drawer', { scrollToTop: true });
+          } else {
+            // Fallback: dispatch custom events
+            document.dispatchEvent(new CustomEvent('cart:added', {
+              detail: { sectionId: this.sectionId }
+            }));
+            document.dispatchEvent(new CustomEvent('cart:open'));
+          }
+
+          // Reset button after delay
+          setTimeout(() => {
+            this.hideBottomButtonLoading();
+          }, 2000);
+        } else {
+          throw new Error('Failed to add to cart');
+        }
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+        this.hideBottomButtonLoading();
+      }
+    });
+  }
+
+  getCurrentVariantId() {
+    /* ===== Get current variant ID from bottom dropdowns or main form ===== */
+    // First try to get from main form
+    const mainVariantInput = document.querySelector('form[action*="/cart/add"] input[name="id"]');
+    if (mainVariantInput && mainVariantInput.value) {
+      return mainVariantInput.value;
+    }
+
+    // Try to get from bottom dropdowns by finding matching variant
+    const bottomDropdowns = this.querySelectorAll('.bottom-purchase-dropdown__select');
+    if (bottomDropdowns.length > 0) {
+      // Get selected options from dropdowns
+      const selectedOptions = Array.from(bottomDropdowns).map(dropdown => dropdown.value);
+      
+      // Find variant that matches these options
+      const productJsonEl = document.querySelector('[data-product-json]');
+      if (productJsonEl) {
+        try {
+          const productData = JSON.parse(productJsonEl.textContent);
+          const matchingVariant = productData.variants.find(variant => {
+            return selectedOptions.every((option, index) => variant.options[index] === option);
+          });
+          if (matchingVariant) {
+            return matchingVariant.id;
+          }
+        } catch (e) {
+          console.error('Error parsing product data:', e);
+        }
+      }
+    }
+
+    return null;
+  }
+
+  showBottomButtonLoading() {
+    /* ===== Show loading state on bottom button ===== */
+    const bottomButton = this.querySelector('[data-bottom-add-to-cart-swatch]');
+    if (!bottomButton) return;
+
+    const loadingIcon = bottomButton.querySelector('.bottom-loading-icon');
+    const readyText = bottomButton.querySelector('.btn-text-ready');
+    const soldOutText = bottomButton.querySelector('.btn-text-soldout');
+    const addedText = bottomButton.querySelector('.btn-text-added');
+
+    if (loadingIcon) {
+      loadingIcon.style.display = 'inline-block';
+      loadingIcon.style.marginRight = '8px';
+    }
+    if (readyText) readyText.style.display = 'none';
+    if (soldOutText) soldOutText.style.display = 'none';
+    if (addedText) addedText.style.display = 'none';
+    
+    // Add loading text
+    const loadingText = document.createElement('span');
+    loadingText.className = 'bottom-loading-text';
+    loadingText.textContent = 'Loading...';
+    loadingText.style.display = 'inline';
+    bottomButton.appendChild(loadingText);
+    
+    bottomButton.disabled = true;
+  }
+
+  showBottomButtonSuccess() {
+    /* ===== Show success state on bottom button ===== */
+    const bottomButton = this.querySelector('[data-bottom-add-to-cart-swatch]');
+    if (!bottomButton) return;
+
+    const loadingIcon = bottomButton.querySelector('.bottom-loading-icon');
+    const loadingText = bottomButton.querySelector('.bottom-loading-text');
+    const addedText = bottomButton.querySelector('.btn-text-added');
+    const readyText = bottomButton.querySelector('.btn-text-ready');
+    const soldOutText = bottomButton.querySelector('.btn-text-soldout');
+
+    if (loadingIcon) loadingIcon.style.display = 'none';
+    if (loadingText) loadingText.remove();
+    if (addedText) addedText.style.display = 'inline';
+    if (readyText) readyText.style.display = 'none';
+    if (soldOutText) soldOutText.style.display = 'none';
+  }
+
+  hideBottomButtonLoading() {
+    /* ===== Hide loading state and restore normal state ===== */
+    const bottomButton = this.querySelector('[data-bottom-add-to-cart-swatch]');
+    if (!bottomButton) return;
+
+    const loadingIcon = bottomButton.querySelector('.bottom-loading-icon');
+    const loadingText = bottomButton.querySelector('.bottom-loading-text');
+    const addedText = bottomButton.querySelector('.btn-text-added');
+
+    if (loadingIcon) loadingIcon.style.display = 'none';
+    if (loadingText) loadingText.remove();
+    if (addedText) addedText.style.display = 'none';
+    
+    // Restore normal button state
+    this.updateBottomButtonText();
+  }
+
+  updateBottomButtonText() {
+    /* ===== Update bottom button text based on current variant availability ===== */
+    const bottomButton = this.querySelector('[data-bottom-add-to-cart-swatch]');
+    if (!bottomButton) return;
+
+    const readyText = bottomButton.querySelector('.btn-text-ready');
+    const soldOutText = bottomButton.querySelector('.btn-text-soldout');
+    
+    if (!readyText || !soldOutText) return;
+
+    // Check if current variant is available
+    let isAvailable = true;
+
+    // Method 1: Check main form submit button state
+    const mainSubmitButton = document.querySelector('form[action*="/cart/add"] button[type="submit"]');
+    if (mainSubmitButton && mainSubmitButton.disabled) {
+      isAvailable = false;
+    }
+
+    // Method 2: Check if any bottom dropdown has a disabled selected option
+    const bottomDropdowns = this.querySelectorAll('.bottom-purchase-dropdown__select');
+    bottomDropdowns.forEach(dropdown => {
+      const selectedOption = dropdown.options[dropdown.selectedIndex];
+      if (selectedOption && selectedOption.disabled) {
+        isAvailable = false;
+      }
+    });
+
+    // Method 3: Check main form variant input
+    const mainVariantInput = document.querySelector('form[action*="/cart/add"] input[name="id"]');
+    if (mainVariantInput && mainVariantInput.disabled) {
+      isAvailable = false;
+    }
+
+    // Update button text and state
+    if (isAvailable) {
+      readyText.style.display = 'inline';
+      soldOutText.style.display = 'none';
+      bottomButton.disabled = false;
+      bottomButton.classList.remove('disabled');
+    } else {
+      readyText.style.display = 'none';
+      soldOutText.style.display = 'inline';
+      bottomButton.disabled = true;
+      bottomButton.classList.add('disabled');
+    }
   }
 
   disconnectedCallback() {

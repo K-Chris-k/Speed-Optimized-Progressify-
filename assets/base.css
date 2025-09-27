@@ -700,3 +700,7 @@ button.js-qty__adjust.js-qty__adjust--plus.icon-fallback-text.bottom-qty-button 
   min-width: 20px;
   min-height: 20px;
 }
+.wrapper-spacing--h.wrapper-spacing--v--template.product-section.shown-on-scroll.animated.fadeIn {
+  position: relative;
+  z-index: 99;
+}

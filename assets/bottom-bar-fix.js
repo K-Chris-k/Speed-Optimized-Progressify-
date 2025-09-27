@@ -146,15 +146,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (element.hasAttribute('data-variant-monitor')) return;
         
         element.setAttribute('data-variant-monitor', 'true');
-        element.addEventListener('change', function() {
-          console.log('变体选择器改变:', this);
-          setTimeout(updateVariantImage, 100);
-        });
+         element.addEventListener('change', function() {
+           setTimeout(updateVariantImage, 100);
+         });
         
         // 对于非标准控件，监听点击事件
         if (selector.includes('input[type="radio"]') || selector.includes('swatches__item')) {
           element.addEventListener('click', function() {
-            console.log('变体选择器点击:', this);
             setTimeout(updateVariantImage, 200);
           });
         }
@@ -188,11 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
       subtree: true 
     });
     
-    // 检查页面中的Vue实例
-    if (window.Vue) {
-      console.log('检测到Vue实例，尝试监控Vue事件');
-      // 如果Vue实例在全局可用，我们可以尝试监听Vue事件（这取决于主题实现）
-    }
+     // 检查页面中的Vue实例
+     if (window.Vue) {
+       // 如果Vue实例在全局可用，我们可以尝试监听Vue事件（这取决于主题实现）
+     }
     
     // 对于WeTheme特定的组件，添加额外的监听
     const weThemeForm = document.querySelector('wetheme-product-form');
@@ -249,24 +246,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // 查找所有 global-drawer 元素
     const globalDrawers = document.querySelectorAll('.global-drawer');
     
-    if (globalDrawers.length === 0) {
-      console.log('未找到 global-drawer 元素');
-      return;
-    }
+     if (globalDrawers.length === 0) {
+       return;
+     }
     
     // 为每个 global-drawer 设置监听器
     globalDrawers.forEach(drawer => {
       // 创建 MutationObserver 监听 aria-hidden 属性变化
       const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
-            const ariaHiddenValue = drawer.getAttribute('aria-hidden');
-            console.log('global-drawer aria-hidden 变化:', ariaHiddenValue);
-            
-            // 根据 aria-hidden 值控制 bottom-purchase-info 的显示
-            handleGlobalDrawerVisibility(ariaHiddenValue === 'false');
-          }
-        });
+         mutations.forEach(function(mutation) {
+           if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
+             const ariaHiddenValue = drawer.getAttribute('aria-hidden');
+             
+             // 根据 aria-hidden 值控制 bottom-purchase-info 的显示
+             handleGlobalDrawerVisibility(ariaHiddenValue === 'false');
+           }
+         });
       });
       
       // 开始监听属性变化
@@ -294,17 +289,15 @@ document.addEventListener('DOMContentLoaded', function() {
       bottomBar.setAttribute('data-global-drawer-transition-set', 'true');
     }
     
-    if (isDrawerVisible) {
-      // aria-hidden="false" 表示抽屉显示，bottom-purchase-info 向下消失
-      bottomBar.style.transform = 'translateY(100%)';
-      bottomBar.style.opacity = '0';
-      console.log('global-drawer 显示，隐藏 bottom-purchase-info');
-    } else {
-      // aria-hidden="true" 表示抽屉隐藏，bottom-purchase-info 向上出现
-      bottomBar.style.transform = 'translateY(0)';
-      bottomBar.style.opacity = '1';
-      console.log('global-drawer 隐藏，显示 bottom-purchase-info');
-    }
+     if (isDrawerVisible) {
+       // aria-hidden="false" 表示抽屉显示，bottom-purchase-info 向下消失
+       bottomBar.style.transform = 'translateY(100%)';
+       bottomBar.style.opacity = '0';
+     } else {
+       // aria-hidden="true" 表示抽屉隐藏，bottom-purchase-info 向上出现
+       bottomBar.style.transform = 'translateY(0)';
+       bottomBar.style.opacity = '1';
+     }
   }
   
   // 更新底部购买栏的可见性
@@ -377,21 +370,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (barFromDoc) {
           console.log('从HTML中提取底部购买栏');
           
-          // 检查是否有评论组件并确保显示
-          const reviewBadge = barFromDoc.querySelector('.bottom-purchase-info__review-badge');
-          if (reviewBadge) {
-            // 查找页面上的星级评分显示
-            const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
-            const reviewCount = document.querySelector('.jdgm-prev-badge__text, .spr-badge-caption')?.textContent || '1 Review';
-            
-            if (existingStars) {
-              // 如果页面上已有星级组件，复制它并替换到底部购买栏
-              reviewBadge.innerHTML = `<div class="bottom-stars-container">
-                ${existingStars.outerHTML}
-                <span class="bottom-review-count">${reviewCount}</span>
-              </div>`;
-            }
-          }
           
           document.body.appendChild(barFromDoc);
           setupBottomBar(barFromDoc);
@@ -489,71 +467,6 @@ document.addEventListener('DOMContentLoaded', function() {
       bar.setAttribute('data-slide-transition-set', 'true');
     }
     
-    // 查找页面上的评论组件
-    const existingBadge = document.querySelector('.prorw_preview_badge_setup');
-    let badgeHTML = '';
-    
-    if (existingBadge) {
-      // 获取产品ID和评分信息
-      const productId = existingBadge.getAttribute('data-product-id');
-      const averageRatings = existingBadge.getAttribute('data-average-ratings') || '5';
-      const reviewCount = existingBadge.getAttribute('data-count') || '1';
-      
-      // 找到页面上的星级评分显示
-      const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
-      const reviewLink = document.querySelector('a.spr-badge, a.jdgm-prev-badge');
-      
-      // 创建直接显示的星级评分
-      if (existingStars) {
-        // 如果页面上已有星级组件，复制它
-        badgeHTML = `<div class="bottom-stars-container">
-          ${existingStars.outerHTML}
-          <span class="bottom-review-count">${reviewCount} Review${reviewCount > 1 ? 's' : ''}</span>
-        </div>`;
-      } else {
-        // 否则创建一个新的星级组件
-        const fullStars = Math.floor(parseFloat(averageRatings));
-        const halfStar = parseFloat(averageRatings) - fullStars >= 0.5;
-        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-        
-        let starsHTML = '';
-        // 添加满星
-        for (let i = 0; i < fullStars; i++) {
-          starsHTML += `<span class="fa fa-star" aria-hidden="true"></span>`;
-        }
-        // 添加半星
-        if (halfStar) {
-          starsHTML += `<span class="fa fa-star-half-o" aria-hidden="true"></span>`;
-        }
-        // 添加空星
-        for (let i = 0; i < emptyStars; i++) {
-          starsHTML += `<span class="fa fa-star-o" aria-hidden="true"></span>`;
-        }
-        
-        badgeHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
-          <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">${starsHTML}</div>
-          <span class="bottom-review-count">${reviewCount} Review${reviewCount > 1 ? 's' : ''}</span>
-        </div>`;
-      }
-    } else {
-      // 如果没有评论组件，查找页面上显示的评分
-      const reviewSection = document.querySelector('.product-single__review, .product-reviews');
-      if (reviewSection) {
-        badgeHTML = reviewSection.innerHTML;
-      } else {
-        // 创建默认的5星评分
-        badgeHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
-          <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-          </div>
-          <span class="bottom-review-count">1 Review</span>
-        </div>`;
-      }
-    }
     
     // 构建内部HTML
     if (isMobile) {
@@ -613,9 +526,6 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           <div class="bottom-purchase-info__content" style="flex: 1; min-width: 0; padding-right: 15px; overflow: hidden;">
             <h3 class="bottom-purchase-info__title" style="margin: 0 0 5px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${productTitle.textContent}</h3>
-            <div class="bottom-purchase-info__review-badge">
-            ${badgeHTML}
-            </div>
             <span id="BottomProductPrice" class="bottom-purchase-info__price" style="font-weight: bold;">
               <span class="money">${productPrice.textContent}</span>
             </span>
@@ -801,36 +711,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // 确保评论显示
-    const reviewBadge = bottomBar.querySelector('.bottom-purchase-info__review-badge');
-    if (reviewBadge) {
-      // 检查是否已经有星级评分显示
-      if (!reviewBadge.querySelector('.bottom-stars-container, .fa-star')) {
-        // 查找页面上的星级评分显示
-        const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
-        const reviewCount = document.querySelector('.jdgm-prev-badge__text, .spr-badge-caption')?.textContent || '1 Review';
-        
-        if (existingStars) {
-          // 如果页面上已有星级组件，复制它并替换到底部购买栏
-          reviewBadge.innerHTML = `<div class="bottom-stars-container">
-            ${existingStars.outerHTML}
-            <span class="bottom-review-count">${reviewCount}</span>
-          </div>`;
-        } else {
-          // 创建默认的5星评分
-          reviewBadge.innerHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
-            <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-            </div>
-            <span class="bottom-review-count">1 Review</span>
-          </div>`;
-        }
-      }
-    }
     
     // 设置添加到购物车按钮
     setupAddToCartButton();
