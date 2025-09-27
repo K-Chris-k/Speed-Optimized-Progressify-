@@ -166,7 +166,14 @@ if (!customElements.get('product-information')) {
       this.productUrl = context.productURL;
 
       // If we don't have a valid variant, handle it and return
+      // BUT SKIP if we're currently processing a quantity change
       if (!this.currentVariant) {
+        // Check if we're processing a quantity change to avoid interfering
+        if (document.body.hasAttribute('data-quantity-changing') || 
+            document.body.hasAttribute('data-quantity-button-clicked')) {
+          console.log('Skipping invalid variant handling during quantity change');
+          return;
+        }
         this.handleInvalidVariant();
         return;
       }
@@ -193,6 +200,13 @@ if (!customElements.get('product-information')) {
 
     handleInvalidVariant() {
       /* ===== Handle an invalid variant ===== */
+      // Double-check: don't interfere during quantity changes
+      if (document.body.hasAttribute('data-quantity-changing') || 
+          document.body.hasAttribute('data-quantity-button-clicked')) {
+        console.log('Aborting invalid variant handling - quantity change in progress');
+        return;
+      }
+      
       const productFetchUrl = this.buildRequestUrlWithParams();
       this.fetchNullVariantData(productFetchUrl);
 

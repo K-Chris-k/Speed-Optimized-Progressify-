@@ -171,6 +171,132 @@
                       </div>
                     {% endif %}
 
+
+
+                    {%- when 'quantity-discount' -%}
+                      <div class="quantity-discount-container" {{ block.shopify_attributes }} id="quantity-discount-container">
+                        <div class="quantity-discount-title">{{ block.settings.discount_title }}</div>
+                        <div class="quantity-discount-options">
+                          {% comment %} Option 1 (One) {% endcomment %}
+                          {% assign option_name = 'option_1' %}
+                          {% assign qty_field = option_name | append: '_qty' %}
+                          {% assign discount_field = option_name | append: '_discount' %}
+                          {% assign name_field = option_name | append: '_name' %}
+                          
+                          {% if block.settings[qty_field] > 0 %}
+                            {% assign quantity = block.settings[qty_field] %}
+                            {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                            
+                            <div class="quantity-option standard-price" 
+                                 data-quantity="{{ quantity }}" 
+                                 data-discount="{{ discount_percent }}"
+                                 data-option="1">
+                              
+                              <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                              <div class="standard-price-label">Standard Price</div>
+                              
+                              <div class="final-price">
+                                <span class="money"></span>
+                              </div>
+                              
+                              <div class="original-price">
+                                <span class="money"></span>
+                              </div>
+                              
+                              <div class="unit-price-container">
+                                <small><span class="money"></span> each</small>
+                              </div>
+                            </div>
+                          {% endif %}
+                          
+                          {% comment %} Option 2 (Two) {% endcomment %}
+                          {% assign option_name = 'option_2' %}
+                          {% assign qty_field = option_name | append: '_qty' %}
+                          {% assign discount_field = option_name | append: '_discount' %}
+                          {% assign name_field = option_name | append: '_name' %}
+                          
+                          {% if block.settings[qty_field] > 0 %}
+                            {% assign quantity = block.settings[qty_field] %}
+                            {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                            
+                            <div class="quantity-option" 
+                                 data-quantity="{{ quantity }}" 
+                                 data-discount="{{ discount_percent }}"
+                                 data-option="2">
+                              
+                              <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                              
+                              {% if discount_percent > 0 %}
+                                <div class="discount-label">{{ discount_percent }}% OFF</div>
+                              {% endif %}
+                              
+                              <div class="final-price">
+                                <span class="money"></span>
+                              </div>
+                              
+                              <div class="original-price">
+                                {% if discount_percent > 0 %}
+                                  <span class="money"></span>
+                                {% endif %}
+                              </div>
+                              
+                              <div class="unit-price-container">
+                                <small><span class="money"></span> each</small>
+                              </div>
+                            </div>
+                          {% endif %}
+                          
+                          {% comment %} Option 4 (Four) {% endcomment %}
+                          {% assign option_name = 'option_4' %}
+                          {% assign qty_field = option_name | append: '_qty' %}
+                          {% assign discount_field = option_name | append: '_discount' %}
+                          {% assign name_field = option_name | append: '_name' %}
+                          
+                          {% if block.settings[qty_field] > 0 %}
+                            {% assign quantity = block.settings[qty_field] %}
+                            {% assign discount_percent = block.settings[discount_field] | default: 0 %}
+                            
+                            <div class="quantity-option{% if block.settings.show_best_value %} best-value{% endif %}" 
+                                 data-quantity="{{ quantity }}" 
+                                 data-discount="{{ discount_percent }}"
+                                 data-option="4">
+                              
+                              {% if block.settings.show_best_value %}
+                                <div class="rapi-bundles__bar-most-popular heavy-bundle rapi-bundles__bar-most-popular--top-bar">
+                                  <div class="rapi-bundles__bar-most-popular__content">
+                                    {{ block.settings.best_value_text }}
+                                  </div>
+                                </div>
+                              {% endif %}
+                              
+                              <div class="quantity-name">{{ block.settings[name_field] }}</div>
+                              
+                              {% if discount_percent > 0 %}
+                                <div class="discount-label">{{ discount_percent }}% OFF</div>
+                              {% endif %}
+                              
+                              <div class="final-price">
+                                <span class="money"></span>
+                              </div>
+                              
+                              <div class="original-price">
+                                {% if discount_percent > 0 %}
+                                  <span class="money"></span>
+                                {% endif %}
+                              </div>
+                              
+                              <div class="unit-price-container">
+                                <small><span class="money"></span> each</small>
+                              </div>
+                            </div>
+                          {% endif %}
+                        </div>
+                      </div>
+
+
+
+
+
                   {% when 'vendor' %}
                     {% comment %} ===== PRODUCT VENDOR BLOCK ===== {% endcomment %}
                     {% if product.vendor != "" %}
@@ -1141,6 +1267,419 @@
   } catch (e) {
     // Handle errors silently (e.g., Safari in private mode does not allow setting items in localStorage)
   }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    setTimeout(function() {
+      const quantityOptions = document.querySelectorAll('.quantity-option');
+      if (quantityOptions.length === 0) return;
+      quantityOptions[0].classList.add('selected');
+      const allQuantityInputs = document.querySelectorAll('input[aria-label="quantity"], .js-qty__num, [id^="Quantity"], input[name="quantity"], input[name="quantity-js"]');
+      let vueInstance = null;
+      try {
+        const vueApp = document.querySelector('wetheme-product-form');
+        if (vueApp && vueApp.__vue__) {
+          vueInstance = vueApp.__vue__;
+          console.log('Vue实例已找到');
+        }
+      } catch(e) {
+        console.log('查找Vue实例时出错:', e);
+      }
+      quantityOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // 获取数量
+          const qty = parseInt(this.getAttribute('data-quantity'));
+          if (isNaN(qty)) return;
+          
+          console.log('选择了数量:', qty);
+          
+          // 更新选中状态
+          quantityOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+          
+          // 更新所有数量输入框
+          allQuantityInputs.forEach(input => {
+            // 更新值
+            input.value = qty;
+            
+            // 触发各种事件
+            try {
+              // 原生事件
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              
+              // jQuery事件
+              if (window.jQuery) {
+                window.jQuery(input).trigger('change').trigger('input');
+              }
+            } catch(e) {
+              console.log('触发事件时出错:', e);
+            }
+          });
+          
+          // 直接更新Vue实例
+          if (vueInstance) {
+            try {
+              vueInstance.quantity = qty;
+              if (typeof vueInstance.updateQuantity === 'function') {
+                vueInstance.updateQuantity(qty);
+              }
+            } catch(e) {
+              console.log('更新Vue实例时出错:', e);
+            }
+          }
+          
+          // 更新显示元素
+          updateDisplayElements(qty);
+          
+          // 如果有表单，直接更新表单中的数量
+          const form = document.getElementById('AddToCartForm');
+          if (form) {
+            const hiddenQty = form.querySelector('input[name="quantity"]');
+            if (hiddenQty) {
+              hiddenQty.value = qty;
+            }
+          }
+          
+          console.log('数量已更新为:', qty);
+        });
+      });
+      
+      // 更新显示元素
+      function updateDisplayElements(qty) {
+        // 查找底部数量选择器的数字显示元素
+        const bottomQuantityDisplay = document.querySelector('.div-js-qty-bottom-qty-container .quantity-display, .bottom-quantity, .qty-count');
+        if (bottomQuantityDisplay) {
+          bottomQuantityDisplay.textContent = qty;
+        }
+        
+        // 在特定范围内查找数量显示
+        const qtyContainers = document.querySelectorAll('.div-js-qty-bottom-qty-container, .js-qty, [class*="qty-container"]');
+        qtyContainers.forEach(container => {
+          const qtyDisplay = container.querySelector('span:not([class]), .qty-number');
+          if (qtyDisplay) {
+            qtyDisplay.textContent = qty;
+          }
+        });
+      }
+      
+      // 初始化：设置默认数量
+      const defaultQty = parseInt(quantityOptions[0].getAttribute('data-quantity')) || 1;
+      updateDisplayElements(defaultQty);
+      
+      // 确保所有输入框都有默认值
+      allQuantityInputs.forEach(input => {
+        input.value = defaultQty;
+        try {
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        } catch (e) {}
+      });
+      
+      // 如果有Vue实例，也更新它
+      if (vueInstance) {
+        try {
+          vueInstance.quantity = defaultQty;
+        } catch(e) {
+          console.log('初始化Vue实例时出错:', e);
+        }
+      }
+      
+      console.log('数量选择器初始化完成，默认数量:', defaultQty);
+    }, 1000); // 延迟1秒执行
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to format money based on shop's currency format
+    function formatMoney(cents, format) {
+      if (typeof cents === 'string') {
+        cents = cents.replace('.', '');
+      }
+      
+      var value = '';
+      var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+      var formatString = format || '¥{{amount}}';
+
+      function defaultTo(value, defaultValue) {
+        return value == null || value !== value ? defaultValue : value;
+      }
+
+      function formatWithDelimiters(number, precision, thousands, decimal) {
+        precision = defaultTo(precision, 2);
+        thousands = defaultTo(thousands, ',');
+        decimal = defaultTo(decimal, '.');
+
+        if (isNaN(number) || number == null) {
+          return 0;
+        }
+
+        number = (number / 100.0).toFixed(precision);
+
+        var parts = number.split('.');
+        var dollarsAmount = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands);
+        var centsAmount = parts[1] ? (decimal + parts[1]) : '';
+
+        return dollarsAmount + centsAmount;
+      }
+
+      switch (formatString.match(placeholderRegex)[1]) {
+        case 'amount':
+          value = formatWithDelimiters(cents, 2);
+          break;
+        case 'amount_no_decimals':
+          value = formatWithDelimiters(cents, 0);
+          break;
+        case 'amount_with_comma_separator':
+          value = formatWithDelimiters(cents, 2, '.', ',');
+          break;
+        case 'amount_no_decimals_with_comma_separator':
+          value = formatWithDelimiters(cents, 0, '.', ',');
+          break;
+        case 'amount_no_decimals_with_space_separator':
+          value = formatWithDelimiters(cents, 0, ' ');
+          break;
+      }
+
+      return formatString.replace(placeholderRegex, value);
+    }
+
+    // Get the current money format from the shop
+    var moneyFormat = {{ shop.money_format | json }};
+    
+    // Get product JSON data
+    var productJSON = null;
+    try {
+      var productJsonElement = document.getElementById('ProductJson-{{ section.id }}');
+      if (productJsonElement) {
+        productJSON = JSON.parse(productJsonElement.innerHTML);
+      }
+    } catch(e) {
+      console.error('Error parsing product JSON:', e);
+    }
+
+    // Throttle function to prevent too many updates
+    function throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    }
+
+    // Function to update quantity discount prices based on current variant price
+    function updateQuantityDiscountPrices(variantPrice) {
+      if (!variantPrice) return;
+      
+      const options = document.querySelectorAll('.quantity-option');
+      if (!options.length) return;
+      
+      options.forEach(option => {
+        const quantity = parseInt(option.getAttribute('data-quantity'));
+        const discountPercent = parseFloat(option.getAttribute('data-discount')) || 0;
+        
+        // Calculate prices
+        const totalRegularPrice = variantPrice * quantity;
+        let discountedPrice = totalRegularPrice;
+        
+        if (discountPercent > 0) {
+          const discountAmount = totalRegularPrice * (discountPercent / 100);
+          discountedPrice = totalRegularPrice - discountAmount;
+        }
+        
+        const unitPrice = discountedPrice / quantity;
+        
+        // Update the price displays
+        const finalPriceElement = option.querySelector('.final-price .money');
+        const originalPriceElement = option.querySelector('.original-price .money');
+        const unitPriceElement = option.querySelector('.unit-price-container .money');
+        
+        if (finalPriceElement) {
+          finalPriceElement.innerHTML = formatMoney(discountedPrice, moneyFormat);
+        }
+        
+        if (originalPriceElement) {
+          originalPriceElement.innerHTML = formatMoney(totalRegularPrice, moneyFormat);
+          // Only show original price if there's a discount
+          const originalPriceContainer = option.querySelector('.original-price');
+          if (originalPriceContainer) {
+            originalPriceContainer.style.display = discountPercent > 0 ? 'block' : 'none';
+          }
+        }
+        
+        if (unitPriceElement) {
+          unitPriceElement.innerHTML = formatMoney(unitPrice, moneyFormat);
+        }
+      });
+    }
+    
+    // Throttled version of update function
+    const throttledUpdate = throttle(updateQuantityDiscountPrices, 100);
+    
+    // Initialize with the current variant price
+    let currentVariantPrice = {{ current_variant.price }};
+    throttledUpdate(currentVariantPrice);
+    
+    // Get Vue instance
+    let vueInstance = null;
+    try {
+      const vueApp = document.querySelector('wetheme-product-form');
+      if (vueApp && vueApp.__vue__) {
+        vueInstance = vueApp.__vue__;
+        
+        // Initial update with Vue's current variant price
+        if (vueInstance.variant && vueInstance.variant.price) {
+          currentVariantPrice = vueInstance.variant.price;
+          throttledUpdate(currentVariantPrice);
+        }
+        
+        // Watch for variant changes in the Vue instance
+        if (vueInstance.$watch) {
+          vueInstance.$watch('variant', function(newVariant) {
+            if (newVariant && newVariant.price) {
+              currentVariantPrice = newVariant.price;
+              throttledUpdate(currentVariantPrice);
+            }
+          });
+        }
+      }
+    } catch(e) {
+      console.error('Error accessing Vue instance:', e);
+    }
+    
+    // Listen for variant changes via custom events
+    document.addEventListener('variant:changed', function(event) {
+      if (event.detail && event.detail.variant && event.detail.variant.price) {
+        currentVariantPrice = event.detail.variant.price;
+        throttledUpdate(currentVariantPrice);
+      }
+    });
+    
+    // Additional event for other themes
+    document.addEventListener('product:variant:change', function(event) {
+      if (event.detail && event.detail.variant && event.detail.variant.price) {
+        currentVariantPrice = event.detail.variant.price;
+        throttledUpdate(currentVariantPrice);
+      }
+    });
+    
+    // Fallback for jQuery events
+    if (window.jQuery) {
+      jQuery(document).on('variant:changed variantChange product:variant:change', function(event, data) {
+        if (data && data.variant && data.variant.price) {
+          currentVariantPrice = data.variant.price;
+          throttledUpdate(currentVariantPrice);
+        }
+      });
+    }
+    
+    // Add direct click event listeners to variant selectors
+    function setupVariantListeners() {
+      // Common variant selector classes
+      const variantSelectors = [
+        '.variant-input label', 
+        '.swatch-element label', 
+        '.swatch label', 
+        '[data-option-value]', 
+        '.single-option-selector-item',
+        '.product-form__input input[type="radio"]',
+        '.product-form__swatch input[type="radio"]'
+      ].join(',');
+      
+      document.querySelectorAll(variantSelectors).forEach(function(element) {
+        element.addEventListener('click', function() {
+          setTimeout(function() {
+            // Try to get the current variant price from Vue instance
+            if (vueInstance && vueInstance.variant && vueInstance.variant.price) {
+              currentVariantPrice = vueInstance.variant.price;
+              throttledUpdate(currentVariantPrice);
+              return;
+            }
+            
+            // Try to get the variant ID from the form
+            const variantInput = document.querySelector('input[name="id"], select[name="id"]');
+            if (variantInput && productJSON && productJSON.variants) {
+              const variantId = parseInt(variantInput.value);
+              const selectedVariant = productJSON.variants.find(v => v.id === variantId);
+              if (selectedVariant && selectedVariant.price) {
+                currentVariantPrice = selectedVariant.price;
+                throttledUpdate(currentVariantPrice);
+              }
+            }
+          }, 50);
+        });
+      });
+      
+      // Listen for change events on select elements
+      document.querySelectorAll('select.single-option-selector, select[id^="ProductSelect-"]').forEach(function(select) {
+        select.addEventListener('change', function() {
+          setTimeout(function() {
+            // Try to get the current variant price from Vue instance
+            if (vueInstance && vueInstance.variant && vueInstance.variant.price) {
+              currentVariantPrice = vueInstance.variant.price;
+              throttledUpdate(currentVariantPrice);
+            }
+          }, 50);
+        });
+      });
+    }
+    
+    // Setup variant listeners after a short delay
+    setTimeout(setupVariantListeners, 500);
+    
+    // Handle quantity option selection
+    const quantityOptions = document.querySelectorAll('.quantity-option');
+    quantityOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        // Update selected state
+        quantityOptions.forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        
+        // Get quantity
+        const qty = parseInt(this.getAttribute('data-quantity'));
+        if (isNaN(qty)) return;
+        
+        // Update all quantity inputs
+        const allQuantityInputs = document.querySelectorAll('input[aria-label="quantity"], .js-qty__num, [id^="Quantity"], input[name="quantity"], input[name="quantity-js"]');
+        allQuantityInputs.forEach(input => {
+          input.value = qty;
+          
+          // Trigger events
+          try {
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+          } catch(e) {
+            console.error('Error triggering input event:', e);
+          }
+        });
+        
+        // Update Vue instance if available
+        if (vueInstance) {
+          try {
+            vueInstance.quantity = qty;
+          } catch(e) {
+            console.error('Error updating Vue quantity:', e);
+          }
+        }
+      });
+    });
+    
+    // Initialize with first option selected
+    if (quantityOptions.length > 0) {
+      quantityOptions[0].classList.add('selected');
+    }
+  });
 </script>
 
 {% schema %}
@@ -3598,6 +4137,259 @@
         }
       ]
     },
+
+
+    {
+        "type": "quantity-discount",
+        "name": "Quantity Discount",
+        "settings": [
+    {
+      "type": "text",
+      "id": "discount_title",
+      "label": {
+        "en": "Title",
+        "de": "Titel",
+        "es": "Título", 
+        "fr": "Titre",
+        "pt-PT": "Título",
+        "zh-CN": "标题",
+        "ja": "タイトル"
+      },
+      "default": {
+        "en": "Buy More, Save More 🛒",
+        "de": "Mehr kaufen, mehr sparen 🛒",
+        "es": "Compra más, ahorra más 🛒",
+        "fr": "Achetez plus, économisez plus 🛒",
+        "pt-PT": "Compre mais, economize mais 🛒",
+        "zh-CN": "买更多，省更多 🛒",
+        "ja": "まとめ買いでお得 🛒"
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Option 1",
+        "de": "Option 1",
+        "es": "Opción 1",
+        "fr": "Option 1", 
+        "pt-PT": "Opção 1",
+        "zh-CN": "选项 1",
+        "ja": "オプション 1"
+      }
+    },
+    {
+      "type": "text",
+      "id": "option_1_name",
+      "label": {
+        "en": "Name",
+        "de": "Name",
+        "es": "Nombre",
+        "fr": "Nom",
+        "pt-PT": "Nome",
+        "zh-CN": "名称",
+        "ja": "名前"
+      },
+      "default": {
+        "en": "One",
+        "de": "Eins",
+        "es": "Uno",
+        "fr": "Un",
+        "pt-PT": "Um",
+        "zh-CN": "一个",
+        "ja": "1個"
+      }
+    },
+    {
+      "type": "number",
+      "id": "option_1_qty",
+      "label": {
+        "en": "Quantity",
+        "de": "Menge",
+        "es": "Cantidad",
+        "fr": "Quantité",
+        "pt-PT": "Quantidade",
+        "zh-CN": "数量",
+        "ja": "数量"
+      },
+      "default": 1
+    },
+    {
+      "type": "number",
+      "id": "option_1_discount",
+      "label": {
+        "en": "Discount percentage",
+        "de": "Rabatt in Prozent",
+        "es": "Porcentaje de descuento",
+        "fr": "Pourcentage de remise",
+        "pt-PT": "Percentagem de desconto",
+        "zh-CN": "折扣百分比",
+        "ja": "割引率"
+      },
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Option 2",
+        "de": "Option 2",
+        "es": "Opción 2",
+        "fr": "Option 2",
+        "pt-PT": "Opção 2",
+        "zh-CN": "选项 2",
+        "ja": "オプション 2"
+      }
+    },
+    {
+      "type": "text",
+      "id": "option_2_name",
+      "label": {
+        "en": "Name",
+        "de": "Name",
+        "es": "Nombre",
+        "fr": "Nom",
+        "pt-PT": "Nome",
+        "zh-CN": "名称",
+        "ja": "名前"
+      },
+      "default": {
+        "en": "Two",
+        "de": "Zwei",
+        "es": "Dos",
+        "fr": "Deux",
+        "pt-PT": "Dois",
+        "zh-CN": "两个",
+        "ja": "2個"
+      }
+    },
+    {
+      "type": "number",
+      "id": "option_2_qty",
+      "label": {
+        "en": "Quantity",
+        "de": "Menge", 
+        "es": "Cantidad",
+        "fr": "Quantité",
+        "pt-PT": "Quantidade",
+        "zh-CN": "数量",
+        "ja": "数量"
+      },
+      "default": 2
+    },
+    {
+      "type": "number",
+      "id": "option_2_discount",
+      "label": {
+        "en": "Discount percentage",
+        "de": "Rabatt in Prozent",
+        "es": "Porcentaje de descuento",
+        "fr": "Pourcentage de remise",
+        "pt-PT": "Percentagem de desconto",
+        "zh-CN": "折扣百分比",
+        "ja": "割引率"
+      },
+      "default": 10
+    },
+  
+    {
+      "type": "header",
+      "content": {
+        "en": "Option 4",
+        "de": "Option 4",
+        "es": "Opción 4",
+        "fr": "Option 4",
+        "pt-PT": "Opção 4",
+        "zh-CN": "选项 4",
+        "ja": "オプション 4"
+      }
+    },
+    {
+      "type": "text",
+      "id": "option_4_name",
+      "label": {
+        "en": "Name",
+        "de": "Name",
+        "es": "Nombre",
+        "fr": "Nom",
+        "pt-PT": "Nome",
+        "zh-CN": "名称",
+        "ja": "名前"
+      },
+      "default": {
+        "en": "Four",
+        "de": "Vier",
+        "es": "Cuatro",
+        "fr": "Quatre",
+        "pt-PT": "Quatro",
+        "zh-CN": "四个",
+        "ja": "4個"
+      }
+    },
+    {
+      "type": "number",
+      "id": "option_4_qty",
+      "label": {
+        "en": "Quantity",
+        "de": "Menge",
+        "es": "Cantidad",
+        "fr": "Quantité",
+        "pt-PT": "Quantidade",
+        "zh-CN": "数量",
+        "ja": "数量"
+      },
+      "default": 4
+    },
+    {
+      "type": "number",
+      "id": "option_4_discount",
+      "label": {
+        "en": "Discount percentage",
+        "de": "Rabatt in Prozent",
+        "es": "Porcentaje de descuento",
+        "fr": "Pourcentage de remise",
+        "pt-PT": "Percentagem de desconto",
+        "zh-CN": "折扣百分比",
+        "ja": "割引率"
+      },
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_best_value",
+      "label": {
+        "en": "Show best value badge",
+        "de": "Bestes Preis-Leistungs-Verhältnis anzeigen",
+        "es": "Mostrar insignia de mejor valor", 
+        "fr": "Afficher le badge meilleure valeur",
+        "pt-PT": "Mostrar crachá de melhor valor",
+        "zh-CN": "显示最佳价值标签",
+        "ja": "ベストバリューバッジを表示"
+      },
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "best_value_text",
+      "label": {
+        "en": "Best value text",
+        "de": "Bester Wert Text",
+        "es": "Texto de mejor valor",
+        "fr": "Texte meilleure valeur",
+        "pt-PT": "Texto de melhor valor",
+        "zh-CN": "最佳价值文本",
+        "ja": "ベストバリューテキスト"
+      },
+      "default": {
+        "en": "Best Value",
+        "de": "Bester Wert",
+        "es": "Mejor Valor",
+        "fr": "Meilleure Valeur",
+        "pt-PT": "Melhor Valor",
+        "zh-CN": "最佳价值",
+        "ja": "ベストバリュー"
+      }
+    }
+  ]
+  },
     {
       "type": "text",
       "name": "t:sections.template--product.blocks.text.name",

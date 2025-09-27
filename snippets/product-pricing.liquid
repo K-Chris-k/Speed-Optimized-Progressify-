@@ -10,6 +10,8 @@
 <span 
   data-product-price id="ProductPrice" itemprop="price"
   content="{{ current_variant.price | divided_by: 100 }}"
+  data-price="{{ current_variant.price }}"
+  class="product-price"
 >
   {% unless current_variant %}
     {{ 'products.product.unavailable' | t }}

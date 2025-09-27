@@ -130,6 +130,7 @@
             data-swatch-variant-id="{{ value.variant.id }}"
             data-selected-swatch-variant-id="{{ swatch_option.selected_value.variant.id }}"
             data-option="{{ swatch_option.name }}"
+            data-option-index="{{ option_index }}"
             data-value="{{ value | escape | truncate: 22 }}" 
             data-media-id="{{ value.variant.featured_media.id }}" 
             class="swatch-element variant-swatch {% if is_color_swatch or is_category_swatch or show_variant_image %}color {% endif %}{{ value | handle }} {% if value.available %}available{% else %}soldout{% endif %}{% if swatch_option.selected_value == value %} active{% endif %}"
@@ -209,5 +210,176 @@
         </script>
       {% endfor %}
     </div>
+    {% if product %}
+      <div class="bottom-purchase-info">
+        <div class="bottom-purchase-info__container">
+          <div class="bottom-purchase-info__image">
+            <img src="{{ product.selected_or_first_available_variant.featured_media | default: product.featured_media | image_url: width: 120 }}"
+              alt="{{ product.title | escape }}" class="js-bottom-variant-image" data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+              width="70" height="70">
+          </div>
+          <div class="bottom-purchase-info__content">
+            <h3 class="bottom-purchase-info__title">{{ product.title | escape }}</h3>
+            <div class="bottom-purchase-info__review-badge">
+              {% render 'proviews_review_badge' with product as product %}      
+            </div>
+            <span class="visually-hidden bottom-purchase-info__compare-price js-bottom-compare-price">
+              Regular price
+            </span>
+            <span id="BottomProductPrice" class="bottom-purchase-info__price" itemprop="price" content="{{ product.selected_or_first_available_variant.price | divided_by: 100 }}"
+              v-bind:content="variant ? variant.price / 100 : null"
+              v-html="variant ? money(variant.price) : 'Unavailable'"
+              data-unavailable-text="Unavailable">
+              <span class="money">{{ product.selected_or_first_available_variant.price | money }}</span>
+            </span>
+          </div>
+          <div class="bottom-purchase-info__dropdown-wrapper-new-style">
+            
+            {% if product.options.size > 0 and product.variants.size > 1 %}
+            {% for option in product.options %}
+            {% assign option_index = forloop.index0 %}
+            {% assign downcased_option = option | downcase %}
+            
+            <div class="bottom-purchase-dropdown">
+              <div class="bottom-purchase-dropdown__header">{{ option }}</div>
+              <div class="bottom-purchase-dropdown__wrapper">
+                <select class="bottom-purchase-dropdown__select" name="option-{{ option_index | plus: 1 }}" v-model="option{{ option_index | plus: 1 }}">
+                  {% for value in product.options_with_values[option_index].values %}
+                  
+                  {% assign variant_available = false %}
+                  {% for variant in product.variants %}
+                    {% if variant.options[option_index] == value and variant.available %}
+                      {% assign variant_available = true %}
+                    {% endif %}
+                  {% endfor %}
+                  
+                  <option 
+                    value="{{ value | escape }}" 
+                    {% if product.selected_or_first_available_variant.options[option_index] == value %}selected="selected"{% endif %}
+                    {% unless variant_available %}disabled="disabled"{% endunless %}
+                    data-option-index="{{ option_index }}"
+                  >
+                    {{ value }}{% unless variant_available %} - Sold Out{% endunless %}
+                  </option>
+                  {% endfor %}
+                </select>
+                <div class="bottom-purchase-dropdown__arrow">
+                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+      
+            <div class="bottom-purchase-dropdown__quantity-wrapper">
+              <div class="js-qty bottom-qty-container">
+                <button
+                  type="button"
+                  aria-label="-"
+                  class="js-qty__adjust js-qty__adjust--minus icon-fallback-text bottom-qty-button"
+                  data-action="decrease"
+                  data-quantity-button="decrease"
+                >
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                  <span class="fallback-text">−</span>
+                </button>
+                <input
+                  type="number"
+                  class="js-qty__num"
+                  value="1"
+                  min="1"
+                  aria-label="quantity"
+                  pattern="[0-9]*"
+                  name="quantity-bottom"
+                  id="BottomQuantity"
+                  data-quantity-input="bottom"
+                  data-main-quantity-selector="[name='quantity']:not(#BottomQuantity)"
+                >
+                <button
+                  type="button"
+                  aria-label="+"
+                  class="js-qty__adjust js-qty__adjust--plus icon-fallback-text bottom-qty-button"
+                  data-action="increase"
+                  data-quantity-button="increase"
+                >
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                  <span class="fallback-text">+</span>
+                </button>
+              </div>
+            </div>
+            
+            <div class="bottom-purchase-info__btn-container">
+              <div class="paymentButtonsWrapper">
+                <div id="addtocart"></div>
+                <button
+                  type="submit"
+                  aria-label="{{ 'products.product.add_to_cart' | t }}"
+                  v-cloak
+                  name="add"
+                  id="AddToCart"
+                  class="btn{% if buttons_block.settings.show_smart_checkout and product.selling_plan_groups.size == 0 %} add-to-cart--secondary{% endif %}"
+                  v-bind:class="{ disabled: addToCartDisabled }"
+                  v-bind:disabled="addToCartDisabled"
+                  data-bottom-add-to-cart-swatch
+                >
+                  <i
+                    class="fa fa-circle-o-notch fa-spin fa-2x fa-fw js"
+                    v-if="state === 'adding'"
+                    v-cloak
+                    style="display: none;"
+                  ></i>
+                  <span class="sr-only">{{ 'collections.paginate.loading' | t }}</span>
+                  <span
+                    class="btn-text-ready {% if current_variant.available %}js{% endif %}"
+                    v-if="state === 'ready'"
+                    v-cloak
+                    style="display: inline;"
+                  >
+                    {{- 'products.product.add_to_cart' | t -}}
+                  </span>
+                  <span 
+                    class="btn-text-added js" 
+                    v-if="state === 'added'" 
+                    v-cloak
+                    style="display: none;"
+                  >
+                    {{- 'products.product.added' | t -}}
+                  </span>
+                  <span
+                    class="btn-text-soldout {% unless current_variant.available %}js{% endunless %}"
+                    v-if="state === 'soldOut'"
+                    v-cloak
+                    style="display: {% unless current_variant.available %}inline{% else %}none{% endunless %};"
+                  >
+                    {{- 'products.product.sold_out' | t -}}
+                  </span>
+                  <span 
+                    class="btn-text-unavailable js" 
+                    v-if="state === 'unavailable'" 
+                    v-cloak
+                    style="display: none;"
+                  >
+                    {{- 'products.product.unavailable' | t -}}
+                  </span>
+                </button>
+    
+                <noscript>
+                  <button type="submit" class="btn" aria-label="{{ 'products.product.add_to_cart' | t }}">
+                    <span>{{ 'products.product.add_to_cart' | t }}</span>
+                  </button>
+                </noscript>
+    
+                {% if buttons_block.settings.show_smart_checkout %}
+                  {{ form | payment_button }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %} 
+
   </product-swatch>
 {% endif %}
