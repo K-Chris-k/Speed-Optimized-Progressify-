@@ -12,6 +12,13 @@
     "product-form": {
       "type": "template--product",
       "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_font": "h1",
+            "margin_bottom": 0
+          }
+        },
         "star_rating_Xzpi9G": {
           "type": "star_rating",
           "settings": {
@@ -20,13 +27,6 @@
             "show_product_rating_if_no_reviews": false,
             "no_reviews_label": "No reviews",
             "margin_bottom": 5
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {
-            "title_font": "h1",
-            "margin_bottom": 0
           }
         },
         "price": {
@@ -135,6 +135,23 @@
             "button_text_color": "#ffffff"
           }
         },
+        "quantity_discount_wVUecq": {
+          "type": "quantity-discount",
+          "settings": {
+            "discount_title": "Buy More, Save More",
+            "option_1_name": "One",
+            "option_1_qty": 1,
+            "option_1_discount": 10,
+            "option_2_name": "Two",
+            "option_2_qty": 2,
+            "option_2_discount": 10,
+            "option_4_name": "Four",
+            "option_4_qty": 4,
+            "option_4_discount": 20,
+            "show_best_value": true,
+            "best_value_text": "Best Value"
+          }
+        },
         "a55b9011-1b1a-4353-9d97-7bdcd60949f2": {
           "type": "product-description",
           "settings": {
@@ -181,26 +198,11 @@
             "page": "",
             "margin_bottom": 40
           }
-        },
-        "fbfe241f-1b44-41cd-ae22-e866bdad9aaf": {
-          "type": "cross-sells",
-          "disabled": true,
-          "settings": {
-            "icon": "none",
-            "title": "You may also like...",
-            "cross_sell_product_1": "",
-            "cross_sell_product_2": "",
-            "cross_sell_product_3": "",
-            "collapsible_tab": false,
-            "open_close_icon": "plus_minus",
-            "open_by_default": false,
-            "margin_bottom": 20
-          }
         }
       },
       "block_order": [
-        "star_rating_Xzpi9G",
         "title",
+        "star_rating_Xzpi9G",
         "price",
         "f0f0e917-92a5-4957-a68e-2d0bb38d7819",
         "2f3ddc8d-6514-403d-a884-88c9a0294300",
@@ -212,11 +214,11 @@
         "options",
         "quantity",
         "buy_buttons",
+        "quantity_discount_wVUecq",
         "a55b9011-1b1a-4353-9d97-7bdcd60949f2",
         "b0c19132-8e54-4664-b8ce-0a8c7f1f7737",
         "9c341458-2d2c-4317-a2cc-346e220f53e0",
-        "b3864090-4f25-4db2-bddb-c549e9472be6",
-        "fbfe241f-1b44-41cd-ae22-e866bdad9aaf"
+        "b3864090-4f25-4db2-bddb-c549e9472be6"
       ],
       "settings": {
         "enable_sticky": true,

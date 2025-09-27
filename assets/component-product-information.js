@@ -23,6 +23,8 @@ if (!customElements.get('product-information')) {
       this.stickyHeader = document.querySelector('.header-section:has(.header-is-sticky)');
       this.enableURLUpdate = this.dataset.enableUrlUpdate === 'true';
       this.mainProductURL = this.dataset.url;
+      this.hasInitialized = false;
+      this.initTime = Date.now();
     }
 
     connectedCallback() {
@@ -31,6 +33,11 @@ if (!customElements.get('product-information')) {
       this.attachEventListeners();
       this.prefetchVariantData();
       this.isCombinedListing = this.dataset.isCombinedListing === 'true';
+      
+      // Initialize with correct button state
+      setTimeout(() => {
+        this.initializeButtonState();
+      }, 100);
     }
 
     disconnectedCallback() {
@@ -166,7 +173,7 @@ if (!customElements.get('product-information')) {
       this.productUrl = context.productURL;
 
       // If we don't have a valid variant, handle it and return
-      // BUT SKIP if we're currently processing a quantity change
+      // BUT SKIP if we're currently processing a quantity change OR during initial load
       if (!this.currentVariant) {
         // Check if we're processing a quantity change to avoid interfering
         if (document.body.hasAttribute('data-quantity-changing') || 
@@ -174,6 +181,18 @@ if (!customElements.get('product-information')) {
           console.log('Skipping invalid variant handling during quantity change');
           return;
         }
+        
+        // Check if this is initial page load - try to get default variant first
+        if (!this.hasInitialized) {
+          this.tryGetDefaultVariant();
+          this.hasInitialized = true;
+          if (this.currentVariant) {
+            // We found a default variant, continue with normal flow
+            this.toggleAddButton(this.currentVariant.available);
+            return;
+          }
+        }
+        
         this.handleInvalidVariant();
         return;
       }
@@ -207,6 +226,19 @@ if (!customElements.get('product-information')) {
         return;
       }
       
+      // Additional protection: don't handle invalid variant during initial page load
+      if (!this.hasInitialized) {
+        console.log('Aborting invalid variant handling - page still initializing');
+        return;
+      }
+      
+      // Add a delay to prevent premature invalid variant handling
+      if (Date.now() - (this.initTime || 0) < 2000) {
+        console.log('Aborting invalid variant handling - too soon after initialization');
+        return;
+      }
+
+      console.log('Handling invalid variant');
       const productFetchUrl = this.buildRequestUrlWithParams();
       this.fetchNullVariantData(productFetchUrl);
 
@@ -227,6 +259,112 @@ if (!customElements.get('product-information')) {
       if (!priceElementSpan) return;
 
       priceElementSpan.textContent = priceElementSpan.getAttribute('data-unavailable-text');
+    }
+
+    tryGetDefaultVariant() {
+      /* ===== Try to get the default/first available variant ===== */
+      try {
+        // Try to get variant from product JSON data
+        const productJsonElement = document.querySelector('[data-product-json]');
+        if (productJsonElement) {
+          const productData = JSON.parse(productJsonElement.textContent);
+          if (productData && productData.variants && productData.variants.length > 0) {
+            // Fallback: try to get variant from URL parameters first
+            const urlParams = new URLSearchParams(window.location.search);
+            const variantId = urlParams.get('variant');
+            if (variantId) {
+              const urlVariant = productData.variants.find(v => v.id.toString() === variantId);
+              if (urlVariant) {
+                this.currentVariant = urlVariant;
+                console.log('Found variant from URL:', variantId);
+                return;
+              }
+            }
+            
+            // Find the first available variant or use the first variant
+            const availableVariant = productData.variants.find(v => v.available) || productData.variants[0];
+            if (availableVariant) {
+              this.currentVariant = availableVariant;
+              console.log('Found default variant:', availableVariant.id);
+              return;
+            }
+          }
+        }
+        
+        console.log('No default variant found');
+      } catch (error) {
+        console.error('Error getting default variant:', error);
+      }
+    }
+
+    initializeButtonState() {
+      /* ===== Initialize button with correct state on page load ===== */
+      console.log('Initializing button state');
+      
+      try {
+        // Try to get default variant if we don't have one
+        if (!this.currentVariant) {
+          this.tryGetDefaultVariant();
+        }
+        
+        // If we still don't have a variant, try to get it from the page
+        if (!this.currentVariant) {
+          const productJsonElement = document.querySelector('[data-product-json]');
+          if (productJsonElement) {
+            const productData = JSON.parse(productJsonElement.textContent);
+            if (productData && productData.variants && productData.variants.length > 0) {
+              // Use the selected variant or first available variant
+              this.currentVariant = productData.selected_or_first_available_variant || 
+                                   productData.variants.find(v => v.available) || 
+                                   productData.variants[0];
+            }
+          }
+        }
+        
+        // Set correct button state
+        if (this.currentVariant) {
+          console.log('Setting button state for variant:', this.currentVariant.id, 'available:', this.currentVariant.available);
+          this.toggleAddButton(this.currentVariant.available);
+          this.setCorrectButtonText(this.currentVariant.available);
+        } else {
+          console.log('No variant found, using default available state');
+          // Default to available state if no variant is found
+          this.toggleAddButton(true);
+          this.setCorrectButtonText(true);
+        }
+        
+        this.hasInitialized = true;
+      } catch (error) {
+        console.error('Error initializing button state:', error);
+        // Default to available state on error
+        this.toggleAddButton(true);
+        this.setCorrectButtonText(true);
+      }
+    }
+
+    setCorrectButtonText(isAvailable) {
+      /* ===== Set the correct button text based on availability ===== */
+      const addButton = this.productForm?.querySelector('[name="add"]');
+      if (!addButton) return;
+      
+      const addButtonSpan = addButton.querySelector('[data-add-to-cart-text]');
+      if (!addButtonSpan) return;
+      
+      if (isAvailable) {
+        // Reset to default text (remove any "Unavailable" text)
+        const defaultText = addButtonSpan.textContent.includes('Unavailable') ? 
+                           'Add to cart' : addButtonSpan.textContent;
+        
+        // Try to get the correct text from the original HTML
+        const originalText = addButtonSpan.getAttribute('data-original-text') || 
+                           addButtonSpan.dataset.originalText ||
+                           'Add to cart';
+        
+        addButtonSpan.textContent = originalText;
+      } else {
+        // Set to sold out text
+        addButtonSpan.textContent = 'Sold out';
+      }
     }
 
     buildRequestUrlWithParams(shouldFetchFullPage = false) {

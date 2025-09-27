@@ -5,61 +5,99 @@ document.addEventListener('DOMContentLoaded', function() {
                        window.location.pathname.includes('/products/');
   
   if (!isProductPage) {
-    console.log('不是产品页面，不初始化底部购买栏');
     return;
   }
   
   console.log('产品页面，确保底部购买栏可见');
   
-  // 用于移动端滑动检测
+  // 性能优化：缓存变量和防抖
   let lastScrollTop = 0;
-  let scrollThreshold = 5; // 滑动多少像素才触发显示/隐藏
+  let scrollThreshold = 5;
   let isMobile = window.innerWidth < 768;
-
-  // 监听滚动事件，处理移动端上下滑动效果
-  window.addEventListener('scroll', function() {
-    if (!isMobile) return; // 只在移动端处理滑动效果
-    
-    const st = window.pageYOffset || document.documentElement.scrollTop;
-    const bottomBar = document.querySelector('.bottom-purchase-info');
-    if (!bottomBar) return;
-    
-    // 确保底部栏有滑动过渡效果
-    if (!bottomBar.hasAttribute('data-slide-transition-set')) {
-      bottomBar.style.transition = 'transform 0.3s ease-out';
-      bottomBar.setAttribute('data-slide-transition-set', 'true');
-    }
-    
-    // 如果购物车抽屉打开，不处理滑动效果
-    if (document.querySelector('.drawer.drawer--right.drawer--cart')) return;
-    
-    if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
-    
-    if (st > lastScrollTop && st > 100) {
-      // 向下滑动且不在页面顶部，显示
-      bottomBar.style.transform = 'translateY(0)';
-      bottomBar.style.opacity = '1';
-    } else if (st < lastScrollTop) {
-      // 向上滑动，隐藏
-      bottomBar.style.transform = 'translateY(100%)';
-      bottomBar.style.opacity = '0';
-    }
-    
-    lastScrollTop = st <= 0 ? 0 : st;
-  }, {passive: true});
+  let scrollTimeout = null;
+  let resizeTimeout = null;
+  let isInitialized = false;
   
-  // 监听窗口大小变化
-  window.addEventListener('resize', function() {
-    isMobile = window.innerWidth < 768;
-    // 如果从移动端切换到桌面端，恢复底部栏显示
-    if (!isMobile) {
-      const bottomBar = document.querySelector('.bottom-purchase-info');
-      if (bottomBar) {
+  // 缓存DOM元素
+  let cachedElements = {
+    bottomBar: null,
+    mainContent: null,
+    lastUpdate: 0
+  };
+
+  // 优化的滚动事件处理 - 添加防抖和缓存
+  function getCachedBottomBar() {
+    const now = Date.now();
+    if (!cachedElements.bottomBar || (now - cachedElements.lastUpdate) > 1000) {
+      cachedElements.bottomBar = document.querySelector('.bottom-purchase-info');
+      cachedElements.lastUpdate = now;
+    }
+    return cachedElements.bottomBar;
+  }
+  
+  window.addEventListener('scroll', function() {
+    if (!isMobile) return;
+    
+    // 防抖处理
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    
+    scrollTimeout = setTimeout(() => {
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+      const bottomBar = getCachedBottomBar();
+      if (!bottomBar) return;
+      
+      // 确保底部栏有滑动过渡效果（只设置一次）
+      if (!bottomBar.hasAttribute('data-slide-transition-set')) {
+        bottomBar.style.transition = 'transform 0.3s ease-out';
+        bottomBar.setAttribute('data-slide-transition-set', 'true');
+      }
+      
+      // 如果购物车抽屉打开，不处理滑动效果
+      if (document.querySelector('.drawer.drawer--right.drawer--cart')) return;
+      
+      if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
+      
+      if (st > lastScrollTop && st > 100) {
+        // 向下滑动且不在页面顶部，显示
         bottomBar.style.transform = 'translateY(0)';
         bottomBar.style.opacity = '1';
+      } else if (st < lastScrollTop) {
+        // 向上滑动，隐藏
+        bottomBar.style.transform = 'translateY(100%)';
+        bottomBar.style.opacity = '0';
       }
+      
+      lastScrollTop = st <= 0 ? 0 : st;
+      scrollTimeout = null;
+    }, 16); // ~60fps
+  }, { passive: true });
+  
+  // 优化的窗口大小变化监听 - 添加防抖
+  window.addEventListener('resize', function() {
+    if (resizeTimeout) {
+      clearTimeout(resizeTimeout);
     }
-  }, {passive: true});
+    
+    resizeTimeout = setTimeout(() => {
+      const wasMobile = isMobile;
+      isMobile = window.innerWidth < 768;
+      
+      // 只在设备类型真正改变时处理
+      if (wasMobile !== isMobile && !isMobile) {
+        const bottomBar = getCachedBottomBar();
+        if (bottomBar) {
+          bottomBar.style.transform = 'translateY(0)';
+          bottomBar.style.opacity = '1';
+        }
+      }
+      
+      // 清除缓存，强制重新获取元素
+      cachedElements.bottomBar = null;
+      resizeTimeout = null;
+    }, 250);
+  }, { passive: true });
   
   // 监听产品图片变化
   function setupProductImageObserver() {
@@ -121,9 +159,18 @@ document.addEventListener('DOMContentLoaded', function() {
     monitorAllVariantSelectors();
   }
 
-  // 监控所有可能的变体选择器
+  // 优化的变体选择器监控 - 减少重复检查和内存泄漏
+  let variantMonitorTimeout = null;
+  let variantMonitorCount = 0;
+  const MAX_MONITOR_ATTEMPTS = 10; // 最多尝试10次
+  
   function monitorAllVariantSelectors() {
-    // 所有可能的变体选择器
+    // 防止无限递归
+    if (variantMonitorCount >= MAX_MONITOR_ATTEMPTS) {
+      console.log('变体监控达到最大尝试次数，停止监控');
+      return;
+    }
+    
     const variantSelectors = [
       'select.single-option-selector',
       'select[name^="option-"]',
@@ -138,29 +185,48 @@ document.addEventListener('DOMContentLoaded', function() {
       '.size-option input'
     ];
 
-    // 为每个选择器添加事件监听
+    let newElementsFound = false;
+    
+    // 使用事件委托替代为每个元素添加监听器
     variantSelectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach(element => {
-        // 避免重复添加事件监听器
-        if (element.hasAttribute('data-variant-monitor')) return;
-        
-        element.setAttribute('data-variant-monitor', 'true');
-         element.addEventListener('change', function() {
-           setTimeout(updateVariantImage, 100);
-         });
-        
-        // 对于非标准控件，监听点击事件
-        if (selector.includes('input[type="radio"]') || selector.includes('swatches__item')) {
-          element.addEventListener('click', function() {
-            setTimeout(updateVariantImage, 200);
-          });
-        }
-      });
+      const elements = document.querySelectorAll(selector + ':not([data-variant-monitor])');
+      if (elements.length > 0) {
+        newElementsFound = true;
+        elements.forEach(element => {
+          element.setAttribute('data-variant-monitor', 'true');
+          
+          // 使用防抖的更新函数
+          element.addEventListener('change', debounce(updateVariantImage, 100), { passive: true });
+          
+          // 对于非标准控件，监听点击事件
+          if (selector.includes('input[type="radio"]') || selector.includes('swatches__item')) {
+            element.addEventListener('click', debounce(updateVariantImage, 200), { passive: true });
+          }
+        });
+      }
     });
     
-    // 每500ms检查一次DOM，以防止动态加载的选择器
-    setTimeout(monitorAllVariantSelectors, 500);
+    // 只有在找到新元素时才继续监控
+    if (newElementsFound || variantMonitorCount < 3) {
+      variantMonitorCount++;
+      if (variantMonitorTimeout) {
+        clearTimeout(variantMonitorTimeout);
+      }
+      variantMonitorTimeout = setTimeout(monitorAllVariantSelectors, 500);
+    }
+  }
+  
+  // 防抖函数
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
   }
   
   // 监控Vue产品表单变化
@@ -214,29 +280,58 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // 监听购物车抽屉的显示状态
+  // 优化的购物车抽屉观察器 - 减少定期检查，使用事件驱动
+  let cartDrawerCheckInterval = null;
+  let cartDrawerTimeouts = [];
+  
   function setupCartDrawerObserver() {
     // 初始检查购物车抽屉的状态
     updateBottomBarVisibility();
     
-    // 定期检查购物车抽屉元素是否存在（降低检查频率以优化性能）
-    const checkInterval = setInterval(updateBottomBarVisibility, 500);
-    
-    // 添加事件监听器以响应用户交互
-    document.addEventListener('click', function(e) {
-      // 检查是否点击了添加到购物车按钮或类似元素
-      if (e.target.closest('[name="add"], [data-bottom-add-to-cart], .add-to-cart-button')) {
-        // 用户点击了添加到购物车，立即检查并设置一个短时间内的多次检查
-        setTimeout(updateBottomBarVisibility, 300);
-        setTimeout(updateBottomBarVisibility, 600);
-        setTimeout(updateBottomBarVisibility, 900);
+    // 减少定期检查频率，并在页面不可见时停止
+    function startPeriodicCheck() {
+      if (cartDrawerCheckInterval) {
+        clearInterval(cartDrawerCheckInterval);
       }
+      cartDrawerCheckInterval = setInterval(() => {
+        if (!document.hidden) {
+          updateBottomBarVisibility();
+        }
+      }, 1000); // 降低到1秒检查一次
+    }
+    
+    startPeriodicCheck();
+    
+    // 页面可见性变化时控制定期检查
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (cartDrawerCheckInterval) {
+          clearInterval(cartDrawerCheckInterval);
+          cartDrawerCheckInterval = null;
+        }
+      } else {
+        startPeriodicCheck();
+      }
+    });
+    
+    // 优化的事件监听器 - 使用事件委托
+    document.addEventListener('click', function(e) {
+      // 清除之前的超时
+      cartDrawerTimeouts.forEach(timeout => clearTimeout(timeout));
+      cartDrawerTimeouts = [];
       
-      // 检查是否点击了关闭购物车抽屉的按钮
-      if (e.target.closest('.drawer__close, .close-button, .drawer-close')) {
-        // 用户可能关闭了购物车抽屉，立即检查并设置短时间内的多次检查
-        setTimeout(updateBottomBarVisibility, 300);
-        setTimeout(updateBottomBarVisibility, 600);
+      const isAddToCart = e.target.closest('[name="add"], [data-bottom-add-to-cart], .add-to-cart-button');
+      const isCloseDrawer = e.target.closest('.drawer__close, .close-button, .drawer-close');
+      
+      if (isAddToCart) {
+        // 用户点击了添加到购物车，使用更合理的检查间隔
+        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 200));
+        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 500));
+        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 1000));
+      } else if (isCloseDrawer) {
+        // 用户关闭了购物车抽屉
+        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 200));
+        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 400));
       }
     }, { passive: true });
   }
@@ -1168,6 +1263,46 @@ document.addEventListener('DOMContentLoaded', function() {
   // 启动产品图片观察器
   setupProductImageObserver();
 
-  // 定期检查图片更新（兜底方案）
-  setInterval(updateVariantImage, 2000);
+  // 优化的定期检查 - 仅在需要时运行
+  let imageUpdateInterval = null;
+  
+  function startImageUpdateInterval() {
+    if (imageUpdateInterval) {
+      clearInterval(imageUpdateInterval);
+    }
+    
+    // 只有在底部栏存在时才定期更新
+    imageUpdateInterval = setInterval(() => {
+      if (!document.hidden && getCachedBottomBar()) {
+        updateVariantImage();
+      }
+    }, 3000); // 降低频率到3秒
+  }
+  
+  // 页面可见性变化时控制定期更新
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (imageUpdateInterval) {
+        clearInterval(imageUpdateInterval);
+        imageUpdateInterval = null;
+      }
+    } else {
+      startImageUpdateInterval();
+    }
+  });
+  
+  startImageUpdateInterval();
+  
+  // 清理函数 - 页面卸载时清理所有定时器和监听器
+  window.addEventListener('beforeunload', () => {
+    // 清理所有定时器
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    if (resizeTimeout) clearTimeout(resizeTimeout);
+    if (variantMonitorTimeout) clearTimeout(variantMonitorTimeout);
+    if (cartDrawerCheckInterval) clearInterval(cartDrawerCheckInterval);
+    if (imageUpdateInterval) clearInterval(imageUpdateInterval);
+    
+    // 清理购物车抽屉超时
+    cartDrawerTimeouts.forEach(timeout => clearTimeout(timeout));
+  });
 }); 

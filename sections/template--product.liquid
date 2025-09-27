@@ -1302,6 +1302,9 @@
           quantityOptions.forEach(opt => opt.classList.remove('selected'));
           this.classList.add('selected');
           
+          // 设置保护标志，防止变体处理逻辑被触发
+          document.body.setAttribute('data-quantity-changing', 'true');
+          
           // 更新所有数量输入框
           allQuantityInputs.forEach(input => {
             // 更新值
@@ -1321,6 +1324,11 @@
               console.log('触发事件时出错:', e);
             }
           });
+          
+          // 移除保护标志
+          setTimeout(() => {
+            document.body.removeAttribute('data-quantity-changing');
+          }, 100);
           
           // 直接更新Vue实例
           if (vueInstance) {
@@ -1642,6 +1650,9 @@
     const quantityOptions = document.querySelectorAll('.quantity-option');
     quantityOptions.forEach(option => {
       option.addEventListener('click', function() {
+        // Set protection flag to prevent variant processing
+        document.body.setAttribute('data-quantity-changing', 'true');
+        
         // Update selected state
         quantityOptions.forEach(opt => opt.classList.remove('selected'));
         this.classList.add('selected');
@@ -1672,6 +1683,11 @@
             console.error('Error updating Vue quantity:', e);
           }
         }
+        
+        // Remove protection flag after a short delay
+        setTimeout(() => {
+          document.body.removeAttribute('data-quantity-changing');
+        }, 100);
       });
     });
     

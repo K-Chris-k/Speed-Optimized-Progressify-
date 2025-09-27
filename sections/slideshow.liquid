@@ -131,10 +131,10 @@
                         {% endif %}
                       {% else %}
                         {% if block.settings.mobile_image %}
-                          {% render 'responsive-image' with block.settings.mobile_image, wrapper_class: mobile_image_class, sizes: '100vw', allow_stretch: true %}
-                          {% render 'responsive-image' with block.settings.image, wrapper_class: desktop_image_class, allow_stretch: true, sizes: '100vw' %}
+                          {% render 'responsive-image' with block.settings.mobile_image, wrapper_class: mobile_image_class, sizes: '100vw', allow_stretch: true, loading: 'eager' %}
+                          {% render 'responsive-image' with block.settings.image, wrapper_class: desktop_image_class, allow_stretch: true, sizes: '100vw', loading: 'eager' %}
                         {% else %}
-                          {% render 'responsive-image' with block.settings.image, wrapper_class: desktop_as_mobile_image_class, allow_stretch: true, sizes: '100vw' %}
+                          {% render 'responsive-image' with block.settings.image, wrapper_class: desktop_as_mobile_image_class, allow_stretch: true, sizes: '100vw', loading: 'eager' %}
                         {% endif %}
 											{% endif %}
 

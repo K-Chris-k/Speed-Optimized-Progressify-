@@ -8,18 +8,39 @@ document.addEventListener('DOMContentLoaded', function() {
   
   console.log('初始化变体下拉框修复...');
   
+  let isInitialized = false;
+  let initTimeout = null;
+  
   // 延迟执行以确保所有元素都已加载
   setTimeout(function() {
     initializeVariantFix();
   }, 1000);
   
-  // 也监听页面变化
+  // 优化的MutationObserver - 只监听特定变化，避免过度触发
   const observer = new MutationObserver(function(mutations) {
+    let shouldReinitialize = false;
+    
     mutations.forEach(function(mutation) {
+      // 只在添加了相关元素时才重新初始化
       if (mutation.addedNodes.length > 0) {
-        setTimeout(initializeVariantFix, 100);
+        for (let node of mutation.addedNodes) {
+          if (node.nodeType === 1 && // Element node
+              (node.classList?.contains('bottom-purchase-dropdown__select') ||
+               node.classList?.contains('swatch-element') ||
+               node.querySelector?.('.bottom-purchase-dropdown__select, .swatch-element'))) {
+            shouldReinitialize = true;
+            break;
+          }
+        }
       }
     });
+    
+    if (shouldReinitialize && !initTimeout) {
+      initTimeout = setTimeout(() => {
+        initializeVariantFix();
+        initTimeout = null;
+      }, 100);
+    }
   });
   
   observer.observe(document.body, {
@@ -28,6 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   function initializeVariantFix() {
+    // 防止重复初始化
+    if (isInitialized) {
+      return;
+    }
+    
     // 获取Vue实例（如果存在）
     let vueInstance = null;
     try {
@@ -48,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 3. 修复价格显示
     setupPriceDisplay(vueInstance);
+    
+    isInitialized = true;
   }
   
   // 底部dropdown选择器设置
@@ -292,26 +320,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // 监听数量按钮点击，设置保护标志但不阻止事件
+  // 优化的数量按钮点击监听 - 使用事件委托和缓存
+  let quantityProtectionTimeout = null;
+  
   document.addEventListener('click', function(e) {
-    // 如果点击的是数量按钮，设置保护标志
-    if (e.target.classList.contains('js-qty__adjust--minus') ||
-        e.target.classList.contains('js-qty__adjust--plus') ||
-        e.target.closest('.js-qty__adjust--minus') ||
-        e.target.closest('.js-qty__adjust--plus')) {
+    // 使用更精确的选择器检查
+    const isQuantityButton = e.target.matches('.js-qty__adjust--minus, .js-qty__adjust--plus') ||
+                            e.target.closest('.js-qty__adjust--minus, .js-qty__adjust--plus');
+    
+    if (isQuantityButton) {
+      // 清除之前的timeout
+      if (quantityProtectionTimeout) {
+        clearTimeout(quantityProtectionTimeout);
+      }
       
       // 设置标记防止变体逻辑运行
       document.body.setAttribute('data-quantity-button-clicked', 'true');
-      setTimeout(() => {
+      quantityProtectionTimeout = setTimeout(() => {
         document.body.removeAttribute('data-quantity-button-clicked');
+        quantityProtectionTimeout = null;
       }, 600);
       
       console.log('数量按钮被点击，设置保护标志');
     }
-  }, false); // 不使用捕获阶段，让数量按钮逻辑先运行
+  }, { passive: true }); // 使用passive监听器提高性能
 
-  // 全局事件委托 - 确保即使动态加载的元素也能响应
+  // 优化的全局事件委托 - 减少不必要的处理
+  let changeEventTimeout = null;
+  
   document.addEventListener('change', function(e) {
+    // 快速检查 - 只处理相关元素
+    if (!e.target.matches('select.bottom-purchase-dropdown__select')) {
+      return;
+    }
+    
     // 检查是否是数量按钮相关的事件
     if (document.body.hasAttribute('data-quantity-button-clicked') ||
         document.body.hasAttribute('data-quantity-changing')) {
@@ -319,79 +361,105 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    // 只处理确实是下拉框的变化，排除数量输入框
-    if (e.target.classList.contains('bottom-purchase-dropdown__select') && 
-        !e.target.classList.contains('js-qty__num') &&
-        e.target.tagName === 'SELECT') {
-      console.log('全局事件委托检测到下拉框变化:', e.target.value);
-      
-      // 获取Vue实例
-      let vueInstance = null;
-      try {
-        const vueApp = document.querySelector('wetheme-product-form');
-        if (vueApp && vueApp.__vue__) {
-          vueInstance = vueApp.__vue__;
-        }
-      } catch (error) {
-        console.error('获取Vue实例失败:', error);
-      }
-      
-      // 获取选项索引
-      const optionName = e.target.name;
-      const optionMatch = optionName.match(/option-(\d+)/);
-      if (!optionMatch) return;
-      
-      const optionIndex = parseInt(optionMatch[1]) - 1;
-      const optionValue = e.target.value;
-      
-      console.log('处理选项变化:', optionIndex + 1, '=', optionValue);
-      
-      // 防止与数量变化冲突 - 检查当前变体是否真的存在且可用
-      let validVariantChange = false;
-      
-      // 更新Vue实例
-      if (vueInstance) {
-        const optionKey = 'option' + (optionIndex + 1);
-        if (vueInstance.hasOwnProperty(optionKey) && vueInstance[optionKey] !== optionValue) {
-          console.log('通过全局委托更新Vue实例:', optionKey, '=', optionValue);
-          vueInstance[optionKey] = optionValue;
-          validVariantChange = true;
-          
-          // 强制Vue更新
-          if (vueInstance.$forceUpdate) {
-            vueInstance.$forceUpdate();
-          }
-          
-          // 等待Vue处理变体变化，只更新按钮状态
-          setTimeout(() => {
-            if (vueInstance.variant) {
-              updateButtonState(vueInstance.variant);
-            }
-          }, 200);
-        }
-      }
-      
-      // 只有在确实是变体变化时才同步
-      if (validVariantChange) {
-        // 同步到swatch
-        syncToSwatch(optionIndex, optionValue);
-        
-        // 同步到主dropdown
-        syncToMainDropdown(optionIndex, optionValue);
-      }
+    // 防抖处理 - 避免快速连续触发
+    if (changeEventTimeout) {
+      clearTimeout(changeEventTimeout);
     }
+    
+    changeEventTimeout = setTimeout(() => {
+      processVariantChange(e.target);
+      changeEventTimeout = null;
+    }, 50);
   });
   
-  // 添加点击事件委托以调试
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('bottom-purchase-dropdown__select') || 
-        e.target.closest('.bottom-purchase-dropdown__wrapper')) {
-      // 排除数量按钮区域
-      if (!e.target.closest('.js-qty') && 
-          !e.target.classList.contains('js-qty__adjust--minus') &&
-          !e.target.classList.contains('js-qty__adjust--plus')) {
-        console.log('检测到底部下拉框区域点击');
+  // 提取变体处理逻辑到单独函数
+  function processVariantChange(target) {
+    console.log('全局事件委托检测到下拉框变化:', target.value);
+    
+    // 缓存Vue实例查询
+    let vueInstance = getVueInstance();
+    
+    // 获取选项索引
+    const optionName = target.name;
+    const optionMatch = optionName.match(/option-(\d+)/);
+    if (!optionMatch) return;
+    
+    const optionIndex = parseInt(optionMatch[1]) - 1;
+    const optionValue = target.value;
+    
+    console.log('处理选项变化:', optionIndex + 1, '=', optionValue);
+    
+    // 防止与数量变化冲突 - 检查当前变体是否真的存在且可用
+    let validVariantChange = false;
+    
+    // 更新Vue实例
+    if (vueInstance) {
+      const optionKey = 'option' + (optionIndex + 1);
+      if (vueInstance.hasOwnProperty(optionKey) && vueInstance[optionKey] !== optionValue) {
+        console.log('通过全局委托更新Vue实例:', optionKey, '=', optionValue);
+        vueInstance[optionKey] = optionValue;
+        validVariantChange = true;
+        
+        // 强制Vue更新
+        if (vueInstance.$forceUpdate) {
+          vueInstance.$forceUpdate();
+        }
+        
+        // 等待Vue处理变体变化，只更新按钮状态
+        setTimeout(() => {
+          if (vueInstance.variant) {
+            updateButtonState(vueInstance.variant);
+          }
+        }, 200);
       }
     }
-  });
+    
+    // 只有在确实是变体变化时才同步
+    if (validVariantChange) {
+      // 同步到swatch
+      syncToSwatch(optionIndex, optionValue);
+      
+      // 同步到主dropdown
+      syncToMainDropdown(optionIndex, optionValue);
+    }
+  }
+  
+  // 缓存Vue实例获取
+  let cachedVueInstance = null;
+  let vueInstanceCacheTime = 0;
+  
+  function getVueInstance() {
+    const now = Date.now();
+    // 缓存5秒
+    if (cachedVueInstance && (now - vueInstanceCacheTime) < 5000) {
+      return cachedVueInstance;
+    }
+    
+    try {
+      const vueApp = document.querySelector('wetheme-product-form');
+      if (vueApp && vueApp.__vue__) {
+        cachedVueInstance = vueApp.__vue__;
+        vueInstanceCacheTime = now;
+        return cachedVueInstance;
+      }
+    } catch (error) {
+      console.error('获取Vue实例失败:', error);
+    }
+    
+    return null;
+  }
+  
+  // 优化的调试点击事件 - 仅在开发模式下启用
+  if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
+    document.addEventListener('click', function(e) {
+      if (e.target.matches('.bottom-purchase-dropdown__select') || 
+          e.target.closest('.bottom-purchase-dropdown__wrapper')) {
+        // 排除数量按钮区域
+        if (!e.target.closest('.js-qty') && 
+            !e.target.matches('.js-qty__adjust--minus, .js-qty__adjust--plus')) {
+          console.log('检测到底部下拉框区域点击');
+        }
+      }
+    }, { passive: true });
+  }
 });

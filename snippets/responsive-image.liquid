@@ -24,11 +24,29 @@
   {% assign default_size = '550x' %}
 {% endif %}
 
+{% comment %} Use smaller default size for mobile-first loading {% endcomment %}
+{% assign mobile_first_src = 750 %}
+{% if is_hero_image %}
+  {% assign mobile_first_src = 1100 %}
+{% endif %}
+
 {% if sizes == blank %}
   {% assign sizes = '(min-width: 2000px) 1000px, (min-width: 1445px) calc(100vw / 2), (min-width: 1200px) calc(100vw / 1.75), (min-width: 1000px) calc(100vw / 1.5), (min-width: 750px) calc(100vw / 3), 100vw' %}
 {% endif %}
 
 {% if loading == blank %}
+  {% assign loading = 'lazy' %}
+{% endif %}
+
+{% comment %} Detect if this is likely an above-the-fold image {% endcomment %}
+{% assign is_hero_image = false %}
+{% if wrapper_class contains 'hero' or wrapper_class contains 'slideshow' or wrapper_class contains 'banner' or loading == 'eager' %}
+  {% assign is_hero_image = true %}
+  {% assign loading = 'eager' %}
+{% endif %}
+
+{% comment %} Force lazy loading for below-the-fold content {% endcomment %}
+{% if wrapper_class contains 'product-grid' or wrapper_class contains 'collection' or wrapper_class contains 'blog' %}
   {% assign loading = 'lazy' %}
 {% endif %}
 
@@ -67,7 +85,7 @@
           {%- if responsive-image.width >= 2890 -%}{{ responsive-image | image_url: width: 2890 }} 2890w,{%- endif -%}
           {{ responsive-image | image_url: width: responsive-image.width }} {{ responsive-image.width }}w"
   sizes="{{ sizes }}"
-  src="{{ responsive-image | image_url: width: 1445 }}"
+  src="{{ responsive-image | image_url: width: mobile_first_src }}"
 />
 
 </div>

@@ -153,7 +153,8 @@
             {% comment %} ===== Add to cart/Sold out text ===== {% endcomment %}
             <span
               data-add-to-cart-text
-              data-unavailable-text="{{ 'products.product.unavailable' | t }}" 
+              data-unavailable-text="{{ 'products.product.unavailable' | t }}"
+              data-original-text="{%- if product.selected_or_first_available_variant.available == false -%}{{ 'products.product.sold_out' | t }}{%- else -%}{%- if preorder_product -%}{{ 'products.product.preorder' | t }}{%- else -%}{{ 'products.product.add_to_cart' | t }}{%- endif -%}{%- endif -%}"
             >
               {%- if product.selected_or_first_available_variant.available == false -%}
                 {{ 'products.product.sold_out' | t }}
