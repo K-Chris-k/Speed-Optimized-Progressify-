@@ -337,9 +337,23 @@ class ProductSwatch extends HTMLElement {
           // Show success state briefly
           this.showBottomButtonSuccess();
           
-          // Trigger cart drawer update
+          // Fetch updated cart drawer content
+          const cartResponse = await fetch(window.Shopify.routes.root + "?sections=cart-drawer");
+          const cartData = await cartResponse.json();
+          
+          // Trigger cart drawer update with new content
           if (typeof eventBus !== 'undefined' && eventBus.emit) {
+            // Update cart drawer with new content
+            if (cartData && cartData['cart-drawer']) {
+              eventBus.emit('update:cart:drawer', { 
+                sections: { 'cart-drawer': cartData['cart-drawer'] }
+              });
+            }
+            
+            // Emit cart added event
             eventBus.emit('cart:added', { sectionId: this.sectionId });
+            
+            // Open cart drawer
             eventBus.emit('open:cart:drawer', { scrollToTop: true });
           } else {
             // Fallback: dispatch custom events

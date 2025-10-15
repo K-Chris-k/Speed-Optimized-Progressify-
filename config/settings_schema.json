@@ -648,7 +648,56 @@
         "id": "empty_cart_collections",
         "label": "t:all.suggested_collections",
         "limit": 4
-      }
+      },
+      {
+        "type": "header",
+        "content": "Free shipping progress bar"
+      },
+ 
+    {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (USD in cents)",
+        "default": 10000,
+        "info": "Enter the USD amount in cents (e.g., 10000 = $100.00). This will be automatically converted to other currencies."
+    },
+    {
+        "type": "text",
+        "id": "free_shipping_progress_text",
+        "label": "Progress text",
+        "default": "Buy [amount] more to enjoy FREE Shipping",
+        "info": "Use [amount] or {amount} as a placeholder for the remaining amount"
+    },
+    {
+        "type": "text",
+        "id": "free_shipping_success_text",
+        "label": "Success text (when threshold reached)",
+        "default": "Congrats! You are eligible for FREE Shipping"
+    },
+    {
+      "type": "text",
+      "id": "empty_cart_title",
+      "label": "Empty cart title",
+      "default": "Your cart is empty"
+  },
+  {
+      "type": "text",
+      "id": "empty_cart_text",
+      "label": "Empty cart description",
+      "default": "Looks like you haven't added any items to your cart yet."
+  },
+  {
+      "type": "text",
+      "id": "empty_cart_button_text",
+      "label": "Empty cart button text",
+      "default": "Shop Now"
+  },
+  {
+      "type": "url",
+      "id": "empty_cart_button_link",
+      "label": "Empty cart button link",
+      "default": "/collections/all"
+  }
     ]
   },
   {

@@ -98,6 +98,14 @@
   {{ content_for_header }}
 
   <script defer src="{{ 'eventBus.js' | asset_url }}"></script>
+  
+  <script type="application/json" id="currency-config-data">
+    {
+      "freeShippingThresholdUSD": {{ settings.free_shipping_threshold | default: 10000 | divided_by: 100.0 | json }},
+      "currentCurrency": {{ cart.currency.iso_code | json }},
+      "shopCurrency": {{ shop.currency | json }}
+    }
+  </script>
 
   <script type="text/javascript">
 		window.wetheme = {
@@ -141,6 +149,12 @@
   </safe-load-scripts>
   <safe-load-scripts class="hidden">
     <script src="{{ 'component-cart-update.js' | asset_url }}" type="module" defer="defer" data-flow-load-key="component-cart-update"></script>
+  </safe-load-scripts>
+  <safe-load-scripts class="hidden">
+    <script src="{{ 'currency-config.js' | asset_url }}" defer="defer" data-flow-load-key="currency-config"></script>
+  </safe-load-scripts>
+  <safe-load-scripts class="hidden">
+    <script src="{{ 'free-shipping-progress.js' | asset_url }}" defer="defer" data-flow-load-key="free-shipping-progress"></script>
   </safe-load-scripts>
   {% if settings.drawer--override_button_colors %}
     {% render 'button-color-overrides' with
@@ -218,10 +232,10 @@
 
         {{ content_for_layout }}
       </div>
-  </div>
-
-  <div class="footer-wrapper">
-    {% sections 'footer-group' %}
+    
+    <div class="footer-wrapper">
+      {% sections 'footer-group' %}
+    </div>
   </div>
 
   <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
