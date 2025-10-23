@@ -1,14 +1,6 @@
 /* Custom Fonts */
 
 @font-face {
-  font-family: 'ITC Franklin Gothic';
-  src: url('ITCFranklinGothicStd-Hvy.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Rajdhani';
   src: url('Rajdhani-Regular.ttf') format('truetype');
   font-weight: 400;
@@ -16,11 +8,15 @@
   font-display: swap;
 }
 
-/* Apply fonts to elements */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'ITC Franklin Gothic', sans-serif;
+/* Apply Rajdhani font to all elements */
+* {
+  font-family: 'Rajdhani', sans-serif;
 }
 
-body, p, li, a, input, button, textarea, select {
+body, p, li, a, input, button, textarea, select,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Rajdhani', sans-serif;
+}
+.mega-menu--image p.h4.mega-menu--image-title a {
+  font-size: 16px;
 }

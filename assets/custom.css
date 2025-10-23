@@ -1,1 +1,75 @@
 /* Place any CSS overrides in this file. */
+
+/* Global font override - ensure all elements use Rajdhani */
+* {
+  font-family: 'Rajdhani', sans-serif !important;
+}
+
+/* Thumbnail Navigation Buttons */
+.thumbnail-media--thumbnails {
+  position: relative;
+}
+
+.thumbnail-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  visibility: visible;
+}
+
+.thumbnail-nav-prev {
+  left: 5px;
+}
+
+.thumbnail-nav-next {
+  right: 5px;
+}
+
+.thumbnail-nav-button:hover {
+  background: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.thumbnail-nav-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.thumbnail-nav-button.swiper-button-disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.thumbnail-nav-button svg {
+  width: 18px;
+  height: 18px;
+  color: #000000;
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .thumbnail-nav-button {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .thumbnail-nav-button svg {
+    width: 14px;
+    height: 14px;
+  }
+}

@@ -18914,6 +18914,82 @@ if (!customElements.get('product-media')) {
           // Update the thumbnail variant based on the active slide
           this.updateThumbnailVariant(activeSlide);
         });
+
+        // Setup thumbnail navigation buttons (only for thumbnails media type)
+        // Use setTimeout to ensure it doesn't block other initializations
+        if (this.mediaType === 'thumbnails') {
+          // Temporarily disabled for debugging
+          // setTimeout(() => {
+          //   this.setupThumbnailNavButtons();
+          // }, 100);
+        }
+      }
+    }
+
+    setupThumbnailNavButtons() {
+      try {
+        // Get navigation buttons
+        const nextEl = this.thumbnails?.querySelector('.thumbnail-nav-next');
+        const prevEl = this.thumbnails?.querySelector('.thumbnail-nav-prev');
+
+        if (!nextEl || !prevEl || !this.mainMediaSwiper) return;
+
+        // Add click handlers to control main media swiper
+        nextEl.addEventListener('click', (e) => {
+          try {
+            e.preventDefault();
+            e.stopPropagation();
+            if (this.mainMediaSwiper && !this.mainMediaSwiper.destroyed) {
+              this.mainMediaSwiper.slideNext();
+            }
+          } catch (error) {
+            console.warn('Error in thumbnail nav next:', error);
+          }
+        });
+
+        prevEl.addEventListener('click', (e) => {
+          try {
+            e.preventDefault();
+            e.stopPropagation();
+            if (this.mainMediaSwiper && !this.mainMediaSwiper.destroyed) {
+              this.mainMediaSwiper.slidePrev();
+            }
+          } catch (error) {
+            console.warn('Error in thumbnail nav prev:', error);
+          }
+        });
+
+        // Update button state function
+        const updateButtonStates = () => {
+          try {
+            if (!this.mainMediaSwiper || this.mainMediaSwiper.destroyed) return;
+            
+            // Update next button
+            if (this.mainMediaSwiper.isEnd) {
+              nextEl?.classList.add('swiper-button-disabled');
+            } else {
+              nextEl?.classList.remove('swiper-button-disabled');
+            }
+
+            // Update prev button
+            if (this.mainMediaSwiper.isBeginning) {
+              prevEl?.classList.add('swiper-button-disabled');
+            } else {
+              prevEl?.classList.remove('swiper-button-disabled');
+            }
+          } catch (error) {
+            console.warn('Error updating button states:', error);
+          }
+        };
+
+        // Listen to main swiper slide changes
+        this.mainMediaSwiper.on('slideChange', updateButtonStates);
+        this.mainMediaSwiper.on('init', updateButtonStates);
+
+        // Set initial state
+        updateButtonStates();
+      } catch (error) {
+        console.warn('Error setting up thumbnail navigation buttons:', error);
       }
     }
 
