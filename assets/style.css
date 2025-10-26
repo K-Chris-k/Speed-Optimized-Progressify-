@@ -180,7 +180,8 @@ body:not(.template-product) .bottom-purchase-info {
 
 .bottom-purchase-info__content {
   flex: 0 0 auto;
-  margin-right: 15px;
+  margin-right: 25px;
+  margin-left: 25px;
   max-width: 520px;
 }
 
@@ -244,6 +245,7 @@ body:not(.template-product) .bottom-purchase-info {
 }
 .paymentButtonsWrapper button#AddToCart {
   border-radius: 8px;
+  text-transform: capitalize;
 }select.bottom-purchase-dropdown__select {
   margin: 0;
 }
@@ -260,7 +262,7 @@ body:not(.template-product) .bottom-purchase-info {
   }
   
   .bottom-purchase-info__title {
-    max-width: 150px;
+    max-width: 250px;
   }
   
   .bottom-purchase-dropdown {
@@ -277,7 +279,7 @@ body:not(.template-product) .bottom-purchase-info {
   
   .bottom-purchase-info .bottom-add-to-cart-button,
   .bottom-purchase-info .btn {
-    min-width: 110px;
+    min-width: 140x;
     padding: 0 10px;
   }
 }
@@ -321,8 +323,8 @@ body:not(.template-product) .bottom-purchase-info {
   }
   
   .bottom-purchase-info__title {
-    font-size: 13px;
-    max-width: 120px;
+    font-size: 14px;
+    /* max-width: 120px; */
   }
   
   .bottom-purchase-info__image {
@@ -337,7 +339,6 @@ body:not(.template-product) .bottom-purchase-info {
   .bottom-purchase-info .btn {
     padding: 0 12px;
     font-size: 13px;
-    min-width: auto;
   }
   
   .bottom-purchase-dropdown__quantity-wrapper {

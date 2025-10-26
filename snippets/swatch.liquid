@@ -73,6 +73,7 @@
     class="swatch{% if is_color_swatch or is_category_swatch or show_variant_image %} is-color-swatch{% endif %}" 
     data-option-index="{{ option_index }}"
     data-section-id="{{ swatch_section_id }}"
+    data-product-id="{{ product.id }}"
   >
     {% comment %} ============ OPTION LABEL ============ {% endcomment %}
     <div class="option-label-wrapper{% if is_color_swatch or is_category_swatch or show_variant_image %} is-color-label{% endif %}">
@@ -245,42 +246,35 @@
           </div>
           <div class="bottom-purchase-info__dropdown-wrapper-new-style">
             
+            {% comment %} 只有在有多个变体时才显示变体选择器 {% endcomment %}
             {% if product.options.size > 0 and product.variants.size > 1 %}
-            {% for option in product.options %}
-            {% assign option_index = forloop.index0 %}
-            {% assign downcased_option = option | downcase %}
-            
-            <div class="bottom-purchase-dropdown">
-              <div class="bottom-purchase-dropdown__header">{{ option }}</div>
-              <div class="bottom-purchase-dropdown__wrapper">
-                <select class="bottom-purchase-dropdown__select" name="option-{{ option_index | plus: 1 }}" v-model="option{{ option_index | plus: 1 }}">
-                  {% for value in product.options_with_values[option_index].values %}
-                  
-                  {% assign variant_available = false %}
-                  {% for variant in product.variants %}
-                    {% if variant.options[option_index] == value and variant.available %}
-                      {% assign variant_available = true %}
-                    {% endif %}
-                  {% endfor %}
-                  
-                  <option 
-                    value="{{ value | escape }}" 
-                    {% if product.selected_or_first_available_variant.options[option_index] == value %}selected="selected"{% endif %}
-                    {% unless variant_available %}disabled="disabled"{% endunless %}
-                    data-option-index="{{ option_index }}"
-                  >
-                    {{ value }}{% unless variant_available %} - Sold Out{% endunless %}
-                  </option>
+              {% for option in product.options_with_values %}
+              {% assign option_index = forloop.index0 %}
+              
+              <div class="bottom-purchase-dropdown">
+                <div class="bottom-purchase-dropdown__header">{{ option.name }}</div>
+                
+                {% comment %} 使用真正的select元素 {% endcomment %}
+                <select 
+                  class="bottom-purchase-select" 
+                  name="bottom-option-{{ option_index | plus: 1 }}" 
+                  data-option-index="{{ option_index }}"
+                  data-option-name="{{ option.name }}"
+                >
+                  {% for value in option.values %}
+                    <option 
+                      value="{{ value | escape }}"
+                      data-option-index="{{ option_index }}"
+                      data-variant-id="{{ value.variant.id }}"
+                      {% if option.selected_value == value %}selected{% endif %}
+                      {% unless value.available %}disabled{% endunless %}
+                    >
+                      {{ value }}{% unless value.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
+                    </option>
                   {% endfor %}
                 </select>
-                <div class="bottom-purchase-dropdown__arrow">
-                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
               </div>
-            </div>
-            {% endfor %}
+              {% endfor %}
             {% endif %}
       
             <div class="bottom-purchase-dropdown__quantity-wrapper">
@@ -326,43 +320,37 @@
                 <button
                   type="submit"
                   aria-label="{{ 'products.product.add_to_cart' | t }}"
-                  v-cloak
                   name="add"
                   id="AddToCart"
-                  class="btn{% if buttons_block.settings.show_smart_checkout and product.selling_plan_groups.size == 0 %} add-to-cart--secondary{% endif %}"
-                  v-bind:class="{ disabled: addToCartDisabled }"
-                  v-bind:disabled="addToCartDisabled"
+                  class="btn{% if buttons_block.settings.show_smart_checkout and product.selling_plan_groups.size == 0 %} add-to-cart--secondary{% endif %} product--add-to-cart-button"
+                  {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
                   data-bottom-add-to-cart-swatch
                 >
                   <i
-                    class="fa fa-circle-o-notch fa-spin fa-fw js bottom-loading-icon"
+                    class="fa fa-circle-o-notch fa-spin fa-fw bottom-loading-icon"
                     style="display: none;"
                   ></i>
                   <span class="sr-only">{{ 'collections.paginate.loading' | t }}</span>
                   <span
                     class="btn-text-ready"
-                    style="display: {% if current_variant.available %}inline{% else %}none{% endif %};"
+                    style="display: {% if product.selected_or_first_available_variant.available %}inline{% else %}none{% endif %};"
                   >
                     {{- 'products.product.add_to_cart' | t -}}
                   </span>
                   <span 
-                    class="btn-text-added js" 
-                    v-if="state === 'added'" 
-                    v-cloak
+                    class="btn-text-added" 
                     style="display: none;"
                   >
                     {{- 'products.product.added' | t -}}
                   </span>
                   <span
                     class="btn-text-soldout"
-                    style="display: {% unless current_variant.available %}inline{% else %}none{% endunless %};"
+                    style="display: {% unless product.selected_or_first_available_variant.available %}inline{% else %}none{% endunless %};"
                   >
                     {{- 'products.product.sold_out' | t -}}
                   </span>
                   <span 
-                    class="btn-text-unavailable js" 
-                    v-if="state === 'unavailable'" 
-                    v-cloak
+                    class="btn-text-unavailable" 
                     style="display: none;"
                   >
                     {{- 'products.product.unavailable' | t -}}

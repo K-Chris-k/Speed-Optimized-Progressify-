@@ -1,6 +1,11 @@
 // Quantity Buttons Fix
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Quantity buttons fix loading...');
+  // 检查是否已经有主题内置的quantity-input组件
+  const hasNativeQuantityComponent = document.querySelector('quantity-input');
+  if (hasNativeQuantityComponent) {
+    // 主题已经有内置的quantity组件，不需要我们的修复
+    return;
+  }
   
   // Create a flag to track if we're currently processing a quantity change
   // This prevents multiple handlers from firing for the same click

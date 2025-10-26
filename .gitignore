@@ -1,0 +1,5 @@
+config/*data.json
+/templates/**.json
+/templates/**.liquid
+.shopify
+node_modules/*

@@ -725,7 +725,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 优化图片容器
     const imageContainer = bottomBar.querySelector('.bottom-purchase-info__image');
     if (imageContainer) {
-      imageContainer.style.flex = '0 0 70px';
+      imageContainer.style.flex = '0 0 80px';
       imageContainer.style.marginRight = '15px';
       
       const img = imageContainer.querySelector('img');
@@ -1162,16 +1162,8 @@ document.addEventListener('DOMContentLoaded', function() {
         bottomQuantityInput.value = value;
         syncFromBottom();
 
-        // 触发主数量按钮点击，确保任何依赖按钮事件的逻辑能运行
-        try {
-          const mainContainer = document.querySelector('quantity-input, .js-qty.input-radius');
-          if (mainContainer) {
-            const mainPlus = mainContainer.querySelector('button[name="plus"], .js-qty__adjust--plus');
-            const mainMinus = mainContainer.querySelector('button[name="minus"], .js-qty__adjust--minus');
-            if (plus && mainPlus) mainPlus.click();
-            if (minus && mainMinus) mainMinus.click();
-          }
-        } catch (err) {}
+        // 不再触发主按钮click，避免重复处理
+        // (主题内置组件已经处理了数量逻辑)
       });
     }
 

@@ -5,6 +5,289 @@
   font-family: 'Rajdhani', sans-serif !important;
 }
 
+/* Global Drawer Secondary Width */
+.global-drawer--secondary {
+  max-width: 400px !important;
+  width: 400px !important;
+}
+.product-price--regular span {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+}
+.global-drawer--secondary__header h5{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+/* Product Card Header */
+.product-card-basic__header {
+  padding: 8px 12px 6px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-card-basic__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Product Card Variant Selector - Compact Layout */
+.product-card-basic__variant-selector {
+  margin: 4px 0 8px;
+  padding: 0 12px;
+}
+
+.product-card-basic__variant-label {
+  display: none; /* 隐藏标签，节省空间 */
+}
+
+.product-card-basic__variant-select {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+  padding-right: 30px;
+}
+
+.product-card-basic__variant-select:hover {
+  border-color: #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-basic__variant-select:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-basic__variant-select option:disabled {
+  color: #999;
+  font-style: italic;
+}
+
+/* Product Card Compact Layout */
+.product-card-basic {
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.product-card-basic:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.product-card-basic--info {
+  padding: 10px 12px 8px;
+  gap:4px;
+}
+span.money.price-line-through.sale-price.price--compare-at-price {
+  font-size: 14px !important;
+}
+span.money.price--sale-price {
+  font-size: 14px !important;
+}
+.product-card-basic--info--body {
+  margin-top: 6px;
+}
+
+.product-card-basic__title {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.product-card-basic__title a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.product-card-basic__title a:hover {
+  color: #000;
+}
+
+.product-card-basic__price {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Enhanced Buy Now Button */
+.product-card-basic__add-button {
+  padding: 0 12px 12px;
+}
+
+.product-card-basic__add-button .btn--underlined {
+  width: 100%;
+  background: linear-gradient(135deg, #000 0%, #333 100%);
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.product-card-basic__add-button .btn--underlined:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #333 0%, #000 100%);
+}
+
+.product-card-basic__add-button .btn--underlined:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-basic__add-button .btn--underlined:disabled {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #e0e0e0;
+}
+
+.product-card-basic__add-button .btn--underlined span {
+  position: relative;
+  z-index: 2;
+}
+
+/* 按钮闪光效果 */
+.product-card-basic__add-button .btn--underlined::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.product-card-basic__add-button .btn--underlined:hover::before {
+  left: 100%;
+}
+
+/* 图标样式优化 */
+.product-card-basic__add-button .btn--underlined-with-icon__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Cart Drawer Specific Button Styles - White background with black border */
+.product-card-basic__add-button--cart-drawer {
+  padding: 0 12px 12px;
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer {
+  width: 100%;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #dedede !important;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer:disabled {
+  background: #f5f5f5 !important;
+  color: #999 !important;
+  border-color: #e0e0e0 !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer span {
+  position: relative;
+  z-index: 2;
+}
+
+/* 图标颜色继承 */
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer .btn--underlined-with-icon__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 移除闪光效果 for cart drawer buttons */
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer::before {
+  display: none;
+}
+
+/* 调整购物车抽屉推荐产品区域的间距 */
+.global-drawer--secondary__content {
+  padding: 15px;
+}
+
+
+
+.cart-drawer__recommendations-grid .product-card-basic {
+  margin: 0;
+}
+
+/* 调整推荐产品卡片内部间距 */
+.cart-drawer__recommendations .product-card-basic--info {
+  padding: 8px 10px 6px;
+}
+
+.cart-drawer__recommendations .product-card-basic__variant-selector {
+  margin: 6px 0 8px;
+  padding: 0px;
+}
+
+.cart-drawer__recommendations .product-card-basic__add-button--cart-drawer {
+  padding: 0px;
+}
+
 /* Thumbnail Navigation Buttons */
 .thumbnail-media--thumbnails {
   position: relative;

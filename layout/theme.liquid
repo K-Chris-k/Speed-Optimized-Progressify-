@@ -16,6 +16,7 @@
   {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'style.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'component-bottom-purchase.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'bottom-select-styles.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'variant-dropdown-styles.css' | asset_url | stylesheet_tag: preload: true }}
 
   {% if settings.favicon != blank %}
@@ -97,6 +98,7 @@
   {{ content_for_header }}
 
   <script defer src="{{ 'eventBus.js' | asset_url }}"></script>
+  <script defer src="{{ 'bottom-select-sync.js' | asset_url }}"></script>
   
   <script type="application/json" id="currency-config-data">
     {
@@ -239,11 +241,15 @@
 
   <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
   <script defer src="{{ 'SafeLoadScripts.js' | asset_url }}"></script>
-  <script defer src="{{ 'protect-main-price.js' | asset_url }}"></script>
+  {%- comment -%}<script defer src="{{ 'protect-main-price.js' | asset_url }}"></script>{%- endcomment -%}
   <script defer src="{{ 'bottom-purchase-dropdown.js' | asset_url }}"></script>
-  <script defer src="{{ 'quantity-buttons-fix.js' | asset_url }}"></script>
-  <script defer src="{{ 'variant-dropdown-fix.js' | asset_url }}"></script>
-  <script defer src="{{ 'bottom-bar-fix.js' | asset_url }}"></script>
+  {%- comment -%}<script defer src="{{ 'quantity-buttons-fix.js' | asset_url }}"></script>{%- endcomment -%}
+  {%- comment -%}<script defer src="{{ 'variant-dropdown-fix.js' | asset_url }}"></script>{%- endcomment -%}
+  {%- comment -%}<script defer src="{{ 'bottom-bar-fix.js' | asset_url }}"></script>{%- endcomment -%}
+  {%- comment -%}<script defer src="{{ 'variant-sync-simple.js' | asset_url }}"></script>{%- endcomment -%}
+  {%- comment -%}<script defer src="{{ 'quantity-debug.js' | asset_url }}"></script>{%- endcomment -%}
+  <script defer src="{{ 'sync-safe.js' | asset_url }}"></script>
+  <script defer src="{{ 'product-card-variant.js' | asset_url }}"></script>
 
   {% if settings.popup--enable or settings.popup--test-mode %}
     {% render 'popup' %}

@@ -1,10 +1,12 @@
 <div class="product-card-basic">
+  {% # Custom header %}
+
   {% # Product image %}
   {% if card_product.featured_media %}
     <div class="product-card-basic__image">
       <a href="{{ card_product.url }}" tabindex="-1" aria-hidden="true">
         <div class="{% unless settings.product-grid == 'natural' %}aspect-ratio aspect-ratio--{{ settings.product-grid }}{% endunless %}">
-          {{ card_product.featured_media | image_url: width: 200 | image_tag: class: 'theme-img thumbnail-radius' }}
+          {{ card_product.featured_media | image_url: width: 300 | image_tag: class: 'theme-img thumbnail-radius' }}
         </div>
       </a>
     </div>
@@ -27,10 +29,34 @@
       </div>
 
       {% # Price %}
-      <div class="product-card-basic__price">
+      <div class="product-card-basic__price" data-product-price>
         {% render 'product-grid-item-price', price_product: card_product %}
       </div>
     </div>
+
+    {% # Variant selector - Compact %}
+    {% if card_product.variants.size > 1 %}
+      <div class="product-card-basic__variant-selector">
+        <select 
+          id="variant-select-{{ card_product.id }}" 
+          class="product-card-basic__variant-select"
+          data-product-id="{{ card_product.id }}"
+        >
+          {% for variant in card_product.variants %}
+            <option 
+              value="{{ variant.id }}"
+              data-image-src="{% if variant.featured_media %}{{ variant.featured_media | image_url: width: 300 }}{% else %}{{ card_product.featured_media | image_url: width: 300 }}{% endif %}"
+              data-price="{{ variant.price }}"
+              data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price }}{% endif %}"
+              data-available="{{ variant.available }}"
+              {% if variant == card_product.selected_or_first_available_variant %}selected{% endif %}
+            >
+              {{ variant.title }}{% unless variant.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+    {% endif %}
 
     <div class="product-card-basic--info--footer">
       <product-card-basic
@@ -38,14 +64,7 @@
         data-cart-type="{{ settings.cart_type }}"
         data-cart-action="{{ settings.add_to_cart_action }}"
       >
-        {% if card_product.variants.size > 1 %}
-          <div class="text-link-animated">
-            <a class="btn--underlined-with-icon" href="{{ card_product.url }}" data-quick-view-link>
-              {% render 'theme-icon' with icon: 'shopping-bag', iconSize: 14 %}
-              <span>{{ 'products.product.view_options' | t }}</span>
-            </a>
-          </div>
-        {% elsif card_product.available %}
+        {% if card_product.available %}
           {%- liquid
             assign preorder_product = false
             assign preorder_string = 'products.product.preorder' | t | downcase
@@ -58,17 +77,28 @@
             endfor
           -%}
           {% form 'product', card_product, id: "ProductCardBasicAtcForm" %}
-            <input type="hidden" name="id" value="{{ card_product.variants.first.id }}" />
+            <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" />
             <input type="hidden" name="sections" value="cart-drawer" />
-            <div class="product-card-basic__add-button text-link-animated">
-              <button class="btn--underlined btn--underlined-with-icon" type="submit">
-                {% render 'theme-icon' with icon: 'shopping-bag', iconSize: 14, iconClasses: 'btn--underlined-with-icon__icon' %}
+            <div class="product-card-basic__add-button{% if is_cart_drawer %} product-card-basic__add-button--cart-drawer{% endif %}">
+              <button class="btn--underlined btn--underlined-with-icon{% if is_cart_drawer %} btn--cart-drawer{% endif %}" type="submit" {% unless card_product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+                {% render 'theme-icon' with icon: 'shopping-bag', iconSize: 16, iconClasses: 'btn--underlined-with-icon__icon' %}
                 <span>
-                  {% if preorder_product %}{{ 'products.product.preorder' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}
+                  {% if card_product.selected_or_first_available_variant.available %}
+                    Buy Now
+                  {% else %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% endif %}
                 </span>
               </button>
             </div>
           {% endform %}
+        {% else %}
+          <div class="text-link-animated">
+            <a class="btn--underlined-with-icon" href="{{ card_product.url }}" data-quick-view-link>
+              {% render 'theme-icon' with icon: 'shopping-bag', iconSize: 14 %}
+              <span>{{ 'products.product.sold_out' | t }}</span>
+            </a>
+          </div>
           <div
             data-add-to-cart-error
             class="product-card-basic__errors errors"
@@ -79,6 +109,7 @@
       </product-card-basic>
       <safe-load-scripts class="hidden">
         <script src="{{ 'component-product-card-basic.js' | asset_url }}" type="module" defer="defer" data-flow-load-key="component-product-card-basic"></script>
+        <script src="{{ 'product-card-variant.js' | asset_url }}" defer="defer" data-flow-load-key="product-card-variant"></script>
       </safe-load-scripts>
     </div>
   </div>

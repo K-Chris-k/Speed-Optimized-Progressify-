@@ -26,4 +26,9 @@ Parameters:
       {% endif %}
     {% endfor %}
   </div>
+  
+  {% comment %} 如果没有渲染任何 swatch（只有默认变体），仍然渲染底部购买栏 {% endcomment %}
+  {% if hide_default_title == true %}
+    {% render 'bottom-purchase-bar' with product: product %}
+  {% endif %}
 {% endif %}

@@ -471,7 +471,7 @@ button.ajaxcart__remove{
                 <div class="cart-drawer__recommendations-grid">
                   {% for recommendation in recommendations.products %}
                   {% render 'product-card-basic' with card_product: recommendation, show_vendor:
-                  settings.cart_vendor_enable %}
+                  settings.cart_vendor_enable, is_cart_drawer: true %}
                   {% endfor %}
                 </div>
                 {% endif %}
@@ -481,7 +481,7 @@ button.ajaxcart__remove{
                 {% for recommendation in settings.empty_cart_products.products %}
                 {% if recommendation.available %}
                 {% render 'product-card-basic' with card_product: recommendation, show_vendor:
-                settings.cart_vendor_enable %}
+                settings.cart_vendor_enable, is_cart_drawer: true %}
                 {% endif %}
                 {% endfor %}
               </div>
