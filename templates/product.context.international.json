@@ -8,9 +8,39 @@
  * ------------------------------------------------------------
  */
 {
+  "parent": "product.json",
   "context": {
     "market": "international"
   },
-  "parent": "product.json",
-  "sections": {}
+  "sections": {
+    "product-form": {
+      "settings": {
+        "enable_sticky": true
+      },
+      "blocks": {
+        "custom_liquid_jUUTV": {
+          "type": "custom_liquid",
+          "disabled": false,
+          "settings": {
+            "custom_liquid": "<div data-rapi-id=\"rapi_622510193caaf4\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "media",
+        "sale_badge",
+        "title",
+        "82f0bd81-d4e0-4618-aace-8c9d28ac737e",
+        "price",
+        "options",
+        "quantity",
+        "12405fb2-d0cf-468a-9133-3d850b5ee912",
+        "afc01261-caa5-458b-9190-7984d135882e",
+        "custom_liquid_jUUTV",
+        "buy_buttons",
+        "46a68c53-9aaa-404f-8759-76be46d7045b",
+        "69de8680-44b2-42ab-8b77-2a049ccd2f20"
+      ]
+    }
+  }
 }

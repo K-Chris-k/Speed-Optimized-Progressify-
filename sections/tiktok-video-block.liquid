@@ -1,0 +1,93 @@
+{% schema %}
+{
+  "name": "TikTok Style Video Block",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Upload Video"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "label": "Muted",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "controls",
+      "label": "Show Controls",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "TikTok Video",
+      "category": "Media"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="video-wrapper">
+  {% if section.settings.video != blank %}
+    <video
+      {% if section.settings.autoplay %} autoplay{% endif %}
+      {% if section.settings.loop %} loop{% endif %}
+      {% if section.settings.muted %} muted{% endif %}
+      {% if section.settings.controls %} controls{% endif %}
+      playsinline
+      class="tiktok-video"
+    >
+      <source src="{{ section.settings.video | video_url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  {% else %}
+    <p>No video uploaded yet.</p>
+  {% endif %}
+</div>
+
+<style>
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 177.77%; /* 9:16 aspect ratio (16/9 = 1.77) */
+    overflow: hidden;
+  }
+
+  .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    .video-wrapper {
+      padding-top: 177.77%;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: auto;
+      left: 0;
+      transform: none;
+    }
+  }
+</style>

@@ -5,99 +5,61 @@ document.addEventListener('DOMContentLoaded', function() {
                        window.location.pathname.includes('/products/');
   
   if (!isProductPage) {
+    console.log('不是产品页面，不初始化底部购买栏');
     return;
   }
   
   console.log('产品页面，确保底部购买栏可见');
   
-  // 性能优化：缓存变量和防抖
+  // 用于移动端滑动检测
   let lastScrollTop = 0;
-  let scrollThreshold = 5;
+  let scrollThreshold = 5; // 滑动多少像素才触发显示/隐藏
   let isMobile = window.innerWidth < 768;
-  let scrollTimeout = null;
-  let resizeTimeout = null;
-  let isInitialized = false;
-  
-  // 缓存DOM元素
-  let cachedElements = {
-    bottomBar: null,
-    mainContent: null,
-    lastUpdate: 0
-  };
 
-  // 优化的滚动事件处理 - 添加防抖和缓存
-  function getCachedBottomBar() {
-    const now = Date.now();
-    if (!cachedElements.bottomBar || (now - cachedElements.lastUpdate) > 1000) {
-      cachedElements.bottomBar = document.querySelector('.bottom-purchase-info');
-      cachedElements.lastUpdate = now;
-    }
-    return cachedElements.bottomBar;
-  }
-  
+  // 监听滚动事件，处理移动端上下滑动效果
   window.addEventListener('scroll', function() {
-    if (!isMobile) return;
+    if (!isMobile) return; // 只在移动端处理滑动效果
     
-    // 防抖处理
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout);
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    const bottomBar = document.querySelector('.bottom-purchase-info');
+    if (!bottomBar) return;
+    
+    // 确保底部栏有滑动过渡效果
+    if (!bottomBar.hasAttribute('data-slide-transition-set')) {
+      bottomBar.style.transition = 'transform 0.3s ease-out';
+      bottomBar.setAttribute('data-slide-transition-set', 'true');
     }
     
-    scrollTimeout = setTimeout(() => {
-      const st = window.pageYOffset || document.documentElement.scrollTop;
-      const bottomBar = getCachedBottomBar();
-      if (!bottomBar) return;
-      
-      // 确保底部栏有滑动过渡效果（只设置一次）
-      if (!bottomBar.hasAttribute('data-slide-transition-set')) {
-        bottomBar.style.transition = 'transform 0.3s ease-out';
-        bottomBar.setAttribute('data-slide-transition-set', 'true');
-      }
-      
-      // 如果购物车抽屉打开，不处理滑动效果
-      if (document.querySelector('.drawer.drawer--right.drawer--cart')) return;
-      
-      if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
-      
-      if (st > lastScrollTop && st > 100) {
-        // 向下滑动且不在页面顶部，显示
+    // 如果购物车抽屉打开，不处理滑动效果
+    if (document.querySelector('.drawer.drawer--right.drawer--cart')) return;
+    
+    if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
+    
+    if (st > lastScrollTop && st > 100) {
+      // 向下滑动且不在页面顶部，显示
+      bottomBar.style.transform = 'translateY(0)';
+      bottomBar.style.opacity = '1';
+    } else if (st < lastScrollTop) {
+      // 向上滑动，隐藏
+      bottomBar.style.transform = 'translateY(100%)';
+      bottomBar.style.opacity = '0';
+    }
+    
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, {passive: true});
+  
+  // 监听窗口大小变化
+  window.addEventListener('resize', function() {
+    isMobile = window.innerWidth < 768;
+    // 如果从移动端切换到桌面端，恢复底部栏显示
+    if (!isMobile) {
+      const bottomBar = document.querySelector('.bottom-purchase-info');
+      if (bottomBar) {
         bottomBar.style.transform = 'translateY(0)';
         bottomBar.style.opacity = '1';
-      } else if (st < lastScrollTop) {
-        // 向上滑动，隐藏
-        bottomBar.style.transform = 'translateY(100%)';
-        bottomBar.style.opacity = '0';
       }
-      
-      lastScrollTop = st <= 0 ? 0 : st;
-      scrollTimeout = null;
-    }, 16); // ~60fps
-  }, { passive: true });
-  
-  // 优化的窗口大小变化监听 - 添加防抖
-  window.addEventListener('resize', function() {
-    if (resizeTimeout) {
-      clearTimeout(resizeTimeout);
     }
-    
-    resizeTimeout = setTimeout(() => {
-      const wasMobile = isMobile;
-      isMobile = window.innerWidth < 768;
-      
-      // 只在设备类型真正改变时处理
-      if (wasMobile !== isMobile && !isMobile) {
-        const bottomBar = getCachedBottomBar();
-        if (bottomBar) {
-          bottomBar.style.transform = 'translateY(0)';
-          bottomBar.style.opacity = '1';
-        }
-      }
-      
-      // 清除缓存，强制重新获取元素
-      cachedElements.bottomBar = null;
-      resizeTimeout = null;
-    }, 250);
-  }, { passive: true });
+  }, {passive: true});
   
   // 监听产品图片变化
   function setupProductImageObserver() {
@@ -159,18 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
     monitorAllVariantSelectors();
   }
 
-  // 优化的变体选择器监控 - 减少重复检查和内存泄漏
-  let variantMonitorTimeout = null;
-  let variantMonitorCount = 0;
-  const MAX_MONITOR_ATTEMPTS = 10; // 最多尝试10次
-  
+  // 监控所有可能的变体选择器
   function monitorAllVariantSelectors() {
-    // 防止无限递归
-    if (variantMonitorCount >= MAX_MONITOR_ATTEMPTS) {
-      console.log('变体监控达到最大尝试次数，停止监控');
-      return;
-    }
-    
+    // 所有可能的变体选择器
     const variantSelectors = [
       'select.single-option-selector',
       'select[name^="option-"]',
@@ -185,48 +138,31 @@ document.addEventListener('DOMContentLoaded', function() {
       '.size-option input'
     ];
 
-    let newElementsFound = false;
-    
-    // 使用事件委托替代为每个元素添加监听器
+    // 为每个选择器添加事件监听
     variantSelectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector + ':not([data-variant-monitor])');
-      if (elements.length > 0) {
-        newElementsFound = true;
-        elements.forEach(element => {
-          element.setAttribute('data-variant-monitor', 'true');
-          
-          // 使用防抖的更新函数
-          element.addEventListener('change', debounce(updateVariantImage, 100), { passive: true });
-          
-          // 对于非标准控件，监听点击事件
-          if (selector.includes('input[type="radio"]') || selector.includes('swatches__item')) {
-            element.addEventListener('click', debounce(updateVariantImage, 200), { passive: true });
-          }
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(element => {
+        // 避免重复添加事件监听器
+        if (element.hasAttribute('data-variant-monitor')) return;
+        
+        element.setAttribute('data-variant-monitor', 'true');
+        element.addEventListener('change', function() {
+          console.log('变体选择器改变:', this);
+          setTimeout(updateVariantImage, 100);
         });
-      }
+        
+        // 对于非标准控件，监听点击事件
+        if (selector.includes('input[type="radio"]') || selector.includes('swatches__item')) {
+          element.addEventListener('click', function() {
+            console.log('变体选择器点击:', this);
+            setTimeout(updateVariantImage, 200);
+          });
+        }
+      });
     });
     
-    // 只有在找到新元素时才继续监控
-    if (newElementsFound || variantMonitorCount < 3) {
-      variantMonitorCount++;
-      if (variantMonitorTimeout) {
-        clearTimeout(variantMonitorTimeout);
-      }
-      variantMonitorTimeout = setTimeout(monitorAllVariantSelectors, 500);
-    }
-  }
-  
-  // 防抖函数
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
+    // 每500ms检查一次DOM，以防止动态加载的选择器
+    setTimeout(monitorAllVariantSelectors, 500);
   }
   
   // 监控Vue产品表单变化
@@ -252,10 +188,11 @@ document.addEventListener('DOMContentLoaded', function() {
       subtree: true 
     });
     
-     // 检查页面中的Vue实例
-     if (window.Vue) {
-       // 如果Vue实例在全局可用，我们可以尝试监听Vue事件（这取决于主题实现）
-     }
+    // 检查页面中的Vue实例
+    if (window.Vue) {
+      console.log('检测到Vue实例，尝试监控Vue事件');
+      // 如果Vue实例在全局可用，我们可以尝试监听Vue事件（这取决于主题实现）
+    }
     
     // 对于WeTheme特定的组件，添加额外的监听
     const weThemeForm = document.querySelector('wetheme-product-form');
@@ -280,119 +217,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // 优化的购物车抽屉观察器 - 减少定期检查，使用事件驱动
-  let cartDrawerCheckInterval = null;
-  let cartDrawerTimeouts = [];
-  
+  // 监听购物车抽屉的显示状态
   function setupCartDrawerObserver() {
     // 初始检查购物车抽屉的状态
     updateBottomBarVisibility();
     
-    // 减少定期检查频率，并在页面不可见时停止
-    function startPeriodicCheck() {
-      if (cartDrawerCheckInterval) {
-        clearInterval(cartDrawerCheckInterval);
-      }
-      cartDrawerCheckInterval = setInterval(() => {
-        if (!document.hidden) {
-          updateBottomBarVisibility();
-        }
-      }, 1000); // 降低到1秒检查一次
-    }
+    // 定期检查购物车抽屉元素是否存在（降低检查频率以优化性能）
+    const checkInterval = setInterval(updateBottomBarVisibility, 500);
     
-    startPeriodicCheck();
-    
-    // 页面可见性变化时控制定期检查
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        if (cartDrawerCheckInterval) {
-          clearInterval(cartDrawerCheckInterval);
-          cartDrawerCheckInterval = null;
-        }
-      } else {
-        startPeriodicCheck();
-      }
-    });
-    
-    // 优化的事件监听器 - 使用事件委托
+    // 添加事件监听器以响应用户交互
     document.addEventListener('click', function(e) {
-      // 清除之前的超时
-      cartDrawerTimeouts.forEach(timeout => clearTimeout(timeout));
-      cartDrawerTimeouts = [];
+      // 检查是否点击了添加到购物车按钮或类似元素
+      if (e.target.closest('[name="add"], [data-bottom-add-to-cart], .add-to-cart-button')) {
+        // 用户点击了添加到购物车，立即检查并设置一个短时间内的多次检查
+        setTimeout(updateBottomBarVisibility, 300);
+        setTimeout(updateBottomBarVisibility, 600);
+        setTimeout(updateBottomBarVisibility, 900);
+      }
       
-      const isAddToCart = e.target.closest('[name="add"], [data-bottom-add-to-cart], .add-to-cart-button');
-      const isCloseDrawer = e.target.closest('.drawer__close, .close-button, .drawer-close');
-      
-      if (isAddToCart) {
-        // 用户点击了添加到购物车，使用更合理的检查间隔
-        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 200));
-        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 500));
-        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 1000));
-      } else if (isCloseDrawer) {
-        // 用户关闭了购物车抽屉
-        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 200));
-        cartDrawerTimeouts.push(setTimeout(updateBottomBarVisibility, 400));
+      // 检查是否点击了关闭购物车抽屉的按钮
+      if (e.target.closest('.drawer__close, .close-button, .drawer-close')) {
+        // 用户可能关闭了购物车抽屉，立即检查并设置短时间内的多次检查
+        setTimeout(updateBottomBarVisibility, 300);
+        setTimeout(updateBottomBarVisibility, 600);
       }
     }, { passive: true });
-  }
-  
-  // 监听 global-drawer 的 aria-hidden 属性变化
-  function setupGlobalDrawerObserver() {
-    // 查找所有 global-drawer 元素
-    const globalDrawers = document.querySelectorAll('.global-drawer');
-    
-     if (globalDrawers.length === 0) {
-       return;
-     }
-    
-    // 为每个 global-drawer 设置监听器
-    globalDrawers.forEach(drawer => {
-      // 创建 MutationObserver 监听 aria-hidden 属性变化
-      const observer = new MutationObserver(function(mutations) {
-         mutations.forEach(function(mutation) {
-           if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
-             const ariaHiddenValue = drawer.getAttribute('aria-hidden');
-             
-             // 根据 aria-hidden 值控制 bottom-purchase-info 的显示
-             handleGlobalDrawerVisibility(ariaHiddenValue === 'false');
-           }
-         });
-      });
-      
-      // 开始监听属性变化
-      observer.observe(drawer, {
-        attributes: true,
-        attributeFilter: ['aria-hidden']
-      });
-      
-      // 初始检查当前状态
-      const initialAriaHidden = drawer.getAttribute('aria-hidden');
-      if (initialAriaHidden !== null) {
-        handleGlobalDrawerVisibility(initialAriaHidden === 'false');
-      }
-    });
-  }
-  
-  // 处理 global-drawer 显示状态变化
-  function handleGlobalDrawerVisibility(isDrawerVisible) {
-    const bottomBar = document.querySelector('.bottom-purchase-info.is-visible');
-    if (!bottomBar) return;
-    
-    // 确保底部栏有过渡效果
-    if (!bottomBar.hasAttribute('data-global-drawer-transition-set')) {
-      bottomBar.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
-      bottomBar.setAttribute('data-global-drawer-transition-set', 'true');
-    }
-    
-     if (isDrawerVisible) {
-       // aria-hidden="false" 表示抽屉显示，bottom-purchase-info 向下消失
-       bottomBar.style.transform = 'translateY(100%)';
-       bottomBar.style.opacity = '0';
-     } else {
-       // aria-hidden="true" 表示抽屉隐藏，bottom-purchase-info 向上出现
-       bottomBar.style.transform = 'translateY(0)';
-       bottomBar.style.opacity = '1';
-     }
   }
   
   // 更新底部购买栏的可见性
@@ -465,6 +314,21 @@ document.addEventListener('DOMContentLoaded', function() {
         if (barFromDoc) {
           console.log('从HTML中提取底部购买栏');
           
+          // 检查是否有评论组件并确保显示
+          const reviewBadge = barFromDoc.querySelector('.bottom-purchase-info__review-badge');
+          if (reviewBadge) {
+            // 查找页面上的星级评分显示
+            const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
+            const reviewCount = document.querySelector('.jdgm-prev-badge__text, .spr-badge-caption')?.textContent || '1 Review';
+            
+            if (existingStars) {
+              // 如果页面上已有星级组件，复制它并替换到底部购买栏
+              reviewBadge.innerHTML = `<div class="bottom-stars-container">
+                ${existingStars.outerHTML}
+                <span class="bottom-review-count">${reviewCount}</span>
+              </div>`;
+            }
+          }
           
           document.body.appendChild(barFromDoc);
           setupBottomBar(barFromDoc);
@@ -562,6 +426,71 @@ document.addEventListener('DOMContentLoaded', function() {
       bar.setAttribute('data-slide-transition-set', 'true');
     }
     
+    // 查找页面上的评论组件
+    const existingBadge = document.querySelector('.prorw_preview_badge_setup');
+    let badgeHTML = '';
+    
+    if (existingBadge) {
+      // 获取产品ID和评分信息
+      const productId = existingBadge.getAttribute('data-product-id');
+      const averageRatings = existingBadge.getAttribute('data-average-ratings') || '5';
+      const reviewCount = existingBadge.getAttribute('data-count') || '1';
+      
+      // 找到页面上的星级评分显示
+      const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
+      const reviewLink = document.querySelector('a.spr-badge, a.jdgm-prev-badge');
+      
+      // 创建直接显示的星级评分
+      if (existingStars) {
+        // 如果页面上已有星级组件，复制它
+        badgeHTML = `<div class="bottom-stars-container">
+          ${existingStars.outerHTML}
+          <span class="bottom-review-count">${reviewCount} Review${reviewCount > 1 ? 's' : ''}</span>
+        </div>`;
+      } else {
+        // 否则创建一个新的星级组件
+        const fullStars = Math.floor(parseFloat(averageRatings));
+        const halfStar = parseFloat(averageRatings) - fullStars >= 0.5;
+        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+        
+        let starsHTML = '';
+        // 添加满星
+        for (let i = 0; i < fullStars; i++) {
+          starsHTML += `<span class="fa fa-star" aria-hidden="true"></span>`;
+        }
+        // 添加半星
+        if (halfStar) {
+          starsHTML += `<span class="fa fa-star-half-o" aria-hidden="true"></span>`;
+        }
+        // 添加空星
+        for (let i = 0; i < emptyStars; i++) {
+          starsHTML += `<span class="fa fa-star-o" aria-hidden="true"></span>`;
+        }
+        
+        badgeHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
+          <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">${starsHTML}</div>
+          <span class="bottom-review-count">${reviewCount} Review${reviewCount > 1 ? 's' : ''}</span>
+        </div>`;
+      }
+    } else {
+      // 如果没有评论组件，查找页面上显示的评分
+      const reviewSection = document.querySelector('.product-single__review, .product-reviews');
+      if (reviewSection) {
+        badgeHTML = reviewSection.innerHTML;
+      } else {
+        // 创建默认的5星评分
+        badgeHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
+          <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">
+            <span class="fa fa-star" aria-hidden="true"></span>
+            <span class="fa fa-star" aria-hidden="true"></span>
+            <span class="fa fa-star" aria-hidden="true"></span>
+            <span class="fa fa-star" aria-hidden="true"></span>
+            <span class="fa fa-star" aria-hidden="true"></span>
+          </div>
+          <span class="bottom-review-count">1 Review</span>
+        </div>`;
+      }
+    }
     
     // 构建内部HTML
     if (isMobile) {
@@ -621,6 +550,9 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           <div class="bottom-purchase-info__content" style="flex: 1; min-width: 0; padding-right: 15px; overflow: hidden;">
             <h3 class="bottom-purchase-info__title" style="margin: 0 0 5px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${productTitle.textContent}</h3>
+            <div class="bottom-purchase-info__review-badge">
+            ${badgeHTML}
+            </div>
             <span id="BottomProductPrice" class="bottom-purchase-info__price" style="font-weight: bold;">
               <span class="money">${productPrice.textContent}</span>
             </span>
@@ -719,13 +651,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // 优化容器布局
     const container = bottomBar.querySelector('.bottom-purchase-info__container');
     if (container) {
-      
+      container.style.maxWidth = '1600px';
+      container.style.width = '100%';
+      container.style.margin = '0 auto';
+      container.style.display = 'flex';
+      container.style.alignItems = 'center';
+      container.style.padding = '0 15px';
     }
     
     // 优化图片容器
     const imageContainer = bottomBar.querySelector('.bottom-purchase-info__image');
     if (imageContainer) {
-      imageContainer.style.flex = '0 0 80px';
+      imageContainer.style.flex = '0 0 70px';
       imageContainer.style.marginRight = '15px';
       
       const img = imageContainer.querySelector('img');
@@ -806,6 +743,36 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
+    // 确保评论显示
+    const reviewBadge = bottomBar.querySelector('.bottom-purchase-info__review-badge');
+    if (reviewBadge) {
+      // 检查是否已经有星级评分显示
+      if (!reviewBadge.querySelector('.bottom-stars-container, .fa-star')) {
+        // 查找页面上的星级评分显示
+        const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
+        const reviewCount = document.querySelector('.jdgm-prev-badge__text, .spr-badge-caption')?.textContent || '1 Review';
+        
+        if (existingStars) {
+          // 如果页面上已有星级组件，复制它并替换到底部购买栏
+          reviewBadge.innerHTML = `<div class="bottom-stars-container">
+            ${existingStars.outerHTML}
+            <span class="bottom-review-count">${reviewCount}</span>
+          </div>`;
+        } else {
+          // 创建默认的5星评分
+          reviewBadge.innerHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
+            <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">
+              <span class="fa fa-star" aria-hidden="true"></span>
+              <span class="fa fa-star" aria-hidden="true"></span>
+              <span class="fa fa-star" aria-hidden="true"></span>
+              <span class="fa fa-star" aria-hidden="true"></span>
+              <span class="fa fa-star" aria-hidden="true"></span>
+            </div>
+            <span class="bottom-review-count">1 Review</span>
+          </div>`;
+        }
+      }
+    }
     
     // 设置添加到购物车按钮
     setupAddToCartButton();
@@ -853,13 +820,6 @@ document.addEventListener('DOMContentLoaded', function() {
       mainSelector.dispatchEvent(event);
       // 更新变体图片
       updateVariantImage();
-    });
-
-    // 监听变体同步脚本的变体变更事件
-    document.addEventListener('variantChanged', function(e) {
-      if (e.detail && e.detail.variant) {
-        updateVariantImage();
-      }
     });
 
     // 初始更新变体图片
@@ -1059,34 +1019,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 同步数量选择器
   function syncQuantity() {
-    // 更稳健地查找主数量输入框（排除隐藏字段与底部输入）
-    const findMainQuantityInput = function() {
-      const candidates = [
-        'quantity-input input[aria-label="quantity"]',
-        'quantity-input .js-qty__num',
-        'input#Quantity.js-qty__num',
-        'input#Quantity',
-        'input[name="quantity-js"]',
-        'input[aria-label="quantity"]:not(#BottomQuantity)',
-        'input.js-qty__num:not(#BottomQuantity)',
-        'input[name="quantity"]:not([type="hidden"]):not(#BottomQuantity)'
-      ];
-      for (const sel of candidates) {
-        const el = document.querySelector(sel);
-        if (el && el.tagName === 'INPUT' && el.type !== 'hidden') return el;
-      }
-      return null;
-    };
-
-    let mainQuantityInput = findMainQuantityInput();
-    // 查找底部数量输入框（覆盖多个实现）
-    const bottomQuantityInput = document.querySelector([
-      '#BottomQuantity',
-      '[data-quantity-input="bottom"]',
-      '.bottom-qty-container .js-qty__num',
-      '.div-js-qty-bottom-qty-container .js-qty__num',
-      '.bottom-purchase-dropdown__quantity-wrapper .js-qty__num'
-    ].join(','));
+    const mainQuantityInput = document.querySelector('#Quantity, [name="quantity"]:not(#BottomQuantity)');
+    const bottomQuantityInput = document.querySelector('#BottomQuantity');
     
     if (!mainQuantityInput || !bottomQuantityInput) {
       console.log('找不到数量输入框，无法同步数量');
@@ -1096,38 +1030,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // 设置初始值
     bottomQuantityInput.value = mainQuantityInput.value || '1';
     
-    // 统一的同步逻辑
-    const syncFromMain = function() {
-      // 动态获取，防止主输入被重渲染
-      mainQuantityInput = findMainQuantityInput() || mainQuantityInput;
-      if (!mainQuantityInput) return;
-      bottomQuantityInput.value = (mainQuantityInput.value && mainQuantityInput.type !== 'hidden') ? mainQuantityInput.value : (bottomQuantityInput.value || '1');
-    };
-    const syncFromBottom = function() {
-      // 动态获取，防止主输入被重渲染
-      mainQuantityInput = findMainQuantityInput() || mainQuantityInput;
-      if (!mainQuantityInput) return;
-      const value = bottomQuantityInput.value || '1';
-      mainQuantityInput.value = value;
-      // 触发主输入的原生事件，确保主题/应用侦听器响应
-      const evts = ['change','input'];
-      evts.forEach(t => {
-        try { mainQuantityInput.dispatchEvent(new Event(t, { bubbles: true })); } catch(e) {}
-      });
-    };
-
-    // 主数量变化时更新底部数量（包含 change 与 input）
-    if (mainQuantityInput) {
-      ['change','input'].forEach(t => mainQuantityInput.addEventListener(t, syncFromMain));
-    }
+    // 主数量变化时更新底部数量
+    mainQuantityInput.addEventListener('change', function() {
+      bottomQuantityInput.value = this.value;
+    });
     
-    // 底部数量变化时更新主数量（包含 change 与 input）
-    ['change','input'].forEach(t => bottomQuantityInput.addEventListener(t, syncFromBottom));
+    // 底部数量变化时更新主数量
+    bottomQuantityInput.addEventListener('change', function() {
+      mainQuantityInput.value = this.value;
+      
+      // 触发change事件
+      const event = new Event('change', { bubbles: true });
+      mainQuantityInput.dispatchEvent(event);
+    });
     
-    // 事件委托：确保一次只添加一个事件监听器，并兼容动态按钮
-    const increaseBtn = document.querySelector('.bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust--plus, .bottom-qty-container .js-qty__adjust--plus, .div-js-qty-bottom-qty-container .js-qty__adjust--plus');
-    const decreaseBtn = document.querySelector('.bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust--minus, .bottom-qty-container .js-qty__adjust--minus, .div-js-qty-bottom-qty-container .js-qty__adjust--minus');
-    const bottomWrapper = document.querySelector('.bottom-purchase-dropdown__quantity-wrapper, .bottom-qty-container, .div-js-qty-bottom-qty-container');
+    // 确保一次只添加一个事件监听器
+    const increaseBtn = document.querySelector('.bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust--plus');
+    const decreaseBtn = document.querySelector('.bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust--minus');
     
     if (increaseBtn && !increaseBtn.hasAttribute('data-event-added')) {
       increaseBtn.setAttribute('data-event-added', 'true');
@@ -1135,7 +1054,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = parseInt(bottomQuantityInput.value, 10) || 1;
         value++;
         bottomQuantityInput.value = value;
-        syncFromBottom();
+        mainQuantityInput.value = value;
+        
+        // 触发change事件
+        const event = new Event('change', { bubbles: true });
+        mainQuantityInput.dispatchEvent(event);
       });
     }
     
@@ -1145,37 +1068,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = parseInt(bottomQuantityInput.value, 10) || 2;
         value = Math.max(1, value - 1);
         bottomQuantityInput.value = value;
-        syncFromBottom();
+        mainQuantityInput.value = value;
+        
+        // 触发change事件
+        const event = new Event('change', { bubbles: true });
+        mainQuantityInput.dispatchEvent(event);
       });
-    }
-
-    // 事件委托（兜底）：即使按钮被重新渲染也能捕获点击
-    if (bottomWrapper && !bottomWrapper.hasAttribute('data-delegation-added')) {
-      bottomWrapper.setAttribute('data-delegation-added', 'true');
-      bottomWrapper.addEventListener('click', function(e) {
-        const plus = e.target.closest('.js-qty__adjust--plus, [data-quantity-button="increase"], button[name="plus"]');
-        const minus = e.target.closest('.js-qty__adjust--minus, [data-quantity-button="decrease"], button[name="minus"]');
-        if (!plus && !minus) return;
-        let value = parseInt(bottomQuantityInput.value, 10) || 1;
-        if (plus) value++;
-        if (minus) value = Math.max(1, value - 1);
-        bottomQuantityInput.value = value;
-        syncFromBottom();
-
-        // 不再触发主按钮click，避免重复处理
-        // (主题内置组件已经处理了数量逻辑)
-      });
-    }
-
-    // 同步：当主数量通过主题事件总线变化时，刷新底部数量
-    if (window.eventBus && typeof window.eventBus.on === 'function') {
-      try {
-        window.eventBus.on('qty:change', function(payload) {
-          if (!payload || !payload.value) return;
-          bottomQuantityInput.value = payload.value;
-          // 不触发回写主输入，避免循环
-        });
-      } catch (e) {}
     }
   }
   
@@ -1255,46 +1153,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // 启动产品图片观察器
   setupProductImageObserver();
 
-  // 优化的定期检查 - 仅在需要时运行
-  let imageUpdateInterval = null;
-  
-  function startImageUpdateInterval() {
-    if (imageUpdateInterval) {
-      clearInterval(imageUpdateInterval);
-    }
-    
-    // 只有在底部栏存在时才定期更新
-    imageUpdateInterval = setInterval(() => {
-      if (!document.hidden && getCachedBottomBar()) {
-        updateVariantImage();
-      }
-    }, 3000); // 降低频率到3秒
-  }
-  
-  // 页面可见性变化时控制定期更新
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      if (imageUpdateInterval) {
-        clearInterval(imageUpdateInterval);
-        imageUpdateInterval = null;
-      }
-    } else {
-      startImageUpdateInterval();
-    }
-  });
-  
-  startImageUpdateInterval();
-  
-  // 清理函数 - 页面卸载时清理所有定时器和监听器
-  window.addEventListener('beforeunload', () => {
-    // 清理所有定时器
-    if (scrollTimeout) clearTimeout(scrollTimeout);
-    if (resizeTimeout) clearTimeout(resizeTimeout);
-    if (variantMonitorTimeout) clearTimeout(variantMonitorTimeout);
-    if (cartDrawerCheckInterval) clearInterval(cartDrawerCheckInterval);
-    if (imageUpdateInterval) clearInterval(imageUpdateInterval);
-    
-    // 清理购物车抽屉超时
-    cartDrawerTimeouts.forEach(timeout => clearTimeout(timeout));
-  });
+  // 定期检查图片更新（兜底方案）
+  setInterval(updateVariantImage, 2000);
 }); 

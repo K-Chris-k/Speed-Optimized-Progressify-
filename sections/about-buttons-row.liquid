@@ -1,0 +1,108 @@
+<div class="main-buttons-row">
+  <div class="myFlex-grid">
+  <div class="myCol">
+<a class="myButton" href="#" style="color:white;">Shop Camping Cookware</a>
+  </div>
+ 
+  <div class="myCol">
+ <a class="myButton" href="#" style="color:white;">Shop Camping Cookware</a>
+  </div>
+  <div class="myCol">
+  <a class="myButton" href="#" style="color:white;">Shop Camping Cookware</a>
+ 
+  </div>
+
+</div>
+</div>
+
+ 
+<style>
+  .main-buttons-row{
+    padding:40px 0px;
+    background-color:black;
+  }
+  .myFlex-grid {
+    display: flex;
+    background-color:black;
+    color:white;
+    width:100%;
+    padding: 10px 5%;
+
+  }
+.myFlex-grid .myCol {
+  flex: 1;
+}
+  .myCol {
+  text-align:center;
+  padding: 20px;
+}
+@media only screen and (max-width: 770px) {
+  .myFlex-grid{
+    display: block;
+    .myCol {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+  .myCol-heading{
+    font-size: 22px!important;
+    text-transform: uppercase!important;
+  }
+  .separator-line{
+    width:100%; 
+    background: black;
+    padding-top:30px;
+    padding-bottom:30px;
+  }
+  .line{
+    border-top:3px solid white;
+    width:50%;
+    margin-left:25%;
+  }
+  .myButton{
+    color:white;
+    font-weight:bold;
+  }
+  .myButton:hover{
+    color:black
+    cursor:pointer;
+    padding:7px 14px;
+    text-align:center;
+    background-color:darkgray;
+  }
+  
+</style>
+
+
+{% schema %}
+{
+    "name": {
+        "en": "About buttons row",
+        "de": "Rich Text",
+        "es": "Texto enriquecido",
+        "fr": "Texte riche",
+        "pt-PT": "Texto rico"
+    },
+    "class": "rich-text",
+    
+    "presets": [
+        {
+            "name": {
+                "en": "About buttons row",
+                "de": "Rich Text",
+                "es": "Texto enriquecido",
+                "fr": "Texte riche",
+                "pt-PT": "Texto rico"
+            },
+            "category": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            }
+        }
+    ]
+}
+{% endschema %}

@@ -124,7 +124,7 @@ class TextSlideshow extends HTMLElement {
   }
 
   isMobile() {
-    return window.matchMedia('only screen and (max-width: 767px)').matches;
+    return window.matchMedia('only screen and (max-width: 768px)').matches;
   }
 }
 

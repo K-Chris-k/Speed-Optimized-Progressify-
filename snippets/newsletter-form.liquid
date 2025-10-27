@@ -1,46 +1,33 @@
-{% comment %}
-	Renders a newsletter form section.
+<div class="wrapper show-on-scroll">
+    <div class="grid row--table">
+        <div class="grid__item large--one-half medium--one-half small--one-whole newsletter--section--grid vertical--align">
 
-	Accepts:
-		- section: The section object. Required.
-		- form_id: The form ID. Required.
-		- text_alignment: The text alignment. Optional.
+            <div class="newsletter--section--grid_inner newsletter_title">
+                <h3 class="homepage-sections--title">{{ section.settings.newsletter_heading }}</h3>
 
-	Usage:
-		{% render 'newsletter-form', section: section, form_id: 'newsletter_section_form', text_alignment: section.settings.textAlignment %}
-{% endcomment %}
+                {% if section.settings.newsletter_description != empty %}
+                    <div class="rte">{{ section.settings.newsletter_description }}</div>
+                {% endif %}
+            </div>
+        </div>
 
-<div class="newsletter-wrapper--outer{% if text_alignment %} newsletter-text--{{ text_alignment }}{% endif %}{% if request.visual_preview_mode %} section-preview{% else %} show-on-scroll{% endif %}">
-	<div class="newsletter-content--wrapper" data-animate data-animate-left-bold data-animate-order="1">
-		<h3 class="newsletter-section--title">{{ section.settings.newsletter_heading }}</h3>
+        <div class="grid__item large--one-half medium--one-half small--one-whole newsletter--section--grid vertical--align">
+            <div class="newsletter--section--grid_inner newsletter_form_section">
+                {% form 'customer', id: form_id %}
+                    {{ form.errors | default_errors }}
 
-		{% if section.settings.newsletter_description != empty %}
-			<div class="rte text-link-animated">{{ section.settings.newsletter_description }}</div>
-		{% endif %}
-	</div>
+                    {% if form.posted_successfully? %}
+                        <p class="note form-success success_section">{{ 'general.newsletter_form_section.thanks' | t }}</p>
+                    {% else %}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
 
-	<div class="newsletter-form--wrapper" data-animate data-animate-right-bold data-animate-order="2">
-		{% form 'customer', id: form_id %}
-			{{ form.errors | default_errors }}
-
-			{% unless form.posted_successfully? %}
-				{% if customer and customer.email == form.email %}
-					<div class="errors">
-					<span role="alert" class="error">{{ 'general.newsletter_form_section.already_subscribed' | t }}</span>
-					</div>
-				{% endif %}
-			{% endunless %}
-
-			{% if form.posted_successfully? %}
-				<p role="alert" class="note form-success success_section">{{ 'general.newsletter_form_section.thanks' | t }}</p>
-			{% else %}
-				<input type="hidden" name="contact[tags]" value="newsletter">
-
-				<div id="newsletter-wrapper">
-					<input id="newsletter_text" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form_section.newsletter_text' | t }}" name="contact[email]" class="input-group-field email" aria-label="{{ 'general.newsletter_form_section.newsletter_email' | t }}" autocorrect="off" autocapitalize="off" pattern=".+@.+\..+" title="{{ 'general.forms.email_must_be_formatted_as_an_email' | t }}">
-					<button id="newsletter_submit" type="submit" aria-label="{{ 'general.accessibility.contact_form.submit' | t }}" class="standalone-icon--wrapper">{% render 'theme-icon' with icon: 'chevron_right', iconSize: 20 %}</button>
-				</div>
-			{% endif %}
-		{% endform %}
-	</div>
+                        <div id="newsletter-wrapper">
+                            <input id="newsletter_text" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form_section.newsletter_text' | t }}" name="contact[email]" class="input-group-field email" aria-label="{{ 'general.newsletter_form_section.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                            <input id="newsletter_submit" type="submit" class="btn btn-default" name="subscribe" value="&#xf105;">
+                        </div>
+                    {% endif %}
+                {% endform %}
+            </div>
+        </div>
+    </div>
 </div>

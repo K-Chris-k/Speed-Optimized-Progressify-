@@ -1,0 +1,109 @@
+<script id="remove-js" async="true">
+  {% comment %}
+// 创建 MutationObserver 实例
+const observer_one = new MutationObserver((mutationsList) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      // 检查是否有新插入的 script标签
+      const insertedScripts = Array.from(mutation.addedNodes).filter(
+        (node) => node.tagName === 'SCRIPT'
+      );
+      //console.log(insertedScripts);
+      // 阻止新插入的脚本运行
+      insertedScripts.forEach((script) => {
+        // 在这里执行您的阻止操作，例如删除脚本内容或修改属性
+        script.textContent = ''; // 阻止脚本运行
+        // 或者直接从 DOM 中移除标签
+        script.remove();
+      });
+    }
+  }
+});
+
+// 监听整个文档树的变化
+observer_one.observe(document, { childList: true, subtree: true });
+
+// 页面加载完毕后停止监听
+document.addEventListener('DOMContentLoaded', () => {
+  observer_one.disconnect();
+  
+});
+  {% endcomment %}
+//document.querySelectorAll('script').forEach(el=>el.outerHTML="")
+  
+//document.write(navigator.userAgent);
+
+//document.write(`<meta http-equiv="Content-Security-Policy" content="script-src 'none'">`)
+  
+if(navigator.userAgent.indexOf("moto") != -1 ) { 
+  document.write(`<meta http-equiv="Content-Security-Policy" content="script-src 'none'">`)
+  document.write(`
+    <style>
+      .js-laoding-annimate{
+        position:fixed;
+        top:0;
+        left:0;
+        background-color:#fff;
+        width:100vw;
+        height:100vh;
+        color:#000;
+        z-index:99999999999;
+        transition: height 0.5s;
+      }
+      .js-loading-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size:28px;
+        font-weight:600;
+      }
+      .js-loading-content svg{
+        animation: rotate 0.75s linear infinite;
+      }
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <div class="js-laoding-annimate">
+      <div class="js-loading-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+          <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+        </svg>
+      </div>
+    </div>
+  
+  `)
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector(".js-laoding-annimate").style.height=0;
+    document.querySelector(".js-laoding-annimate").style.color = 'transparent';
+    
+    // 获取所有的图片元素
+    var images = document.getElementsByTagName('img');
+
+    // 遍历所有图片元素
+    for (var i = 0; i < images.length; i++) {
+        // 将图片的 src 属性设置为空，防止图片加载
+        images[i].src = '';
+    }
+    
+  });
+
+  
+  
+  // var object2 = document.getElementsByTagName("script");
+  
+  // if (object2 != null) {
+  //     object2.forEach(el=>{
+  //       el.parentNode.removeChild(el);
+  //     })
+  // }
+
+
+} 
+</script>

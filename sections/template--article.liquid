@@ -11,8 +11,6 @@
 
 {% endcomment %}
 
-{{ 'template-article.min.css' | asset_url | stylesheet_tag: preload: true }}
-
 {% assign number_of_comments = article.comments_count %}
 
 {% comment %}
@@ -22,23 +20,24 @@
   {% assign number_of_comments = article.comments_count | plus: 1 %}
 {% endif %}
 
-<div class="wrapper-spacing--v--template wrapper-spacing--h">
-<div class="width--content">
-  <div class="template-title--wrapper">
-    <h1 class="page--title template-title">{{ article.title }}</h1>
+<div class="wrapper-padded main-page-container">
 
-    {% if section.settings.blog_show_date %}
-      <time class="post-time indiv-post-time" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | time_tag: format: 'date' }}</time>
-    {% endif %}
-  </div>
+<div class="sitewide--title-wrapper">
+  <h1 class="page--title">{{ article.title }}</h1>
+</div>
+{% if section.settings.blog_show_date %}
+  <time class="post-time indiv-post-time" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | time_tag: format: 'date' }}</time>
+{% endif %}
 
-<div class="flex-grid blog-main--wrapper">
+<div class="grid blog-main--wrapper">
 
-  <article class="flex-grid__item grid__item--article-main large--three-quarters" itemscope itemtype="http://schema.org/Article">
-    <div class="rte text-link-animated" itemprop="articleBody">
+  <article class="grid__item large--three-quarters" itemscope itemtype="http://schema.org/Article">
+
+    <div class="rte" itemprop="articleBody">
   		{% if article.image %}
   			<div class="article--image-wrapper">
-            {% render 'responsive-image' with article.image, img_tag: article.title, sizes: '100vw' %}
+            {% capture article_alt %}{{ article.image.alt | default: article.title }}{% endcapture %}
+            {% render 'responsive-image' with article.image, img_tag: article.title, alt: article_alt | escape, sizes: '100vw' %}
   		  </div>
   		{% endif %}
 
@@ -54,21 +53,15 @@
     {% endcomment %}
     {% if blog.next_article or blog.previous_article %}
       <hr>
-      <p class="clearfix article-prev-next-wrapper nav-link-animated--custom">
+      <p class="clearfix">
         {% if blog.previous_article %}
-          <span class="left inline-icon--wrapper icon--left">
-            <a class="animated-link--item--nested" href="{{ blog.previous_article }}">
-              {% render 'theme-icon' with icon: 'chevron_left', iconSize: 16 %}
-              <span class="animated-underline">{{ 'blogs.article.older_post' | t }}</span>
-            </a>
+          <span class="left">
+            &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
           </span>
         {% endif %}
         {% if blog.next_article %}
-          <span class="right inline-icon--wrapper icon--right">
-            <a class="animated-link--item--nested" href="{{ blog.next_article }}">
-              <span class="animated-underline">{{ 'blogs.article.newer_post' | t }}</span>
-              {% render 'theme-icon' with icon: 'chevron_right', iconSize: 16 %}
-            </a>
+          <span class="right">
+            {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }} &rarr;
           </span>
         {% endif %}
       </p>
@@ -108,7 +101,7 @@
               {% if comment and comment.created_at %}
                 <li id="{{ comment.id }}" class="comment comment-wrapper first{% if article.comments_count == 0 %} last{% endif %}">
                   <div class="comment">
-                    <div class="rte text-link-animated">
+                    <div class="rte">
                       {{ comment.content }}
                     </div>
 
@@ -129,7 +122,7 @@
               {% for comment in article.comments %}
                 <li id="{{ comment.id }}" class="comment comment-wrapper {% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
                   <div class="comment">
-                    <div class="rte text-link-animated">
+                    <div class="rte">
                       {{ comment.content }}
                     </div>
 
@@ -146,8 +139,37 @@
             </ul>
 
             {% if paginate.pages > 1 %}
-              {% render 'pagination', paginate: paginate %}
-            {% endif %}
+<div class="pagination">
+
+  <ul>
+    {% if paginate.previous %}
+      <li class="pagination-arrow"><a href="{{ paginate.previous.url }}"><i class="fa icon-angle-left"></i></a></li>
+    {% else %}
+      <li class="prev disabled"><a href="#" onclick="return false;">&laquo;</a></li>
+    {% endif %}
+
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <li class="pagination-number">{{ part.title | link_to: part.url }}</li>
+      {% else %}
+        {% if part.title == '&hellip;' %}
+        <li class="ellipsis">{{ part.title }}</li>
+        {% else %}
+        <li class="active pagination-number">{{ part.title | link_to: part.url }}</li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if paginate.next %}
+      <li class="pagination-arrow"><a href="{{ paginate.next.url }}"><i class="fa icon-angle-right"></i></a></li>
+    {% else %}
+      <li class="next disabled"><a href="#" onclick="return false;">&raquo;</a></li>
+    {% endif %}
+  </ul>
+
+</div>
+{% endif %}
+
 
             <hr>
 
@@ -159,9 +181,9 @@
 
               {{ form.errors | default_errors }}
 
-              <div class="flex-grid">
+              <div class="grid">
 
-                <div class="flex-grid__item small--one-whole large--one-half">
+                <div class="grid__item large--one-half">
                   <label for="CommentAuthor" class="hidden-label">{{ 'blogs.comments.name' | t }}</label>
                   <input type="text" name="comment[author]" id="CommentAuthor" class="input-full{% if form.errors contains 'author' %} error{% endif %}" placeholder="{{ 'blogs.comments.name' | t }}" value="{{ form.author }}" autocapitalize="words">
 
@@ -169,9 +191,9 @@
                   <input type="email" name="comment[email]" id="CommentEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'blogs.comments.email' | t }}" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
                 </div>
 
-                <div class="flex-grid__item small--one-whole large--one-half">
+                <div class="grid__item large--one-half">
                   <label for="CommentBody" class="hidden-label">{{ 'blogs.comments.message' | t }}</label>
-                  <textarea name="comment[body]" id="CommentBody" class="input-full block-radius{% if form.errors contains 'body' %} error{% endif %}" placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+                  <textarea name="comment[body]" id="CommentBody" class="input-full{% if form.errors contains 'body' %} error{% endif %}" placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
                 </div>
 
               </div>
@@ -180,39 +202,37 @@
                 <p>{{ 'blogs.comments.moderated' | t }}</p>
               {% endif %}
 
-              <button type="submit" class="btn article-comment--btn">{{ 'blogs.comments.post' | t }}</button>
+              <input type="submit" class="btn article-comment--btn" value="{{ 'blogs.comments.post' | t }}">
             {% endform %}
           </div>
 
         </div>
       {% endpaginate %}
     {% endif %}
+
   </article>
 
-  <aside class="flex-grid__item grid__item--article-sidebar small--one-whole medium--one-whole large--one-quarter">
+  <aside class="grid__item large--one-quarter">
 
     {% if section.settings.blog-sidebar-image %}
       {% if section.settings.blog-sidebar-link %}
         <a href="{{ section.settings.blog-sidebar-link }}" itemprop="url">
       {% endif %}
 
-      {% render 'responsive-image' with section.settings.blog-sidebar-image, class: 'blog-sidebar-image block-radius' %}
+      {% capture article_sidebar_alt %}{{ section.settings.blog-sidebar-image.alt | default: shop.name }}{% endcapture %}
+      {% render 'responsive-image' with section.settings.blog-sidebar-image, class: 'blog-sidebar-image', alt: article_sidebar_alt | escape %}
 
       {% if section.settings.blog-sidebar-link %}
         </a>
       {% endif %}
     {% endif %}
 
-    {% if section.settings.article-sidebar-description != '' %}
-      <div class="rte text-link-animated richtext-block">{{ section.settings.article-sidebar-description }}</div>
-    {% endif %}
-
     {% if section.settings.show_recent_posts %}
       <div class="h4">{{ 'blogs.sidebar.recent_articles' | t }}</div>
-      <ul class="no-bullets blog-sidebar--recent-articles nav-link-animated--custom">
-        {% for article in blogs[blog.handle].articles limit: 6 %}
+      <ul class="no-bullets blog-sidebar--recent-articles">
+        {% for article in blogs[blog.handle].articles limit:6 %}
           <li>
-            <a class="animated-link--item" href="{{ article.url }}">{{ article.title }}</a>
+            <a href="{{ article.url }}">{{ article.title }}</a>
             <br>
             {% if section.settings.blog_show_date %}
               <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | time_tag: format: 'date' }}</time>
@@ -238,57 +258,75 @@
   </aside>
 </div>
 </div>
-</div>
 
 {% schema %}
 {
-  "name": "t:sections.template--article.name",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:all.Sidebar"
+    "name": {
+        "en": "Article pages",
+        "de": "Artikelseiten",
+        "es": "Páginas de artículos",
+        "fr": "Pages d'articles",
+        "pt-PT": "Páginas de artigos"
     },
-    {
-      "type": "image_picker",
-      "id": "blog-sidebar-image",
-      "label": "t:all.Image"
-    },
-    {
-      "type": "richtext",
-      "id": "article-sidebar-description",
-      "label": "t:all.Description"
-    },
-    {
-      "type": "url",
-      "id": "blog-sidebar-link",
-      "label": "t:all.Link"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_blog_tags",
-      "label": "t:all.Show_tags",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_recent_posts",
-      "label": "t:sections.template--article.settings.show_recent_posts.label",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "blog_show_date",
-      "label": "t:sections.template--article.settings.blog_show_date.label",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "t:sections.template--article.settings.comments.label"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:sections.template--article.settings.comments.info"
-    }
-  ]
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "blog-sidebar-image",
+            "label": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            }
+        },
+        {
+            "type": "url",
+            "id": "blog-sidebar-link",
+            "label": {
+                "en": "Link",
+                "de": "Link",
+                "es": "Enlace",
+                "fr": "Lien",
+                "pt-PT": "Ligação"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "show_blog_tags",
+            "label": {
+                "en": "Show tags",
+                "de": "Tags anzeigen",
+                "es": "Mostrar etiquetas",
+                "fr": "Afficher les étiquettes",
+                "pt-PT": "Mostrar etiquetas"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_recent_posts",
+            "label": {
+                "en": "Show 'Latest articles'",
+                "de": "„Neueste Artikel“ anzeigen",
+                "es": "Mostar «Últimos artículos»",
+                "fr": "Afficher les « Derniers articles »",
+                "pt-PT": "Mostrar \"Artigos mais recentes\""
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "blog_show_date",
+            "label": {
+                "en": "Show date",
+                "de": "Datum anzeigen",
+                "es": "Mostrar fecha",
+                "fr": "Date d'affichage",
+                "pt-PT": "Mostrar data"
+            },
+            "default": true
+        }
+    ]
 }
 {% endschema %}

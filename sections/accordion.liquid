@@ -1,216 +1,280 @@
-{{ 'section-accordion.min.css' | asset_url | stylesheet_tag }}
+{% capture plus_icon %}
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x plus-icon" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+{% endcapture %}
+
+{% capture minus_icon %}
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x minus-icon" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+{% endcapture %}
+
+{% capture chevron_down %}
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+{% endcapture %}
+
+{% capture chevron_up %}
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down chevron-up"><polyline points="6 9 12 15 18 9"></polyline></svg>
+{% endcapture %}
+
+<style>
+  .accordion-container .title-bar {
+    text-align: left;
+    margin-bottom: 10px;
+    text-transform: none;
+    font-family: var(--body-font-stack);
+    font-size: 1.2rem;
+  }
+
+  .accordion-container .title-bar p {
+    margin-bottom: 0;
+  }
+
+  .accordion-faq--{{ section.id }} .accordion-content {
+    border-bottom: 1px solid;
+  }
+
+  .accordion-content summary {
+    padding: 1rem 0;
+    font-weight: 600;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .accordion-faq--{{ section.id }} .feather-x {
+    transform: rotate(45deg);
+  }
+
+  .accordion-faq--{{ section.id }} .chevron-up {
+    transform: rotate(180deg);
+  }
+
+  .accordion-faq--{{ section.id }} .feather-x,
+  .accordion-faq--{{ section.id }} .feather-chevron-down {
+    width: var(--base-font-size);
+    height: var(--base-font-size);
+  }
+
+  .accordion-faq--{{ section.id }} details summary .minus-icon,
+  .accordion-faq--{{ section.id }} details summary .chevron-up {
+    display: none;
+  }
+
+  .accordion-faq--{{ section.id }} details[open] summary .plus-icon,
+  .accordion-faq--{{ section.id }} details[open] summary .chevron-down {
+    display: none;
+  }
+
+  .accordion-faq--{{ section.id }} details[open] summary .minus-icon,
+  .accordion-faq--{{ section.id }} details[open] summary .chevron-up {
+    display: block;
+  }
+</style>
 
 <section
-  class="wrapper-spacing--v wrapper-spacing--h color-scheme--{{ section.settings.colors }}{% if request.visual_preview_mode %} section-preview{% else %} show-on-scroll{% endif %}"
+  class="homepage-sections-wrapper accordion--faq-wrapper accordion-faq--{{ section.id }} homepage-sections-wrapper--{{ section.settings.colors }}"
   data-wetheme-section-type="accordion--faq"
   data-wetheme-section-id="{{ section.id }}"
-  style="--padding-section-top: {{ section.settings.section_padding_top }}px; --padding-section-bottom: {{ section.settings.section_padding_bottom }}px;"
 >
-  {% comment %} Section title and description {% endcomment %}
-  {% render 'dynamic-section-header' with section_title: section.settings.title, section_description: section.settings.description %}
-
-  <div{% unless section.settings.section_width == 'full-width' %} class="width--{{ section.settings.section_width }}"{% endunless %}>
-    {% for block in section.blocks %}
-      {% assign content = block.settings.text %}
-      {% if block.settings.page.content %}
-        {% assign content = content | append: block.settings.page.content %}
-      {% endif %}
-
-      {% unless content == blank %}
-        <div
-          class="accordion-content"
-          data-animate
-          data-animate-order="{% render 'block-animation-offset', 
-            title: section.settings.title, 
-            description: section.settings.description, 
-            base: forloop.index 
-          %}"
-          {{ block.shopify_attributes }}
-        >
-          {% render 'collapsible-tab', icon: 'none', custom_icon: false, heading: block.settings.question, content: content, open_close_icon: section.settings.faq_icon, open_by_default: block.settings.open_by_default, block_id: block.id %}
+    <div class="accordion-container wrapper-padded">
+      {% unless section.settings.title == blank %}
+        <div class="title-bar custom-font">
+          <p>{{ section.settings.title }}</p>
         </div>
       {% endunless %}
-    {% endfor %}
-  </div>
+      
+      {% for block in section.blocks %}
+        {% unless block.settings.text == blank and block.settings.question == blank %}
+          <details class="accordion-content">
+            <summary role="button" aria-expanded="false" tabindex="0">
+              {{ block.settings.question }}
+              <span>
+               {% if section.settings.faq_icon == "plus_minus" %}{{ plus_icon }}{{ minus_icon }}
+                 {% elsif section.settings.faq_icon == "caret" %}
+                 {{ chevron_down }}{{ chevron_up }}{% endif %}
+              </span>
+            </summary>
+            {% if block.settings.text != blank %}
+              <div class="rte">
+                {{ block.settings.text }}
+              </div>
+            {% else %}
+              <div class="rte">
+                {{ product.description }}
+              </div>
+            {% endif %}
+            
+          </details>
+        {% endunless %}
+
+        <style>
+          {% if section.settings.title == blank %}
+            .accordion-faq--{{ section.id }} details:first-of-type summary {
+              padding-top: 0;
+            }
+          {% endif %}
+        </style>
+        
+      {% endfor %}
+    </div>
+
 </section>
 
 {% schema %}
-{
-  "name": "t:sections.accordion.name",
-  "class": "accordion-faq",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:all.section_heading"
+  {
+    "name": {
+        "en": "Accordion/FAQ"
     },
-    {
-      "type": "inline_richtext",
-      "id": "title",
-      "label": "t:all.Heading",
-      "default": "Frequently asked questions"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "t:all.Description"
-    },
-    {
-      "type": "header",
-      "content": "t:all.Content"
-    },
-    {
-      "type": "radio",
-      "id": "faq_icon",
-      "label": "t:all.Open_Close_icon_style",
-      "options": [
+    "class": "main-accordion--wrapper",
+    "settings": [
         {
-          "value": "plus_minus",
-          "label": "t:all.Plus_minus"
-        },
-        {
-          "value": "caret",
-          "label": "t:all.Caret"
-        }
-      ],
-      "default": "plus_minus"
-    },
-    {
-      "type": "header",
-      "content": "t:all.Layout"
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "label": "t:all.Width",
-      "options": [
-        {
-          "value": "narrow",
-          "label": "t:all.Narrow"
-        },
-        {
-          "value": "content",
-          "label": "t:all.Content_width"
-        },
-        {
-          "value": "full-width",
-          "label": "t:all.Full_width"
-        }
-      ],
-      "default": "narrow"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_top",
-      "label": "t:all.Spacing_top",
-      "min": 0,
-      "max": 150,
-      "step": 5,
-      "unit": "t:all.px",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "section_padding_bottom",
-      "label": "t:all.Spacing_bottom",
-      "min": 0,
-      "max": 150,
-      "step": 5,
-      "unit": "t:all.px",
-      "default": 60
-    },
-    {
-      "type": "header",
-      "content": "t:all.Color"
-    },
-    {
-      "type": "select",
-      "id": "colors",
-      "label": "t:all.Color_scheme",
-      "default": "white",
-      "options": [
-        {
-          "value": "white",
-          "label": "t:all.Default"
-        },
-        {
-          "value": "light",
-          "label": "t:all.First"
-        },
-        {
-          "value": "accent",
-          "label": "t:all.Second"
-        },
-        {
-          "value": "dark",
-          "label": "t:all.Third"
-        }
-      ]
-    }
-  ],
-  "blocks": [
-    {
-      "type": "tab_content",
-      "name": "t:sections.accordion.blocks.tab_content.name",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "t:sections.template--product.blocks.collapsible-tab.settings.info.content"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.template--product.blocks.collapsible-tab.settings.tab_heading.label"
+          "type": "select",
+          "id": "colors",
+          "label": {
+              "en": "Color scheme",
+              "de": "Farbschema",
+              "es": "Esquema de colores",
+              "fr": "Palette de couleurs",
+              "pt-PT": "Esquema de cores"
+          },
+          "default": "white",
+          "options": [
+              {
+                  "value": "white",
+                  "label": {
+                      "en": "Minimal",
+                      "fr": "Minimal",
+                      "de": "Minimal",
+                      "es": "Mínimo",
+                      "pt-PT": "Mínimo"
+                  }
+              },
+              {
+                  "value": "light",
+                  "label": {
+                      "en": "Light",
+                      "de": "Licht",
+                      "es": "Luz",
+                      "fr": "Clair",
+                      "pt-PT": "Claro"
+                  }
+              },
+              {
+                  "value": "accent",
+                  "label": {
+                      "en": "Feature",
+                      "de": "Eigenschaft",
+                      "es": "Destacado",
+                      "fr": "Caractéristique",
+                      "pt-PT": "Funcionalidade"
+                  }
+              },
+              {
+                  "value": "dark",
+                  "label": {
+                      "en": "Dark",
+                      "de": "Dunkel",
+                      "es": "Oscuro",
+                      "fr": "Foncé",
+                      "pt-PT": "Escuro"
+                  }
+              }
+          ]
         },
         {
           "type": "text",
-          "id": "question",
-          "label": "t:all.Heading",
-          "default": "Place your question or heading here"
+          "id": "title",
+          "label": {
+              "en": "Heading",
+              "de": "Überschrift",
+              "es": "Encabezado",
+              "fr": "Rubrique",
+              "pt-PT": "Título"
+          },
+          "default": {
+              "en": "Frequently asked questions"
+          }
         },
         {
-          "type": "checkbox",
-          "id": "open_by_default",
-          "label": "t:sections.template--product.blocks.collapsible-tab.settings.open_by_default.label",
-          "default": false
-        },
-        {
-          "type": "header",
-          "content": "t:all.Content"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "t:all.Text",
-          "default": "<p>Here you can place an explanation or answer to the question.</p>"
-        },
-        {
-          "type": "page",
-          "id": "page",
-          "label": "t:all.Page"
+          "type": "radio",
+          "id": "faq_icon",
+          "label": {
+              "en": "Icon style"
+          },
+          "options": [
+              {
+                  "value": "plus_minus",
+                  "label": {
+                      "en": "Plus/minus"
+                  }
+              },
+              {
+                  "value": "caret",
+                  "label": {
+                      "en": "Caret"
+                  }
+              }
+          ],
+          "default": "plus_minus"
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.accordion.presets.name",
-      "blocks": [
-        {
-          "type": "tab_content"
+    ],
+    "blocks": [
+      {
+        "type": "tab_content",
+        "name": {
+            "en": "Tab content"
         },
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Place your question or heading here"
+            }
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "default": {
+                "en": "<p>Here you can place an explanation or answer to the question.</p>"
+            }
+          }
+        ]
+      }
+    ],
+    "presets": [
         {
-          "type": "tab_content"
-        },
-        {
-          "type": "tab_content"
+            "name": {
+                "en": "Accordion/FAQ"
+            },
+            "category": {
+                "en": "Store information"
+            },
+            "blocks": [
+                {
+                  "type": "tab_content"
+                },
+                {
+                  "type": "tab_content"
+                },
+                {
+                  "type": "tab_content"
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "disabled_on": {
-    "groups": [
-      "header",
-      "custom.overlay"
     ]
   }
-}
 {% endschema %}
