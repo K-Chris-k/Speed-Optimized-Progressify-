@@ -355,6 +355,79 @@ document.addEventListener('DOMContentLoaded', function() {
     mainContent.style.paddingBottom = '70px';
   }
   
+  // 查找页面上的评论组件（支持 Judge.me, Shopify Product Reviews, Loox, Yotpo, Ali Reviews 等）
+  function getReviewBadgeHTML() {
+    const selectors = [
+      // Judge.me
+      '.jdgm-prev-badge',
+      '.jdgm-widget .jdgm-prev-badge__stars',
+      '.jdgm-preview-badge',
+
+      // Shopify Product Reviews (SPR)
+      '.spr-badge',
+      '.spr-badge-starrating',
+
+      // Loox
+      '.loox-rating',
+
+      // Yotpo
+      '.yotpo-bottomline',
+      '[data-review-count] .yotpo-icon-star',
+
+      // Ali Reviews
+      '.ali-review-badge',
+
+      // 通用 fallback
+      '[class*="review"] [class*="star"]',
+      '[class*="rating"]'
+    ];
+
+    let starsHTML = '';
+    let reviewCount = '0 Reviews';
+
+    // 1. 尝试直接复制已有星级组件
+    for (const sel of selectors) {
+      const el = document.querySelector(sel);
+      if (el) {
+        const parent = el.closest('[class*="badge"], [class*="rating"], [class*="review"]');
+        if (parent) {
+          const countEl = parent.querySelector('[class*="count"], [class*="review"], text, span:last-child');
+          if (countEl) reviewCount = countEl.textContent.trim() || reviewCount;
+
+          // 复制整个 badge
+          const cloned = parent.cloneNode(true);
+          cloned.style.cssText = 'display: flex; align-items: center; margin: 0; font-size: 14px;';
+          return `<div class="bottom-stars-container">${cloned.outerHTML}</div>`;
+        }
+      }
+    }
+
+    // 2. 手动提取评分数字 + 星级
+    const ratingText = document.body.textContent.match(/(\d+\.\d|\d) ?out of 5/i) ||
+                       document.body.textContent.match(/(\d+\.\d|\d) ?stars?/i);
+
+    let averageRating = 5;
+    if (ratingText) averageRating = parseFloat(ratingText[1]);
+
+    // 提取评论数量
+    const countMatch = document.body.textContent.match(/(\d+) ?reviews?/i);
+    if (countMatch) reviewCount = `${countMatch[1]} Review${countMatch[1] > 1 ? 's' : ''}`;
+
+    // 生成星级
+    const full = Math.floor(averageRating);
+    const half = averageRating % 1 >= 0.4 ? 1 : 0;
+    const empty = 5 - full - half;
+
+    starsHTML = '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+
+    return `
+      <div class="bottom-stars-container" style="display: flex; align-items: center; font-size: 14px; color: #ffc107;">
+        <span style="margin-right: 4px; letter-spacing: 1px;">${starsHTML}</span>
+        <span style="color: #666; font-size: 13px;">${reviewCount}</span>
+      </div>
+    `;
+  }
+  
   // 创建新的底部购买栏
   function createBottomBar() {
     // 检查是否有产品信息
@@ -426,71 +499,8 @@ document.addEventListener('DOMContentLoaded', function() {
       bar.setAttribute('data-slide-transition-set', 'true');
     }
     
-    // 查找页面上的评论组件
-    const existingBadge = document.querySelector('.prorw_preview_badge_setup');
-    let badgeHTML = '';
-    
-    if (existingBadge) {
-      // 获取产品ID和评分信息
-      const productId = existingBadge.getAttribute('data-product-id');
-      const averageRatings = existingBadge.getAttribute('data-average-ratings') || '5';
-      const reviewCount = existingBadge.getAttribute('data-count') || '1';
-      
-      // 找到页面上的星级评分显示
-      const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
-      const reviewLink = document.querySelector('a.spr-badge, a.jdgm-prev-badge');
-      
-      // 创建直接显示的星级评分
-      if (existingStars) {
-        // 如果页面上已有星级组件，复制它
-        badgeHTML = `<div class="bottom-stars-container">
-          ${existingStars.outerHTML}
-          <span class="bottom-review-count">${reviewCount} Review${reviewCount > 1 ? 's' : ''}</span>
-        </div>`;
-      } else {
-        // 否则创建一个新的星级组件
-        const fullStars = Math.floor(parseFloat(averageRatings));
-        const halfStar = parseFloat(averageRatings) - fullStars >= 0.5;
-        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-        
-        let starsHTML = '';
-        // 添加满星
-        for (let i = 0; i < fullStars; i++) {
-          starsHTML += `<span class="fa fa-star" aria-hidden="true"></span>`;
-        }
-        // 添加半星
-        if (halfStar) {
-          starsHTML += `<span class="fa fa-star-half-o" aria-hidden="true"></span>`;
-        }
-        // 添加空星
-        for (let i = 0; i < emptyStars; i++) {
-          starsHTML += `<span class="fa fa-star-o" aria-hidden="true"></span>`;
-        }
-        
-        badgeHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
-          <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">${starsHTML}</div>
-          <span class="bottom-review-count">${reviewCount} Review${reviewCount > 1 ? 's' : ''}</span>
-        </div>`;
-      }
-    } else {
-      // 如果没有评论组件，查找页面上显示的评分
-      const reviewSection = document.querySelector('.product-single__review, .product-reviews');
-      if (reviewSection) {
-        badgeHTML = reviewSection.innerHTML;
-      } else {
-        // 创建默认的5星评分
-        badgeHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
-          <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-            <span class="fa fa-star" aria-hidden="true"></span>
-          </div>
-          <span class="bottom-review-count">1 Review</span>
-        </div>`;
-      }
-    }
+    // 获取badgeHTML
+    let badgeHTML = getReviewBadgeHTML();
     
     // 构建内部HTML
     if (isMobile) {
@@ -748,29 +758,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (reviewBadge) {
       // 检查是否已经有星级评分显示
       if (!reviewBadge.querySelector('.bottom-stars-container, .fa-star')) {
-        // 查找页面上的星级评分显示
-        const existingStars = document.querySelector('.jdgm-prev-badge__stars, .spr-badge-starrating');
-        const reviewCount = document.querySelector('.jdgm-prev-badge__text, .spr-badge-caption')?.textContent || '1 Review';
-        
-        if (existingStars) {
-          // 如果页面上已有星级组件，复制它并替换到底部购买栏
-          reviewBadge.innerHTML = `<div class="bottom-stars-container">
-            ${existingStars.outerHTML}
-            <span class="bottom-review-count">${reviewCount}</span>
-          </div>`;
-        } else {
-          // 创建默认的5星评分
-          reviewBadge.innerHTML = `<div class="bottom-stars-container" style="display: flex; align-items: center;">
-            <div class="bottom-stars" style="color: #ffc107; margin-right: 5px;">
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-              <span class="fa fa-star" aria-hidden="true"></span>
-            </div>
-            <span class="bottom-review-count">1 Review</span>
-          </div>`;
-        }
+        reviewBadge.innerHTML = getReviewBadgeHTML();
       }
     }
     
@@ -782,6 +770,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 在1秒后再尝试一次更新变体图片（防止延迟加载的图片）
     setTimeout(updateVariantImage, 1000);
+    
+    // 强制刷新review badge（防止异步加载）
+    setTimeout(() => {
+      const reviewBadge = bottomBar.querySelector('.bottom-purchase-info__review-badge');
+      if (reviewBadge && !reviewBadge.querySelector('.bottom-stars-container')) {
+        reviewBadge.innerHTML = getReviewBadgeHTML();
+      }
+    }, 1500);
     
     console.log('底部购买栏已设置');
   }
@@ -1155,4 +1151,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 定期检查图片更新（兜底方案）
   setInterval(updateVariantImage, 2000);
-}); 
+
+  // 每3秒检测一次评分（终极兜底）
+  setInterval(() => {
+    const badge = document.querySelector('.bottom-purchase-info__review-badge');
+    if (badge && !badge.querySelector('.bottom-stars-container, .jdgm-prev-badge, .spr-badge')) {
+      badge.innerHTML = getReviewBadgeHTML();
+    }
+  }, 3000);
+});
