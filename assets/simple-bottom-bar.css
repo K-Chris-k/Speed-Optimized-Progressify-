@@ -1,0 +1,4 @@
+/* 简化的底部购买栏样式 - 移除重复，导入主样式 */
+@import url('component-bottom-purchase.css');
+
+/* 额外的自定义样式可以在这里添加 */

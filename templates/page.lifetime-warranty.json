@@ -9,108 +9,117 @@
  */
 {
   "sections": {
+    "image_with_text_overlay_83nUPH": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_8dFQUx": {
+          "type": "heading",
+          "settings": {
+            "title": "Image with text overlay",
+            "font_size_desktop": 28,
+            "font_size_mobile": 28,
+            "heading_bottom_spacing": 25
+          }
+        },
+        "text_6K6BQQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add an image paired with text to give focus to your chosen product, collection, or blog post.</p>",
+            "font_size_desktop": 16,
+            "font_size_mobile": 16,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_8dFQUx",
+        "text_6K6BQQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.image--image-with-text-overlay.presets.name",
+      "settings": {
+        "height_desktop": "original",
+        "text_position_desktop": "center",
+        "text_alignment_desktop": "center",
+        "caption_width_desktop": 50,
+        "height_mobile": "original",
+        "text_position_mobile": "center",
+        "text_alignment_mobile": "center",
+        "section_link": "",
+        "animation_style": "none",
+        "section_width": "full",
+        "section_margin_top": 0,
+        "section_margin_bottom": 0,
+        "text_color": "#ffffff",
+        "caption_bg_color": "rgba(0,0,0,0)",
+        "image_overlay_color": "#242424",
+        "image_overlay_opacity": 0
+      }
+    },
     "main": {
       "type": "template--page",
-      "disabled": true,
-      "blocks": {
-        "7255689f-9f40-40fb-8da5-12d5e201ba73": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "title": "Title"
-          }
-        }
-      },
-      "block_order": [
-        "7255689f-9f40-40fb-8da5-12d5e201ba73"
-      ],
       "settings": {
-        "page_width": "full-width"
+        "page_title_enabled": false,
+        "page_width": "narrow"
       }
     },
-    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86": {
-      "type": "image--slideshow",
-      "blocks": {
-        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Information_Videos_Youtube_Thumbnails_900_x_1600_px_10.jpg",
-            "mobile_image": "shopify://shop_images/pages_900_x_1200_px_4.jpg",
-            "title": "",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "caption-background": "rgba(0,0,0,0)",
-            "caption-text": "#ffffff",
-            "button-text": "#ffffff",
-            "button-background": "#000000",
-            "captionHorizontal": "left",
-            "captionAlignment": "left"
-          }
-        }
-      },
-      "block_order": [
-        "template--16056586469554__c5259d8e-0d59-4c3f-b76d-8cf706fe3e86-1679298049c4303810-0"
-      ],
+    "newsletter_g73kAp": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
       "settings": {
-        "slider-animation": "slide",
-        "slider-width": "fixed",
-        "vertical-alignment": false,
-        "text-below-image": false,
-        "slider-slide-time": 5,
-        "caption-heading-size": 30,
-        "caption-subheading-size": 16,
-        "caption-button-size": 14,
-        "show-slide-dots": false,
-        "show-slide-arrows": true,
-        "slider-navigation-color": "#ffffff"
-      }
-    },
-    "99b849c7-4423-4b1c-833a-fcdb4788d50c": {
-      "type": "text--rich-text",
-      "custom_css": [
-        "p {text-align: left;}",
-        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
-      ],
-      "settings": {
-        "colors": "white",
-        "title": "Our Promise: Gear that’s built for a lifetime of adventures.",
-        "text": "<p>At SilverAnt, we are proud to offer a lifetime warranty for our titanium outdoor products. We believe and know that our products are built to last. It is why we stand behind their quality, durability, and craftsmanship.</p><p>Our lifetime warranty covers any defects in materials or workmanship for the life of the product.</p>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "864475c8-3150-4f6a-9f68-24607514355a": {
-      "type": "text--rich-text",
-      "custom_css": [
-        "p {text-align: left;}",
-        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;}"
-      ],
-      "settings": {
-        "colors": "white",
-        "title": "Warranty, Returns, and Repairs",
-        "text": "<p>If you ever experience any issues with your SilverAnt titanium outdoor products, we are here to help. Our lifetime warranty covers any defects in materials or workmanship, so if you notice any issues with your gear, please contact us immediately. We will work with you to assess the problem and determine the best course of action. In some cases, we may be able to repair the item, while in other cases we may need to replace it.</p><p>Tor some of our products such as titanium water bottles we offer replacement silicon seals. Please contact our customer service directly for any replacement inquiries.</p><p>If you are not completely satisfied with your SilverAnt titanium outdoor products for any reason, we also offer a 30-day return policy. If you are not happy with your purchase, return it to us within 30 days for a full refund or exchange.</p><p>Please check out our full <a href=\"https://silverantoutdoors.com/pages/refund-return-policy\" target=\"_blank\" title=\"https://silverantoutdoors.com/pages/refund-return-policy\">refund and return policy</a>.</p><p>We are committed to providing our customers with the highest quality outdoor gear, and we are confident that you will love your SilverAnt titanium products. </p><p><strong>If you have any questions about our lifetime warranty, returns, or repairs, please don't hesitate to contact us at </strong><a href=\"mailto:info@silverantoutdoors.com\" target=\"_blank\"><strong>info@silverantoutdoors.com</strong></a><strong>.</strong></p>",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
-    "5d3c1531-6c86-487a-ad0a-519af037d7d2": {
-      "type": "newsletter--newsletter",
-      "custom_css": [
-        "div {padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 10px;}"
-      ],
-      "settings": {
-        "colors": "white",
         "newsletter_heading": "Join our Mailing List",
-        "newsletter_description": "<p>Subscribe to our mailing list to receive a small weekly snippet of fun. From product promotions to articles, podcasts, and product guides. This newsletter gives you the lowdown on our weekly inspiration and of course our titanium outdoor products. Subscribe Now!</p>"
+        "newsletter_description": "",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_DpGKYz": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_LtCCPR": {
+          "type": "text",
+          "settings": {
+            "heading": "What makes you different",
+            "subheading": "Shout about your unique selling points",
+            "link": ""
+          }
+        },
+        "text_TE7p6A": {
+          "type": "text",
+          "settings": {
+            "heading": "What makes you different",
+            "subheading": "Shout about your unique selling points",
+            "link": ""
+          }
+        },
+        "text_khaTTN": {
+          "type": "text",
+          "settings": {
+            "heading": "What makes you different",
+            "subheading": "Shout about your unique selling points",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_LtCCPR",
+        "text_TE7p6A",
+        "text_khaTTN"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
       }
     }
   },
   "order": [
+    "image_with_text_overlay_83nUPH",
     "main",
-    "c5259d8e-0d59-4c3f-b76d-8cf706fe3e86",
-    "99b849c7-4423-4b1c-833a-fcdb4788d50c",
-    "864475c8-3150-4f6a-9f68-24607514355a",
-    "5d3c1531-6c86-487a-ad0a-519af037d7d2"
+    "newsletter_g73kAp",
+    "text_adverts_DpGKYz"
   ]
 }

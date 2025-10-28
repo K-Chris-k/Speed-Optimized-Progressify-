@@ -1,384 +1,358 @@
 /* Place any CSS overrides in this file. */
-#rellax--template--15505525735602__1628585721a8b1b9a7{
-	background-position: 0 76% !important;
-}
-.product-details-product-title{margin-bottom: 6px;} #ProductPrice{margin-top: 8px !important;} .collection-grid--title, .product-grid--title{margin-bottom: 6px !important;} .collection-ratings .yotpo-icon{font-size: 12.5px !important;} .star-clickable{align-items: center;} .site-title{padding: 0 !important;}.text-body{padding: 0 7px;}.cross-sells-wrapper{margin: 0 !important}
 
-/* Bottom purchase dropdown styles */
-.bottom-purchase-dropdown {
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
+/* Global font override - ensure all elements use Rajdhani */
+* {
+  font-family: 'Rajdhani', sans-serif !important;
 }
 
-.bottom-purchase-dropdown__header {
+/* Global Drawer Secondary Width */
+.global-drawer--secondary {
+  max-width: 400px !important;
+  width: 400px !important;
+}
+.product-price--regular span {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+}
+.global-drawer--secondary__header h5{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+/* Product Card Header */
+.product-card-basic__header {
+  padding: 8px 12px 6px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-card-basic__label {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 0;
-  margin-right: 10px;
-  white-space: nowrap;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.bottom-purchase-dropdown__wrapper {
-  position: relative;
-  display: inline-block;
-  min-width: 140px;
+/* Product Card Variant Selector - Compact Layout */
+.product-card-basic__variant-selector {
+  margin: 4px 0 8px;
+  padding: 0 12px;
 }
 
-.bottom-purchase-dropdown__select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+.product-card-basic__variant-label {
+  display: none; /* 隐藏标签，节省空间 */
+}
+
+.product-card-basic__variant-select {
   width: 100%;
-  padding: 8px 30px 8px 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 6px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 13px;
   background-color: #fff;
   cursor: pointer;
-  height: 36px;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+  padding-right: 30px;
 }
 
-.bottom-purchase-dropdown__select:focus {
+.product-card-basic__variant-select:hover {
+  border-color: #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-basic__variant-select:focus {
   outline: none;
-  border-color: #999;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  border-color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.bottom-purchase-dropdown__select option:disabled {
+.product-card-basic__variant-select option:disabled {
   color: #999;
   font-style: italic;
 }
 
-.bottom-purchase-dropdown__arrow {
-  position: absolute;
-  right: 10px;
-  top: 42%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #666;
-}
-
-/* 底部数量选择器样式 */
-.bottom-purchase-dropdown__quantity-wrapper {
-  margin: 0 10px;
-}
-
-.bottom-purchase-dropdown__quantity-wrapper .js-qty {
-  display: flex;
-  align-items: center;
-  max-width: 120px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+/* Product Card Compact Layout */
+.product-card-basic {
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
   overflow: hidden;
-  margin: 0;
-  height: 36px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
-.bottom-purchase-info__btn-container .bottom-add-to-cart-button {
-  margin: 0 !important;
-  min-height: auto !important;
-  border-radius: 8px ! IMPORTANT;
+
+.product-card-basic:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
-.bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 36px;
-  border: none;
-  cursor: pointer;
+
+.product-card-basic--info {
+  padding: 10px 12px 8px;
+  gap:4px;
+}
+span.money.price-line-through.sale-price.price--compare-at-price {
+  font-size: 14px !important;
+}
+span.money.price--sale-price {
+  font-size: 14px !important;
+}
+.product-card-basic--info--body {
+  margin-top: 6px;
+}
+
+.product-card-basic__title {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.product-card-basic__title a {
+  text-decoration: none;
   color: #333;
-  transition: background 0.2s;
+  font-weight: 500;
 }
 
-.bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust:hover {
-  background: #eaeaea;
-}
-
-.bottom-purchase-dropdown__quantity-wrapper .js-qty__num {
-  flex: 1;
-  width: 40px;
-  height: 36px;
-  text-align: center;
-  border: none;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  font-size: 14px;
-  -moz-appearance: textfield;
-}
-
-.bottom-purchase-dropdown__quantity-wrapper .js-qty__num::-webkit-outer-spin-button,
-.bottom-purchase-dropdown__quantity-wrapper .js-qty__num::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.bottom-purchase-dropdown__quantity-wrapper .quantity-noscript {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.bottom-purchase-info__dropdown-wrapper-new-style {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
-/* Bottom purchase info container - fixed at bottom */
-.bottom-purchase-info {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background-color: #fff;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 只在非产品页面隐藏底部购买栏 */
-body:not(.template-product) .bottom-purchase-info {
-  display: none;
-}
-
-.bottom-purchase-info.is-visible {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-}
-
-.bottom-purchase-info__container {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  justify-content: space-around;
-  margin: 0 auto;
-  max-width: 1400px;
-}
-
-
-
-.bottom-purchase-info__image img {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  border-radius: 4px;
-}
-
-.bottom-purchase-info__content {
-  flex: 0 0 auto;
-  margin-right: 15px;
-  max-width: 520px;
-}
-
-.bottom-purchase-info__title {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 520px;
-}
-
-.bottom-purchase-info__price {
-  font-size: 14px;
-  font-weight: 600;
+.product-card-basic__title a:hover {
   color: #000;
 }
 
-/* Add to cart button styling */
-.bottom-purchase-info .add-to-cart-btn,
-.bottom-purchase-info .bottom-add-to-cart-button,
-.bottom-purchase-info .btn {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 0 15px;
-  font-size: 14px;
+.product-card-basic__price {
   font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
-  height: 36px;
+  font-size: 15px;
+}
+
+/* Enhanced Buy Now Button */
+.product-card-basic__add-button {
+  padding: 0 12px 12px;
+}
+
+.product-card-basic__add-button .btn--underlined {
+  width: 100%;
+  background: linear-gradient(135deg, #000 0%, #333 100%);
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 120px;
-  text-transform: none;
-  letter-spacing: normal;
-  margin: 0;
+  gap: 8px;
+  cursor: pointer;
 }
 
-.bottom-purchase-info .add-to-cart-btn:hover,
-.bottom-purchase-info .bottom-add-to-cart-button:hover,
-.bottom-purchase-info .btn:hover {
-  opacity: 0.9;
+.product-card-basic__add-button .btn--underlined:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #333 0%, #000 100%);
 }
 
-.bottom-purchase-info__btn-container {
-  margin-left: 10px;
-  display: flex;
-  align-items: center;
-  height: 36px;
+.product-card-basic__add-button .btn--underlined:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.bottom-purchase-info .paymentButtonsWrapper {
-  display: flex;
-  align-items: center;
-    /* height: 36px; */
-    margin: 0;
+.product-card-basic__add-button .btn--underlined:disabled {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: #e0e0e0;
 }
-.paymentButtonsWrapper button#AddToCart {
+
+.product-card-basic__add-button .btn--underlined span {
+  position: relative;
+  z-index: 2;
+}
+
+/* 按钮闪光效果 */
+.product-card-basic__add-button .btn--underlined::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.product-card-basic__add-button .btn--underlined:hover::before {
+  left: 100%;
+}
+
+/* 图标样式优化 */
+.product-card-basic__add-button .btn--underlined-with-icon__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Cart Drawer Specific Button Styles - White background with black border */
+.product-card-basic__add-button--cart-drawer {
+  padding: 0 12px 12px;
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer {
+  width: 100%;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #dedede !important;
   border-radius: 8px;
-}select.bottom-purchase-dropdown__select {
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer:disabled {
+  background: #f5f5f5 !important;
+  color: #999 !important;
+  border-color: #e0e0e0 !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer span {
+  position: relative;
+  z-index: 2;
+}
+
+/* 图标颜色继承 */
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer .btn--underlined-with-icon__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 移除闪光效果 for cart drawer buttons */
+.product-card-basic__add-button--cart-drawer .btn--cart-drawer::before {
+  display: none;
+}
+
+/* 调整购物车抽屉推荐产品区域的间距 */
+.global-drawer--secondary__content {
+  padding: 15px;
+}
+
+
+
+.cart-drawer__recommendations-grid .product-card-basic {
   margin: 0;
 }
-/* 确保底部留出空间，避免被固定底部遮挡 */
-.template-product main,
-.template-product #MainContent {
-  padding-bottom: 70px;
+
+/* 调整推荐产品卡片内部间距 */
+.cart-drawer__recommendations .product-card-basic--info {
+  padding: 8px 10px 6px;
 }
 
-/* Tablet styles */
-@media screen and (max-width: 991px) {
-  .bottom-purchase-info__container {
-    padding: 10px;
-  }
-  
-  .bottom-purchase-info__title {
-    max-width: 150px;
-  }
-  
-  .bottom-purchase-dropdown {
-    margin: 0 5px;
-  }
-  
-  .bottom-purchase-dropdown__wrapper {
-    min-width: 120px;
-  }
-  
-  .bottom-purchase-dropdown__quantity-wrapper {
-    margin: 0 5px;
-  }
-  
-  .bottom-purchase-info .bottom-add-to-cart-button,
-  .bottom-purchase-info .btn {
-    min-width: 110px;
-    padding: 0 10px;
-  }
+.cart-drawer__recommendations .product-card-basic__variant-selector {
+  margin: 6px 0 8px;
+  padding: 0px;
 }
 
-/* Mobile styles */
+.cart-drawer__recommendations .product-card-basic__add-button--cart-drawer {
+  padding: 0px;
+}
+
+/* Thumbnail Navigation Buttons */
+.thumbnail-media--thumbnails {
+  position: relative;
+}
+
+.thumbnail-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  visibility: visible;
+}
+
+.thumbnail-nav-prev {
+  left: 5px;
+}
+
+.thumbnail-nav-next {
+  right: 5px;
+}
+
+.thumbnail-nav-button:hover {
+  background: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.thumbnail-nav-button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.thumbnail-nav-button.swiper-button-disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.thumbnail-nav-button svg {
+  width: 18px;
+  height: 18px;
+  color: #000000;
+}
+
+/* Mobile */
 @media screen and (max-width: 767px) {
-  .bottom-purchase-info__container {
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .thumbnail-nav-button {
+    width: 30px;
+    height: 30px;
   }
   
-  .bottom-purchase-info__content {
-    flex: 1;
-    margin-right: 0;
-  }
-
-  .bottom-purchase-info__dropdown-wrapper-new-style {
-    order: 3;
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .bottom-purchase-dropdown {
-    margin: 0 5px;
-    flex: 1;
-  }
-  
-  .bottom-purchase-dropdown__header {
-    margin-bottom: 0;
-    margin-right: 5px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  
-  .bottom-purchase-dropdown__wrapper {
-    width: 100%;
-    min-width: 100px;
-  }
-  
-  .bottom-purchase-info__title {
-    font-size: 13px;
-    max-width: 120px;
-  }
-  
-  .bottom-purchase-info__image {
-    flex: 0 0 40px;
-    margin-right: 10px;
-  }
-  
-
-  
-  .bottom-purchase-info .add-to-cart-btn,
-  .bottom-purchase-info .bottom-add-to-cart-button,
-  .bottom-purchase-info .btn {
-    padding: 0 12px;
-    font-size: 13px;
-    min-width: auto;
-  }
-  
-  .bottom-purchase-dropdown__quantity-wrapper {
-    margin: 0 5px;
-    flex: 0 0 auto;
-  }
-  
-  .bottom-purchase-dropdown__quantity-wrapper .js-qty {
-    max-width: 100px;
-  }
-  
-  .bottom-purchase-info__btn-container {
-    margin-left: 5px;
-  }
-}
-
-/* Small mobile styles */
-@media screen and (max-width: 479px) {
-  .bottom-purchase-info__title {
-    max-width: 100px;
-  }
-  
-  .bottom-purchase-info__image {
-    flex: 0 0 35px;
-    margin-right: 8px;
-  }
-
-  
-  .bottom-purchase-dropdown__wrapper {
-    min-width: 90px;
-  }
-  
-  .bottom-purchase-dropdown__select {
-    padding: 8px 25px 8px 8px;
-    font-size: 13px;
-  }
-  
-  .bottom-purchase-dropdown__quantity-wrapper .js-qty {
-    max-width: 90px;
-  }
-  
-  .bottom-purchase-dropdown__quantity-wrapper .js-qty__adjust {
-    width: 28px;
-  }
-  
-  .bottom-purchase-info__dropdown-wrapper-new-style {
-    flex-wrap: nowrap;
+  .thumbnail-nav-button svg {
+    width: 14px;
+    height: 14px;
   }
 }

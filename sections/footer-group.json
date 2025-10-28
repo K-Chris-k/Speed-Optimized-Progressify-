@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer-main": {
+      "type": "footer-main",
+      "blocks": {
+        "menu": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Information & Policies",
+            "footer_linklist": "footer"
+          }
+        },
+        "5c637888-418b-4cc8-baea-a83083df2e8c": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "About Us",
+            "footer_linklist": "silverant"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_title": "Sign Up For Our Newsletter",
+            "footer_newsletter_description": "<p>Learn about our newest product drops, promotions, and more. Enter your email address below and we'll <em>plant a tree!</em></p>",
+            "buttons_style": "filled",
+            "override_button_colors": true,
+            "button_background_color": "#edeceb",
+            "button_text_color": "#000000"
+          }
+        },
+        "social": {
+          "type": "social",
+          "settings": {
+            "social_title": "Follow us"
+          }
+        }
+      },
+      "block_order": [
+        "menu",
+        "5c637888-418b-4cc8-baea-a83083df2e8c",
+        "newsletter",
+        "social"
+      ],
+      "settings": {
+        "alignment": "left",
+        "heading_font_size": 18,
+        "color_scheme": "light"
+      }
+    },
+    "footer-bottom": {
+      "type": "footer-bottom",
+      "settings": {
+        "show_methods_of_payment": true,
+        "center_content_on_desktop": false,
+        "footer_text": "",
+        "show_currency_selector": true,
+        "show_locale_selector": false,
+        "color_scheme": "light"
+      }
+    }
+  },
+  "order": [
+    "footer-main",
+    "footer-bottom"
+  ]
+}

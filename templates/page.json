@@ -9,23 +9,117 @@
  */
 {
   "sections": {
+    "image_with_text_overlay_83nUPH": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_8dFQUx": {
+          "type": "heading",
+          "settings": {
+            "title": "Image with text overlay",
+            "font_size_desktop": 28,
+            "font_size_mobile": 28,
+            "heading_bottom_spacing": 25
+          }
+        },
+        "text_6K6BQQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add an image paired with text to give focus to your chosen product, collection, or blog post.</p>",
+            "font_size_desktop": 16,
+            "font_size_mobile": 16,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_8dFQUx",
+        "text_6K6BQQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.image--image-with-text-overlay.presets.name",
+      "settings": {
+        "height_desktop": "original",
+        "text_position_desktop": "center",
+        "text_alignment_desktop": "center",
+        "caption_width_desktop": 50,
+        "height_mobile": "original",
+        "text_position_mobile": "center",
+        "text_alignment_mobile": "center",
+        "section_link": "",
+        "animation_style": "none",
+        "section_width": "full",
+        "section_margin_top": 0,
+        "section_margin_bottom": 0,
+        "text_color": "#ffffff",
+        "caption_bg_color": "rgba(0,0,0,0)",
+        "image_overlay_color": "#242424",
+        "image_overlay_opacity": 0
+      }
+    },
     "main": {
       "type": "template--page",
       "settings": {
-        "page_width": "full-width"
+        "page_title_enabled": false,
+        "page_width": "narrow"
       }
     },
-    "49fd4361-2a9b-4126-b4d3-6d70ae001953": {
-      "type": "newsletter--newsletter",
+    "newsletter_g73kAp": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
       "settings": {
-        "colors": "accent",
-        "newsletter_heading": "Join Community & Plant A Tree",
-        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>"
+        "newsletter_heading": "Join our Mailing List",
+        "newsletter_description": "",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_DpGKYz": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_LtCCPR": {
+          "type": "text",
+          "settings": {
+            "heading": "What makes you different",
+            "subheading": "Shout about your unique selling points",
+            "link": ""
+          }
+        },
+        "text_TE7p6A": {
+          "type": "text",
+          "settings": {
+            "heading": "What makes you different",
+            "subheading": "Shout about your unique selling points",
+            "link": ""
+          }
+        },
+        "text_khaTTN": {
+          "type": "text",
+          "settings": {
+            "heading": "What makes you different",
+            "subheading": "Shout about your unique selling points",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_LtCCPR",
+        "text_TE7p6A",
+        "text_khaTTN"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
       }
     }
   },
   "order": [
+    "image_with_text_overlay_83nUPH",
     "main",
-    "49fd4361-2a9b-4126-b4d3-6d70ae001953"
+    "newsletter_g73kAp",
+    "text_adverts_DpGKYz"
   ]
 }

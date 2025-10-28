@@ -1,0 +1,73 @@
+/* ========== 底部购买栏按钮加载状态样式 ========== */
+
+/* 加载图标旋转动画 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 底部加购按钮基础样式 */
+.bottom-purchase-info__btn-container .product--add-to-cart-button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* 加载中状态 */
+.bottom-purchase-info__btn-container .product--add-to-cart-button.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* 加载图标样式 */
+.bottom-purchase-info__btn-container .bottom-loading-icon {
+  display: none;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.bottom-purchase-info__btn-container .product--add-to-cart-button.loading .bottom-loading-icon {
+  display: inline-block;
+}
+
+/* 按钮文本状态切换 */
+.bottom-purchase-info__btn-container .btn-text-ready,
+.bottom-purchase-info__btn-container .btn-text-added,
+.bottom-purchase-info__btn-container .btn-text-soldout,
+.bottom-purchase-info__btn-container .btn-text-unavailable {
+  transition: opacity 0.2s ease;
+}
+
+/* 已添加状态动画 */
+.bottom-purchase-info__btn-container .product--add-to-cart-button .btn-text-added {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 禁用状态 */
+.bottom-purchase-info__btn-container .product--add-to-cart-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .bottom-purchase-info__btn-container .bottom-loading-icon {
+    margin-right: 4px;
+  }
+}
+

@@ -1,6 +1,6 @@
 {%- layout none -%}
 {%- assign cartJson = cart | json -%}
-{%- assign cartToken = cartJson | split:'token":"' | last | split:'"' | first | json -%}
+{%- assign cartToken = cartJson | split: 'token":"' | last | split: '"' | first | json -%}
 {
 	"token": {{ cartToken }},
 	"note": {{ cart.note | json }},
@@ -15,8 +15,10 @@
 		{
 		"id": {{ item.id | json }},
 		"properties": {
-			{%- for prop in item.properties -%}
-			{{ prop | first | json }}:{{ prop | last | json }}{% unless forloop.last %},{% endunless %}
+			{%- for property in item.properties -%}
+				{%- if property.last != blank and property_first_char != '_' -%}
+					{{ property | first | json }}:{%- if property.last contains '/uploads/' -%}{{ property.first | escape | link_to: property.last | json }}{% else %}{{ property | last | json }}{% endif %}{% unless forloop.last %},{% endunless %}
+				{%- endif -%}
 			{%- endfor %}
 		},
 		"line_level_discount_allocations": {
