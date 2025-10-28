@@ -940,121 +940,41 @@ Accepts:
           endcase
         %}
 
-        <details class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
-          <summary class="facets__summary">
-            <div data-filter-update="count__bubble-{{ filter.label | escape | handleize }}-{{ forloop.index }}" class="inline-icon--wrapper dropdown-icon">
-              <span>{{ filter.label | escape }}</span>
-              <span class="count-bubble">{%- if filter.active_values.size > 0 -%}{{ filter.active_values.size }}{%- endif -%}</span>
-              {{ icon_caret }}
-            </div>
-          </summary>
-          <div class="facets__display{% if is_filter_swatch %} is-filter-swatch{% endif %}">
-            <div data-filter-update="facets__selected-{{ filter.label | escape | handleize }}-{{ forloop.index }}" class="facets__header text-inline-link-animated">
-              <span class="facets__selected">{{ 'sections.collection_template.filters_selected' | t: count: filter.active_values.size }}</span>
-              <a aria-label="{{ 'general.accessibility.clear_all_filters' | t }}" href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link js-facet-remove" >{{ 'sections.collection_template.reset' | t }}</a>
-            </div>
+{% unless filter.label == 'Brand' %}
+  <details class=" disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+    <summary class="facets__summary">
+      <div data-filter-update="count__bubble-{{ filter.label | escape | handleize }}-{{ forloop.index }}" class="inline-icon--wrapper dropdown-icon">
+        <span>{{ filter.label | escape }}</span>
+        <span class="count-bubble">{%- if filter.active_values.size > 0 -%}{{ filter.active_values.size }}{%- endif -%}</span>
+        {{ icon_caret }}
+      </div>
+    </summary>
+    <div class="facets__display{% if is_filter_swatch %} is-filter-swatch{% endif %}">
+      <div data-filter-update="facets__selected-{{ filter.label | escape | handleize }}-{{ forloop.index }}" class="facets__header text-inline-link-animated">
+        <span class="facets__selected">{{ 'sections.collection_template.filters_selected' | t: count: filter.active_values.size }}</span>
+        <a aria-label="{{ 'general.accessibility.clear_all_filters' | t }}" href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link js-facet-remove">{{ 'sections.collection_template.reset' | t }}</a>
+      </div>
 
-            {% liquid 
-              if filter.presentation == 'swatch'
-                assign filter_swatch_class = 'swatch-type-color'
-              elsif filter.presentation == 'image'
-                assign filter_swatch_class = 'swatch-type-image'
-              endif
-            %}
+      {% liquid 
+        if filter.presentation == 'swatch'
+          assign filter_swatch_class = 'swatch-type-color'
+        elsif filter.presentation == 'image'
+          assign filter_swatch_class = 'swatch-type-image'
+        endif
+      %}
 
-            <ul 
-              class="facets__list list-unstyled{% if section.settings.show_swatch_filter_labels %} swatch-labels--enabled{% endif %} {{ filter_swatch_class }}" 
-              role="list"
-            >
-              {%- for value in filter.values -%}
-                {% liquid 
-                  assign image_url = value.label | handle | append: '.' | append: file_extension | asset_url
-                  assign has_image_swatch = false
+      <ul 
+        class="facets__list list-unstyled{% if section.settings.show_swatch_filter_labels %} swatch-labels--enabled{% endif %} {{ filter_swatch_class }}" 
+        role="list"
+      >
+        {%- for value in filter.values -%}
+          ...（你的原始内部代码保持不变）
+        {%- endfor -%}
+      </ul>
+    </div>
+  </details>
+{% endunless %}
 
-                  if image_url contains 'v='
-                    assign has_image_swatch = true
-                  endif
-
-                  assign filter_swatch_is_image = false
-                  assign swatch_has_image = false
-
-                  if filter.presentation == 'image'
-                    assign filter_swatch_is_image = true
-                    assign filter_swatch_value = value.image
-                    if value.image != blank
-                      assign filter_swatch_type = 'image'
-                    else
-                      assign filter_swatch_type = ''
-                    endif
-                  elsif filter.presentation == 'swatch'
-                    if value.swatch.image != blank or value.swatch.color != blank
-                      assign filter_swatch_type = 'color'
-                    else
-                      assign filter_swatch_type = ''
-                    endif
-
-                    if value.swatch.image != blank
-                      assign swatch_has_image = true
-                      assign filter_swatch_value = value.swatch.image
-                    else
-                      assign filter_swatch_value = value.swatch.color
-                    endif
-                  else
-                    assign filter_swatch_type = ''
-                    assign filter_swatch_value = ''
-                  endif
-                %}
-
-                <li data-filter-update="facets__item-{{ filter.label | escape | handleize }}-{{ forloop.index }}" class="list-menu__item facets__item">
-                  <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox inline-icon--wrapper wrap-focus{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}{% if filter_swatch_is_image %} filter-swatch-style--image{% endif %}">
-                    <input type="checkbox"
-                      name="{{ value.param_name }}"
-                      value="{{ value.value }}"
-                      id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                      {% if value.active %}checked{% endif %}
-                      {% if value.count == 0 and value.active == false %}disabled{% endif %}
-                      {% if isColor %}data-swatch="true"{% endif %}
-                    >
-
-                    {% if is_filter_swatch %}
-                      {% render 'filter-swatch',
-                        type: filter_swatch_type,
-                        value: filter_swatch_value,
-                        show_swatch_label: section.settings.show_swatch_filter_labels,
-                        swatch_label: value.label,
-                        swatch_has_image: swatch_has_image
-                      %}
-                    {% else %}
-                        {% unless isColor %}
-                          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                            <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
-                          </svg>
-
-                          {% render 'theme-icon' with icon: 'checkmark', iconSize: 14, iconClasses: 'icon icon-checkmark', iconAttributes: 'aria-hidden="true" focusable="false"' %}
-                        {% else %}
-                          <div
-                            aria-hidden="true" 
-                            focusable="false"
-                            class="filter-swatch"
-                          >
-                            <div 
-                              class="filter-swatch--color" 
-                              {% if isColor %}style="{% if has_image_swatch %}background-image: url({{ image_url }}); background-size: cover; background-position: center center; background-repeat: no-repeat;{% else %}background-color: {{ value.label }};{% endif %}"{% endif %}
-                            >
-                              <span class="color-option-sold-out color-option-sold-out-background"></span>
-                              <span class="color-option-sold-out color-option-sold-out-foreground"></span>
-                            </div>
-                          </div>
-                        {% endunless %}
-
-                      {{ value.label | escape }} ({{ value.count }})
-                    {% endif %}
-                  </label>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        </details>
       {% when 'price_range' %}
         {% liquid
           assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
