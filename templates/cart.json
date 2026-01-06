@@ -19,9 +19,9 @@
         "greenspark_current_order_impact_widget_LL6JN4": {
           "type": "shopify://apps/greenspark/blocks/current-order-impact-widget/8c13bd86-5fb4-4c2e-83b1-e3a158a87952",
           "settings": {
-            "style": "simplified",
-            "horizontal_alignment": "center",
-            "size": "full_width",
+            "style": "default",
+            "horizontal_alignment": "right",
+            "size": "large",
             "fullwidth_justification": "flex-start",
             "greenspark_widget_color": "#3B755F",
             "enable_popup": true,
@@ -36,6 +36,27 @@
         "section_padding_top": 0,
         "section_padding_bottom": 0,
         "include_margins": true
+      }
+    },
+    "featured_collection_BAwxnV": {
+      "type": "featured-collection",
+      "name": "t:sections.collection--featured-collection.presets.name",
+      "settings": {
+        "title": "Don't Forget These",
+        "description": "",
+        "collection": "top-selling-gear",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "show_view_all": false,
+        "buttons_style": "filled",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "layout_style": "slider",
+        "products_to_show": 8,
+        "grid-desktop": 4,
+        "grid-mobile": "2",
+        "colors": "white"
       }
     },
     "16458092233c51454f": {
@@ -189,6 +210,7 @@
   "order": [
     "main",
     "175578283446c19bb4",
+    "featured_collection_BAwxnV",
     "16458092233c51454f",
     "400eb640-b884-4376-ac4a-7e747faee5ee",
     "newsletter_rdGFQj"

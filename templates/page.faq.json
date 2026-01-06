@@ -9,74 +9,69 @@
  */
 {
   "sections": {
-    "image_with_text_overlay_VUCbdf": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "heading_hi6wPp": {
-          "type": "heading",
-          "settings": {
-            "title": "FAQs",
-            "font_size_desktop": 38,
-            "font_size_mobile": 28,
-            "heading_bottom_spacing": 0
-          }
-        }
-      },
-      "block_order": [
-        "heading_hi6wPp"
-      ],
+    "image_with_text_QJHxCX": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
       "settings": {
-        "height_desktop": "original",
-        "text_position_desktop": "center",
-        "text_alignment_desktop": "center",
-        "caption_width_desktop": 50,
-        "height_mobile": "original",
-        "text_position_mobile": "center",
-        "text_alignment_mobile": "center",
-        "section_link": "",
-        "animation_style": "none",
-        "section_margin_top": 0,
-        "section_margin_bottom": 0,
-        "text_color": "#ffffff",
-        "caption_bg_color": "rgba(0,0,0,0)",
-        "image_overlay_color": "#ffffff",
-        "image_overlay_opacity": 0
+        "image": "shopify://shop_images/FAQ_Page_Banner.jpg",
+        "layout": "right",
+        "title": "FAQ's",
+        "text": "<p>The questions most commonly asked by you, our community.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
       }
     },
     "16457242689a58d7f3": {
       "type": "accordion",
       "blocks": {
-        "164572426857089649-0": {
-          "type": "tab_content",
-          "settings": {
-            "question": "Can I change my order after placing it?",
-            "text": "<p>If you suddenly have a change of heart over the delicious smoothie flavours you would like to get your hands on, just drop us a message and we'll try our best to accommodate you. Please note, we will not be able to amend orders once they have been shipped.<\/p>"
-          }
-        },
         "164572426857089649-1": {
           "type": "tab_content",
           "settings": {
-            "question": "Why do some flavours show as out of stock?",
-            "text": "<p>We try our very best to source the best ingredients possible all year round, however we can encounter temporary shortages of certain ingredients from time to time, dependent on the season. Some of our smoothie flavours may show as out of stock if we are unable to source any of our ingredients, but as soon as we are able to get our hands on them, they will become available again.<\/p>"
+            "question": "Where are the products manufactured?",
+            "open_by_default": false,
+            "text": "<p>All our products are manufactured in our own family-owned factory in China, which we have owned and operated for over 25 years. We are one of the largest titanium outdoor producing facilities in the world, and are a certified ISO:9001-2015 facility.</p>",
+            "page": ""
           }
         },
         "164572426857089649-2": {
           "type": "tab_content",
           "settings": {
-            "question": "Where do you source your ingredients from?",
-            "text": "<p>We aim to use as much as we can from local sources in Australia, but if that's not possible then we will reach out across the world to sustainable suppliers!<\/p>"
+            "question": "What is your return policy?",
+            "open_by_default": false,
+            "text": "<p>If you are unsatisfied with your product order please contact us immediately at <a href=\"mailto:info@silverantoutdoors.com\">info@silverantoutdoors.com</a>. We offer a 30-day return policy for all products provided proof of receipt in those 30 days. For damage or to repair, based on the lifetime warranty, please contact us to organize sending the product back to us for repair or replace.</p>",
+            "page": ""
+          }
+        },
+        "164572426857089649-0": {
+          "type": "tab_content",
+          "settings": {
+            "question": "How long is the product warranty?",
+            "open_by_default": false,
+            "text": "<p>All products are covered by a lifetime warranty, apart from our tent stakes. We base each case individually, depending on the reason for damage and its cause. Costs may be incurred for shipping and repairs should the damage not be caused by issues with the product's integrity.</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
-        "164572426857089649-0",
         "164572426857089649-1",
-        "164572426857089649-2"
+        "164572426857089649-2",
+        "164572426857089649-0"
       ],
       "settings": {
         "title": "General Info",
         "description": "",
         "faq_icon": "caret",
+        "section_width": "narrow",
         "section_padding_top": 60,
         "section_padding_bottom": 60,
         "colors": "white"
@@ -88,22 +83,28 @@
         "164572438495310fd3-0": {
           "type": "tab_content",
           "settings": {
-            "question": "How long do your smoothies last?",
-            "text": "<p>Our smoothies are frozen as soon as they are made to ensure they stay as fresh as possible when arriving to you. They can stay defrosted for up to 6 months, but we recommend consuming within 24 hours of being defrosted for the best, freshest taste.<\/p>"
+            "question": "What grade titanium are your products made from?",
+            "open_by_default": false,
+            "text": "<p>All our products are made from titanium, ensuring the product's integrity for a lifetime. Depending on the product, will depend on the Grade of titanium used. Predominantly, SilverAnt uses Grades 1-3 in the manufacture of our products. In addition, all our products are manufactured in our own ISO:9001-2015 factory and are further certified by the FDA and SGS, guaranteeing the highest quality for you, the consumer. To view our certificates, please just send us an email.</p>",
+            "page": ""
           }
         },
         "164572438495310fd3-1": {
           "type": "tab_content",
           "settings": {
-            "question": "How are your smoothies made?",
-            "text": "<p>Our smoothies are blended with the freshest ingredients and then frozen immediately. We don't add any nasty ingredients!<\/p>"
+            "question": "Is the titanium coated?",
+            "open_by_default": false,
+            "text": "<p>No, we do not coat our titanium products. We believe in maintaining the integrity of the titanium, ensuring a lifetime of use and protecting the antibacterial, non-allergenic, and non-toxic properties. Sandblasting is powered by compressed air to form a high-speed jet beam to spray the titanium surface. The titanium is then finally washed with water multiple times before drying and packaging. Crystallization is achieved in-house at our factory in a vacuum-sealed oven at high temperatures and pressure. Our anodized products with a variety of colors are achieved using electrical current and an oxide layer on the surface of the titanium.</p>",
+            "page": ""
           }
         },
         "164572438495310fd3-2": {
           "type": "tab_content",
           "settings": {
-            "question": "Do your smoothies have any added sugar?",
-            "text": "<p>None at all! We only use honey and the natural sugars from the fruits to sweeten our smoothies.<\/p>"
+            "question": "Is the product welding also titanium?",
+            "open_by_default": false,
+            "text": "<p>Yes, we can't use different metals. Every metal has a different melting point. We can't change it. We can't change the melting point of other materials to the same temperature as titanium and fuse them.</p>",
+            "page": ""
           }
         }
       },
@@ -113,9 +114,10 @@
         "164572438495310fd3-2"
       ],
       "settings": {
-        "title": "Smoothie Info",
+        "title": "Titanium Info",
         "description": "",
         "faq_icon": "caret",
+        "section_width": "narrow",
         "section_padding_top": 60,
         "section_padding_bottom": 60,
         "colors": "white"
@@ -127,22 +129,28 @@
         "164572442464b4aa49-0": {
           "type": "tab_content",
           "settings": {
-            "question": "Do you ship overseas?",
-            "text": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.<\/p>"
+            "question": "Do you ship internationally?",
+            "open_by_default": false,
+            "text": "<p>Yes, we ship worldwide and offer great rates. We ship all our products with leading logistics companies, including FedEx, USPS, DHL, Royal Mail, AusPost, and Hermes, among others.</p>",
+            "page": ""
           }
         },
         "164572442464b4aa49-1": {
           "type": "tab_content",
           "settings": {
-            "question": "How long will it take to get my order?",
-            "text": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.<\/p>"
+            "question": "What is the expected delivery time for an international order?",
+            "open_by_default": false,
+            "text": "<p>At SilverAnt Outdoors, we strive to deliver all products within 10-12 business days from the date of purchase, depending on geographical location. However, unforeseen circumstances can sometimes cause delays. All orders are shipped with a tracking number to give you peace of mind. Check our <a href=\"https://silverantoutdoors.com/apps/17TRACK\" target=\"_blank\" title=\"https://silverantoutdoors.com/apps/17TRACK\">Order Tracking Page</a> to check the status of your shipments.</p>",
+            "page": ""
           }
         },
         "164572442464b4aa49-2": {
           "type": "tab_content",
           "settings": {
             "question": "Can I return my order?",
-            "text": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we’re happy to help. Just email us directly and we’ll take you through the process.<\/p>"
+            "open_by_default": false,
+            "text": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we’re happy to help. Just email us directly and we’ll take you through the process.</p>",
+            "page": ""
           }
         }
       },
@@ -155,6 +163,7 @@
         "title": "Delivery Info",
         "description": "",
         "faq_icon": "caret",
+        "section_width": "narrow",
         "section_padding_top": 60,
         "section_padding_bottom": 60,
         "colors": "white"
@@ -174,19 +183,19 @@
         "6d07b405-3374-4f17-b28d-17e359b5102b": {
           "type": "richtext",
           "settings": {
-            "text": "<p>If you're still unsure about any of our products, drop us a message via the form on our contact page.<\/p>",
-            "text_size": 14,
+            "text": "<p>If you're still unsure about any of our products, drop us a message via the form on our contact page.</p>",
+            "text_size": 16,
             "text_bottom_spacing": 20
           }
         },
         "f391f3ae-8651-4404-a582-ed557905006e": {
           "type": "button",
           "settings": {
-            "button_link": "\/",
+            "button_link": "/",
             "button_text": "Contact us",
             "buttons_style": "filled",
             "override_button_colors": false,
-            "button_background_color": "#E68819",
+            "button_background_color": "#e68819",
             "button_text_color": "#ffffff",
             "button_bottom_spacing": 20
           }
@@ -203,7 +212,7 @@
         "text_alignment_mobile": "center",
         "section_padding_top": 60,
         "section_padding_bottom": 60,
-        "colors": "light"
+        "colors": "accent"
       }
     },
     "0a7925da-021c-4303-a883-f17246eb32f5": {
@@ -212,31 +221,31 @@
         "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-0": {
           "type": "logo_image",
           "settings": {
-            "link": "\/"
+            "link": "/"
           }
         },
         "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-1": {
           "type": "logo_image",
           "settings": {
-            "link": "\/"
+            "link": "/"
           }
         },
         "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-2": {
           "type": "logo_image",
           "settings": {
-            "link": "\/"
+            "link": "/"
           }
         },
         "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-3": {
           "type": "logo_image",
           "settings": {
-            "link": "\/"
+            "link": "/"
           }
         },
         "1d3de4d5-1cd4-4328-8ede-a844b0636851": {
           "type": "logo_image",
           "settings": {
-            "link": "\/"
+            "link": "/"
           }
         }
       },
@@ -247,10 +256,12 @@
         "template--14795085643846__0a7925da-021c-4303-a883-f17246eb32f5-1687272726bf441aa1-3",
         "1d3de4d5-1cd4-4328-8ede-a844b0636851"
       ],
+      "disabled": true,
       "settings": {
-        "width": 100,
         "title": "Say hello via our socials",
         "description": "",
+        "width": 100,
+        "override_border_radius": false,
         "section_padding_top": 60,
         "section_padding_bottom": 60,
         "colors": "white"
@@ -262,10 +273,11 @@
         "image_iYbmwc": {
           "type": "image",
           "settings": {
-            "link": "\/",
-            "subheading": "Smooth",
-            "title": "Strawberry and Banana",
+            "image": "shopify://shop_images/silverant-outdoors-ultralight-titanium-water-bottle-800ml-28-16-fl-oz-slim-33375828345010.jpg",
+            "link": "/",
             "button_label": "",
+            "subheading": "",
+            "title": "",
             "text_color": "#ffffff",
             "overlay_color": "#242424",
             "overlay_opacity": 25
@@ -274,10 +286,11 @@
         "image_mbCJxT": {
           "type": "image",
           "settings": {
-            "link": "\/",
-            "subheading": "Fresh",
-            "title": "Spinach and Pineapple",
+            "image": "shopify://shop_images/SilverAntTitaniumMessTinsOutdoorImage5.jpg",
+            "link": "/",
             "button_label": "",
+            "subheading": "Fresh",
+            "title": "",
             "text_color": "#ffffff",
             "overlay_color": "#242424",
             "overlay_opacity": 25
@@ -286,10 +299,11 @@
         "image_kixVkb": {
           "type": "image",
           "settings": {
-            "link": "\/",
-            "subheading": "Filling",
-            "title": "Almond and Banana",
+            "image": "shopify://shop_images/220mlpuleather_2.jpg",
+            "link": "/",
             "button_label": "",
+            "subheading": "",
+            "title": "",
             "text_color": "#ffffff",
             "overlay_color": "#242424",
             "overlay_opacity": 25
@@ -298,10 +312,11 @@
         "image_EFqmJc": {
           "type": "image",
           "settings": {
-            "link": "\/",
-            "subheading": "Tart",
-            "title": "Beet and Berry",
+            "image": "shopify://shop_images/SilverAntOutdoorsLargeTitaniumWaterBottle1200ml-6.jpg",
+            "link": "/",
             "button_label": "",
+            "subheading": "",
+            "title": "",
             "text_color": "#ffffff",
             "overlay_color": "#242424",
             "overlay_opacity": 25
@@ -315,36 +330,92 @@
         "image_EFqmJc"
       ],
       "settings": {
-        "title": "We're on Instagram @flow_smoothies",
+        "title": "We're on Instagram @silverantoutdoors",
         "description": "",
         "image_shape": "square",
         "layout_style_desktop": "grid",
+        "hover_navigation_desktop": "none",
+        "peek_desktop": true,
         "images_per_row_desktop": 4,
         "text_position_desktop": "bottom_left",
         "show_on_hover": true,
         "layout_style_mobile": "grid",
+        "navigation_mobile": "peek",
         "images_per_row_mobile": "2",
         "text_position_mobile": "bottom_left",
         "buttons_style": "filled",
         "override_button_colors": false,
         "button_background_color": "#e68819",
         "button_text_color": "#ffffff",
-        "hover_navigation_desktop": "none",
         "section_width": "full",
         "remove_spacing": true,
         "section_padding_top": 30,
         "section_padding_bottom": 0,
         "colors": "white"
       }
+    },
+    "newsletter_4aFL99": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
+      "settings": {
+        "newsletter_heading": "Subscribe To Our Newsletter:",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree</strong></em> and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_h8DhUw": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_74hmVk": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our ISO:9001-2015 certified factory.",
+            "link": ""
+          }
+        },
+        "text_AVBDWX": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "text_YNNGGU": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_74hmVk",
+        "text_AVBDWX",
+        "text_YNNGGU"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
     }
   },
   "order": [
-    "image_with_text_overlay_VUCbdf",
+    "image_with_text_QJHxCX",
     "16457242689a58d7f3",
     "164572438470d85add",
     "1645724424d6db0e5a",
     "1645724501b902ee9b",
     "0a7925da-021c-4303-a883-f17246eb32f5",
-    "gallery_slideshow_YhhWHm"
+    "gallery_slideshow_YhhWHm",
+    "newsletter_4aFL99",
+    "text_adverts_h8DhUw"
   ]
 }

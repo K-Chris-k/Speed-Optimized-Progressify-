@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_fLa3ty": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/7.png",
+        "layout": "right",
+        "title": "BECOME A DEALER",
+        "text": "<p>Welcome to our dealer/distributor page! We're thrilled that you're interested in partnering with SilverAnt to expand your business and offer your customers our titanium outdoor products.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {
+        "page_title_enabled": false,
+        "page_width": "narrow"
+      }
+    },
+    "template_product_info_columns_RtEFjt": {
+      "type": "template--product--info-columns",
+      "blocks": {
+        "image_and_text_UVjykA": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/Strong_Relationships.png",
+            "grid_image_size": "square",
+            "heading": "Strong Relationships",
+            "text": "<p>At SilverAnt, we're committed to building strong relationships with our distributors and retailers. We believe in the power of collaboration and mutual support to drive growth and success.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_KWkfK7": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/Wholesale_Program.png",
+            "grid_image_size": "natural",
+            "heading": "Wholesale Program",
+            "text": "<p>Our wholesale program is designed to make it easy and affordable for you to stock and sell our products. We offer competitive pricing, fast and reliable shipping, and excellent business support to ensure that you have everything you need to succeed.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_M4tNWR": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/More_Opportunities.png",
+            "grid_image_size": "natural",
+            "heading": "More Opportunities",
+            "text": "<p>We're always looking for new partners to join our network of outdoor retailers and brands. Whether you're an established business or a startup looking to break into the market, we're excited to hear from you.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_yMWMrb": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/Contact_Us.png",
+            "grid_image_size": "natural",
+            "heading": "Contact Us",
+            "text": "<p>If you're interested in becoming a distributor or retailer of our products, please don't hesitate to get in touch with us. We'd love to learn more about your business and discuss how we can work together to achieve our shared goals.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_UVjykA",
+        "image_and_text_KWkfK7",
+        "image_and_text_M4tNWR",
+        "image_and_text_yMWMrb"
+      ],
+      "name": "t:sections.template--product--info-columns.presets.name",
+      "settings": {
+        "title": "WE LOOK FORWARD TO BUILDING A SUCCESSFUL AND MUTUALLY BENEFICIAL RELATIONSHIP WITH YOU.",
+        "description": "",
+        "maximum_width": 250,
+        "override_border_radius": false,
+        "buttons_style": "underlined",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "hover_navigation_desktop": "left-and-right",
+        "columns_per_row": 4,
+        "vertical_alignment": "top",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_width": "full",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "dark"
+      }
+    },
+    "17624199553a188f01": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_abmK8w": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "<div class=\"klaviyo-form-Ssjt9T\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_abmK8w"
+      ],
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "include_margins": true
+      }
+    },
+    "newsletter_HLXVtH": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
+      "settings": {
+        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree 🌲",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to planting a tree and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_qkwGij": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_n4LJVm": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our  ISO:9001-2015 certified factory.",
+            "link": ""
+          }
+        },
+        "text_4BcGVy": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "text_m6n9WW": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_n4LJVm",
+        "text_4BcGVy",
+        "text_m6n9WW"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_fLa3ty",
+    "main",
+    "template_product_info_columns_RtEFjt",
+    "17624199553a188f01",
+    "newsletter_HLXVtH",
+    "text_adverts_qkwGij"
+  ]
+}

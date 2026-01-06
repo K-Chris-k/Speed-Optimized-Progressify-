@@ -13,7 +13,7 @@
     "color_body_bg": "#ffffff",
     "sale_price_color": "#c3b280",
     "star_rating_color": "#000000",
-    "color_primary": "#c3b280",
+    "color_primary": "#000000",
     "color_body_bg_secondary": "#ffffff",
     "color_primary_button_background": "#000000",
     "color_primary_button_text": "#ffffff",
@@ -33,13 +33,13 @@
     "colorSchemeDarkText": "#000000",
     "colorSchemeDarkBackground": "#ffffff",
     "color_primary_navigation": "#000000",
-    "color_primary_navigation_hover": "#c3b280",
+    "color_primary_navigation_hover": "#000000",
     "header-bg-color": "#ffffff",
     "header-border-color": "#c8c8c8",
     "header-transparent-text": "#ffffff",
     "header-transparent-background": "#000000",
     "mobile-menu-text": "#000000",
-    "mobile-menu-text-hover": "#c3b280",
+    "mobile-menu-text-hover": "#000000",
     "mobile-menu-bg": "#ffffff",
     "type_header_font": "instrument_sans_n7",
     "heading_text_size": 28,
@@ -60,7 +60,12 @@
     "giftwrap_gift_note": false,
     "enable-additional-checkout-buttons": true,
     "cart_vendor_enable": false,
-    "empty_cart_products": "",
+    "show_cart_recommendations": false,
+    "empty_cart_products": "new-products",
+    "empty_cart_collections": [
+      "top-selling-gear"
+    ],
+    "free_shipping_threshold": 12500,
     "product_card_text_alignment": "center",
     "product-grid": "square",
     "hover-effect": true,
@@ -87,7 +92,7 @@
     "sm_instagram_link": "https://www.instagram.com/silverantoutdoors/",
     "sm_snapchat_link": "",
     "sm_x_link": "https://x.com/TheWorkerAnt",
-    "sm_facebook_link": "https://www.facebook.com/SilverAntOutdoors/",
+    "sm_facebook_link": "https://www.facebook.com/silveranttitanium",
     "sm_youtube_link": "https://www.youtube.com/@silverantoutdoors",
     "sm_vimeo_link": "",
     "sm_pinterest_link": "https://www.pinterest.com/silverantoutdoors/",
@@ -144,7 +149,91 @@
     "social_sharing_product": true,
     "quick_shop_enable": false,
     "quick_add_enable": true,
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "11349500561483629931": {
+        "type": "shopify://apps/notify-me/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "18228966181090706294": {
+        "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+        "disabled": true,
+        "settings": {
+          "storefrontAccessToken": ""
+        }
+      },
+      "6279071938380501511": {
+        "type": "shopify://apps/powerful-form-builder/blocks/app-embed/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+        "disabled": false,
+        "settings": {}
+      },
+      "15181020662106344915": {
+        "type": "shopify://apps/judge-me-reviews/blocks/popup_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {}
+      },
+      "12120936241911852800": {
+        "type": "shopify://apps/judge-me-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {
+          "position": "left"
+        }
+      },
+      "17453258828962521766": {
+        "type": "shopify://apps/captain-protection/blocks/app/a7ef2f88-bc96-4a68-ba4e-f042ccbc8beb",
+        "disabled": false,
+        "settings": {}
+      },
+      "4215564508307704909": {
+        "type": "shopify://apps/sitemap-noindex-pro-seo/blocks/app-embed/4d815e2c-5af0-46ba-8301-d0f9cf660031",
+        "disabled": false,
+        "settings": {}
+      },
+      "13419038904138592566": {
+        "type": "shopify://apps/sitemap-noindex-pro-seo/blocks/html-sitemap-styler/4d815e2c-5af0-46ba-8301-d0f9cf660031",
+        "disabled": false,
+        "settings": {
+          "colour_bg": "#FFFFFF",
+          "colour_text": "#000000",
+          "text_align": "center",
+          "colour_headings": "#000000",
+          "font_size_h1": 45,
+          "font_size_h2": 36,
+          "font_size_p": 18,
+          "colour_links": "#000000",
+          "font_size_links": 18,
+          "section_layout": "1",
+          "link_layout": "stacked",
+          "spacing_sections": 40,
+          "spacing_content": 25,
+          "colour_btn_bg": "#000000",
+          "colour_btn_text": "#FFFFFF",
+          "btn_border_radius": 8,
+          "custom_css": ""
+        }
+      },
+      "4976129024724438625": {
+        "type": "shopify://apps/smart-seo/blocks/brokenLinkDetection/7b0a6064-ca2e-4392-9a1d-8c43c942357b",
+        "disabled": false,
+        "settings": {}
+      },
+      "6406956604159796213": {
+        "type": "shopify://apps/smart-seo/blocks/smartseo/7b0a6064-ca2e-4392-9a1d-8c43c942357b",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "installed_preset_name": "Flow",
   "presets": {

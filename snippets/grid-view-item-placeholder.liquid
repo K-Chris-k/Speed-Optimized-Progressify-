@@ -94,11 +94,11 @@
           <div class="product-card-image--bottom-wrapper">
             <div class="quick-add-wrapper">
               {% if quick_shop_desktop_enabled %}
-                <a class="btn quick-add-button-onboarding quick-add-button-onboarding-desktop" tabindex="0" href="{{ product.url | within: collection }}">{{ 'products.product.add_to_cart' | t }}</a>
+                <a class="btn quick-add-button-onboarding quick-add-button-onboarding-desktop" tabindex="0" href="{{ product.url }}">{{ 'products.product.add_to_cart' | t }}</a>
               {% endif %}
 
               {% if quick_shop_mobile_enabled %}
-                <a class="quick-add-button-onboarding quick-add-button-onboarding-mobile btn-hover-default-inner icon-btn-focus-inner" tabindex="0" href="{{ product.url | within: collection }}"><span class="btn-colors-primary round-icon-btn-sm">{% render 'theme-icon' with icon: 'shopping-bag', iconClasses: 'quick-view-mobile-icon', iconSize: 16 %}</span></a>
+                <a class="quick-add-button-onboarding quick-add-button-onboarding-mobile btn-hover-default-inner icon-btn-focus-inner" tabindex="0" href="{{ product.url }}"><span class="btn-colors-primary round-icon-btn-sm">{% render 'theme-icon' with icon: 'shopping-bag', iconClasses: 'quick-view-mobile-icon', iconSize: 16 %}</span></a>
               {% endif %}
             </div>
           </div>

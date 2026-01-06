@@ -42,6 +42,12 @@
         </div>
       {% endif %}
 
+      {% if section.settings.footer_text != blank %}
+        <div class="footer-bottom--info rte">
+          {{ section.settings.footer_text }}
+        </div>
+      {% endif %}
+
       <div class="bottom--footer---copyright copyright--mobile">
         <ul class="bottom--footer---links">
           <li class="nav-link-animated"><a href="{{ routes.root_url }}"><span class="animated-underline">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name }}</span></a></li><!--

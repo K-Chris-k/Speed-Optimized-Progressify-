@@ -1,0 +1,391 @@
+<div
+    class="section-id-{{ section.id }} section-custom-h1-title page-width{% if section.settings.color_scheme != 'default' %} use-color-scheme use-color-scheme--{{ section.settings.color_scheme }}{% endif %}"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+    {% if section.settings.enable_animation %}
+      data-cc-animate data-cc-animate-delay="{{ section.settings.animation_delay }}s"
+    {% endif %}
+  >
+    <div class="container">
+      <div class="custom-h1-title__wrapper {{ section.settings.text_alignment }}">
+        {% if section.settings.show_decorative_line == true and section.settings.decorative_position == 'above' %}
+          <div
+            class="custom-h1-title__decorative-line"
+            style="background-color: {{ section.settings.decorative_color }};"
+          ></div>
+        {% endif %}
+  
+        <h1
+          class="hometitle custom-h1-title__text {{ section.settings.text_size }} {{ section.settings.text_transform }} font-weight-{{ section.settings.font_weight }}"
+          style="color: {{ section.settings.text_color }}; letter-spacing: {{ section.settings.letter_spacing }}px;"
+        >
+          {% if section.settings.add_emoji_before != blank %}{{ section.settings.add_emoji_before }} {% endif %}
+          {{ section.settings.title_text | escape }}
+          {% if section.settings.add_emoji_after != blank %} {{ section.settings.add_emoji_after }}{% endif %}
+        </h1>
+  
+        {% if section.settings.subtitle_text != blank %}
+          <div
+            class="custom-h1-title__subtitle {{ section.settings.subtitle_size }}"
+            style="color: {{ section.settings.subtitle_color }};"
+          >
+            {{ section.settings.subtitle_text | escape }}
+          </div>
+        {% endif %}
+  
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'text' %}
+              <div class="custom-h1-title__block-text {{ block.settings.text_size }}" 
+                   style="color: {{ block.settings.text_color }};"
+                   {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+          {% endcase %}
+        {% endfor %}
+  
+        {% if section.settings.show_decorative_line == true and section.settings.decorative_position == 'below' %}
+          <div
+            class="custom-h1-title__decorative-line"
+            style="background-color: {{ section.settings.decorative_color }};"
+          ></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .section-id-{{ section.id }} .custom-h1-title__text {
+      margin-top: 0;
+      margin-bottom: {% if section.settings.subtitle_text != blank %}10px{% else %}0{% endif %};
+      line-height: 1.3;
+      font-family: var(--font-heading-family);
+      letter-spacing: {{ section.settings.letter_spacing }}px;
+    }
+  
+    .section-id-{{ section.id }} .custom-h1-title__wrapper {
+      max-width: {{ section.settings.max_width }}px;
+      margin: 0 auto;
+    }
+  
+    .section-id-{{ section.id }} .custom-h1-title__wrapper.text-align-left { text-align: left; margin-left: 0; margin-right: auto; }
+    .section-id-{{ section.id }} .custom-h1-title__wrapper.text-align-center { text-align: center; }
+    .section-id-{{ section.id }} .custom-h1-title__wrapper.text-align-right { text-align: right; margin-left: auto; margin-right: 0; }
+  
+    .section-id-{{ section.id }} .custom-h1-title__text.text-size-xl { font-size: 3.0rem; }
+    .section-id-{{ section.id }} .custom-h1-title__text.text-size-lg { font-size: 2.5rem; }
+    .section-id-{{ section.id }} .custom-h1-title__text.text-size-md { font-size: 2.0rem; }
+    .section-id-{{ section.id }} .custom-h1-title__text.text-size-sm { font-size: 1.5rem; }
+  
+    .section-id-{{ section.id }} .custom-h1-title__text.text-transform-uppercase { text-transform: uppercase; }
+    .section-id-{{ section.id }} .custom-h1-title__text.text-transform-lowercase { text-transform: lowercase; }
+    .section-id-{{ section.id }} .custom-h1-title__text.text-transform-capitalize { text-transform: capitalize; }
+  
+    .section-id-{{ section.id }} .custom-h1-title__text.font-weight-light { font-weight: 300; }
+    .section-id-{{ section.id }} .custom-h1-title__text.font-weight-regular { font-weight: 400; }
+    .section-id-{{ section.id }} .custom-h1-title__text.font-weight-medium { font-weight: 500; }
+    .section-id-{{ section.id }} .custom-h1-title__text.font-weight-bold { font-weight: 700; }
+  
+    .section-id-{{ section.id }} .custom-h1-title__subtitle {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+  
+    .section-id-{{ section.id }} .custom-h1-title__subtitle.subtitle-size-lg { font-size: 1.2rem; }
+    .section-id-{{ section.id }} .custom-h1-title__subtitle.subtitle-size-md { font-size: 1rem; }
+    .section-id-{{ section.id }} .custom-h1-title__subtitle.subtitle-size-sm { font-size: 0.9rem; }
+  
+    .section-id-{{ section.id }} .custom-h1-title__block-text {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+  
+    .section-id-{{ section.id }} .custom-h1-title__block-text.text-size-lg { font-size: 1.2rem; }
+    .section-id-{{ section.id }} .custom-h1-title__block-text.text-size-md { font-size: 1rem; }
+    .section-id-{{ section.id }} .custom-h1-title__block-text.text-size-sm { font-size: 0.9rem; }
+  
+    .section-id-{{ section.id }} .custom-h1-title__decorative-line {
+      height: 3px;
+      width: 80px;
+      margin: {% if section.settings.decorative_position == 'above' %}0 auto 20px{% else %}20px auto 0{% endif %};
+      background-color: {{ section.settings.decorative_color }};
+    }
+  
+    .section-id-{{ section.id }} .text-align-left .custom-h1-title__decorative-line {
+      margin-left: 0;
+    }
+  
+    .section-id-{{ section.id }} .text-align-right .custom-h1-title__decorative-line {
+      margin-right: 0;
+    }
+  
+    @media screen and (max-width: 768px) {
+      .section-id-{{ section.id }} .custom-h1-title__text.text-size-xl { font-size: 2.2rem; }
+      .section-id-{{ section.id }} .custom-h1-title__text.text-size-lg { font-size: 2.0rem; }
+      .section-id-{{ section.id }} .custom-h1-title__text.text-size-md { font-size: 1.7rem; }
+      .section-id-{{ section.id }} .custom-h1-title__text.text-size-sm { font-size: 1.3rem; }
+    }
+  </style>
+  
+  {% schema %}
+  {
+    "name": "Custom H1 Title",
+    "class": "section-custom-h1-title-wrapper",
+    "max_blocks": 10,
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Main Title Settings"
+      },
+      {
+        "type": "text",
+        "id": "title_text",
+        "label": "H1 Title",
+        "default": "Your Awesome Title Here"
+      },
+      {
+        "type": "select",
+        "id": "text_size",
+        "label": "Text Size",
+        "options": [
+          { "value": "text-size-xl", "label": "Extra Large" },
+          { "value": "text-size-lg", "label": "Large" },
+          { "value": "text-size-md", "label": "Medium" },
+          { "value": "text-size-sm", "label": "Small" }
+        ],
+        "default": "text-size-lg"
+      },
+      {
+        "type": "select",
+        "id": "font_weight",
+        "label": "Font Weight",
+        "options": [
+          { "value": "light", "label": "Light" },
+          { "value": "regular", "label": "Regular" },
+          { "value": "medium", "label": "Medium" },
+          { "value": "bold", "label": "Bold" }
+        ],
+        "default": "medium"
+      },
+      {
+        "type": "select",
+        "id": "text_transform",
+        "label": "Text Transform",
+        "options": [
+          { "value": "", "label": "None" },
+          { "value": "text-transform-uppercase", "label": "UPPERCASE" },
+          { "value": "text-transform-lowercase", "label": "lowercase" },
+          { "value": "text-transform-capitalize", "label": "Capitalize" }
+        ],
+        "default": ""
+      },
+      {
+        "type": "range",
+        "id": "letter_spacing",
+        "min": 0,
+        "max": 5,
+        "step": 0.5,
+        "unit": "px",
+        "label": "Letter Spacing",
+        "default": 0.5
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#333333"
+      },
+      {
+        "type": "range",
+        "id": "max_width",
+        "min": 400,
+        "max": 1200,
+        "step": 50,
+        "unit": "px",
+        "label": "Max Width",
+        "default": 900
+      },
+      {
+        "type": "header",
+        "content": "Subtitle Settings"
+      },
+      {
+        "type": "text",
+        "id": "subtitle_text",
+        "label": "Subtitle Text (optional)"
+      },
+      {
+        "type": "select",
+        "id": "subtitle_size",
+        "label": "Subtitle Size",
+        "options": [
+          { "value": "subtitle-size-lg", "label": "Large" },
+          { "value": "subtitle-size-md", "label": "Medium" },
+          { "value": "subtitle-size-sm", "label": "Small" }
+        ],
+        "default": "subtitle-size-md"
+      },
+      {
+        "type": "color",
+        "id": "subtitle_color",
+        "label": "Subtitle Color",
+        "default": "#666666"
+      },
+      {
+        "type": "header",
+        "content": "Decorative Elements"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_decorative_line",
+        "label": "Show Decorative Line",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "decorative_position",
+        "label": "Decorative Line Position",
+        "options": [
+          { "value": "above", "label": "Above title" },
+          { "value": "below", "label": "Below title/subtitle" }
+        ],
+        "default": "below"
+      },
+      {
+        "type": "color",
+        "id": "decorative_color",
+        "label": "Decorative Line Color",
+        "default": "#333333"
+      },
+      {
+        "type": "text",
+        "id": "add_emoji_before",
+        "label": "Add Emoji/Symbol Before Text",
+        "info": "E.g. ✨, 👉, etc."
+      },
+      {
+        "type": "text",
+        "id": "add_emoji_after",
+        "label": "Add Emoji/Symbol After Text",
+        "info": "E.g. ✨, 👈, etc."
+      },
+      {
+        "type": "header",
+        "content": "Layout Settings"
+      },
+      {
+        "type": "select",
+        "id": "text_alignment",
+        "label": "Text Alignment",
+        "options": [
+          { "value": "text-align-left", "label": "Left" },
+          { "value": "text-align-center", "label": "Center" },
+          { "value": "text-align-right", "label": "Right" }
+        ],
+        "default": "text-align-center"
+      },
+      {
+        "type": "select",
+        "id": "color_scheme",
+        "label": "Color Scheme (Section Background)",
+        "default": "default",
+        "options": [
+          { "value": "default", "label": "Default" },
+          { "value": "1", "label": "Scheme 1" },
+          { "value": "2", "label": "Scheme 2" }
+        ],
+        "info": "Selects a pre-defined color scheme for the section background and text, if supported by the theme."
+      },
+      {
+        "type": "header",
+        "content": "Animation"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_animation",
+        "label": "Enable Animation",
+        "default": false,
+        "info": "Uses your theme's built-in animation system if available"
+      },
+      {
+        "type": "range",
+        "id": "animation_delay",
+        "min": 0,
+        "max": 2,
+        "step": 0.1,
+        "unit": "s",
+        "label": "Animation Delay",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Top padding",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom padding",
+        "default": 40
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text content",
+            "default": "Add your text here"
+          },
+          {
+            "type": "select",
+            "id": "text_size",
+            "label": "Text Size",
+            "options": [
+              { "value": "text-size-lg", "label": "Large" },
+              { "value": "text-size-md", "label": "Medium" },
+              { "value": "text-size-sm", "label": "Small" }
+            ],
+            "default": "text-size-md"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#666666"
+          }
+        ]
+      }
+    ],  "presets": [
+      {
+        "name": "Custom H1 Title",
+        "category": "Text",
+        "settings": {
+          "title_text": "Welcome to our store",
+          "text_size": "text-size-lg",
+          "text_alignment": "text-align-center",
+          "text_color": "#333333"
+        }
+      }
+    ]
+  }
+  {% endschema %}
+  

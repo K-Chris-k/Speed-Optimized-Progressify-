@@ -34,11 +34,28 @@
 
   <!-- Title and description ================================================== -->
   <title>
-    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
   </title>
 
   {% if page_description %}
     <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% if template == 'index' %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "{{ shop.url }}/#website",
+        "url": "{{ shop.url }}",
+        "name": {{ shop.name | json }},
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   {% endif %}
 
   <!-- Helpers ================================================== -->
@@ -46,6 +63,11 @@
   <link rel="canonical" href="{{ canonical_url }}"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="rgba({{ settings.color_primary.rgba }})">
+
+  <!-- Organization Schema for Home Page ================================================== -->
+  {% if template == 'index' %}
+    {% render 'organization-schema' %}
+  {% endif %}
 
   <!-- CSS ================================================== -->
   {% render 'css-variables' %}
@@ -212,6 +234,22 @@
     {% sections 'header-group' %}
     {% sections 'overlay-group' %}
 
+    {% if template.name == 'page' and page.handle == 'search-results-page' %}
+      <div class="wrapper-spacing--v wrapper-spacing--h" style="margin-top: 20px;">
+        <h1 class="page--title template-title" data-page-title>{{ page.title | escape }}</h1>
+      </div>
+    {% endif %}
+    {% if template.name == 'page' and page.handle == 'terms-conditions' %}
+      <div class="wrapper-spacing--v wrapper-spacing--h" style="margin-top: 20px;">
+        <h1 class="page--title template-title" data-page-title>{{ page.title | escape }}</h1>
+      </div>
+    {% endif %}
+    {% if template.name == 'page' and page.handle == 'become-an-affiliate' %}
+      <div class="wrapper-spacing--v wrapper-spacing--h" style="margin-top: 20px;">
+        <h1 class="page--title template-title" data-page-title>{{ page.title | escape }}</h1>
+      </div>
+    {% endif %}
+
     {% if settings.enable_breadcrumbs %}
       {% unless template == 'index' or template == 'cart' or template == 'search' or template == 'blog' %}
         {% unless template.name == 'collection' or template == 'list-collections' or template.name == 'product' %}
@@ -238,7 +276,9 @@
       {% sections 'footer-group' %}
     </div>
   </div>
-
+  {% if template.name == 'collection' %}
+    {% assign collection_h1_used = false %}
+  {% endif %}
   <script defer type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
   <script defer src="{{ 'SafeLoadScripts.js' | asset_url }}"></script>
   {%- comment -%}<script defer src="{{ 'protect-main-price.js' | asset_url }}"></script>{%- endcomment -%}
@@ -341,5 +381,23 @@
     <script src="https://themes.weareeight.workers.dev/analytics.js" type="module"></script>
     {% # theme-check-enable RemoteAsset %}
   {% endif %}
+  <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+
+
+  <!-- Google Merchant Widget -->
+<script id='merchantWidgetScript' src="https://www.gstatic.com/shopping/merchant/merchantwidget.js" defer></script>
+
+<script>
+  merchantWidgetScript.addEventListener('load', function () {
+    merchantwidget.start({
+         // REQUIRED FIELDS
+         merchant_id: 571699060,
+
+         // OPTIONAL FIELDS
+         position: POSITION,
+         region: REGION,
+    });
+  });
+</script>
 </body>
 </html>

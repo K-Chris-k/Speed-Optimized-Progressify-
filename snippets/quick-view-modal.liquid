@@ -10,11 +10,11 @@
 
 {% capture quick_view_link %}
   {% if link_type == 'desktop' %}
-    <a aria-label="{{ 'products.general.view_options_for_product' | t: product: quick_view_product.title }}" data-modal-button class="btn quick-add-button-variants quick-add-button-variants-desktop" tabindex="0" href="{{ quick_view_product.url | within: collection }}" data-product-card-link>{{ 'products.product.view_options' | t }}</a>
+    <a aria-label="{{ 'products.general.view_options_for_product' | t: product: quick_view_product.title }}" data-modal-button class="btn quick-add-button-variants quick-add-button-variants-desktop" tabindex="0" href="{{ quick_view_product.url }}" data-product-card-link>{{ 'products.product.view_options' | t }}</a>
   {% elsif link_type == 'mobile' %}
-    <a aria-label="{{ 'products.general.view_options_for_product' | t: product: quick_view_product.title }}" data-modal-button class="quick-add-button-variants quick-add-button-variants-mobile icon-btn-focus-inner btn-hover-default-inner" tabindex="0" href="{{ quick_view_product.url | within: collection }}" data-product-card-link><span class="btn-colors-primary round-icon-btn-sm">{% render 'theme-icon' with icon: 'shopping-bag', iconClasses: 'quick-view-mobile-icon', iconSize: 16 %}</span></a>
+    <a aria-label="{{ 'products.general.view_options_for_product' | t: product: quick_view_product.title }}" data-modal-button class="quick-add-button-variants quick-add-button-variants-mobile icon-btn-focus-inner btn-hover-default-inner" tabindex="0" href="{{ quick_view_product.url }}" data-product-card-link><span class="btn-colors-primary round-icon-btn-sm">{% render 'theme-icon' with icon: 'shopping-bag', iconClasses: 'quick-view-mobile-icon', iconSize: 16 %}</span></a>
   {% else %}
-    <a aria-label="{{ 'products.general.view_options_for_product' | t: product: quick_view_product.title }}" data-modal-button class="{{ button_classes }} quick-add-button-variants quick-add-button-variants-desktop" data-product-card-link tabindex="0" href="{{ quick_view_product.url | within: collection }}">{{ 'products.product.view_options' | t }}</a>
+    <a aria-label="{{ 'products.general.view_options_for_product' | t: product: quick_view_product.title }}" data-modal-button class="{{ button_classes }} quick-add-button-variants quick-add-button-variants-desktop" data-product-card-link tabindex="0" href="{{ quick_view_product.url }}">{{ 'products.product.view_options' | t }}</a>
   {% endif %}
 {% endcapture %}
 

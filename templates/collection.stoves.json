@@ -10,8 +10,31 @@
 {
   "wrapper": "div.collection-wrapper.wrapper",
   "sections": {
+    "image_with_text_BW9mCR": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SilverAnt_Titanium_Stove_Collection_Banner.jpg",
+        "layout": "right",
+        "title": "Titanium Stoves",
+        "text": "<p>At SilverAnt, we aim to create the highest quality products using the most superior metal Titanium. For our titanium stove collection, we wanted to create the best products with enhanced functionality that can withstand the toughest environments and a lifetime of use. Discover our range and try our products for yourself.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
     "collection-header": {
       "type": "collection-header",
+      "disabled": true,
       "settings": {
         "show_breadcrumbs": true,
         "show_title": true,
@@ -183,6 +206,7 @@
     }
   },
   "order": [
+    "image_with_text_BW9mCR",
     "collection-header",
     "product-grid",
     "accordion_with_image_T3X6ri",

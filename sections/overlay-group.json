@@ -16,23 +16,56 @@
       "blocks": {
         "offer-0": {
           "type": "offer",
-          "disabled": true,
           "settings": {
             "image_position": "above",
-            "title": "Wellness week",
-            "description": "<p>Save 11% Off </p>",
-            "discount_code": "WELLNESSWEEK",
+            "title": "The Ultimate Titanium Coffee Kit",
+            "description": "<p>Save 25% OFF </p>",
+            "discount_code": "",
             "show_countdown": false,
             "end_date": "",
             "end_time": "",
             "show_timer_labels": true,
             "timer_expiry_action": "leave_at_zero",
-            "link": "shopify://collections/all",
-            "button_label": ""
+            "link": "shopify://products/titanium-coffee-french-press-kit-with-cup-grounds-container",
+            "button_label": "Shop Now"
           }
         },
         "offer-1": {
           "type": "offer",
+          "settings": {
+            "image_position": "left",
+            "title": "Nomads Trails 5Athlon Series Titanium Gear",
+            "description": "<p>Support Peyman & Sailor on Their 2.5 Year Expedition with limited edition 5Athlon products</p>",
+            "discount_code": "",
+            "show_countdown": false,
+            "end_date": "",
+            "end_time": "",
+            "show_timer_labels": true,
+            "timer_expiry_action": "leave_at_zero",
+            "link": "shopify://products/silverant-x-5athlon-nomads-trails",
+            "button_label": "Shop Now"
+          }
+        },
+        "offer_rV3MfL": {
+          "type": "offer",
+          "disabled": true,
+          "settings": {
+            "image_position": "left",
+            "title": "Titanium Shot Glass",
+            "description": "<p>Buy any Titanium Hip Flask, both sandblasted or crystallized, and get a FREE titanium shot glass worth $9.99</p>",
+            "discount_code": "",
+            "show_countdown": false,
+            "end_date": "",
+            "end_time": "",
+            "show_timer_labels": true,
+            "timer_expiry_action": "leave_at_zero",
+            "link": "shopify://products/ultralight-titanium-shot-glass",
+            "button_label": "Shop Now"
+          }
+        },
+        "offer_FCgJpt": {
+          "type": "offer",
+          "disabled": true,
           "settings": {
             "image_position": "left",
             "title": "Titanium Beer Cup",
@@ -49,6 +82,7 @@
         },
         "offer_ErRbP7": {
           "type": "offer",
+          "disabled": true,
           "settings": {
             "image_position": "left",
             "title": "Titanium Multi-Fuel Stove & Cup Kit",
@@ -67,6 +101,8 @@
       "block_order": [
         "offer-0",
         "offer-1",
+        "offer_rV3MfL",
+        "offer_FCgJpt",
         "offer_ErRbP7"
       ],
       "settings": {

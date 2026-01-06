@@ -94,7 +94,7 @@
   <span class="money price--sale-price">{{ target_price }}</span>
 {% endcapture %}
 
-<a href="{{ price_product.url | within: collection }}" data-product-id="{{ price_product.id }}" tabindex="-1">
+<a href="{{ price_product.url }}" data-product-id="{{ price_product.id }}" tabindex="-1">
   {% comment %} On sale {% endcomment %}
   <div class="product-price--sale{% unless on_sale %} hidden{% endunless %}">
     {% if price_product.price_varies and settings.when_card_price_varies == 'show_from_price' %}

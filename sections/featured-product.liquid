@@ -197,7 +197,7 @@
               <a 
                 data-updates-on-change
                 data-update-id="featured-product-title-{{ section.id }}" 
-                href="{{ product.url | within: collection }}"
+                href="{{ product.url }}"
               >
                 <h2 class="{{ section.settings.title_font }} product-details-product-title">{{ product.title }}</h2>
               </a>
@@ -661,9 +661,7 @@
   endif
 -%}
 
-<script type="application/ld+json">
-  {{ product | structured_data }}
-</script>
+{% render 'product-schema' %}
 
 {% schema %}
 {

@@ -81,6 +81,12 @@
   data-wetheme-section-id="{{ section.id }}"
 >
   <div class="product-single-wrapper width--content">
+    {% if settings.enable_breadcrumbs %}
+      <div id="breadcrumbs" class="wrapper-spacing--h" aria-label="Breadcrumb">
+        {% render 'breadcrumb' %}
+      </div>
+    {% endif %}
+
     <div
       class="product-single{% if section.settings.media_position == "right" %} product-media--right{% endif %}{% if section.settings.enable_sticky %} product-sticky-wrapper{% endif %}{% if options_block.settings.variant_style == 'dropdowns' %} variant-dropdown-enabled{% else %} variant-swatches-enabled{% endif %}"
       data-product-content-wrapper
@@ -139,12 +145,6 @@
           <div class="product-details--form-wrapper{% if product.available %} product-details--form-wrapper---in-stock{% else %} product-details--form-wrapper---out-of-stock{% endif %}">
             <div class="form-vertical product--add-to-cart-form">
               {% assign spacing_classes = 'product-form-block' %}
-
-              {% if settings.enable_breadcrumbs %}
-                <div id="breadcrumbs">
-                  {% render 'breadcrumb' %}
-                </div>
-              {% endif %}
 
               {% for block in section.blocks %}
                 {% case block.type %}
@@ -1246,9 +1246,7 @@
   endif
 -%}
 
-<script type="application/ld+json">
-  {{ product | structured_data }}
-</script>
+{% render 'product-schema' %}
 
 <script>
   // Attempt to save the current product to the recently viewed products list

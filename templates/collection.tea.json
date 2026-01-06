@@ -10,8 +10,31 @@
 {
   "wrapper": "div.collection-wrapper.wrapper",
   "sections": {
+    "image_with_text_bpcbei": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SilverAnt_Titanium_Tea_Collection_Banner.jpg",
+        "layout": "right",
+        "title": "Titanium Tea Ware",
+        "text": "<p>The SilverAnt Outdoors tea ware collection features all the products you need to make a great cup of traditional tea. Enjoy black, green, oolong, pu'er, or jasmine with a titanium tea utensil. Enjoy healthy beverages at home, the office, or outdoors on your adventures.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
     "collection-header": {
       "type": "collection-header",
+      "disabled": true,
       "settings": {
         "show_breadcrumbs": true,
         "show_title": true,
@@ -183,6 +206,7 @@
     }
   },
   "order": [
+    "image_with_text_bpcbei",
     "collection-header",
     "product-grid",
     "accordion_with_image_T3X6ri",

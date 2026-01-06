@@ -1,0 +1,202 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {
+        "page_title_enabled": false,
+        "page_width": "narrow"
+      }
+    },
+    "image_with_text_PYRqB4": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/10.png",
+        "layout": "right",
+        "title": "Why Buy From Us",
+        "text": "<p>At SilverAnt, we combine <strong>expert craftsmanship, innovative design, and real-world testing</strong> to create titanium gear you can truly rely on. Made in our <strong>own factory</strong>, every product is carefully crafted to be lightweight, durable, and practical, shaped by the insights of our ambassadors who push our gear to its limits. When you buy from us, you’re not just getting equipment — you’re investing in quality, performance, and a brand committed to supporting your adventures for a lifetime.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "rich_text_ePWgfw": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_88DgNe": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>When it comes to the great outdoors, there are a lot of phenomenal brands and products out there. There are now so many activities that there are products so specific to that sport or type of adventure. When I look at my own gear for slacklining or rock climbing, I know there is some serious money here. But more so, there is a pride in my gear. I look after it meticulously! I know that when tied onto the end of the rope, my life is dependent on this gear.</p><p>It is because of this that I buy higher-quality products. When I was young, I inherited a belief from my Grandfather that I should always buy the best quality with the money I have. I’d even as a child save a little longer for improved quality or performance. As I am now older, it is this core principle that has enabled me to have some items in my gear bag that are almost 10 years old. And more so, they are still going well. Minus a few scratches and dinks. </p><p>When I buy things for myself, I always look to purchase products from industry leaders. I can ask you, the reader, now, would you rather have a Nemo tent or one bought from your local Walmart? The answer is always unanimous. People will opt for the Nemo tent. And the reason isn't good marketing. It's because they are the industry leader. When you buy their tents, you don't get a tent; you get a promise of quality and longevity.</p><p>One of the things I enjoy about quality outdoor products is that they can be used in different environments. For example, I bought a great Gore-Tex waterproof jacket. I can use it in the city, at the local crag, or trekking in the mountains. I can repurpose the jacket for many different uses. This applies to so many different products. You can take a camping mug to the office, but you can't take a porcelain mug outdoors.</p><p>When you speak to the people who are out in the 4 elements all year round, they are super proud of every bit of their kit. Every item has a story or a particular saving grace when it became invaluable. It is this inspiration that feeds SilverAnt. Our products are built for mountain expeditions and camping with your kids.</p><p>I remember watching a video of <a href=\"https://mojagear.com/alex-honnold-felipe-camargo-climb-one-worlds-steepest-routes-getu-china/\" target=\"_blank\" title=\"Alex Honnold Getu Arch\">Alex Honnold in Getu, China</a>. He was there to do the second ascent of the line Corazon De Ensueno. In the prelude of the video, Alex is talking about his shorts. I'll paraphrase his words, “These shorts are epic, they’ve seen maybe 4000 pitches!” I think often to that moment or even for example, <a href=\"https://wornwear.patagonia.com/\" target=\"_blank\" title=\"Patagonia Worn Wear\">Patagonia Worn Wear</a>. </p><p>It's all about having gear for a long time and accumulating stories with it. You don’t necessarily need a replacement; if it's high quality and well made it can be repaired, resewn, etc. At SilverAnt Outdoors, we are super proud to create titanium products that are built for a lifetime! Each product you buy from us will last multiple decades or more.</p><h3><strong>Titanium</strong></h3><p>Titanium, as a raw material, is an expensive commodity. Once mined, it is used in such varied fields as medicine and the aeronautical industry. It's lightweight, strong, biocompatible, anti-corrosive, and it doesn't rust or lose its integrity. These properties dictate a premium price. </p><p>If we want to move away from the fast-fashion economy, then premium quality products have to be the better alternative. That's why at SilverAnt Outdoors, all our products are backed by our lifetime warranty. Choose premium-made titanium outdoor products for your gear bag.</p><p>The other day, I saw another brand’s stainless steel water bottle selling for more than our mid-sized titanium bottle. I thought to myself, it was a no-brainer to opt for the titanium option. Firstly, titanium is better for your health, and secondly, why would you choose a heavy stainless steel bottle?</p><p>Another factor when buying quality titanium outdoor gear is ensuring the company is certified by the industry leaders. At SilverAnt, all our products are certified by the SGS and FDA. We also own our own factory that is ISO:9001 certified. Here we design, produce, and manufacture every product we sell. This is a huge advantage as a company because we can directly control our production and ensure the <a href=\"https://silverantoutdoors.com/collections/customer-recommended-products\" title=\"https://silverantoutdoors.com/collections/customer-recommended-products\">best quality titanium products </a>for you, our customers.</p><h3><strong>Our Team & Service</strong></h3><p>All the team at SilverAnt Outdoors are adventurers or outdoor lovers across a multitude of disciplines. We have a rich understanding of the products we need, and it's this knowledge that helps guide us. We use the gear we make on the weekends while camping, climbing, or trekking. We are always seeking to make or improve our own outdoor experiences. </p><p>When we are in the office, our desks have the water bottles and cups we make. My personal favourite area of the office is the coffee area with the pour-over kettle. What can we say, we are definite fans of what we produce!</p><p>As a company, we care about our customers and their experience with our products. We love the pictures, videos, and all that you capture for us on your adventures. You help us improve with the feedback and suggestions we get in our DM's or email inboxes. </p><p>Below are a few of the reviews and comments we've received.</p>",
+            "text_size": 14,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "richtext_88DgNe"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "full-width",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "image_with_text_overlay_wwBnFP": {
+      "type": "image-with-text-overlay",
+      "name": "t:sections.image--image-with-text-overlay.presets.name",
+      "settings": {
+        "image_desktop": "shopify://shop_images/new-desktop.png",
+        "height_desktop": "original",
+        "text_position_desktop": "center",
+        "text_alignment_desktop": "center",
+        "caption_width_desktop": 50,
+        "image_mobile": "shopify://shop_images/New.png",
+        "height_mobile": "original",
+        "text_position_mobile": "center",
+        "text_alignment_mobile": "center",
+        "section_link": "",
+        "animation_style": "none",
+        "section_width": "full",
+        "section_margin_top": 0,
+        "section_margin_bottom": 0,
+        "text_color": "#ffffff",
+        "caption_bg_color": "rgba(0,0,0,0)",
+        "image_overlay_color": "#242424",
+        "image_overlay_opacity": 0
+      }
+    },
+    "rich_text_mTx8yw": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_WbAnbw": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Finally for the community that have followed us thus far we are super grateful for your support. Have fun out there and stay safe!<br/></p><p>Shaun<br/></p><p>SilverAnt Outdoors </p>",
+            "text_size": 14,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "richtext_WbAnbw"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "full-width",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "colors": "white"
+      }
+    },
+    "video_6djqyi": {
+      "type": "video",
+      "name": "t:all.Video",
+      "settings": {
+        "title": "",
+        "description": "",
+        "url": "https://www.youtube.com/watch?v=7xoOrTYK7IA",
+        "image": "shopify://shop_images/video_thumbnail.jpg",
+        "video_alt_text": "SilverAnt: Why Buy From Us Video",
+        "loop": false,
+        "autoplay": true,
+        "mute": false,
+        "show_controls": false,
+        "width_classes": 100,
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "white",
+        "video_overlay_opacity": 50,
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "newsletter_HLXVtH": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
+      "settings": {
+        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree 🌲",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to planting a tree and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_qkwGij": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_n4LJVm": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our  ISO:9001-2015 certified factory.",
+            "link": ""
+          }
+        },
+        "text_4BcGVy": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "text_m6n9WW": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_n4LJVm",
+        "text_4BcGVy",
+        "text_m6n9WW"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_PYRqB4",
+    "rich_text_ePWgfw",
+    "image_with_text_overlay_wwBnFP",
+    "rich_text_mTx8yw",
+    "video_6djqyi",
+    "newsletter_HLXVtH",
+    "text_adverts_qkwGij"
+  ]
+}

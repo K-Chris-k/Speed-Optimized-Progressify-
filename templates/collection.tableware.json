@@ -10,8 +10,31 @@
 {
   "wrapper": "div.collection-wrapper.wrapper",
   "sections": {
+    "image_with_text_NGUdLA": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SilverAnt_Titanium_Tableware_Collection_Banner.jpg",
+        "layout": "right",
+        "title": "Titanium Tableware",
+        "text": "<p>Quality tableware, whether you are outdoors or at home, is crucial for enjoying quality food and drink. Explore SilverAnt's range of durable titanium tableware for every occasion.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
     "collection-header": {
       "type": "collection-header",
+      "disabled": true,
       "settings": {
         "show_breadcrumbs": true,
         "show_title": true,
@@ -183,6 +206,7 @@
     }
   },
   "order": [
+    "image_with_text_NGUdLA",
     "collection-header",
     "product-grid",
     "accordion_with_image_T3X6ri",

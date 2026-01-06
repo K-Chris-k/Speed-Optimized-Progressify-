@@ -4,7 +4,9 @@
 * {
   font-family: 'Rajdhani', sans-serif !important;
 }
-
+.rte.featured-row__subtext.textarea.text-link-animated.richtext-block p {
+    margin-top: 16px;
+}
 /* Global Drawer Secondary Width */
 .global-drawer--secondary {
   max-width: 400px !important;
@@ -355,4 +357,7 @@ span.money.price--sale-price {
     width: 14px;
     height: 14px;
   }
+  .rte.featured-row__subtext.textarea.text-link-animated.richtext-block p {
+    margin-top: 8px;
+}
 }

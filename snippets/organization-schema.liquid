@@ -1,0 +1,79 @@
+{% comment %}
+  Organization Schema for Home Page
+  Hong Kong SilverAnt Outdoor Products Co., Limited
+{% endcomment %}
+
+{% liquid
+  assign org_name = 'Hong Kong SilverAnt Outdoor Products Co., Limited'
+  assign org_street = 'FLAT/RM 1405A 14/F, THE BELGIAN BANK BUILDING, NOS.720-725 NATHAN ROAD, MONGKOK'
+  assign org_locality = 'Kowloon'
+  assign org_region = 'Hong Kong SAR'
+  assign org_country = 'HK'
+  assign org_postal_code = ''
+  
+  assign shop_logo = settings.logo | default: blank
+  assign logo_url = blank
+  if shop_logo != blank
+    assign logo_url = shop_logo | image_url: width: 600 | prepend: 'https:'
+  endif
+  
+  assign has_social_links = false
+  if settings.sm_facebook_link != blank or settings.sm_instagram_link != blank or settings.sm_x_link != blank or settings.sm_youtube_link != blank or settings.sm_linkedin_link != blank or settings.sm_pinterest_link != blank or settings.sm_tiktok_link != blank
+    assign has_social_links = true
+  endif
+%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ org_name | json }},
+  "url": {{ shop.url | json }},
+  {% if logo_url != blank %}"logo": {{ logo_url | json }},{% endif %}
+  {% if shop.description != blank %}"description": {{ shop.description | json }},{% endif %}
+  {% if shop.email != blank %}"email": {{ shop.email | json }},{% endif %}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ org_street | json }},
+    "addressLocality": {{ org_locality | json }},
+    "addressRegion": {{ org_region | json }},
+    {% if org_postal_code != blank %}"postalCode": {{ org_postal_code | json }},{% endif %}
+    "addressCountry": {{ org_country | json }}
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United States"
+    },
+    {
+      "@type": "Country",
+      "name": "Hong Kong"
+    }
+  ]{% if has_social_links %},
+  "sameAs": [
+    {% assign first_link = true %}
+    {% if settings.sm_facebook_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_facebook_link | json }}{% assign first_link = false %}
+    {% endif %}
+    {% if settings.sm_instagram_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_instagram_link | json }}{% assign first_link = false %}
+    {% endif %}
+    {% if settings.sm_x_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_x_link | json }}{% assign first_link = false %}
+    {% endif %}
+    {% if settings.sm_youtube_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_youtube_link | json }}{% assign first_link = false %}
+    {% endif %}
+    {% if settings.sm_linkedin_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_linkedin_link | json }}{% assign first_link = false %}
+    {% endif %}
+    {% if settings.sm_pinterest_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_pinterest_link | json }}{% assign first_link = false %}
+    {% endif %}
+    {% if settings.sm_tiktok_link != blank %}
+      {% unless first_link %},{% endunless %}{{ settings.sm_tiktok_link | json }}{% assign first_link = false %}
+    {% endif %}
+  ]{% endif %}
+}
+</script>
+

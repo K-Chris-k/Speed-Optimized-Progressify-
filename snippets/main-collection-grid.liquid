@@ -119,6 +119,50 @@
       </div>
     </div>
     {{ paginate_style }}
+    {% if collection.all_products_count > 0 %}
+      {% assign carousel_schema_limit = 12 %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": {{ collection.title | json }},
+          "url": {{ collection.url | json }},
+          "numberOfItems": {{ collection.all_products_count | json }},
+          "itemListOrder": "https://schema.org/ItemListUnordered",
+          "itemListElement": [
+            {% for product in collection.products limit: carousel_schema_limit %}
+              {% assign featured_image = '' %}
+              {% if product.featured_image %}
+                {% assign featured_image = product.featured_image | image_url: width: 800 | prepend: 'https:' %}
+              {% endif %}
+              {% assign variant = product.selected_or_first_available_variant %}
+              {
+                "@type": "ListItem",
+                "position": {{ forloop.index }},
+                "item": {
+                  "@type": "Product",
+                  "name": {{ product.title | json }},
+                  "url": {{ product.url | within: collection | json }},
+                  {% if featured_image != blank %}
+                  "image": {{ featured_image | json }},
+                  {% endif %}
+                  "brand": {
+                    "@type": "Brand",
+                    "name": {{ product.vendor | default: shop.name | json }}
+                  },
+                  "offers": {
+                    "@type": "Offer",
+                    "price": {{ variant.price | divided_by: 100.0 | json }},
+                    "priceCurrency": {{ cart.currency.iso_code | default: shop.currency | json }},
+                    "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}"
+                  }
+                }
+              }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]
+        }
+      </script>
+    {% endif %}
   </div>
 
 {% endpaginate %}

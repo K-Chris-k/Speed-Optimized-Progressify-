@@ -10,8 +10,31 @@
 {
   "wrapper": "div.collection-wrapper.wrapper",
   "sections": {
+    "image_with_text_hdWnPp": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SilverAnt_Titanium_Water_Bottle_Collection_Banner.jpg",
+        "layout": "right",
+        "title": "Titanium Water Bottles",
+        "text": "<p>The SilverAnt Outdoors water bottle collection features all our titanium water bottles. Choose from a variety of sizes and designs ranging from 400ml/13.52 fl oz to 1500ml/52.79 fl oz. All of our titanium water bottles have been rigorously tested in the outdoors. Stay hydrated wherever your adventure takes you.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
     "collection-header": {
       "type": "collection-header",
+      "disabled": true,
       "settings": {
         "show_breadcrumbs": true,
         "show_title": true,
@@ -183,6 +206,7 @@
     }
   },
   "order": [
+    "image_with_text_hdWnPp",
     "collection-header",
     "product-grid",
     "accordion_with_image_T3X6ri",

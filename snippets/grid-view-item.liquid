@@ -104,7 +104,7 @@
   data-product-available="{{ product.available }}"
   data-product-variants-size="{{ product.variants.size }}"
   data-product-id="{{ product.variants.first.id }}"
-  data-product-url="{{ product.url | within: collection }}"
+  data-product-url="{{ product.url }}"
   data-grid-count-desktop="{{ grid_count_desktop }}"
   data-grid-count-mobile="{{ grid_count_mobile }}"
   data-current_variant="{{ product.selected_or_first_available_variant | json | escape }}"
@@ -159,7 +159,7 @@
         endif
       -%}
 
-      <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="grid__image grid__image__match {% if settings.product-grid == 'natural' %} image-height--natural{% endif %}" tabindex="-1" data-product-card-link>
+      <a href="{{ product.url }}" title="{{ product.title }}" class="grid__image grid__image__match {% if settings.product-grid == 'natural' %} image-height--natural{% endif %}" tabindex="-1" data-product-card-link>
         {% if image_crop %}<div class="aspect-ratio {{ image_crop }}">{% endif %}
           {% if product.media.size > 0 %}
             {% assign image = product.featured_media %}
@@ -222,11 +222,11 @@
                 {% endform %}
               {% else %}
                 {% if quick_shop_desktop_enabled %}
-                  <a aria-label="{{ product.title }} - {{ 'products.product.sold_out' | t }}" class="btn sold-out-button sold-out-button-desktop disabled" tabindex="0" href="{{ product.url | within: collection }}">{{ 'products.product.sold_out' | t }}</a>
+                  <a aria-label="{{ product.title }} - {{ 'products.product.sold_out' | t }}" class="btn sold-out-button sold-out-button-desktop disabled" tabindex="0" href="{{ product.url }}">{{ 'products.product.sold_out' | t }}</a>
                 {% endif %}
 
                 {% if quick_shop_mobile_enabled %}
-                  <a aria-label="{{ product.title }} - {{ 'products.product.sold_out' | t }}" class="sold-out-button sold-out-button-mobile icon-btn-focus-inner-muted" tabindex="0" href="{{ product.url | within: collection }}"><span class="round-icon-btn-sm">{% render 'theme-icon' with icon: 'shopping-bag', iconClasses: 'quick-view-mobile-icon', iconSize: 16 %}</span></a>
+                  <a aria-label="{{ product.title }} - {{ 'products.product.sold_out' | t }}" class="sold-out-button sold-out-button-mobile icon-btn-focus-inner-muted" tabindex="0" href="{{ product.url }}"><span class="round-icon-btn-sm">{% render 'theme-icon' with icon: 'shopping-bag', iconClasses: 'quick-view-mobile-icon', iconSize: 16 %}</span></a>
                 {% endif %}
               {% endif %}
             </div>
@@ -242,7 +242,7 @@
 
     {% if settings.show_product_card_title %}
       <div class="product-grid--title {{ title_font }}">
-        <a{% unless settings.product_card_text_alignment == 'right' %} class="text-truncate--line"{% endunless %} href="{{ product.url | within: collection }}" data-product-card-link>{% if settings.product_card_max_lines > 0 and settings.product_card_text_alignment == 'right' %}{{ product.title | truncate: truncate_value }}{% else %}{{ product.title }}{% endif %}</a>
+        <a{% unless settings.product_card_text_alignment == 'right' %} class="text-truncate--line"{% endunless %} href="{{ product.url }}" data-product-card-link>{% if settings.product_card_max_lines > 0 and settings.product_card_text_alignment == 'right' %}{{ product.title | truncate: truncate_value }}{% else %}{{ product.title }}{% endif %}</a>
       </div>
     {% endif %}
 
@@ -303,7 +303,7 @@
             <div aria-live="polite" class="sr-only">{{ live_region_text }}</div>
           {% endform %}
         {% else %}
-          <a class="{{ button_classes }} sold-out-button sold-out-button-desktop disabled" tabindex="-1" href="{{ product.url | within: collection }}">{{ 'products.product.sold_out' | t }}</a>
+          <a class="{{ button_classes }} sold-out-button sold-out-button-desktop disabled" tabindex="-1" href="{{ product.url  }}">{{ 'products.product.sold_out' | t }}</a>
         {% endif %}
       </div>
     {% endif %}

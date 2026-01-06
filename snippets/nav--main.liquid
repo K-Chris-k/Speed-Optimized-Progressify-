@@ -47,7 +47,7 @@
                         <ul class="menu-link">
                            {% for sub_link in link.links %}
                               <li data-handle="{{sub_link.handle}}" class="nav-sub-menu">
-                                  <a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a>
+                                  <a href="{{ sub_link.url }}" rel="nofollow">{{ sub_link.title | escape }}</a>
                                   <div class="mobile-nav__togglenew">
                                     <button type="button" class="icon-fallback-text mobile-nav__toggle-open" aria-label="See more">
                                       <i class="icon-arrow-right" aria-hidden="true"></i>

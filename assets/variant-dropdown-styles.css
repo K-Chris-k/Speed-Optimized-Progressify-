@@ -9,7 +9,7 @@
 /* 确保swatch active状态正确显示 */
 .swatch-element.active {
   border-color: var(--color-accent, #000) !important;
-  box-shadow: 0 0 0 1px var(--color-accent, #000);
+  /* box-shadow: 0 0 0 1px var(--color-accent, #000); */
 }
 
 /* 禁用状态的按钮样式 */

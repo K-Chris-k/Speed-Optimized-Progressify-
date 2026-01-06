@@ -9,66 +9,347 @@
  */
 {
   "sections": {
-    "image_with_text_overlay_83nUPH": {
-      "type": "image-with-text-overlay",
+    "image_with_text_6HWdAh": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/page_banner.png",
+        "layout": "right",
+        "title": "MAKE IT YOUR OWN",
+        "text": "<p>Personalize your SilverAnt Titanium Gear with nature-inspired patterns, text, monogram, or image that are built to last and won't fade with washing.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "rich_text_HjncAU": {
+      "type": "rich-text",
       "blocks": {
-        "heading_8dFQUx": {
+        "heading_zYAmFc": {
           "type": "heading",
           "settings": {
-            "title": "Image with text overlay",
-            "font_size_desktop": 28,
-            "font_size_mobile": 28,
-            "heading_bottom_spacing": 25
+            "heading": "Carry a piece of your character wherever your journey takes you",
+            "heading--text-size": 30,
+            "heading_bottom_spacing": 20
           }
         },
-        "text_6K6BQQ": {
-          "type": "text",
+        "richtext_wwAPJC": {
+          "type": "richtext",
           "settings": {
-            "text": "<p>Add an image paired with text to give focus to your chosen product, collection, or blog post.</p>",
-            "font_size_desktop": 16,
-            "font_size_mobile": 16,
+            "text": "<p>All SilverAnt gear is designed for a lifetime of adventures and is easily customizable. Their lightweight, durable, and health-conscious features make them dependable tools for personal use, ideal gifts, or promotional items for your employees and corporate events.</p><p>Whether it's hip flasks, water bottles, cups, or even a portable cutlery set, the options are limitless.</p>",
+            "text_size": 14,
             "text_bottom_spacing": 20
           }
         }
       },
       "block_order": [
-        "heading_8dFQUx",
-        "text_6K6BQQ"
+        "heading_zYAmFc",
+        "richtext_wwAPJC"
       ],
-      "disabled": true,
-      "name": "t:sections.image--image-with-text-overlay.presets.name",
+      "name": "t:sections.text--rich-text.presets.name",
       "settings": {
-        "height_desktop": "original",
-        "text_position_desktop": "center",
+        "section_width": "narrow",
         "text_alignment_desktop": "center",
-        "caption_width_desktop": 50,
-        "height_mobile": "original",
-        "text_position_mobile": "center",
         "text_alignment_mobile": "center",
-        "section_link": "",
-        "animation_style": "none",
-        "section_width": "full",
-        "section_margin_top": 0,
-        "section_margin_bottom": 0,
-        "text_color": "#ffffff",
-        "caption_bg_color": "rgba(0,0,0,0)",
-        "image_overlay_color": "#242424",
-        "image_overlay_opacity": 0
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_LwJ9yw": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_JCQkcw": {
+          "type": "text",
+          "settings": {
+            "heading": "Laser Engraving",
+            "subheading": "Artwork is laser engraved onto your gear, and the available color for designs is limited to black.",
+            "link": ""
+          }
+        },
+        "text_GXpBtD": {
+          "type": "text",
+          "settings": {
+            "heading": "Customization Fee",
+            "subheading": "Customizing one side costs $10 USD, while customizing both sides starts at $8 per side.",
+            "link": ""
+          }
+        },
+        "text_NVWQk4": {
+          "type": "text",
+          "settings": {
+            "heading": "Return Policy",
+            "subheading": "Please note that customized products cannot be resold, and once the customization is complete, they cannot be returned or refunded.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_JCQkcw",
+        "text_GXpBtD",
+        "text_NVWQk4"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "dark"
+      }
+    },
+    "rich_text_CRddb7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LpyNc6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gallery of Personalization",
+            "heading--text-size": 30,
+            "heading_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_LpyNc6"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "narrow",
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "section_padding_top": 60,
+        "section_padding_bottom": 0,
+        "colors": "white"
+      }
+    },
+    "gallery_7MjEHH": {
+      "type": "gallery",
+      "blocks": {
+        "image_wT8DjW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1-1_a7743a42-5657-4e97-8dbb-426587216300.jpg",
+            "link": "https://www.instagram.com/p/CynkBzTP8AQ/?hl=en",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "",
+            "override_button_colors": false,
+            "button_background_color": "#e68819",
+            "button_text_color": "#ffffff",
+            "show-gradient-overlay": false,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#242424"
+          }
+        },
+        "image_HXVgN8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WechatIMG3311.jpg",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "",
+            "override_button_colors": false,
+            "button_background_color": "#e68819",
+            "button_text_color": "#ffffff",
+            "show-gradient-overlay": false,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#242424"
+          }
+        },
+        "image_bXt3ba": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4_d2955419-7a7b-4a28-a6e5-a277c4fcf23c.png",
+            "link": "",
+            "subheading": "",
+            "title": "",
+            "overlay-btn-text": "",
+            "override_button_colors": false,
+            "button_background_color": "#e68819",
+            "button_text_color": "#ffffff",
+            "show-gradient-overlay": false,
+            "overlay_font_color": "#ffffff",
+            "overlay_color": "#242424"
+          }
+        }
+      },
+      "block_order": [
+        "image_wT8DjW",
+        "image_HXVgN8",
+        "image_bXt3ba"
+      ],
+      "name": "t:sections.image--gallery.presets.name",
+      "settings": {
+        "title": "",
+        "description": "",
+        "content-position": "overlay",
+        "full-width": false,
+        "grid_image_size": "natural",
+        "buttons_style": "filled",
+        "section-width": "content",
+        "section_padding_top": 50,
+        "section_padding_bottom": 60,
+        "remove-spacing": false,
+        "colors": "white"
       }
     },
     "main": {
       "type": "template--page",
+      "disabled": true,
       "settings": {
         "page_title_enabled": false,
         "page_width": "narrow"
+      }
+    },
+    "template_product_info_columns_kfFEq7": {
+      "type": "template--product--info-columns",
+      "blocks": {
+        "image_and_text_HkTKq4": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/2-1_8d6a0c38-8ecb-40a1-9d87-fad438be1de2.jpg",
+            "grid_image_size": "square",
+            "heading": "",
+            "text": "<p>Visit the customization form provided below to share your requirements.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_BBUcHB": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/2-2.jpg",
+            "grid_image_size": "square",
+            "heading": "",
+            "text": "<p>We check your artwork's feasibility and let you know if we can proceed</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_8NiFrw": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/2-3.jpg",
+            "grid_image_size": "square",
+            "heading": "",
+            "text": "<p>We create a custom order for you and you can proceed with the payment</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_ezQ3Fj": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/2-4.jpg",
+            "grid_image_size": "square",
+            "heading": "",
+            "text": "<p>We personalize your item & arrange delivery</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_HkTKq4",
+        "image_and_text_BBUcHB",
+        "image_and_text_8NiFrw",
+        "image_and_text_ezQ3Fj"
+      ],
+      "name": "t:sections.template--product--info-columns.presets.name",
+      "settings": {
+        "title": "HOW IT WORKS",
+        "description": "",
+        "maximum_width": 250,
+        "override_border_radius": false,
+        "buttons_style": "underlined",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "hover_navigation_desktop": "none",
+        "columns_per_row": 4,
+        "vertical_alignment": "top",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_width": "full",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "dark"
+      }
+    },
+    "text_adverts_dyfYNc": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_rgyR9C": {
+          "type": "text",
+          "settings": {
+            "heading": "MINIMUM ORDER",
+            "subheading": "A minimum order consists of just one product per item.",
+            "link": ""
+          }
+        },
+        "text_rXjNCg": {
+          "type": "text",
+          "settings": {
+            "heading": "CUSTOMIZATION TIME",
+            "subheading": "1 to 10 items: 1 day, 11 to 30 items: 2 days,Over 30 items: 3 or more days",
+            "link": ""
+          }
+        },
+        "text_jYDxYz": {
+          "type": "text",
+          "settings": {
+            "heading": "SHIPPING",
+            "subheading": "All personalized orders are shipped globally, with an estimated delivery time of around 8 to 12 days.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_rgyR9C",
+        "text_rXjNCg",
+        "text_jYDxYz"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "dark"
+      }
+    },
+    "176241204468df3b3a": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_d4EQTz": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MjA2NTU\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_d4EQTz"
+      ],
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "include_margins": true
       }
     },
     "newsletter_g73kAp": {
       "type": "newsletter",
       "name": "t:all.Newsletter",
       "settings": {
-        "newsletter_heading": "Join our Mailing List",
-        "newsletter_description": "",
+        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree 🌲",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to planting a tree and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
         "textAlignment": "left",
         "section_padding_top": 60,
         "section_padding_bottom": 60,
@@ -81,24 +362,24 @@
         "text_LtCCPR": {
           "type": "text",
           "settings": {
-            "heading": "What makes you different",
-            "subheading": "Shout about your unique selling points",
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our  ISO:9001-2015 certified factory.",
             "link": ""
           }
         },
         "text_TE7p6A": {
           "type": "text",
           "settings": {
-            "heading": "What makes you different",
-            "subheading": "Shout about your unique selling points",
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
             "link": ""
           }
         },
         "text_khaTTN": {
           "type": "text",
           "settings": {
-            "heading": "What makes you different",
-            "subheading": "Shout about your unique selling points",
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
             "link": ""
           }
         }
@@ -117,8 +398,15 @@
     }
   },
   "order": [
-    "image_with_text_overlay_83nUPH",
+    "image_with_text_6HWdAh",
+    "rich_text_HjncAU",
+    "text_adverts_LwJ9yw",
+    "rich_text_CRddb7",
+    "gallery_7MjEHH",
     "main",
+    "template_product_info_columns_kfFEq7",
+    "text_adverts_dyfYNc",
+    "176241204468df3b3a",
     "newsletter_g73kAp",
     "text_adverts_DpGKYz"
   ]

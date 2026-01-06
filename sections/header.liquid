@@ -234,7 +234,7 @@ Testing Cypress integration
           {% if link.links != blank %}
             <li class="mobile-nav__item top-level{% if link.active %} mobile-nav__item--active{% endif %}{% if is-mega-menu %} mega-menu--mobile{% endif %}" aria-haspopup="true">
               <div class="mobile-nav__has-sublist">
-                <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+                <a href="{{ link.url }}" rel="nofollow" class="mobile-nav__link">{{ link.title }}</a>
                 <div class="mobile-nav__toggle">
                   <button type="button" class="icon-fallback-text mobile-nav__toggle-open standalone-icon--wrapper touch-target icon-no-padding" aria-label="{{ 'cart.general.see_more' | t }}">
                     {% render 'theme-icon', icon: 'chevron_down', iconSize: 16, iconAttributes: 'aria-hidden="true"' %}
@@ -249,7 +249,7 @@ Testing Cypress integration
                   {% if sub_link.levels > 0 %}
                     <li class="mobile-nav__item {% if sub_link.active %} mobile-nav__item--active{% endif %}">
                       <div class="mobile-nav__has-sublist">
-                        <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title | escape }}</a>
+                        <a href="{{ sub_link.url }}" rel="nofollow" class="mobile-nav__link">{{ sub_link.title | escape }}</a>
                         <div class="mobile-nav__toggle">
                           <button type="button" class="icon-fallback-text mobile-nav__toggle-open standalone-icon--wrapper touch-target icon-no-padding" name="{{ 'cart.general.see_more' | t }}">
                             {% render 'theme-icon', icon: 'chevron_down', iconSize: 16, iconAttributes: 'aria-hidden="true"' %}
@@ -264,14 +264,14 @@ Testing Cypress integration
                       <ul class="mobile-nav__sublist">
                         {% for sub_sub_link in sub_link.links %}
                           <li class="mobile-nav__item">
-                            <a href="{{ sub_sub_link.url }}" class="mobile-nav__link">{{ sub_sub_link.title | escape }}</a>
+                            <a href="{{ sub_sub_link.url }}" rel="nofollow" class="mobile-nav__link">{{ sub_sub_link.title | escape }}</a>
                           </li>
                         {% endfor %}
                       </ul>
                     </li>
                   {% else %}
                     <li class="mobile-nav__item{% if sub_link.active %} mobile-nav__item--active{% endif %}">
-                      <a href="{{ sub_link.url }}" class="mobile-nav__link">{{ sub_link.title | escape }}</a>
+                      <a href="{{ sub_link.url }}" rel="nofollow" class="mobile-nav__link">{{ sub_link.title | escape }}</a>
                     </li>
                   {% endif %}
                 {% endfor %}
@@ -359,7 +359,7 @@ Testing Cypress integration
             <li class="mobile-nav__item top-level{% if link.active %} mobile-nav__item--active{% endif %}{% if is-mega-menu %} mega-menu--mobile no-links{% endif %}">
               {% if is-mega-menu %}
                 <div class="mobile-nav__has-sublist">
-                  <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+                  <a href="{{ link.url }}" rel="nofollow" class="mobile-nav__link">{{ link.title }}</a>
                   <div class="mobile-nav__toggle">
                     <button type="button" class="icon-fallback-text mobile-nav__toggle-open standalone-icon--wrapper touch-target icon-no-padding" aria-label="{{ 'cart.general.see_more' | t }}">
                       {% render 'theme-icon', icon: 'chevron_down', iconSize: 16, iconAttributes: 'aria-hidden="true"' %}
@@ -538,7 +538,7 @@ Testing Cypress integration
                   </ul>
                 </ul>
               {% else %}
-                <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+                <a href="{{ link.url }}" rel="nofollow" class="mobile-nav__link">{{ link.title }}</a>
               {% endif %}
             </li>
           {% endif %}
@@ -774,16 +774,16 @@ Testing Cypress integration
     <div class="site-header__logowrapper">
 
       {% if template == 'index' %}
-        <h1 class="site-header__logo site-title" itemscope itemtype="http://schema.org/Organization">
+        <div class="site-header__logo site-title">
       {% else %}
-        <div class="header-font site-header__logo site-title" itemscope itemtype="http://schema.org/Organization">
+        <div class="header-font site-header__logo site-title">
       {% endif %}
 
         {{ logo }}
         {{ overlay_logo }}
 
       {% if template == 'index' %}
-        </h1>
+      </div>
       {% else %}
         </div>
       {% endif %}

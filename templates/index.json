@@ -12,8 +12,35 @@
     "slideshow_RRiMqQ": {
       "type": "slideshow",
       "blocks": {
+        "image_k9Y3kC": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "text": "",
+            "first_button_link": "",
+            "first_button_label": "",
+            "second_button_link": "",
+            "second_button_label": "",
+            "buttons_style": "filled",
+            "override_button_colors": false,
+            "button-background": "#e68819",
+            "button-text": "#ffffff",
+            "image": "shopify://shop_images/Titanium_Mess_Tin_Banner_desktop_banner_1600x900px_4.jpg",
+            "text_position": "center_left",
+            "desktop-caption-heading-size": 60,
+            "desktop-caption-body-text-size": 24,
+            "mobile_image": "shopify://shop_images/Titanium_Mess_Tin_Banner_Mobile_banner_600x900px.jpg",
+            "mobile_text_position": "center_left",
+            "mobile-caption-heading-size": 36,
+            "mobile-caption-body-text-size": 16,
+            "caption-text": "#ffffff",
+            "image_overlay": "#242424",
+            "image_overlay_opacity": 0
+          }
+        },
         "image_wKxkGC": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "title": "",
             "text": "",
@@ -40,6 +67,7 @@
         },
         "image_jwL8kp": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "title": "",
             "text": "",
@@ -51,11 +79,11 @@
             "override_button_colors": false,
             "button-background": "#e68819",
             "button-text": "#ffffff",
-            "image": "shopify://shop_images/Peyman_Desktop_Banner_1600x900px_1.jpg",
+            "image": "shopify://shop_images/Peyman_Desktop_Banner_1600x900px_3a70e94a-fae1-47c1-b7e7-16efc99d3b1b.jpg",
             "text_position": "bottom",
             "desktop-caption-heading-size": 60,
             "desktop-caption-body-text-size": 24,
-            "mobile_image": "shopify://shop_images/Peyman_nomadstrails_mobile_banner.jpg",
+            "mobile_image": "shopify://shop_images/Peyman_Desktop_Banner_600x900px_1.jpg",
             "mobile_text_position": "bottom",
             "mobile-caption-heading-size": 36,
             "mobile-caption-body-text-size": 16,
@@ -66,6 +94,7 @@
         },
         "image_gN4nXJ": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "title": "",
             "text": "",
@@ -92,6 +121,7 @@
         },
         "image_hMPk8m": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "title": "",
             "text": "",
@@ -118,6 +148,7 @@
         }
       },
       "block_order": [
+        "image_k9Y3kC",
         "image_wKxkGC",
         "image_jwL8kp",
         "image_gN4nXJ",
@@ -188,6 +219,33 @@
         "color_scheme": "dark"
       }
     },
+    "custom_h1_title_fKHXMB": {
+      "type": "custom-h1-title",
+      "name": "Custom H1 Title",
+      "settings": {
+        "title_text": "SilverAnt Outdoors Ultralight Titanium Gear for Backpacking, Camping & Hiking",
+        "text_size": "text-size-xl",
+        "font_weight": "bold",
+        "text_transform": "",
+        "letter_spacing": 0.5,
+        "text_color": "#333333",
+        "max_width": 900,
+        "subtitle_text": "Premium ultralight titanium outdoor gear crafted to help you pack lighter, travel further, and enjoy every moment outdoors.",
+        "subtitle_size": "subtitle-size-md",
+        "subtitle_color": "#666666",
+        "show_decorative_line": true,
+        "decorative_position": "below",
+        "decorative_color": "#333333",
+        "add_emoji_before": "",
+        "add_emoji_after": "",
+        "text_alignment": "text-align-center",
+        "color_scheme": "default",
+        "enable_animation": false,
+        "animation_delay": 0,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "3643d38b-24f2-4040-ab67-4b4b44a63aab": {
       "type": "featured-collection",
       "settings": {
@@ -214,10 +272,10 @@
       "settings": {
         "title": "",
         "description": "",
-        "custom_liquid": "<!-- Google Font Link (if not already loaded elsewhere) -->\n<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;display=swap\" rel=\"stylesheet\">\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: px 10px 10px;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n    Trusted by Real Adventurers Everywhere\n  </h2>\n</div>\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: 5px 10px 10px;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n  </h2>\n</div>\n<style>\n  .ugc-auto-scroll {\n    width: 100vw;\n    position: relative;\n    left: 50%;\n    right: 50%;\n    margin-left: -50vw;\n    margin-right: -50vw;\n    background: #fafafa;\n    overflow: hidden;\n    padding: 0;\n  }\n\n  .ugc-track {\n    display: flex;\n    animation: scroll 30s linear infinite;\n    width: max-content;\n  }\n\n  .ugc-track img {\n    flex: 0 0 auto;\n    width: 260px;\n    height: 260px;\n    object-fit: cover;\n    border-radius: 6px;\n    margin-right: 4px;\n    transition: transform 0.3s ease;\n  }\n\n  .ugc-track img:hover {\n    transform: scale(1.05);\n  }\n\n  @keyframes scroll {\n    0% { transform: translateX(0); }\n    100% { transform: translateX(-50%); }\n  }\n</style>\n\n<div class=\"ugc-auto-scroll\">\n  <div class=\"ugc-track\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n\n    <!-- Duplicate Loop for Seamless Scroll -->\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n  </div>\n</div>\n<p style=\"text-align: center; font-size: 12px; color: #999; margin-top: px;\">\n  Real customers. Real gear. Real adventures.\n</p>",
+        "custom_liquid": "<!-- Google Font Link (if not already loaded elsewhere) -->\n<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;display=swap\" rel=\"stylesheet\">\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: px 10px 10px;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n    Trusted by Real Adventurers Everywhere\n  </h2>\n</div>\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: 5px 10px 10px;\">\n  <span style=\"font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n  </span>\n</div>\n<style>\n  .ugc-auto-scroll {\n    width: 100vw;\n    position: relative;\n    left: 50%;\n    right: 50%;\n    margin-left: -50vw;\n    margin-right: -50vw;\n    background: #fafafa;\n    overflow: hidden;\n    padding: 0;\n  }\n\n  .ugc-track {\n    display: flex;\n    animation: scroll 30s linear infinite;\n    width: max-content;\n  }\n\n  .ugc-track img {\n    flex: 0 0 auto;\n    width: 260px;\n    height: 260px;\n    object-fit: cover;\n    border-radius: 6px;\n    margin-right: 4px;\n    transition: transform 0.3s ease;\n  }\n\n  .ugc-track img:hover {\n    transform: scale(1.05);\n  }\n\n  @keyframes scroll {\n    0% { transform: translateX(0); }\n    100% { transform: translateX(-50%); }\n  }\n</style>\n\n<div class=\"ugc-auto-scroll\">\n  <div class=\"ugc-track\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n\n    <!-- Duplicate Loop for Seamless Scroll -->\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n  </div>\n</div>\n<p style=\"text-align: center; font-size: 12px; color: #999; margin-top: px;\">\n  Real customers. Real gear. Real adventures.\n</p>",
         "section_width": "content",
         "section_padding_top": 60,
-        "section_padding_bottom": 60,
+        "section_padding_bottom": 0,
         "colors": "white"
       }
     },
@@ -273,7 +331,7 @@
         "description": "",
         "width": 180,
         "override_border_radius": false,
-        "section_padding_top": 60,
+        "section_padding_top": 25,
         "section_padding_bottom": 60,
         "colors": "white"
       }
@@ -332,8 +390,8 @@
         "richtext_L3VXJB": {
           "type": "richtext",
           "settings": {
-            "text": "<p>For the past 2.5 years, SilverAnt Outdoors has partnered with Greenspark. For every single purchase you make, we plant 3 trees, sequester 5kg of Carbon, and rescue 3 plastic bottles from the ocean. As an outdoor company, it is essentialthat  we move towards sustainability and protect nature. </p>",
-            "text_size": 14,
+            "text": "<p>For the past 2.5 years, SilverAnt Outdoors has partnered with Greenspark. For every single purchase you make, we plant 1 tree 🌲, sequester 5kg of 🌎 Carbon, and rescue 3 plastic bottles from the 🌊 ocean. As an outdoor company, it is essential that we move towards sustainability and protect nature. </p>",
+            "text_size": 16,
             "text_bottom_spacing": 20
           }
         },
@@ -479,56 +537,6 @@
         "colors": "white"
       }
     },
-    "animated_text_7iAapy": {
-      "type": "animated-text",
-      "blocks": {
-        "text_static_cGbTTY": {
-          "type": "text_static",
-          "settings": {
-            "text_static": "<p>Mission:</p>",
-            "max_width_desktop": 100,
-            "max_width_mobile": 100,
-            "text_color": "rgba(0,0,0,0)"
-          }
-        },
-        "text_static_YAtFF6": {
-          "type": "text_static",
-          "settings": {
-            "text_static": "<p>To Create the Best Titanium Gear that will last a Lifetime of Adventures. Pack Lighter. Go Farther</p>",
-            "max_width_desktop": 100,
-            "max_width_mobile": 100,
-            "text_color": "rgba(0,0,0,0)"
-          }
-        },
-        "text_dynamic_qpiVK9": {
-          "type": "text_dynamic",
-          "settings": {
-            "text_dynamic": "Water Bottles,Cookware,Cutlery & Utensils,Hip Flasks,Cups & Mugs,Coffee, Stoves",
-            "animation_timing": 500,
-            "rotation_interval": 3000,
-            "text_color": "rgba(0,0,0,0)"
-          }
-        }
-      },
-      "block_order": [
-        "text_static_cGbTTY",
-        "text_static_YAtFF6",
-        "text_dynamic_qpiVK9"
-      ],
-      "name": "t:sections.animated-text.presets.name",
-      "settings": {
-        "height_desktop": "s",
-        "text_position_desktop": "left",
-        "text_size_desktop": 60,
-        "height_mobile": "s",
-        "text_position_mobile": "left",
-        "text_size_mobile": 22,
-        "section_width": "full",
-        "section_margin_top": 0,
-        "section_margin_bottom": 0,
-        "colors": "accent"
-      }
-    },
     "image_with_text_overlay_i9dVtw": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -613,12 +621,98 @@
         "section_link": "",
         "animation_style": "parallax",
         "section_width": "full",
-        "section_margin_top": 15,
-        "section_margin_bottom": 15,
+        "section_margin_top": 60,
+        "section_margin_bottom": 0,
         "text_color": "#000000",
         "caption_bg_color": "rgba(0,0,0,0)",
         "image_overlay_color": "#ffffff",
         "image_overlay_opacity": 0
+      }
+    },
+    "animated_text_7iAapy": {
+      "type": "animated-text",
+      "blocks": {
+        "text_static_cGbTTY": {
+          "type": "text_static",
+          "settings": {
+            "text_static": "<p>Mission:</p>",
+            "max_width_desktop": 100,
+            "max_width_mobile": 100,
+            "text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "text_static_YAtFF6": {
+          "type": "text_static",
+          "settings": {
+            "text_static": "<p>To Create the Best Titanium Gear that will last a Lifetime of Adventures. Pack Lighter. Go Farther</p>",
+            "max_width_desktop": 100,
+            "max_width_mobile": 100,
+            "text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "text_dynamic_qpiVK9": {
+          "type": "text_dynamic",
+          "settings": {
+            "text_dynamic": "Water Bottles,Cookware,Cutlery & Utensils,Hip Flasks,Cups & Mugs,Coffee, Stoves",
+            "animation_timing": 500,
+            "rotation_interval": 3000,
+            "text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "text_static_cGbTTY",
+        "text_static_YAtFF6",
+        "text_dynamic_qpiVK9"
+      ],
+      "name": "t:sections.animated-text.presets.name",
+      "settings": {
+        "height_desktop": "s",
+        "text_position_desktop": "left",
+        "text_size_desktop": 60,
+        "height_mobile": "s",
+        "text_position_mobile": "left",
+        "text_size_mobile": 22,
+        "section_width": "full",
+        "section_margin_top": 0,
+        "section_margin_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "176249420496cbb239": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_medals_3MerCB": {
+          "type": "shopify://apps/judge-me-reviews/blocks/medals/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_medals_3MerCB"
+      ],
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "include_margins": true
+      }
+    },
+    "17624941772dcef485": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_DP8ipy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_DP8ipy"
+      ],
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "include_margins": true
       }
     },
     "3c4d9433-fe83-4e4a-afa6-63c348fea245": {
@@ -632,7 +726,7 @@
         "button_text_color": "#ffffff",
         "show_view_all": false,
         "buttons_style": "filled",
-        "section_padding_top": 0,
+        "section_padding_top": 60,
         "section_padding_bottom": 60,
         "layout_style": "slider",
         "products_to_show": 8,
@@ -857,6 +951,7 @@
   "order": [
     "slideshow_RRiMqQ",
     "scrolling_banner_N3X38k",
+    "custom_h1_title_fKHXMB",
     "3643d38b-24f2-4040-ab67-4b4b44a63aab",
     "custom_liquid_dyqHy9",
     "logo_list_UdPtm8",
@@ -865,8 +960,10 @@
     "17556983917e1a285c",
     "06b36118-35e6-4312-b5b2-099a0ddc5aa6",
     "image_with_text_QejenY",
-    "animated_text_7iAapy",
     "image_with_text_overlay_i9dVtw",
+    "animated_text_7iAapy",
+    "176249420496cbb239",
+    "17624941772dcef485",
     "3c4d9433-fe83-4e4a-afa6-63c348fea245",
     "8e9e36da-191e-4c8c-ba3a-8a307b84bae9",
     "12a25ae5-a869-4fec-9751-deb411052883",

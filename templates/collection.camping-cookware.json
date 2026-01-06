@@ -10,8 +10,31 @@
 {
   "wrapper": "div.collection-wrapper.wrapper",
   "sections": {
+    "image_with_text_8UTxj6": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Camping_Cookware_SilverAnt_Titanium_Mess_Tin.jpg",
+        "layout": "right",
+        "title": "Titanium Camping Cookware",
+        "text": "<p>The SilverAnt Outdoors versatile titanium camping cookware collection features all our cooking products, which were designed and rigorously tested outdoors. Built ultralight and strong for whatever the environment might throw at you. Get cooking.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
     "collection-header": {
       "type": "collection-header",
+      "disabled": true,
       "settings": {
         "show_breadcrumbs": true,
         "show_title": true,
@@ -183,6 +206,7 @@
     }
   },
   "order": [
+    "image_with_text_8UTxj6",
     "collection-header",
     "product-grid",
     "accordion_with_image_T3X6ri",

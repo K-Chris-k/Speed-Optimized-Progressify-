@@ -33,19 +33,19 @@
   <div class="label-font">{{ settings.social_sharing_title }}</div>
 
   {% if settings.share_facebook %}
-  <a class="standalone-icon--wrapper" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+  <a class="standalone-icon--wrapper" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" target="_blank" rel="noopener nofollow" aria-label="Share on Facebook">
     {% render 'theme-icon' with icon: 'facebook' %}
   </a>
   {% endif %}
 
   {% if settings.share_x %}
-  <a class="standalone-icon--wrapper" href="//x.com/share?url={{ permalinkURL }}&amp;text={{ shareTitle | escape }}" target="_blank" rel="noopener" aria-label="Share on X">
+  <a class="standalone-icon--wrapper" href="//x.com/share?url={{ permalinkURL }}&amp;text={{ shareTitle | escape }}" target="_blank" rel="noopener nofollow" aria-label="Share on X">
     {% render 'theme-icon' with icon: 'x' %}
   </a>
   {% endif %}
 
   {% if settings.share_pinterest and shareImage %}
-  <a class="standalone-icon--wrapper" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ shareImage | escape }}&amp;description={{ product.title | escape }}" target="_blank" rel="noopener" aria-label="Share on Pinterest">
+  <a class="standalone-icon--wrapper" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ shareImage | escape }}&amp;description={{ product.title | escape }}" target="_blank" rel="noopener nofollow" aria-label="Share on Pinterest">
     {% render 'theme-icon' with icon: 'pinterest' %}
   </a>
   {% endif %}

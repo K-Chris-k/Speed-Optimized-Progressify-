@@ -12,6 +12,7 @@
   "sections": {
     "collection-header": {
       "type": "collection-header",
+      "disabled": true,
       "settings": {
         "show_breadcrumbs": true,
         "show_title": true,
@@ -32,6 +33,28 @@
         "caption_bg_color": "rgba(0,0,0,0)",
         "image_overlay_color": "#242424",
         "image_overlay_opacity": 26
+      }
+    },
+    "image_with_text_D4grq7": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Accessories_Titanium_Shot_Glass.jpg",
+        "layout": "left",
+        "title": "Titanium Accessories",
+        "text": "<p>The SilverAnt Outdoors accessory collection features all the titanium accessories you need for your adventures and day-to-day life. </p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
       }
     },
     "product-grid": {
@@ -184,6 +207,7 @@
   },
   "order": [
     "collection-header",
+    "image_with_text_D4grq7",
     "product-grid",
     "accordion_with_image_T3X6ri",
     "image_with_text_VP4qNp",

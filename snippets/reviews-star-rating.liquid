@@ -96,7 +96,7 @@
     {% if wrapper_class %}
       <div class="{{ wrapper_class }}">
     {% endif %}
-      <div class="reviews-star-rating no-rating{% if classes %} {{ classes }}{% endif %}">
+      <div class="reviews-star-rating no-rating {% if classes %} {{ classes }}{% endif %}">
         <div class="reviews-star-rating__stars" role="img" aria-label="{{ 'products.product.no_reviews' | t }}">
           {% for i in (1..5) %}
             {% render 'theme-icon' with icon: 'star-filled', iconColor: empty_star_color, iconStroke: empty_star_stroke_color, iconSize: star_size %}
@@ -114,7 +114,7 @@
   {% if wrapper_class %}
     <div class="{{ wrapper_class }}">
   {% endif %}
-    <div class="reviews-star-rating has-rating{% if classes %} {{ classes }}{% endif %}">
+    <div class="reviews-star-rating has-rating custom-reviews-rating-product-reviews{% if classes %} {{ classes }}{% endif %}">
       <div class="reviews-star-rating__stars" role="img" aria-label="{{ 'products.product.reviews_rating' | t: value: rating_value_rounded, max: rating_max }}">
         {% if full_stars > 0 %}
           {% for i in (1..full_stars) %}
@@ -152,3 +152,26 @@
     </div>
   {% endif %}
 {% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const triggers = document.querySelectorAll('.custom-reviews-rating-product-reviews');
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', function (e) {
+            e.preventDefault(); // 防止 a 标签默认跳转
+            const target = document.querySelector('#judgeme_product_reviews');
+            if (!target) return;
+            const offset = 60; // 可自行调整数值
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            if (!target.hasAttribute('tabindex')) {
+                target.setAttribute('tabindex', '-1');
+            }
+            target.focus({ preventScroll: true });
+        });
+    });
+});
+</script>

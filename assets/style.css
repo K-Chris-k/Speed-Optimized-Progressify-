@@ -124,7 +124,9 @@
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-
+.cart-drawer__product_card--badge.cart-drawer__product_card--badge--sale {
+    display: none;
+}
 .bottom-purchase-info__dropdown-wrapper-new-style {
   display: flex;
   align-items: center;
@@ -249,11 +251,7 @@ body:not(.template-product) .bottom-purchase-info {
 }select.bottom-purchase-dropdown__select {
   margin: 0;
 }
-/* 确保底部留出空间，避免被固定底部遮挡 */
-.template-product main,
-.template-product #MainContent {
-  padding-bottom: 70px;
-}
+
 
 /* Tablet styles */
 @media screen and (max-width: 991px) {

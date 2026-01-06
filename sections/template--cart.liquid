@@ -54,7 +54,7 @@
               %}
               <tr class="cart__row table__section" data-animate data-animate-order="{{ forloop.index | plus: 1 }}">
                 <td data-label="{{ 'customer.order.product' | t }}">
-                  <a href="{{ item.url | within: collections.all }}" class="cart__image">
+                  <a href="{{ item.url }}" class="cart__image">
                     {% comment %}
                       More image size options at:
                         - http://docs.shopify.com/themes/filters/product-img-url

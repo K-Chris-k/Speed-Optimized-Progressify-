@@ -11,13 +11,345 @@
   "sections": {
     "main": {
       "type": "template--page",
+      "disabled": true,
       "settings": {
-        "page_title_enabled": true,
+        "page_title_enabled": false,
         "page_width": "narrow"
+      }
+    },
+    "image_with_text_r93zc3": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/6_30d92f42-1432-46f0-bb4c-fd3f936a8d55.png",
+        "layout": "right",
+        "title": "About Us",
+        "text": "<p>We’re SilverAnt Outdoors. For over two decades, our family-owned factory has specialized in crafting pure titanium gear — built in-house from start to finish. Our mission is simple: to create gear that lasts a lifetime of adventures.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "rich_text_ePWgfw": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_88DgNe": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>At SilverAnt, we create products that are built to last a lifetime.</p><p>Our brand’s values are centered around our passion for the outdoors, quality craftsmanship, innovation, sustainability, and inclusivity.</p><p><a href=\"/collections\" target=\"_blank\" title=\"All collections\">SilverAnt takes pride in producing the best titanium outdoor gear.</a> We believe in constantly innovating and improving our products to meet the evolving needs of our customers.</p><p>Additionally, we are committed to sustainability and reducing our impact on the environment.</p><p>We also value inclusivity and diversity. Our team is made up of people from all over the world. As we continue to grow we are committed to creating a welcoming environment for individuals of all backgrounds to work and thrive in.</p><p>SilverAnt knows that our multicultural perspective helps us to create better products and foster a more inclusive outdoor community.</p>",
+            "text_size": 16,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "richtext_88DgNe"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "narrow",
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "rich_text_eRXyEz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xrYfP8": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR PROMISE",
+            "heading--text-size": 30,
+            "heading_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_xrYfP8"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "narrow",
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "colors": "white"
+      }
+    },
+    "text_adverts_WgXwRP": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_4XcUEm": {
+          "type": "text",
+          "settings": {
+            "heading": "A LIFETIME OF ADVENTURES",
+            "subheading": "At SilverAnt, our promise is to provide outdoor enthusiasts with the best gear for a lifetime of adventures. We will create durable, high-quality products that meet the needs of our customers.",
+            "link": "shopify://pages/lifetime-warranty"
+          }
+        },
+        "text_TLLapY": {
+          "type": "text",
+          "settings": {
+            "heading": "INNOVATION AND DIVERSITY",
+            "subheading": "SilverAnt also promises to continue innovating and improving our products. To meet the changing needs of the outdoor community. We understand that outdoor communities have unique needs and preferences. It is why we strive to create products that cater to a diverse range of interests and activities.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_4XcUEm",
+        "text_TLLapY"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "dark"
+      }
+    },
+    "template_product_info_columns_RtEFjt": {
+      "type": "template--product--info-columns",
+      "blocks": {
+        "image_and_text_UVjykA": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/1_6124af3d-989a-4766-9b4b-fe7512026392.jpg",
+            "grid_image_size": "natural",
+            "heading": "",
+            "text": "<p>SilverAnt's history is a testament to the founder's passion for the outdoors and his entrepreneurial spirit. Starting as an engineer in the aeronautical industry, the founder's expertise in titanium engineering allowed him to pursue his dream of creating outdoor products.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_KWkfK7": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/2_4d877a42-46cc-4033-90d9-d9f7b1abc194.jpg",
+            "grid_image_size": "natural",
+            "heading": "",
+            "text": "<p>After some failures and a lot of hard work, the family's dream of building their own outdoor company became a reality. SilverAnt's success today is a result of the founder's vision, commitment to quality, and love for the outdoors.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_and_text_M4tNWR": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/3_240a8216-c1ad-49d4-b4bc-3477feedc793.jpg",
+            "grid_image_size": "natural",
+            "heading": "",
+            "text": "<p>Our history is important because it reflects the values and principles that have guided us from the beginning. We believe in creating products that are built to last, and that can withstand the toughest conditions. Our commitment to quality craftsmanship, innovation, sustainability, and inclusivity is reflected in our history and continues to be at the forefront of our mission today.</p>",
+            "button_link": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_UVjykA",
+        "image_and_text_KWkfK7",
+        "image_and_text_M4tNWR"
+      ],
+      "name": "t:sections.template--product--info-columns.presets.name",
+      "settings": {
+        "title": "OUR HISTORY",
+        "description": "",
+        "maximum_width": 500,
+        "override_border_radius": false,
+        "buttons_style": "underlined",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "hover_navigation_desktop": "left-and-right",
+        "columns_per_row": 3,
+        "vertical_alignment": "top",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_width": "full",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "image_with_text_overlay_wwBnFP": {
+      "type": "image-with-text-overlay",
+      "name": "t:sections.image--image-with-text-overlay.presets.name",
+      "settings": {
+        "image_desktop": "shopify://shop_images/Timeline_Infographic_1600_x_900_px_969edd10-93c1-4282-965d-cfc54245ad2f.jpg",
+        "height_desktop": "original",
+        "text_position_desktop": "center",
+        "text_alignment_desktop": "center",
+        "caption_width_desktop": 50,
+        "image_mobile": "shopify://shop_images/Timeline_Infographic_964d8aab-0416-4f7f-9abe-7ef04b1500be.jpg",
+        "height_mobile": "original",
+        "text_position_mobile": "center",
+        "text_alignment_mobile": "center",
+        "section_link": "",
+        "animation_style": "none",
+        "section_width": "full",
+        "section_margin_top": 0,
+        "section_margin_bottom": 0,
+        "text_color": "#ffffff",
+        "caption_bg_color": "rgba(0,0,0,0)",
+        "image_overlay_color": "#242424",
+        "image_overlay_opacity": 0
+      }
+    },
+    "logo_list_qUKDzd": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_image_eQRtHP": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Men_s_Journal_Logo_42be50a8-fde5-46ed-beaf-6b8c6bb99595.png",
+            "link": "https://www.mensjournal.com/gear/navy-seal-snow-survival-school"
+          }
+        },
+        "logo_image_z9fELq": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/New_York_The_Strategist_Logo_82ec75fb-174f-4bce-a594-6face28ca7d9.png",
+            "link": "https://nymag.com/strategist/article/best-mini-water-bottle-hydro-flask-review.html"
+          }
+        },
+        "logo_image_PBNKKK": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Field_Mag_Logo_37eff2be-2612-46ce-987c-46757c946769.png",
+            "link": "https://www.fieldmag.com/articles/silverant-affordable-titanium-outdoor-gear"
+          }
+        },
+        "logo_image_AJxkGe": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Garage_Grown_Gear_Logo_4e7895b5-53df-4a10-a313-70fc82e2e193.png",
+            "link": "https://www.garagegrowngear.com/collections/silverant"
+          }
+        },
+        "logo_image_MAe7bd": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Ultralight_Outdoor_Gear_UK_Logo_c055d132-0a73-470c-aff0-724e54b145b7.png",
+            "link": "https://ultralightoutdoorgear.co.uk/silverant/"
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_eQRtHP",
+        "logo_image_z9fELq",
+        "logo_image_PBNKKK",
+        "logo_image_AJxkGe",
+        "logo_image_MAe7bd"
+      ],
+      "name": "t:sections.image--logo-list.presets.name",
+      "settings": {
+        "title": "AS FEATURED IN",
+        "description": "",
+        "width": 150,
+        "override_border_radius": false,
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "dark"
+      }
+    },
+    "image_with_text_MJQD7y": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/plans_for_the_future.jpg",
+        "layout": "left",
+        "title": "PLANS FOR THE FUTURE",
+        "text": "<p>Moving forward, our goal at SilverAnt is to continue expanding our product line and reaching a wider audience of outdoor enthusiasts. We will create new and innovative products that meet the evolving needs of our customers.</p><p>We also plan to continue our commitment to <a href=\"/pages/sustainability-responsibility\" target=\"_blank\" title=\"Sustainability & Responsibility\">sustainability</a> and minimizing our impact on the environment. At SilverAnt, we know that our responsibility to the planet extends beyond our products and into our production process.</p><p>Lastly, we aim to continue fostering a diverse and inclusive culture at SilverAnt.</p><p>Thank you to our customers and community for following our journey.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "dark"
+      }
+    },
+    "newsletter_HLXVtH": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
+      "settings": {
+        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree 🌲",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to planting a tree and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_qkwGij": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_n4LJVm": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our  ISO:9001-2015 certified factory.",
+            "link": ""
+          }
+        },
+        "text_4BcGVy": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "text_m6n9WW": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_n4LJVm",
+        "text_4BcGVy",
+        "text_m6n9WW"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_with_text_r93zc3",
+    "rich_text_ePWgfw",
+    "rich_text_eRXyEz",
+    "text_adverts_WgXwRP",
+    "template_product_info_columns_RtEFjt",
+    "image_with_text_overlay_wwBnFP",
+    "logo_list_qUKDzd",
+    "image_with_text_MJQD7y",
+    "newsletter_HLXVtH",
+    "text_adverts_qkwGij"
   ]
 }

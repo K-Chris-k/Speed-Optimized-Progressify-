@@ -53,9 +53,14 @@
 
             <div class="homepage-featured-content-box-inner{% if request.visual_preview_mode %} section-preview{% else %} show-on-scroll{% endif %}">
 
+              {% comment %}Use h2 on homepage, h1 elsewhere{% endcomment %}
               {% if section.settings.title != blank %}
                 <div class="sitewide--title-wrapper" data-animate data-animate-order="{{ animation_order | plus: animation_offset }}">
-                  <h2 class="homepage-sections--title">{{ section.settings.title | escape }}</h2>
+                  {% if template == 'index' %}
+                    <h2 class="homepage-sections--title">{{ section.settings.title | escape }}</h2>
+                  {% else %}
+                    <h1 class="homepage-sections--title">{{ section.settings.title | escape }}</h1>
+                  {% endif %}
                 </div>
                 {% assign animation_order = animation_order | plus: 1 %}
               {% endif %}
@@ -107,6 +112,33 @@
   {% endif %}
 
 </div>
+
+{% if template.name == 'collection' or template.name == 'page' %}
+<script>
+  // On collection pages, ensure only the first h1.homepage-sections--title remains h1
+  document.addEventListener('DOMContentLoaded', function() {
+    const h1Elements = document.querySelectorAll('h1.homepage-sections--title');
+    
+    // Convert all but the first one to h2
+    h1Elements.forEach(function(element, index) {
+      if (index > 0) {
+        const h2 = document.createElement('h2');
+        h2.className = element.className;
+        h2.innerHTML = element.innerHTML;
+        
+        // Copy all attributes
+        Array.from(element.attributes).forEach(function(attr) {
+          if (attr.name !== 'class') {
+            h2.setAttribute(attr.name, attr.value);
+          }
+        });
+        
+        element.parentNode.replaceChild(h2, element);
+      }
+    });
+  });
+</script>
+{% endif %}
 
 {% schema %}
 {

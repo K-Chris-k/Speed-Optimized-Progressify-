@@ -1,0 +1,305 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {
+        "page_title_enabled": false,
+        "page_width": "narrow"
+      }
+    },
+    "image_with_text_CkJt3J": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/8.png",
+        "layout": "right",
+        "title": "Sustainability & Responsibility",
+        "text": "<p>At SilverAnt, we are committed to <strong>sustainability and responsible practices</strong> in everything we do. From sourcing durable materials to designing lightweight, long-lasting titanium gear, we aim to minimize our environmental impact while maximizing performance. Our goal is to create products that last a <strong>lifetime</strong>, supporting both your adventures and the planet we all share.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#E68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "rich_text_ePWgfw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nQzXXt": {
+          "type": "heading",
+          "settings": {
+            "heading": "MISSION",
+            "heading--text-size": 30,
+            "heading_bottom_spacing": 20
+          }
+        },
+        "richtext_88DgNe": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Our mission at SilverAnt is to inspire and equip people with the gear to explore and enjoy the outdoors. We do this by creating the best quality titanium products that are built for a lifetime of adventures.</p>",
+            "text_size": 16,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_nQzXXt",
+        "richtext_88DgNe"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "full-width",
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "image_with_text_MJQD7y": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1-1_ad3bb55f-fe55-4238-b13e-4a96726f6d26.jpg",
+        "layout": "right",
+        "title": "Our Promise and Commitment",
+        "text": "<p>At SilverAnt, our promise is to provide outdoor enthusiasts with the best gear for a lifetime of adventures. We are committed to creating durable, high-quality products that meet the needs of our customers.</p><p>We strive to exceed our customers' expectations and provide exceptional service that reflects our values of quality craftsmanship, innovation, sustainability, inclusivity, and passion for the outdoors.</p><p>We are committed to constantly innovating and improving our products to meet the changing needs of the outdoor community. We understand that different activities need different gear. With this knowledge, we strive to create products that cater to a diverse range of interests and activities.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 50,
+        "colors": "dark"
+      }
+    },
+    "image_with_text_XA9Fxt": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1-2_a4cdf3a1-668c-496b-82bb-5fb80db610a3.jpg",
+        "layout": "left",
+        "title": "Inclusivity and Diversity",
+        "text": "<p>At SilverAnt, we foster an inclusive and diverse global community that reflects the values and principles of our brand. We know that a diverse team brings new perspectives, ideas, and creativity to our products and helps us to better serve our customers.</p><p>We are committed to creating a welcoming environment for individuals of all backgrounds to work and thrive in. We value and celebrate the unique differences that make each of us who we are. SilverAnt believes that our multicultural perspective helps us to create better products and foster a more inclusive outdoor community.</p><p>Our team is made up of people from all over the world, and we actively seek to attract and retain talent from diverse backgrounds. We do not discriminate based on race, ethnicity, gender, sexual orientation, religion, age, or any other characteristic. We believe that everyone should have the opportunity to contribute and grow within our company.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 50,
+        "colors": "dark"
+      }
+    },
+    "image_with_text_DnYzeJ": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1-3_3f9cdeb8-d778-480d-a1b5-2e31aef07b1a.jpg",
+        "layout": "right",
+        "title": "Partnerships",
+        "text": "<p><em>“If you want to go fast, go alone; if you want to go far, go together”.</em></p><p><em>African Proverb</em></p><p>At SilverAnt, we believe in making a tangible impact on the world around us. That's why we're proud to partner with like-minded content creators, organizations, and advocates who share our passion for the outdoors.</p><p>Through our partnerships, we work towards greater access to nature and support underserved communities. SilverAnt supports organizations, individuals, and experts in their field to make a positive impact on the environment and society.</p><p>Our partnerships go beyond financial contributions and product donations. We use our outdoor business to showcase authentic stories of our partners' work and amplify their message. We believe that by working together, we can make a meaningful difference in the world.</p><p>Some of our recent and ongoing partners include the <a href=\"https://www.mainechildrenshome.org/\" target=\"_blank\" title=\"https://www.mainechildrenshome.org/\"><span style=\"text-decoration:underline\">Maine Children's Home</span></a> for their Outdoor Recreation program. As well as the <a href=\"https://www.hotdoghike.com/\" target=\"_blank\" title=\"https://www.hotdoghike.com/\"><span style=\"text-decoration:underline\">Hot Dog Hike</span></a> for homelessness.</p><p>As SilverAnt grows, we look forward to continuing to work with our partners and creating a larger impact.</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 50,
+        "colors": "dark"
+      }
+    },
+    "image_with_text_tCywaz": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1-4.jpg",
+        "layout": "left",
+        "title": "Sustainability at SilverAnt",
+        "text": "<p>At SilverAnt, we are committed to reducing our impact on the environment and promoting sustainability in every aspect of our business. We believe that it is our responsibility to protect the planet and its resources for future generations.</p><p>To work towards being a responsible business, we have now partnered with <a href=\"https://public.getgreenspark.com/1687637516787/silverant-outdoors/\" target=\"_blank\" title=\"https://public.getgreenspark.com/1687637516787/silverant-outdoors/\">Greenspark</a>. For every order you place, we offset the impact by planting trees, capturing carbon, and rescuing plastic bottles from the ocean.</p><p>As a company, we are implementing strategies and partnering with organisations that help us reduce our Carbon Footprint as well as certifying and validating our commitment to sustainability. This, in turn, showcases our commitment to environmentally friendly practices.</p><p>Sustainability is an ongoing journey, and there's always room for improvement. By addressing various aspects of our business, from sourcing materials to end-of-life management, we can continue to enhance SilverAnt's positive impact on the environment while delivering quality products to you, our customers!</p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 50,
+        "colors": "dark"
+      }
+    },
+    "image_with_text_JAc44b": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1-5.jpg",
+        "layout": "right",
+        "title": "Product Sustainability",
+        "text": "<p>As a company, we strive to create products that are built to last a lifetime. This means fewer products end up in landfills. </p><p>All SilverAnt's products are made with titanium, which is built to endure the toughest outdoor conditions. Nevertheless, we are also acutely aware that titanium is a precious metal, and for extraction, it is mined. With this knowledge at our own manufacturing facility, we recycle all possible waste. We also make sure that our products are repairable, so you can fix them instead of replacing them.</p><p>For our packaging, we work with eco-friendly packaging materials that can be easily recycled or are biodegradable.</p><p><em>Lastly, we offer a lifetime guarantee for our titanium products.</em></p>",
+        "text_alignment": "left",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 50,
+        "colors": "dark"
+      }
+    },
+    "image_with_text_slideshow_NXa9MR": {
+      "type": "image-with-text-slideshow",
+      "blocks": {
+        "image_and_text_QBq3Cn": {
+          "type": "image_and_text",
+          "settings": {
+            "image": "shopify://shop_images/Lifetime_Guarantee_c4dca699-c007-4f38-8a07-b459d959ff5c.jpg",
+            "subheading": "",
+            "heading": "<strong>SilverAnt Lifetime Guarantee</strong>",
+            "text": "<p>At SilverAnt we make titanium gear thats built for a lifetime of adventures. We manufacture everything we make and stand behind the quality of our craftsmanship with our lifetime guarantee.</p>",
+            "page": "",
+            "slide_link": "",
+            "first_button_link": "shopify://pages/lifetime-warranty",
+            "first_button_label": "Learn More",
+            "second_button_link": "",
+            "second_button_label": "",
+            "buttons_style": "filled",
+            "override_button_colors": false,
+            "color_button_background": "#e68819",
+            "color_button_text": "#ffffff",
+            "media_position_desktop": "left",
+            "text_position_desktop": "center",
+            "text_alignment_desktop": "center",
+            "media_position_mobile": "top",
+            "text_alignment_mobile": "center",
+            "text_color": "rgba(0,0,0,0)",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_and_text_QBq3Cn"
+      ],
+      "name": "t:sections.image-with-text-slideshow.name",
+      "settings": {
+        "title": "",
+        "description": "",
+        "heading_font_size_desktop": 50,
+        "text_font_size_desktop": 16,
+        "heading_font_size_mobile": 28,
+        "text_font_size_mobile": 16,
+        "image_size": "large",
+        "image_shape": "natural",
+        "hover_navigation_desktop": "left-and-right",
+        "section_width": "full-width",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "colors": "white",
+        "override_navigation_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "newsletter_HLXVtH": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
+      "settings": {
+        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree 🌲",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to planting a tree and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
+        "textAlignment": "left",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_qkwGij": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_n4LJVm": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our  ISO:9001-2015 certified factory.",
+            "link": ""
+          }
+        },
+        "text_4BcGVy": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "text_m6n9WW": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_n4LJVm",
+        "text_4BcGVy",
+        "text_m6n9WW"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_CkJt3J",
+    "rich_text_ePWgfw",
+    "image_with_text_MJQD7y",
+    "image_with_text_XA9Fxt",
+    "image_with_text_DnYzeJ",
+    "image_with_text_tCywaz",
+    "image_with_text_JAc44b",
+    "image_with_text_slideshow_NXa9MR",
+    "newsletter_HLXVtH",
+    "text_adverts_qkwGij"
+  ]
+}

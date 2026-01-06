@@ -1,0 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_LLXPjp": {
+      "type": "image-with-text",
+      "name": "t:sections.image--image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Titanium_Information_Page_Banner.jpg",
+        "layout": "right",
+        "title": "Titanium",
+        "text": "<p>The metal used for millennia and forged by the Gods themselves.</p>",
+        "text_alignment": "center",
+        "text_overlapping_image": false,
+        "button_link": "",
+        "button_label": "",
+        "buttons_style": "filled",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff",
+        "section-width": "full",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    },
+    "rich_text_QxDiAC": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_mKzGe3": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>At SilverAnt Outdoors, we take pride in the quality of our products. It’s why we offer a lifetime warranty, and our mission is to \"build gear for a lifetime of adventures.\"</p><p>We understand that when it comes to outdoor equipment, durability and strength are crucial. That is why we use Grade 1 to Grade 3 Titanium, depending on the titanium product and its function.</p><p>SilverAnt sources all our titanium from Sichuan Province. It is known for producing some of the highest-quality <strong>titanium</strong> in the world.</p><p>Each batch of titanium we use is individually tested for purity, ensuring that we only use titanium that is certified 99.7% pure and above.</p><h3><strong>Certification</strong></h3><p>At SilverAnt Outdoors, we manufacture everything we make in our own ISO:9001-2015 certified manufacturing facility. We take pride in our facility, which is equipped with state-of-the-art technology, enabling us to manufacture titanium outdoor products to the highest standards.</p><p>As well as our manufacturing and titanium purity certifications, we understand the importance of meeting regulatory requirements. This is why all our products are certified by the relevant regulating bodies. SilverAnt's products are certified by SGS in Europe, the FDA in North America, and in Japan by the Food and Health Ministry.</p><h3><strong>Manufacturing</strong></h3><p>In the manufacturing process, we operate a closed loop. We have owned and operated one of the largest titanium manufacturing facilities in Asia for 20+ years! Our closed-loop process ensures that waste is minimized, and we make the most efficient use of resources. In addition, we can guarantee the quality and craftsmanship of everything we make!</p><p>To learn more about our manufacturing process, you can watch our YouTube series we made specifically to tell our customers the steps of production.</p><p>At SilverAnt, we believe in honesty and transparency. In a world where more is being asked of responsible businesses, we answer that call by being entirely transparent about who we are and what we stand for.</p><p>To read more head over to our <a href=\"https://silverantoutdoors.com/pages/sustainability-responsibility\">sustainability and responsibility policy</a> as well as <a href=\"https://silverantoutdoors.com/pages/about-us\">who we are</a> and our history page.</p>",
+            "text_size": 16,
+            "text_bottom_spacing": 20
+          }
+        }
+      },
+      "block_order": [
+        "richtext_mKzGe3"
+      ],
+      "name": "t:sections.text--rich-text.presets.name",
+      "settings": {
+        "section_width": "narrow",
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "section_padding_top": 60,
+        "section_padding_bottom": 20,
+        "colors": "white"
+      }
+    },
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {
+        "page_title_enabled": false,
+        "page_width": "content"
+      }
+    },
+    "newsletter_g73kAp": {
+      "type": "newsletter",
+      "name": "t:all.Newsletter",
+      "settings": {
+        "newsletter_heading": "Subscribe To Our Newsletter",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree </strong></em>and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
+        "textAlignment": "left",
+        "section_padding_top": 40,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
+    "text_adverts_DpGKYz": {
+      "type": "text-adverts",
+      "blocks": {
+        "text_LtCCPR": {
+          "type": "text",
+          "settings": {
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our ISO:9001-2015 certified factory.",
+            "link": ""
+          }
+        },
+        "text_TE7p6A": {
+          "type": "text",
+          "settings": {
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
+            "link": ""
+          }
+        },
+        "text_khaTTN": {
+          "type": "text",
+          "settings": {
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_LtCCPR",
+        "text_TE7p6A",
+        "text_khaTTN"
+      ],
+      "name": "t:sections.text--text-adverts.presets.name",
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "colors": "accent"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_LLXPjp",
+    "rich_text_QxDiAC",
+    "main",
+    "newsletter_g73kAp",
+    "text_adverts_DpGKYz"
+  ]
+}

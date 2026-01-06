@@ -67,8 +67,8 @@
       "type": "newsletter",
       "name": "t:all.Newsletter",
       "settings": {
-        "newsletter_heading": "Join our Mailing List",
-        "newsletter_description": "",
+        "newsletter_heading": "Subscribe To Our Newsletter & Plant A Tree 🌲",
+        "newsletter_description": "<p>Join our outdoor community to receive updates from SilverAnt. From exclusive product promotions to captivating articles, podcasts, and expert product guides, our emails unveil a world of inspiration each month. Plus, for every subscription, we're committed to <em><strong>planting a tree  </strong></em>and contributing to a greener planet. Stay in the loop with our latest company updates, trends, and the innovative world of our titanium outdoor products. Don't miss out—subscribe now and be a part of our outdoor community towards a sustainable future!</p>",
         "textAlignment": "left",
         "section_padding_top": 60,
         "section_padding_bottom": 60,
@@ -81,24 +81,24 @@
         "text_LtCCPR": {
           "type": "text",
           "settings": {
-            "heading": "What makes you different",
-            "subheading": "Shout about your unique selling points",
+            "heading": "We are Certified by Industry Leaders",
+            "subheading": "All our products are certified by the SGS, FDA, and the Japanese Food Standards Agency, with our products made in our ISO:9001-2015 certified factory.",
             "link": ""
           }
         },
         "text_TE7p6A": {
           "type": "text",
           "settings": {
-            "heading": "What makes you different",
-            "subheading": "Shout about your unique selling points",
+            "heading": "We Manufacture All Our Products",
+            "subheading": "Everything we sell is made at our specialist titanium factory. This is how we guarantee quality for every order.",
             "link": ""
           }
         },
         "text_khaTTN": {
           "type": "text",
           "settings": {
-            "heading": "What makes you different",
-            "subheading": "Shout about your unique selling points",
+            "heading": "Quality Customer Service",
+            "subheading": "Even when things don't go to plan, our customer service team will provide a quick personalized solution to your problem.",
             "link": ""
           }
         }

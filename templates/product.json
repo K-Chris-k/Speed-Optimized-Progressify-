@@ -135,6 +135,28 @@
             "button_text_color": "#ffffff"
           }
         },
+        "text_with_icon_gDKqhc": {
+          "type": "text-with-icon",
+          "settings": {
+            "icon": "wallet",
+            "custom_icon": "shopify://shop_images/Klarna_Afterpay_payment_Icons_1.png",
+            "text": "But Now Pay Later. Shop with Klarna at Checkout.",
+            "link": "",
+            "margin_bottom": 10,
+            "text_color": "#242424"
+          }
+        },
+        "text_with_icon_JKENDP": {
+          "type": "text-with-icon",
+          "settings": {
+            "icon": "wallet",
+            "custom_icon": "shopify://shop_images/Klarna_Afterpay_payment_Icons_2.png",
+            "text": "But Now Pay Later. Shop with Afterpay at Checkout.",
+            "link": "",
+            "margin_bottom": 15,
+            "text_color": "#242424"
+          }
+        },
         "quantity_discount_wVUecq": {
           "type": "quantity-discount",
           "settings": {
@@ -198,6 +220,10 @@
             "page": "",
             "margin_bottom": 40
           }
+        },
+        "selleasy_lb_upsell_fbt_block_AMWHig": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-fbt-block/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
         }
       },
       "block_order": [
@@ -214,11 +240,14 @@
         "options",
         "quantity",
         "buy_buttons",
+        "text_with_icon_gDKqhc",
+        "text_with_icon_JKENDP",
         "quantity_discount_wVUecq",
         "a55b9011-1b1a-4353-9d97-7bdcd60949f2",
         "b0c19132-8e54-4664-b8ce-0a8c7f1f7737",
         "9c341458-2d2c-4317-a2cc-346e220f53e0",
-        "b3864090-4f25-4db2-bddb-c549e9472be6"
+        "b3864090-4f25-4db2-bddb-c549e9472be6",
+        "selleasy_lb_upsell_fbt_block_AMWHig"
       ],
       "settings": {
         "enable_sticky": true,
@@ -260,6 +289,19 @@
         "include_margins": true
       }
     },
+    "custom_liquid_YTeemk": {
+      "type": "custom-liquid",
+      "name": "t:sections.advanced-layout--custom-liquid.name",
+      "settings": {
+        "title": "",
+        "description": "",
+        "custom_liquid": "<!-- Google Font Link (if not already loaded elsewhere) -->\n<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;display=swap\" rel=\"stylesheet\">\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: px 10px 10px;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n    Trusted by Real Adventurers Everywhere\n  </h2>\n</div>\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: 5px 10px 10px;\">\n  <span style=\"font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n  </span>\n</div>\n<style>\n  .ugc-auto-scroll {\n    width: 100vw;\n    position: relative;\n    left: 50%;\n    right: 50%;\n    margin-left: -50vw;\n    margin-right: -50vw;\n    background: #fafafa;\n    overflow: hidden;\n    padding: 0;\n  }\n\n  .ugc-track {\n    display: flex;\n    animation: scroll 30s linear infinite;\n    width: max-content;\n  }\n\n  .ugc-track img {\n    flex: 0 0 auto;\n    width: 260px;\n    height: 260px;\n    object-fit: cover;\n    border-radius: 6px;\n    margin-right: 4px;\n    transition: transform 0.3s ease;\n  }\n\n  .ugc-track img:hover {\n    transform: scale(1.05);\n  }\n\n  @keyframes scroll {\n    0% { transform: translateX(0); }\n    100% { transform: translateX(-50%); }\n  }\n</style>\n\n<div class=\"ugc-auto-scroll\">\n  <div class=\"ugc-track\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n\n    <!-- Duplicate Loop for Seamless Scroll -->\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n  </div>\n</div>\n<p style=\"text-align: center; font-size: 14px; color: #999; margin-top: px;\">\n  Real customers. Real gear. Real adventures.\n</p>",
+        "section_width": "content",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white"
+      }
+    },
     "175638526036dd7047": {
       "type": "apps",
       "blocks": {
@@ -275,19 +317,6 @@
         "section_padding_top": 0,
         "section_padding_bottom": 0,
         "include_margins": true
-      }
-    },
-    "custom_liquid_YTeemk": {
-      "type": "custom-liquid",
-      "name": "t:sections.advanced-layout--custom-liquid.name",
-      "settings": {
-        "title": "",
-        "description": "",
-        "custom_liquid": "<!-- Google Font Link (if not already loaded elsewhere) -->\n<link href=\"https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;display=swap\" rel=\"stylesheet\">\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: px 10px 10px;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n    Trusted by Real Adventurers Everywhere\n  </h2>\n</div>\n\n<!-- Bold Headline -->\n<div style=\"text-align: center; padding: 5px 10px 10px;\">\n  <h2 style=\"font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; margin: 0;\">\n  </h2>\n</div>\n<style>\n  .ugc-auto-scroll {\n    width: 100vw;\n    position: relative;\n    left: 50%;\n    right: 50%;\n    margin-left: -50vw;\n    margin-right: -50vw;\n    background: #fafafa;\n    overflow: hidden;\n    padding: 0;\n  }\n\n  .ugc-track {\n    display: flex;\n    animation: scroll 30s linear infinite;\n    width: max-content;\n  }\n\n  .ugc-track img {\n    flex: 0 0 auto;\n    width: 260px;\n    height: 260px;\n    object-fit: cover;\n    border-radius: 6px;\n    margin-right: 4px;\n    transition: transform 0.3s ease;\n  }\n\n  .ugc-track img:hover {\n    transform: scale(1.05);\n  }\n\n  @keyframes scroll {\n    0% { transform: translateX(0); }\n    100% { transform: translateX(-50%); }\n  }\n</style>\n\n<div class=\"ugc-auto-scroll\">\n  <div class=\"ugc-track\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n\n    <!-- Duplicate Loop for Seamless Scroll -->\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/2_21eeee97-b7fe-4567-927b-a8beab27ac6f.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_1_7d21b847-8f82-4b78-98d5-b6311405dc83.jpg?v=1748032512\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1_0c8ccca7-75fc-4b64-aed1-5fa0f69e4473.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231018_140359_resized_719ef8bc-5051-44d4-8855-515c41804975.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/3_770b267d-4f84-45b3-9dcf-c975bda31248.png?v=1749486723\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/1000031202_54f6e440-a7a2-4635-a9bd-c6dec09d9ce0.jpg?v=1748032510\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/4_8743c028-a60c-4437-b76e-a9d3b0576c17.png?v=1749486722\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/20231204_175218-5.jpg?v=1748032511\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0092/7173/8464/files/Woods_2_4e2ebffb-b61b-4ce0-aab5-be7d8257e87f.jpg?v=1748032512\">\n  </div>\n</div>\n<p style=\"text-align: center; font-size: 14px; color: #999; margin-top: px;\">\n  Real customers. Real gear. Real adventures.\n</p>",
-        "section_width": "content",
-        "section_padding_top": 60,
-        "section_padding_bottom": 60,
-        "colors": "white"
       }
     },
     "scrolling_banner_LraWdG": {
@@ -391,6 +420,45 @@
         "colors": "white"
       }
     },
+    "17563863919a69ae76": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_nrmiMp": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_nrmiMp"
+      ],
+      "settings": {
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "template--product--recommendations",
+      "settings": {
+        "title": "You may also like",
+        "description": "",
+        "layout_style": "slider",
+        "products_to_show": 8,
+        "grid-desktop": 4,
+        "grid-mobile": "2",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "colors": "white",
+        "override_button_colors": false,
+        "button_background_color": "#e68819",
+        "button_text_color": "#ffffff"
+      }
+    },
     "accordion_tL4Ry7": {
       "type": "accordion",
       "blocks": {
@@ -458,22 +526,23 @@
         "colors": "white"
       }
     },
-    "product-recommendations": {
-      "type": "template--product--recommendations",
-      "settings": {
-        "title": "You may also like",
-        "description": "",
-        "layout_style": "slider",
-        "products_to_show": 8,
-        "grid-desktop": 4,
-        "grid-mobile": "2",
-        "section_padding_top": 60,
-        "section_padding_bottom": 60,
-        "colors": "white",
-        "override_button_colors": false,
-        "button_background_color": "#e68819",
-        "button_text_color": "#ffffff"
-      }
+    "17635554988d3dd67d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f21c0c9_RHVUrJ": {
+          "type": "ai_gen_block_f21c0c9",
+          "settings": {
+            "desktop_image": "shopify://shop_images/SilverAnt_Review_Hero_2000_x_900px_2.jpg",
+            "mobile_image": "shopify://shop_images/SilverAnt_Review_Hero_1400_x_1400_px.png",
+            "mobile_breakpoint": 768
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f21c0c9_RHVUrJ"
+      ],
+      "settings": {}
     },
     "newsletter_GMWtkX": {
       "type": "newsletter",
@@ -486,38 +555,19 @@
         "section_padding_bottom": 60,
         "colors": "accent"
       }
-    },
-    "17563863919a69ae76": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_nrmiMp": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_nrmiMp"
-      ],
-      "settings": {
-        "section_padding_top": 0,
-        "section_padding_bottom": 0,
-        "include_margins": true
-      }
     }
   },
   "order": [
     "product-form",
     "1755783438f287af76",
-    "175638526036dd7047",
     "custom_liquid_YTeemk",
+    "175638526036dd7047",
     "scrolling_banner_LraWdG",
     "460d6567-b3ab-4cca-8b8a-bddf9a7a02e4",
-    "accordion_tL4Ry7",
+    "17563863919a69ae76",
     "product-recommendations",
-    "newsletter_GMWtkX",
-    "17563863919a69ae76"
+    "accordion_tL4Ry7",
+    "17635554988d3dd67d",
+    "newsletter_GMWtkX"
   ]
 }

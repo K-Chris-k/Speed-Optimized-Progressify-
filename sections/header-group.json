@@ -17,7 +17,7 @@
         "announcement": {
           "type": "announcement",
           "settings": {
-            "announcement_text": "<a href=\"/pages/usa-tariff-updates\" target=\"_blank\" title=\"USA Tariff Updates\">Explore Our USA-Ready Gear Collection & Learn More About The Current Tariffs</a>",
+            "announcement_text": "Spend $125 & Receive Free Standard International Shipping",
             "announcement_bg_color": "#000000",
             "announcement_text_color": "#ffffff"
           }
@@ -26,7 +26,16 @@
           "type": "announcement",
           "disabled": true,
           "settings": {
-            "announcement_text": "Stock up and save with a weeks' supply",
+            "announcement_text": "Buy Any Hip Flask & Receive A FREE Titanium Shot Glass",
+            "announcement_bg_color": "#000000",
+            "announcement_text_color": "#ffffff"
+          }
+        },
+        "announcement_rFWx73": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "announcement_text": "Spend $100 & Get A Free Long-Handled Titanium Spork",
             "announcement_bg_color": "#000000",
             "announcement_text_color": "#ffffff"
           }
@@ -34,7 +43,8 @@
       },
       "block_order": [
         "announcement",
-        "aebe68ef-8489-4ee8-86e6-12dc826943f1"
+        "aebe68ef-8489-4ee8-86e6-12dc826943f1",
+        "announcement_rFWx73"
       ],
       "settings": {
         "desktop_social_icons": true

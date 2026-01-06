@@ -1,0 +1,129 @@
+{% if product != blank and product != empty %}
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant | default: product.variants.first
+
+  assign free_shipping_threshold = settings.free_shipping_threshold | default: settings.free_shipping_limit | default: settings.free_shipping_amount | default: 10000
+  assign standard_shipping_rate = settings.standard_shipping_rate | default: settings.shipping_rate | default: settings.default_shipping_price | default: '5.00'
+  assign return_window = settings.return_window | default: settings.return_period | default: settings.return_policy_days | default: '30'
+
+  assign has_reviews = false
+  assign rating_value = null
+  assign review_count = 0
+  assign review_app = null
+
+  if product.metafields.loox.avg_rating != blank and product.metafields.loox.num_reviews != blank
+    assign has_reviews = true
+    assign rating_value = product.metafields.loox.avg_rating
+    assign review_count = product.metafields.loox.num_reviews
+    assign review_app = 'loox'
+  elsif product.metafields.yotpo.reviews_average != blank and product.metafields.yotpo.reviews_count != blank
+    assign has_reviews = true
+    assign rating_value = product.metafields.yotpo.reviews_average
+    assign review_count = product.metafields.yotpo.reviews_count
+    assign review_app = 'yotpo'
+  elsif product.metafields.stamped.reviews_average != blank and product.metafields.stamped.reviews_count != blank
+    assign has_reviews = true
+    assign rating_value = product.metafields.stamped.reviews_average
+    assign review_count = product.metafields.stamped.reviews_count
+    assign review_app = 'stamped'
+  elsif product.metafields.reviews.rating.value != blank and product.metafields.reviews.rating_count.value != blank
+    assign has_reviews = true
+    assign rating_value = product.metafields.reviews.rating.value.rating
+    assign review_count = product.metafields.reviews.rating_count.value
+    assign review_app = 'shopify'
+  endif
+
+  assign cart_total_cents = cart.total_price | default: 0
+  assign free_shipping_threshold_cents = free_shipping_threshold | times: 1
+  assign is_free_shipping = false
+  if cart_total_cents >= free_shipping_threshold_cents
+    assign is_free_shipping = true
+  endif
+
+  assign shipping_rate_value = '0.00'
+  unless is_free_shipping
+    assign shipping_rate_value = standard_shipping_rate
+  endunless
+
+  assign variant_sku = current_variant.sku | default: ''
+  assign variant_barcode = current_variant.barcode | default: ''
+  assign variant_price = current_variant.price | default: product.price
+  assign variant_available = current_variant.available | default: product.available
+%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "description": {{ product.description | strip_html | strip | json }},
+  {% if variant_sku != blank %}"sku": {{ variant_sku | remove: ' ' | json }},{% endif %}
+  {% if variant_barcode != blank %}"gtin": {{ variant_barcode | json }},{% endif %}
+  {% if product.vendor != blank %}"brand": {
+    "@type": "Brand",
+    "name": {{ product.vendor | json }}
+  },{% endif %}
+  "image": [
+    {% if product.images.size > 0 %}
+      {% for image in product.images %}
+        {{ image | image_url: width: 2048 | prepend: 'https:' | json }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    {% elsif product.featured_image != blank %}
+      {{ product.featured_image | image_url: width: 2048 | prepend: 'https:' | json }}
+    {% endif %}
+  ],
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ shop.secure_url }}{{ product.url }}",
+    "priceCurrency": "{{ cart.currency.iso_code | default: shop.currency }}",
+    "price": "{{ variant_price | divided_by: 100.00 }}",
+    "priceValidUntil": "{{ 'now' | date: '%s' | plus: 7776000 | date: '%Y-%m-%d' }}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "{% if variant_available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "{{ shipping_rate_value }}",
+        "currency": "{{ cart.currency.iso_code | default: shop.currency }}"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "{{ shop.address.country_code | default: 'US' }}"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "1",
+          "maxValue": "2",
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "3",
+          "maxValue": "7",
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "{{ shop.address.country_code | default: 'US' }}",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": "{{ return_window }}",
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn",
+      "refundType": "https://schema.org/FullRefund"
+    }
+  }{% if has_reviews and rating_value != null and review_count > 0 %},
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ rating_value }},
+    "reviewCount": {{ review_count }},
+    "bestRating": 5,
+    "worstRating": 1
+  }{% endif %}
+}
+</script>
+{% endif %}
