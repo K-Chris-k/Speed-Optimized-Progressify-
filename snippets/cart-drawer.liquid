@@ -143,6 +143,7 @@ button.ajaxcart__remove{
     }
     </script>
 
+    <div data-cart-dynamic-content="cart-shipping-progress">
     {% if cart.item_count > 0 %}
     <div class="shipping-progress-container" data-cart-currency="{{ cart.currency.iso_code }}" data-cart-total="{{ cart.total_price }}" data-item-count="{{ cart.item_count }}">
       {% comment %} Initial calculation - will be updated by JavaScript for multi-currency support {% endcomment %}
@@ -188,6 +189,7 @@ button.ajaxcart__remove{
       </div> {% endcomment %}
     </div>
     {% endif %}
+    </div>
 
     <div class="global-drawer__body global-drawer__body--with-padding cart-drawer__body"
       data-cart-dynamic-content="cart-body" data-cart-scroll-element tabindex="0">

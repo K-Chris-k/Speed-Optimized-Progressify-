@@ -151,6 +151,7 @@ class CartDrawer extends _global_drawer__WEBPACK_IMPORTED_MODULE_0__/* ["default
     super();
     this.dynamicContentIds = [
       'cart-header',
+      'cart-shipping-progress',
       'cart-body',
       'cart-footer'
     ];
@@ -212,7 +213,9 @@ class CartDrawer extends _global_drawer__WEBPACK_IMPORTED_MODULE_0__/* ["default
   }
 
   getContent(html, selector) {
-    return new DOMParser().parseFromString(html, 'text/html').querySelector(selector)?.innerHTML;
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const element = doc.querySelector(selector);
+    return element ? element.innerHTML : '';
   }
 }
 

@@ -60,10 +60,10 @@
     "giftwrap_gift_note": false,
     "enable-additional-checkout-buttons": true,
     "cart_vendor_enable": false,
-    "show_cart_recommendations": false,
+    "show_cart_recommendations": true,
     "empty_cart_products": "new-products",
     "empty_cart_collections": [
-      "top-selling-gear"
+      "new-products"
     ],
     "free_shipping_threshold": 12500,
     "product_card_text_alignment": "center",
